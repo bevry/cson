@@ -3,6 +3,40 @@
 CoffeeScript-Object-Notation Parser. Same as JSON but for CoffeeScript objects.
 
 
+## What is CSON?
+
+Everyone knows JSON, it's the thing that looks like this:
+
+``` javascript
+{
+  "abc": [
+  	"a",
+  	"b",
+  	"c"
+  ],
+  "a": {
+    "b": "c"
+  }
+}
+```
+
+But with the invention of CoffeeScript you can also write the same thing in CSON which looks like this:
+
+``` coffeescript
+{
+	abc: [
+		'a'
+		'b'
+		'c'
+	]
+	a:
+		b: 'c'
+}
+```
+
+Which is far more leniant than JSON, nicer to write and read, and won't fail if you forget a comma.
+
+
 ## Installing
 
 
@@ -13,7 +47,8 @@ CoffeeScript-Object-Notation Parser. Same as JSON but for CoffeeScript objects.
 		npm install cson
 
 
-## Using
+## Using CSON
+
 
 - With Node.js in JavaScript
 
