@@ -1,0 +1,56 @@
+{
+	"name": "cson",
+	"version": "0.1.0",
+	"description": "CoffeeScript-Object-Notation Parser. Same as JSON but for CoffeeScript objects",
+	"homepage": "https://github.com/balupton/cson.npm",
+	"keywords": [
+		"javascript",
+		"coffeescript",
+		"json",
+		"cson",
+		"parse",
+		"stringify"
+	],
+	"author": {
+		"name": "Benjamin Lupton",
+		"email": "b@lupton.cc",
+		"web": "http://balupton.com"
+	},
+	"maintainers": [
+		{
+			"name": "Benjamin Lupton",
+			"email": "b@lupton.cc",
+			"web": "http://balupton.com"
+		}
+	],
+	"contributors": [
+		{
+			"name": "Benjamin Lupton",
+			"email": "b@lupton.cc",
+			"web": "http://balupton.com"
+		}
+	],
+	"bugs": {
+		"web": "https://github.com/balupton/cson.npm/issues"
+	},
+	"licenses": [
+		{
+			"type": "MIT",
+			"url": "http://creativecommons.org/licenses/MIT/"
+		}
+	],
+	"repository" : {
+		"type" : "git",
+		"url" : "http://github.com/balupton/cson.npm.git"
+	},
+	"dependencies": {
+		"coffee-script": ">=1.1.1"
+	},
+	"engines" : {
+		"node": ">=0.4.0"
+	},
+	"directories": {
+		"lib": "lib"
+	},
+	"main": "./lib/cson.coffee"
+}
