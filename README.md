@@ -10,9 +10,9 @@ Everyone knows JSON, it's the thing that looks like this:
 ``` javascript
 {
   "abc": [
-  	"a",
-  	"b",
-  	"c"
+    "a",
+    "b",
+    "c"
   ],
   "a": {
     "b": "c"
@@ -24,13 +24,13 @@ But with the invention of CoffeeScript you can also write the same thing in CSON
 
 ``` coffeescript
 {
-	abc: [
-		'a'
-		'b'
-		'c'
-	]
-	a:
-		b: 'c'
+  abc: [
+    'a'
+    'b'
+    'c'
+  ]
+  a:
+    b: 'c'
 }
 ```
 
@@ -44,43 +44,44 @@ Which is far more leniant than JSON, nicer to write and read, and won't fail if 
 
 2. Install CSON
 
-		npm install cson
+    npm install cson
 
 
 ## Using CSON
 
 
-- With Node.js in JavaScript
+With Node.js in JavaScript:
 
-	``` javascript
-	// Include CSON
-	require('coffee-script');
-	CSON = require('cson');
+``` javascript
+// Include CSON
+require('coffee-script');
+CSON = require('cson');
 
-	// Parse a file
-	CSON.parseFile('data.cson', function(err,obj){});
+// Parse a file
+CSON.parseFile('data.cson', function(err,obj){});
 
-	// Parse a string
-	CSON.parse(dataStr, function(err,obj){});
+// Parse a string
+CSON.parse(dataStr, function(err,obj){});
 
-	// Stringify an object
-	CSON.stringify(data, function(err,str){});
-	```
+// Stringify an object
+CSON.stringify(data, function(err,str){});
+```
 
-- With Node.js in CoffeeScript
-	
-	``` coffeescript
-	# Include CSON
-	CSON = require 'cson'
+With Node.js in CoffeeScript:
 
-	# Parse a file
-	CSON.parseFile 'data.cson', (err,obj) ->
+``` coffeescript
+# Include CSON
+CSON = require 'cson'
 
-	# Parse a string
-	CSON.parse dataStr, (err,obj) ->
+# Parse a file
+CSON.parseFile 'data.cson', (err,obj) ->
 
-	# Stringify an object
-	CSON.stringify data, (err,str) ->
+# Parse a string
+CSON.parse dataStr, (err,obj) ->
+
+# Stringify an object
+CSON.stringify data, (err,str) ->
+```
 
 
 ## Learning
@@ -91,7 +92,7 @@ Which is far more leniant than JSON, nicer to write and read, and won't fail if 
 ## History
 
 - v0.1 June 2, 2011
-	- Initial commit
+    - Initial commit
 
 
 ## License
