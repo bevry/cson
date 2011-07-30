@@ -28,6 +28,11 @@
 			"name": "Benjamin Lupton",
 			"email": "b@lupton.cc",
 			"web": "http://balupton.com"
+		},
+		{
+			"name": "Nicolae Claudius",
+			"email": "nicolae{underscore}claudius{at}yahoo{dot}com",
+			"web": "http://clyfe.github.com"
 		}
 	],
 	"bugs": {
