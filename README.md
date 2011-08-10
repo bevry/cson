@@ -9,14 +9,14 @@ Everyone knows JSON, it's the thing that looks like this:
 
 ``` javascript
 {
-  "abc": [
-  	"a",
-  	"b",
-  	"c"
-  ],
-  "a": {
-    "b": "c"
-  }
+	"abc": [
+		"a",
+		"b",
+		"c"
+	],
+	"a": {
+		"b": "c"
+	}
 }
 ```
 
