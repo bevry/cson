@@ -2,9 +2,11 @@
 coffee = require 'coffee-script'
 fs = require 'fs'
 
+
 # Exports
 module.exports = 
-	
+
+
 	# Parse a CSON file
 	# next(err,obj)
 	parseFile: (filePath,next) ->
@@ -14,7 +16,8 @@ module.exports =
 		
 		# Done
 		return
-	
+
+
 	# Parse a CSON string
 	# next(err,obj)
 	parse: (src,next) ->
@@ -37,7 +40,8 @@ module.exports =
 		
 		# Done
 		return
-	
+
+
 	# Turn an object into JSON/CSON
 	# next(err,str)
 	stringify: (obj,next) ->
@@ -54,3 +58,20 @@ module.exports =
 		
 		# Done
 		return
+
+
+	# Parse a CSON file
+	parseFileSync: (filePath) -> @parseSync fs.readFileSync(filePath).toString()
+
+
+	# Parse a CSON string Synchronously
+	parseSync: (src) ->
+		try # Try parse JSON first
+			JSON.parse src
+		catch err # Now try parse CSON
+			eval coffee.compile('return '+src)
+
+
+	# Turn an object into JSON/CSON Synchronously
+	stringifySync: (obj) -> JSON.stringify obj
+
