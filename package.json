@@ -1,6 +1,6 @@
 {
 	"name": "cson",
-	"version": "0.1.1",
+	"version": "0.2.0",
 	"description": "CoffeeScript-Object-Notation Parser. Same as JSON but for CoffeeScript objects",
 	"homepage": "https://github.com/balupton/cson.npm",
 	"keywords": [
@@ -31,7 +31,7 @@
 		},
 		{
 			"name": "Nicolae Claudius",
-			"email": "nicolae{underscore}claudius{at}yahoo{dot}com",
+			"email": "nicolae_claudius@yahoo.com",
 			"web": "http://clyfe.github.com"
 		}
 	],

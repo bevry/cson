@@ -17,6 +17,9 @@ module.exports =
 		# Done
 		return
 
+	# Parse a CSON file
+	parseFileSync: (filePath) ->
+		@parseSync fs.readFileSync(filePath).toString()
 
 	# Parse a CSON string
 	# next(err,obj)
@@ -41,6 +44,12 @@ module.exports =
 		# Done
 		return
 
+	# Parse a CSON string Synchronously
+	parseSync: (src) ->
+		try # Try parse JSON first
+			JSON.parse src
+		catch err # Now try parse CSON
+			eval coffee.compile('return '+src)
 
 	# Turn an object into JSON/CSON
 	# next(err,str)
@@ -59,19 +68,6 @@ module.exports =
 		# Done
 		return
 
-
-	# Parse a CSON file
-	parseFileSync: (filePath) -> @parseSync fs.readFileSync(filePath).toString()
-
-
-	# Parse a CSON string Synchronously
-	parseSync: (src) ->
-		try # Try parse JSON first
-			JSON.parse src
-		catch err # Now try parse CSON
-			eval coffee.compile('return '+src)
-
-
 	# Turn an object into JSON/CSON Synchronously
-	stringifySync: (obj) -> JSON.stringify obj
-
+	stringifySync: (obj) ->
+		JSON.stringify obj

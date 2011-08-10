@@ -90,6 +90,9 @@ Which is far more leniant than JSON, nicer to write and read, and won't fail if 
 
 ## History
 
+- v0.2 August 10, 2011
+	- Added synchronous interface thanks to [clyfe](https://github.com/clyfe) - closes issue [#1](https://github.com/balupton/cson.npm/issues/1) and [#3](https://github.com/balupton/cson.npm/pull/3)
+
 - v0.1 June 2, 2011
 	- Initial commit
 

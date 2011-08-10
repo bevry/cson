@@ -8,7 +8,7 @@ outFile = __dirname+'/src/out.json'
 # Tests
 tests =
 
-	'parsing': (beforeExit) ->
+	parsing: (beforeExit) ->
 		# Prepare
 		nTests = 2
 		nTestsCompleted = 0
