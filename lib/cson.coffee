@@ -71,3 +71,13 @@ module.exports =
 	# Turn an object into JSON/CSON Synchronously
 	stringifySync: (obj) ->
 		JSON.stringify obj
+
+	# Register extension to require
+	# "require('file.cson')" will return parsed file (synchronous)
+	register: () ->
+		if require.extensions
+			require.extensions['.cson'] = (module, filename) ->
+				module.exports = @parseFileSync filename
+		else if require.registerExtension
+			require.registerExtension '.cson', (content) ->
+				@parseSync content.toString()
