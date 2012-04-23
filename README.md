@@ -1,4 +1,4 @@
-# CSON
+# CSON [![Build Status](https://secure.travis-ci.org/bevry/cson.png?branch=master)](http://travis-ci.org/bevry/cson)
 
 CoffeeScript-Object-Notation Parser. Same as JSON but for CoffeeScript objects.
 
@@ -115,3 +115,10 @@ Licensed under the incredibly [permissive](http://en.wikipedia.org/wiki/Permissi
 <br/>Copyright &copy; 2012 [Bevry Pty Ltd](http://bevry.me)
 <br/>Copyright &copy; 2011 [Benjamin Lupton](http://balupton.com)
 
+
+
+## Thanks
+
+<small>Sincerely, thank you. Lots of love from the CSON Team</small>
+
+[![Flattr this project](http://api.flattr.com/button/flattr-badge-large.png)](http://flattr.com/thing/344188/balupton-on-Flattr) 
