@@ -1,8 +1,8 @@
 {
 	"name": "cson",
-	"version": "0.2.0",
+	"version": "1.0.0",
 	"description": "CoffeeScript-Object-Notation Parser. Same as JSON but for CoffeeScript objects",
-	"homepage": "https://github.com/balupton/cson.npm",
+	"homepage": "https://github.com/bevry/cson",
 	"keywords": [
 		"javascript",
 		"coffeescript",
@@ -11,51 +11,39 @@
 		"parse",
 		"stringify"
 	],
-	"author": {
-		"name": "Benjamin Lupton",
-		"email": "b@lupton.cc",
-		"web": "http://balupton.com"
-	},
+	"author": "Bevry Pty Ltd <us@bevry.me> (http://bevry.me)",
 	"maintainers": [
-		{
-			"name": "Benjamin Lupton",
-			"email": "b@lupton.cc",
-			"web": "http://balupton.com"
-		}
+		"Benjamin Lupton <b@lupton.cc> (http://balupton.com)"
 	],
 	"contributors": [
-		{
-			"name": "Benjamin Lupton",
-			"email": "b@lupton.cc",
-			"web": "http://balupton.com"
-		},
-		{
-			"name": "Nicolae Claudius",
-			"email": "nicolae_claudius@yahoo.com",
-			"web": "http://clyfe.github.com"
-		}
+		"Benjamin Lupton <b@lupton.cc> (http://balupton.com)"
 	],
 	"bugs": {
-		"url": "https://github.com/balupton/cson.npm/issues"
+		"url": "https://github.com/bevry/cson/issues"
 	},
-	"licenses": [
-		{
-			"type": "MIT",
-			"url": "http://creativecommons.org/licenses/MIT/"
-		}
-	],
 	"repository" : {
-		"type" : "git",
-		"url" : "http://github.com/balupton/cson.npm.git"
-	},
-	"dependencies": {
-		"coffee-script": ">=1.1.1"
+		"type": "git",
+		"url": "http://github.com/bevry/cson.git"
 	},
 	"engines" : {
 		"node": ">=0.4.0"
 	},
+	"dependencies": {
+		"coffee-script": "1.3.x",
+		"js2coffee": "0.1.x"
+	},
+	"devDependencies": {
+		"mocha": "1.0.x"
+	},
 	"directories": {
 		"lib": "lib"
 	},
-	"main": "./lib/cson.coffee"
+	"bin": {
+		"cson2json": "./bin/cson2json",
+		"json2cson": "./bin/json2cson"
+	},
+	"scripts": {
+		"test": "node ./node_modules/mocha/bin/mocha"
+	},
+	"main": "./main.js"
 }

@@ -1,73 +1,111 @@
 # Requires
-coffee = require 'coffee-script'
-fs = require 'fs'
+coffee = require('coffee-script')
+js2coffee = require('js2coffee')
+fs = require('fs')
 
 
-# Exports
-module.exports = 
-
-
+# Define
+CSON = 
 	# Parse a CSON file
 	# next(err,obj)
 	parseFile: (filePath,next) ->
+		# Read the file
 		fs.readFile filePath, (err,data) =>
-			if err then return next err
-			@parse data.toString(), next
+			# Check
+			return next(err)  if err
+
+			# Parse
+			dataStr = data.toString()
+			@parse(dataStr,next)
 		
-		# Done
-		return
+		# Chain
+		@
+
 
 	# Parse a CSON file
 	parseFileSync: (filePath) ->
-		@parseSync fs.readFileSync(filePath).toString()
+		# Read the file
+		data = fs.readFileSync(filePath)
+
+		# Check the result
+		if data instanceof Error
+			# An error occured
+			result = data
+		else
+			# Parse the result
+			dataStr = data.toString()
+			result = @parseSync(dataStr)
+
+		# Return
+		result
+
 
 	# Parse a CSON string
 	# next(err,obj)
 	parse: (src,next) ->
-		# Try parse JSON first
-		try
-			obj = JSON.parse src
+		# Parse
+		result = @parseSync(src)
 		
-		# Now try parse CSON
-		catch err
-			try
-				json = coffee.compile 'return '+src
-				obj = eval json
-			
-			# Parsing failed
-			catch err
-				next err
-			
-		# Parsing completed
-		next false, obj
-		
-		# Done
-		return
+		# Check for error
+		if result instanceof Error
+			# Error
+			next(result)
+		else
+			# Success
+			next(null,result)
+
+		# Chain
+		@
+
 
 	# Parse a CSON string Synchronously
 	parseSync: (src) ->
-		try # Try parse JSON first
-			JSON.parse src
-		catch err # Now try parse CSON
-			eval coffee.compile('return '+src)
+		# Try parse JSON first
+		try
+			result = JSON.parse(src)
 
-	# Turn an object into JSON/CSON
+		# Now try parse CSON
+		catch err
+			try
+				json = coffee.compile("return (#{src})")
+				result = eval(json)
+			catch err
+				result = err
+
+		# Return
+		result
+
+
+	# Turn an object into CSON
 	# next(err,str)
 	stringify: (obj,next) ->
-		# Try stringing
-		try
-			str = JSON.stringify obj
+		# Stringify
+		result = @stringifySync(obj)
 		
-		# Stringing failed
-		catch err
-			next err
+		# Check
+		if result instanceof Error
+			# Error
+			next(result)
+		else
+			# Success
+			next(null,result)
 		
-		# Stringing completed
-		next false, str
-		
-		# Done
-		return
+		# Chain
+		@
+
 
 	# Turn an object into JSON/CSON Synchronously
 	stringifySync: (obj) ->
-		JSON.stringify obj
+		# Stringify
+		try
+			src = "var result = #{JSON.stringify obj}"
+			result = js2coffee.build(src).replace(/^result \=\n/,'{\n')+'\n}'
+		catch err
+			result = err
+
+		# Return
+		result
+
+
+# Export
+module.exports = CSON

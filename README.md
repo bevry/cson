@@ -37,6 +37,7 @@ But with the invention of CoffeeScript you can also write the same thing in CSON
 Which is far more lenient than JSON, nicer to write and read, and won't fail if you forget a comma.
 
 
+
 ## Installing
 
 
@@ -44,7 +45,9 @@ Which is far more lenient than JSON, nicer to write and read, and won't fail if 
 
 2. Install CSON
 
-		npm install cson
+	``` bash
+	npm install cson
+	```
 
 
 ## Using CSON
@@ -54,50 +57,61 @@ Which is far more lenient than JSON, nicer to write and read, and won't fail if 
 
 	``` javascript
 	// Include CSON
-	require('coffee-script');
 	CSON = require('cson');
 
-	// Parse a file
-	CSON.parseFile('data.cson', function(err,obj){});
+	// Parse a file path
+	CSON.parseFile('data.cson', function(err,obj){});  // async
+	result = CSON.parseFileSync('data.cson')  // sync
 
-	// Parse a string
-	CSON.parse(dataStr, function(err,obj){});
+	// Parse a String
+	CSON.parse(src, function(err,obj){});  // async
+	result = CSON.parseSync(src);  // sync
 
-	// Stringify an object
-	CSON.stringify(data, function(err,str){});
+	// Stringify an object to CSON
+	CSON.stringify(obj, function(err,str){});  // async
+	result = CSON.stringifySync(obj);  // sync
 	```
+
 
 - With Node.js in CoffeeScript
 	
 	``` coffeescript
 	# Include CSON
-	CSON = require 'cson'
+	CSON = require('cson')
 
-	# Parse a file
-	CSON.parseFile 'data.cson', (err,obj) ->
+	# Parse a file path
+	CSON.parseFile 'data.cson', (err,obj) ->  # async
+	result = CSON.parseFile('data.cson')  # sync
 
 	# Parse a string
-	CSON.parse dataStr, (err,obj) ->
+	CSON.parse src, (err,obj) ->  # async
+	result = CSON.parseSync(src)  # sync
 
-	# Stringify an object
-	CSON.stringify data, (err,str) ->
+	# Stringify an object to CSON
+	CSON.stringify data, (err,str) ->  # async
+	result = CSON.stringifySync(obj)  # sync
 
 
-## Learning
+- Via the command line
 
-[To learn more about CSON visit its wiki here](https://github.com/balupton/cson.npm/wiki)
+	``` bash
+	# JSON file to CSON String
+	json2cson filePath > out.cson
+
+	# CSON file to JSON String
+	cson2json filePath > out.json
+	```
+
 
 
 ## History
 
-- v0.2 August 10, 2011
-	- Added synchronous interface thanks to [clyfe](https://github.com/clyfe) - closes issue [#1](https://github.com/balupton/cson.npm/issues/1) and [#3](https://github.com/balupton/cson.npm/pull/3)
-
-- v0.1 June 2, 2011
-	- Initial commit
+You can discover the version history inside the [History.md](https://github.com/bevry/cson/blob/master/History.md#files) file
 
 
 ## License
 
-Licensed under the [MIT License](http://creativecommons.org/licenses/MIT/)
-Copyright 2011 [Benjamin Arthur Lupton](http://balupton.com)
+Licensed under the incredibly [permissive](http://en.wikipedia.org/wiki/Permissive_free_software_licence) [MIT License](http://creativecommons.org/licenses/MIT/)
+<br/>Copyright &copy; 2012 [Bevry Pty Ltd](http://bevry.me)
+<br/>Copyright &copy; 2011 [Benjamin Lupton](http://balupton.com)
+
