@@ -36,7 +36,7 @@
 		}
 	],
 	"bugs": {
-		"web": "https://github.com/balupton/cson.npm/issues"
+		"url": "https://github.com/balupton/cson.npm/issues"
 	},
 	"licenses": [
 		{
