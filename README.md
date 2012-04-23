@@ -34,7 +34,7 @@ But with the invention of CoffeeScript you can also write the same thing in CSON
 }
 ```
 
-Which is far more leniant than JSON, nicer to write and read, and won't fail if you forget a comma.
+Which is far more lenient than JSON, nicer to write and read, and won't fail if you forget a comma.
 
 
 ## Installing
