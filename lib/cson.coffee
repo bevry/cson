@@ -68,7 +68,9 @@ CSON =
 		catch err
 			try
 				json = coffee.compile("return (#{src})")
-				result = eval(json)
+				result = eval json
+				result = JSON.stringify result
+				result = JSON.parse result
 			catch err
 				result = err
 
