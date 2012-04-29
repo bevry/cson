@@ -67,9 +67,15 @@ CSON =
 		# Now try parse CSON
 		catch err
 			try
+				# Grab the CSON and compile it into JavaScript. We'll also assume that
+				# it's JSON.
 				json = coffee.compile("return (#{src})")
+
+				# Run the JavaScript, which supposedly holds our JSON object. `jsonObj`
+				# should hold the value of what was expressed in the CSON file.
 				jsonObj = eval json
 
+				# Convert the JSON back into 
 				objToJson = JSON.stringify jsonObj
 
 				result = JSON.parse objToJson
