@@ -1,0 +1,4 @@
+{
+	evil: ->
+		console.log 'I am supposedly really evil.'
+}
