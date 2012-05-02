@@ -2,7 +2,7 @@
 coffee = require('coffee-script')
 js2coffee = require('js2coffee')
 fs = require('fs')
-
+_ = require 'underscore'
 
 # Define
 CSON = 
@@ -67,8 +67,21 @@ CSON =
 		# Now try parse CSON
 		catch err
 			try
+				# Grab the CSON and compile it into JavaScript. We'll also assume that
+				# it's JSON.
 				json = coffee.compile("return (#{src})")
-				result = eval(json)
+
+				# Run the JavaScript, which supposedly holds our JSON object. `jsonObj`
+				# should hold the value of what was expressed in the CSON file.
+				jsonObj = eval json
+
+				# Convert the JSON back into 
+				objToJson = JSON.stringify jsonObj
+
+				result = JSON.parse objToJson
+
+				unless _.isEqual result, jsonObj
+					throw new Error "The inputed CSON file has been determined as evil."
 			catch err
 				result = err
 
