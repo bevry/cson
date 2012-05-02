@@ -4,8 +4,7 @@ node_js:
   - 0.6
 notifications:
   irc:
-    - "irc.freenode.org#cson"
-    - "irc.freenode.org#docpad"
+    - "irc.freenode.org#bevry"
   email:
     recipients:
       - cson@bevry.me
