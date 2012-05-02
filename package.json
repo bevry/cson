@@ -16,7 +16,8 @@
 		"Benjamin Lupton <b@lupton.cc> (http://balupton.com)"
 	],
 	"contributors": [
-		"Benjamin Lupton <b@lupton.cc> (http://balupton.com)"
+		"Benjamin Lupton <b@lupton.cc> (http://balupton.com)",
+		"Ryan LeFevre <meltingice8917@gmail.com> (http://meltingice.net)"
 	],
 	"bugs": {
 		"url": "https://github.com/bevry/cson/issues"

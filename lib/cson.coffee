@@ -10,13 +10,13 @@ CSON =
 	# next(err,obj)
 	parseFile: (filePath,next) ->
 		# Read the file
-		fs.readFile filePath, (err,data) =>
+		fs.readFile filePath, (err, data) =>
 			# Check
 			return next(err)  if err
 
 			# Parse
 			dataStr = data.toString()
-			@parse(dataStr,next)
+			@parse(dataStr, next)
 		
 		# Chain
 		@
@@ -41,18 +41,20 @@ CSON =
 
 
 	# Parse a CSON string
-	# next(err,obj)
-	parse: (src,next) ->
-		# Parse
-		result = @parseSync(src)
-		
-		# Check for error
-		if result instanceof Error
-			# Error
-			next(result)
-		else
-			# Success
-			next(null,result)
+	# next(err, obj)
+	parse: (src, next) ->
+		setTimeout =>
+			# Parse
+			result = @parseSync(src)
+			
+			# Check for error
+			if result instanceof Error
+				# Error
+				next(result)
+			else
+				# Success
+				next(null, result)
+		, 0
 
 		# Chain
 		@
@@ -78,17 +80,19 @@ CSON =
 
 	# Turn an object into CSON
 	# next(err,str)
-	stringify: (obj,next) ->
-		# Stringify
-		result = @stringifySync(obj)
-		
-		# Check
-		if result instanceof Error
-			# Error
-			next(result)
-		else
-			# Success
-			next(null,result)
+	stringify: (obj, next) ->
+		setTimeout =>
+			# Stringify
+			result = @stringifySync(obj)
+			
+			# Check
+			if result instanceof Error
+				# Error
+				next(result)
+			else
+				# Success
+				next(null, result)
+		, 0
 		
 		# Chain
 		@
