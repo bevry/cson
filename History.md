@@ -1,6 +1,10 @@
 ## History
 
-- v1.0 April 23, 2011
+- v1.0.1 Friday 04, 2011
+	- Async calls now act asynchronously
+		- Thanks to [Ryan LeFevre](https://github.com/meltingice) for [pull request #10](https://github.com/bevry/cson/pull/10) -
+
+- v1.0.0 April 23, 2011
 	- Updated tests
 	- Updated `package.json` for latest npm
 	- Cleaned up the code
