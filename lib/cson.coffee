@@ -3,21 +3,23 @@ coffee = require('coffee-script')
 js2coffee = require('js2coffee')
 fs = require('fs')
 
+# Awesomeness
+wait = (delay,fn) -> setTimeout(fn,delay)
 
 # Define
-CSON = 
+CSON =
 	# Parse a CSON file
 	# next(err,obj)
 	parseFile: (filePath,next) ->
 		# Read the file
-		fs.readFile filePath, (err, data) =>
+		fs.readFile filePath, (err,data) =>
 			# Check
 			return next(err)  if err
 
 			# Parse
 			dataStr = data.toString()
-			@parse(dataStr, next)
-		
+			@parse(dataStr,next)
+
 		# Chain
 		@
 
@@ -41,20 +43,21 @@ CSON =
 
 
 	# Parse a CSON string
-	# next(err, obj)
-	parse: (src, next) ->
-		setTimeout =>
+	# next(err,obj)
+	parse: (src,next) ->
+		# currently the parser only exists in a synchronous version
+		# so we use an instant timeout to simulate async code without any overhead
+		wait 0, =>
 			# Parse
 			result = @parseSync(src)
-			
+
 			# Check for error
 			if result instanceof Error
 				# Error
 				next(result)
 			else
 				# Success
-				next(null, result)
-		, 0
+				next(null,result)
 
 		# Chain
 		@
@@ -80,20 +83,21 @@ CSON =
 
 	# Turn an object into CSON
 	# next(err,str)
-	stringify: (obj, next) ->
-		setTimeout =>
+	stringify: (obj,next) ->
+		# currently the parser only exists in a synchronous version
+		# so we use an instant timeout to simulate async code without any overhead
+		wait 0, =>
 			# Stringify
 			result = @stringifySync(obj)
-			
+
 			# Check
 			if result instanceof Error
 				# Error
 				next(result)
 			else
 				# Success
-				next(null, result)
-		, 0
-		
+				next(null,result)
+
 		# Chain
 		@
 

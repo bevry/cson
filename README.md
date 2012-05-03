@@ -74,7 +74,7 @@ Which is far more lenient than JSON, nicer to write and read, and won't fail if 
 
 
 - With Node.js in CoffeeScript
-	
+
 	``` coffeescript
 	# Include CSON
 	CSON = require('cson')
@@ -92,7 +92,7 @@ Which is far more lenient than JSON, nicer to write and read, and won't fail if 
 	result = CSON.stringifySync(obj)  # sync
 
 
-- Via the command line
+- Via the command line (requires a global installation of CSON via `npm install -g cson`)
 
 	``` bash
 	# JSON file to CSON String
@@ -101,7 +101,6 @@ Which is far more lenient than JSON, nicer to write and read, and won't fail if 
 	# CSON file to JSON String
 	cson2json filePath > out.json
 	```
-
 
 
 ## History
@@ -121,4 +120,4 @@ Licensed under the incredibly [permissive](http://en.wikipedia.org/wiki/Permissi
 
 <small>Sincerely, thank you. Lots of love from the CSON Team</small>
 
-[![Flattr this project](http://api.flattr.com/button/flattr-badge-large.png)](http://flattr.com/thing/344188/balupton-on-Flattr) 
+[![Flattr this project](http://api.flattr.com/button/flattr-badge-large.png)](http://flattr.com/thing/344188/balupton-on-Flattr)
