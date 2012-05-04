@@ -72,8 +72,7 @@ CSON =
 		# Now try parse CSON
 		catch err
 			try
-				json = coffee.compile("return (#{src})")
-				result = eval(json)
+				result = coffee.eval(src)
 			catch err
 				result = err
 
@@ -107,7 +106,11 @@ CSON =
 		# Stringify
 		try
 			src = "var result = #{JSON.stringify obj}"
-			result = js2coffee.build(src).replace(/^result \=\n/,'{\n')+'\n}'
+			result = js2coffee.build(src)
+			result = result.replace(/^\s*result\s*\=\s/,'')
+			if typeof obj is 'object'
+				unless obj instanceof Array
+					result = '{\n'+result+'\n}'
 		catch err
 			result = err
 

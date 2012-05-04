@@ -1,10 +1,10 @@
 # Requires
 assert = require('assert')
 fs = require('fs')
-CSON = require(__dirname+'/../lib/cson.coffee')
-srcCsonPath = __dirname+'/src/src.cson'
-expectedJsonPath = __dirname+'/src/expected.json'
-expectedCsonPath = __dirname+'/src/expected.cson'
+balUtil = require('bal-util')
+CSON = require(__dirname+'/../lib/cson')
+srcPath = __dirname+'/src'
+outPath = __dirname+'/out'
 
 
 # =====================================
@@ -13,27 +13,38 @@ expectedCsonPath = __dirname+'/src/expected.cson'
 # Test async
 describe 'async', ->
 	it 'works as expected', (done) ->
-		# Read expectations
-		expectedJsonStr = fs.readFileSync(expectedJsonPath).toString()
-		expectedCsonStr = fs.readFileSync(expectedCsonPath).toString()
-
-		# Parse CSON File
-		CSON.parseFile srcCsonPath, (err,obj) ->
-			# No Error
+		# Group
+		tasks = new balUtil.Group (err) ->
 			throw err  if err
+			done()
 
-			# CSON -> JSON matches 
-			actualJsonStr = JSON.stringify(obj)
-			assert.deepEqual(actualJsonStr,expectedJsonStr)
+		# Create Tests
+		for i in [1...3]
+			tasks.push (complete) ->
+				# Prepare
+				srcCsonPath = srcPath+'/'+i+'.cson'
+				expectedJsonPath = outPath+'/'+i+'.json'
+				expectedCsonPath = outPath+'/'+i+'.cson'
 
-			# Stringify CSON
-			CSON.stringify obj, (err,actualCsonStr) ->
-				# No Error
-				throw err  if err
-				
-				# Matches
-				assert.equal(actualCsonStr, expectedCsonStr)
-				
-				# Tests are done
-				done()
+				# Parse source CSON file
+				CSON.parseFile srcCsonPath, (err,obj) ->
+					throw err  if err
 
+					# Grab conversations
+					actualJsonStr = JSON.stringify(obj)
+					CSON.stringify obj, (err,actualCsonStr) ->
+						throw err  if err
+
+						# Read expectations
+						expectedJsonStr = fs.readFileSync(expectedJsonPath).toString()
+						expectedCsonStr = fs.readFileSync(expectedCsonPath).toString()
+
+						# Perform Comparisons
+						assert.deepEqual(actualJsonStr,expectedJsonStr)
+						assert.equal(actualCsonStr, expectedCsonStr)
+
+						# Test compelte
+						complete()
+
+		# Run Tests
+		tasks.sync()

@@ -1,7 +1,7 @@
 # Requires
 fs = require('fs')
 path = require('path')
-CSON = require(path.join __dirname, '..', 'lib', 'cson.coffee')
+CSON = require(path.join __dirname, '..', 'lib', 'cson')
 argv = process.argv
 
 # Check arguments

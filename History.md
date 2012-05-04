@@ -1,5 +1,8 @@
 ## History
 
+- v1.0.2 Friday 04, 2011
+	- Fixed some CSON use cases and added more unit tests
+
 - v1.0.1 Friday 04, 2011
 	- Async calls now act asynchronously
 		- Thanks to [Ryan LeFevre](https://github.com/meltingice) for [pull request #10](https://github.com/bevry/cson/pull/10) -
