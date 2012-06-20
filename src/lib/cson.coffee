@@ -11,14 +11,28 @@ CSON =
 	# Parse a CSON file
 	# next(err,obj)
 	parseFile: (filePath,next) ->
-		# Read the file
-		fs.readFile filePath, (err,data) =>
-			# Check
-			return next(err)  if err
+		# Try require
+		if /\.(js|coffee)$/.test(filePath)
+			try
+				result = require(filePath)
+				next(null,result)
+			catch err
+				next(err,result)
 
-			# Parse
-			dataStr = data.toString()
-			@parse(dataStr,next)
+		# Try read
+		else if /\.(json|cson)$/.test(filePath)
+			fs.readFile filePath, (err,data) =>
+				# Check
+				return next(err)  if err
+
+				# Parse
+				dataStr = data.toString()
+				@parse(dataStr,next)
+
+		# Unknown
+		else
+			err = new Error("CSON.parseFile: Unknown extension type for #{filePath}")
+			next(err)
 
 		# Chain
 		@
@@ -26,20 +40,34 @@ CSON =
 
 	# Parse a CSON file
 	parseFileSync: (filePath) ->
-		# Read the file
-		data = fs.readFileSync(filePath)
+		# Try require
+		if /\.(js|coffee)$/.test(filePath)
+			try
+				result = require(filePath)
+				return result
+			catch err
+				return err
 
-		# Check the result
-		if data instanceof Error
-			# An error occured
-			result = data
+		# Try read
+		else if /\.(json|cson)$/.test(filePath)
+			data = fs.readFileSync(filePath)
+
+			# Check the result
+			if data instanceof Error
+				# An error occured
+				result = data
+			else
+				# Parse the result
+				dataStr = data.toString()
+				result = @parseSync(dataStr)
+
+			# Return
+			return result
+
+		# Unknown
 		else
-			# Parse the result
-			dataStr = data.toString()
-			result = @parseSync(dataStr)
-
-		# Return
-		result
+			err = new Error("CSON.parseFileSync: Unknown extension type for #{filePath}")
+			return err
 
 
 	# Parse a CSON string
@@ -65,11 +93,11 @@ CSON =
 
 	# Parse a CSON string Synchronously
 	parseSync: (src) ->
-		# Try parse JSON first
+		# Try parse JSON
 		try
 			result = JSON.parse(src)
 
-		# Now try parse CSON
+		# Try parse CSON
 		catch err
 			try
 				result = coffee.eval(src)

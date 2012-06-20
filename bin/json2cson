@@ -1,4 +1,2 @@
 #!/usr/bin/env node
-require('coffee-script');
-path = require('path');
-require(path.join(__dirname,'json2cson.coffee'));
+require(__dirname+'/../out/lib/json2cson');
