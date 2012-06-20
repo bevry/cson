@@ -1,5 +1,8 @@
 ## History
 
+- v1.1.1 June 21, 2011
+	- Fixed main file location
+
 - v1.1.0 June 21, 2011
 	- Parsing file changes
 		- If files have `js` or `coffee` extension, will try to require them
