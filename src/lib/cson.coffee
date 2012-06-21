@@ -1,7 +1,8 @@
 # Requires
 coffee = require('coffee-script')
 js2coffee = require('js2coffee')
-fs = require('fs')
+fsUtil = require('fs')
+pathUtil = require('path')
 
 # Awesomeness
 wait = (delay,fn) -> setTimeout(fn,delay)
@@ -11,9 +12,13 @@ CSON =
 	# Parse a CSON file
 	# next(err,obj)
 	parseFile: (filePath,next) ->
+		# Resolve
+		filePath = pathUtil.resolve(filePath)
+
 		# Try require
 		if /\.(js|coffee)$/.test(filePath)
 			try
+				delete require.cache[filePath]
 				result = require(filePath)
 				next(null,result)
 			catch err
@@ -21,7 +26,7 @@ CSON =
 
 		# Try read
 		else if /\.(json|cson)$/.test(filePath)
-			fs.readFile filePath, (err,data) =>
+			fsUtil.readFile filePath, (err,data) =>
 				# Check
 				return next(err)  if err
 
@@ -40,9 +45,13 @@ CSON =
 
 	# Parse a CSON file
 	parseFileSync: (filePath) ->
+		# Resolve
+		filePath = pathUtil.resolve(filePath)
+
 		# Try require
 		if /\.(js|coffee)$/.test(filePath)
 			try
+				delete require.cache[filePath]
 				result = require(filePath)
 				return result
 			catch err
@@ -50,7 +59,7 @@ CSON =
 
 		# Try read
 		else if /\.(json|cson)$/.test(filePath)
-			data = fs.readFileSync(filePath)
+			data = fsUtil.readFileSync(filePath)
 
 			# Check the result
 			if data instanceof Error
