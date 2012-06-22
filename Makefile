@@ -6,7 +6,11 @@ dev:
 compile:
 	./node_modules/.bin/coffee -o out/ -c src/
 
-test:
-	node ./node_modules/mocha/bin/mocha
+clean:
+	rm -Rf lib node_modules/ npm-debug.log
+	npm install
 
-.PHONY: dev compile test
+test:
+	npm test
+
+.PHONY: dev compile clean test

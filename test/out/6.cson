@@ -1,5 +1,5 @@
 {
-  filename: "/Volumes/Storage/Users/balupton/Projects/cson/test/src/6.js"
+  filename: "6.js"
   abc: [ "a", "b", "c" ]
   a:
     b: "c"

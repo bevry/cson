@@ -1,5 +1,8 @@
 ## History
 
+- v1.1.2 June 22, 2011
+	- We no longer have `require` cache our configuration files
+
 - v1.1.1 June 21, 2011
 	- Fixed main file location
 

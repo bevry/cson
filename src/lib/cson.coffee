@@ -18,8 +18,9 @@ CSON =
 		# Try require
 		if /\.(js|coffee)$/.test(filePath)
 			try
-				delete require.cache[filePath]
+				delete require.cache[filePath]  # clear require cache for the config file
 				result = require(filePath)
+				delete require.cache[filePath]  # clear require cache for the config file
 				next(null,result)
 			catch err
 				next(err,result)
@@ -51,8 +52,9 @@ CSON =
 		# Try require
 		if /\.(js|coffee)$/.test(filePath)
 			try
-				delete require.cache[filePath]
+				delete require.cache[filePath]  # clear require cache for the config file
 				result = require(filePath)
+				delete require.cache[filePath]  # clear require cache for the config file
 				return result
 			catch err
 				return err
