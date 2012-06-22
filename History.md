@@ -11,7 +11,7 @@
 		- If files have `js` or `coffee` extension, will try to require them
 		- If files have `json` or `cson` extension, will try to read them
 		- Otherwise will throw an unknown extension error
-	- Unit tests now more explicit and written in [Joe](https://github.com/bevry/joe)
+	- Moved tests from Mocha to [Joe](https://github.com/bevry/joe)
 
 - v1.0.2 Friday 04, 2011
 	- Fixed some CSON use cases and added more unit tests

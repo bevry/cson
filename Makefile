@@ -11,6 +11,7 @@ clean:
 	npm install
 
 test:
+	make compile
 	npm test
 
 .PHONY: dev compile clean test
