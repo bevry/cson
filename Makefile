@@ -10,8 +10,11 @@ clean:
 	rm -Rf lib node_modules/ npm-debug.log
 	npm install
 
-test:
+test-prepare:
 	make compile
+
+test:
+	make test-prepare
 	npm test
 
-.PHONY: dev compile clean test
+.PHONY: dev compile clean test-prepare test

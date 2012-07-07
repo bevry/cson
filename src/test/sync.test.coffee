@@ -4,7 +4,7 @@ assert = require('assert')
 fsUtil = require('fs')
 CSON = require(__dirname+'/../lib/cson')
 srcPath = __dirname+'/../../test/src'
-outPath = __dirname+'/../../test/out'
+outPath = __dirname+'/../../test/out-expected'
 
 
 # =====================================
@@ -48,6 +48,6 @@ joe.describe 'sync', (describe,it) ->
 				assert.equal(actualCsonStr, expectedCsonStr)
 
 	# Create Tests
-	testExtensions = ['cson','cson','cson','json','coffee','js']
+	testExtensions = ['cson','cson','cson','json','coffee','js','cson']
 	for testExtension,i in testExtensions
 		createTest(testExtension,i)

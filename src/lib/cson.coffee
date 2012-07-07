@@ -11,7 +11,13 @@ wait = (delay,fn) -> setTimeout(fn,delay)
 CSON =
 	# Parse a CSON file
 	# next(err,obj)
-	parseFile: (filePath,next) ->
+	parseFile: (filePath,opts,next) ->
+		# Prepare
+		if opts? is true and next? is false
+			next = opts
+			opts = null
+		opts or= {}
+
 		# Resolve
 		filePath = pathUtil.resolve(filePath)
 
@@ -33,7 +39,7 @@ CSON =
 
 				# Parse
 				dataStr = data.toString()
-				@parse(dataStr,next)
+				@parse(dataStr,opts,next)
 
 		# Unknown
 		else
@@ -45,7 +51,10 @@ CSON =
 
 
 	# Parse a CSON file
-	parseFileSync: (filePath) ->
+	parseFileSync: (filePath,opts) ->
+		# Prepare
+		opts or= {}
+
 		# Resolve
 		filePath = pathUtil.resolve(filePath)
 
@@ -70,7 +79,7 @@ CSON =
 			else
 				# Parse the result
 				dataStr = data.toString()
-				result = @parseSync(dataStr)
+				result = @parseSync(dataStr,opts)
 
 			# Return
 			return result
@@ -83,12 +92,18 @@ CSON =
 
 	# Parse a CSON string
 	# next(err,obj)
-	parse: (src,next) ->
+	parse: (src,opts,next) ->
+		# Prepare
+		if opts? is true and next? is false
+			next = opts
+			opts = null
+		opts or= {}
+
 		# currently the parser only exists in a synchronous version
 		# so we use an instant timeout to simulate async code without any overhead
 		wait 0, =>
 			# Parse
-			result = @parseSync(src)
+			result = @parseSync(src,opts)
 
 			# Check for error
 			if result instanceof Error
@@ -103,7 +118,11 @@ CSON =
 
 
 	# Parse a CSON string Synchronously
-	parseSync: (src) ->
+	parseSync: (src,opts) ->
+		# Prepare
+		opts or= {}
+		opts.sandbox ?= true
+
 		# Try parse JSON
 		try
 			result = JSON.parse(src)
@@ -111,7 +130,7 @@ CSON =
 		# Try parse CSON
 		catch err
 			try
-				result = coffee.eval(src)
+				result = coffee.eval(src,opts)
 			catch err
 				result = err
 
@@ -148,7 +167,7 @@ CSON =
 			result = js2coffee.build(src)
 			result = result.replace(/^\s*result\s*\=\s/,'')
 			if typeof obj is 'object'
-				unless obj instanceof Array
+				unless Array.isArray(obj)
 					result = '{\n'+result+'\n}'
 		catch err
 			result = err
