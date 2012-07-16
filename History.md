@@ -1,5 +1,8 @@
 ## History
 
+- v1.2.1 July 16, 2012
+	- Fixed try surrounding a next callback
+
 - v1.2.0 July 7, 2012
 	- CSON files are now sandboxed by default, ensuring they can't do bad stuff to your global scope
 	- Added `opts` as the middle argument for `parseFile`, `parseFileSync`, `parse`, and `parseSync` functions

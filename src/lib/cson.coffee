@@ -27,9 +27,10 @@ CSON =
 				delete require.cache[filePath]  # clear require cache for the config file
 				result = require(filePath)
 				delete require.cache[filePath]  # clear require cache for the config file
-				next(null,result)
 			catch err
-				next(err,result)
+				return next(err,result)
+			finally
+				return next(null,result)
 
 		# Try read
 		else if /\.(json|cson)$/.test(filePath)
