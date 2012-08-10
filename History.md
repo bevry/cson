@@ -1,5 +1,8 @@
 ## History
 
+- v1.2.2 August 10, 2012
+	- Re-added markdown files to npm distribution as they are required for the npm website
+
 - v1.2.1 July 16, 2012
 	- Fixed try surrounding a next callback
 
