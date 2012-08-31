@@ -1,5 +1,10 @@
 ## History
 
+- v1.3.0 September 1, 2012
+	- You can now use `require` to require CSON files
+		- Thanks to [Linus G Thiel](https://github.com/linus) for [pull request #16](https://github.com/bevry/cson/pull/16)
+	- Drops node v0.4 support, min supported version now v0.6
+
 - v1.2.3 September 1, 2012
 	- Fixed `json2cson` and `cson2json` binaries
 		- Thanks to [Zhang Cheng](https://github.com/zhangcheng) for [pull request #15](https://github.com/bevry/cson/pull/15)
