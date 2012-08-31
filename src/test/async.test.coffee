@@ -20,6 +20,7 @@ joe.describe 'async', (describe,it) ->
 		expectedJsonPath = outPath+'/'+index+'.json'
 		expectedCsonPath = outPath+'/'+index+'.cson'
 		obj = null
+		requiredObj = null
 		actualJsonStr = null
 		actualCsonStr = null
 		expectedJsonStr = null
@@ -32,6 +33,14 @@ joe.describe 'async', (describe,it) ->
 					return done(err)  if err
 					obj = _obj
 					done()
+
+			it "require source file", (done) ->
+				requiredObj = require(srcCsonPath)
+				return done(requiredObj)  if requiredObj instanceof Error
+				done()
+
+			it "compare parse and require", ->
+				assert.deepEqual(obj,requiredObj)
 
 			it "grab conversions", (done) ->
 				actualJsonStr = JSON.stringify(obj)
