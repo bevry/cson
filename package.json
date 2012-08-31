@@ -1,6 +1,6 @@
 {
 	"name": "cson",
-	"version": "1.2.2",
+	"version": "1.2.3",
 	"description": "CoffeeScript-Object-Notation Parser. Same as JSON but for CoffeeScript objects",
 	"homepage": "https://github.com/bevry/cson",
 	"keywords": [
@@ -17,7 +17,8 @@
 	],
 	"contributors": [
 		"Benjamin Lupton <b@lupton.cc> (http://balupton.com)",
-		"Ryan LeFevre <meltingice8917@gmail.com> (http://meltingice.net)"
+		"Ryan LeFevre <meltingice8917@gmail.com> (http://meltingice.net)",
+		"Zhang Cheng <czhang.oss@gmail.com> (https://github.com/zhangcheng)"
 	],
 	"bugs": {
 		"url": "https://github.com/bevry/cson/issues"

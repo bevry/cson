@@ -1,5 +1,9 @@
 ## History
 
+- v1.2.3 September 1, 2012
+	- Fixed `json2cson` and `cson2json` binaries
+		- Thanks to [Zhang Cheng](https://github.com/zhangcheng) for [pull request #15](https://github.com/bevry/cson/pull/15)
+
 - v1.2.2 August 10, 2012
 	- Re-added markdown files to npm distribution as they are required for the npm website
 
