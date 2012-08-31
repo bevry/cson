@@ -61,7 +61,8 @@ Which is far more lenient than JSON, nicer to write and read, and won't fail if 
 
 	// Parse a file path
 	CSON.parseFile('data.cson', function(err,obj){});  // async
-	result = CSON.parseFileSync('data.cson')  // sync
+	result = CSON.parseFileSync('data.cson');  // sync
+	result = require('data.cson');  // sync using require
 
 	// Parse a String
 	CSON.parse(src, function(err,obj){});  // async
@@ -82,6 +83,7 @@ Which is far more lenient than JSON, nicer to write and read, and won't fail if 
 	# Parse a file path
 	CSON.parseFile 'data.cson', (err,obj) ->  # async
 	result = CSON.parseFile('data.cson')  # sync
+	result = require('data.cson')  # sync using require
 
 	# Parse a string
 	CSON.parse src, (err,obj) ->  # async
