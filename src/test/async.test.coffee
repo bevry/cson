@@ -34,14 +34,6 @@ joe.describe 'async', (describe,it) ->
 					obj = _obj
 					done()
 
-			it "require source file", (done) ->
-				requiredObj = require(srcCsonPath)
-				return done(requiredObj)  if requiredObj instanceof Error
-				done()
-
-			it "compare parse and require", ->
-				assert.deepEqual(obj,requiredObj)
-
 			it "grab conversions", (done) ->
 				actualJsonStr = JSON.stringify(obj)
 				CSON.stringify obj, (err,_actualCsonStr) ->

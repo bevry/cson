@@ -176,10 +176,6 @@ CSON =
 		# Return
 		result
 
-# Add require extension, so you can require 'foo.cson'
-if require.extensions
-	require.extensions['.cson'] = (module, filename) ->
-		module.exports = CSON.parseFileSync(filename)
 
 # Export
 module.exports = CSON

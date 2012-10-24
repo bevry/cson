@@ -33,14 +33,6 @@ joe.describe 'sync', (describe,it) ->
 				return done(obj)  if obj instanceof Error
 				done()
 
-			it "require source file", (done) ->
-				requiredObj = require(srcCsonPath)
-				return done(requiredObj)  if requiredObj instanceof Error
-				done()
-
-			it "compare parse and require", ->
-				assert.deepEqual(obj,requiredObj)
-
 			it "grab conversions", (done) ->
 				actualJsonStr = JSON.stringify(obj)
 				actualCsonStr = CSON.stringifySync(obj)

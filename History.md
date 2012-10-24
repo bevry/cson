@@ -1,5 +1,10 @@
 ## History
 
+- v1.4.0 October 25, 2012
+	- Updated CoffeeScript from v1.3.x to v1.4.x
+	- Dropped require extensions following [CoffeeScript's lead](https://github.com/jashkenas/coffee-script/issues/2441)
+		- If you still want them, add them to your application manually
+
 - v1.3.0 September 1, 2012
 	- You can now use `require` to require CSON files
 		- Thanks to [Linus G Thiel](https://github.com/linus) for [pull request #16](https://github.com/bevry/cson/pull/16)
