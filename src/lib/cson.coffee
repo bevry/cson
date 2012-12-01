@@ -4,6 +4,7 @@ js2coffee = require('js2coffee')
 fsUtil = require('fs')
 pathUtil = require('path')
 
+
 # Awesomeness
 wait = (delay,fn) -> setTimeout(fn,delay)
 
@@ -176,6 +177,11 @@ CSON =
 		# Return
 		result
 
+if require.extensions
+	require.extensions['.cson'] = (module, filename) ->
+		csonDat = JSON.stringify CSON.parseFileSync filename
+		csonDat = "module.exports = #{csonDat}"
+		module._compile csonDat, filename
 
 # Export
 module.exports = CSON
