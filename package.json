@@ -13,13 +13,15 @@
 	],
 	"author": "Bevry Pty Ltd <us@bevry.me> (http://bevry.me)",
 	"maintainers": [
-		"Benjamin Lupton <b@lupton.cc> (http://balupton.com)"
+		"Benjamin Lupton <b@lupton.cc> (https://github.com/balupton)"
 	],
 	"contributors": [
-		"Benjamin Lupton <b@lupton.cc> (http://balupton.com)",
-		"Ryan LeFevre <meltingice8917@gmail.com> (http://meltingice.net)",
+		"Benjamin Lupton <b@lupton.cc> (https://github.com/balupton)",
+		"Ryan LeFevre <meltingice8917@gmail.com> (https://github.com/meltingice)",
 		"Linus G Thiel <linus@hanssonlarsson.se> (https://github.com/linus)",
-		"Zhang Cheng <czhang.oss@gmail.com> (https://github.com/zhangcheng)"
+		"Zhang Cheng <czhang.oss@gmail.com> (https://github.com/zhangcheng)",
+		"Nicolae Claudius <claudius.nicolae@gmail.com> (https://github.com/clyfe)",
+		"Joel Perras <joel.perras@gmail.com> (https://github.com/jperras)"
 	],
 	"bugs": {
 		"url": "https://github.com/bevry/cson/issues"
