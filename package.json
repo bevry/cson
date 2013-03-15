@@ -1,6 +1,6 @@
 {
 	"name": "cson",
-	"version": "1.4.0",
+	"version": "1.4.1",
 	"description": "CoffeeScript-Object-Notation Parser. Same as JSON but for CoffeeScript objects",
 	"homepage": "https://github.com/bevry/cson",
 	"keywords": [
@@ -34,11 +34,11 @@
 		"node": ">=0.6.0"
 	},
 	"dependencies": {
-		"coffee-script": "1.4.x",
-		"js2coffee": "0.1.x"
+		"coffee-script": "~1.6.1",
+		"js2coffee": "~0.1.3"
 	},
 	"devDependencies": {
-		"joe": "1.0.x"
+		"joe": "~1.1.1"
 	},
 	"directories": {
 		"lib": "./out/lib"

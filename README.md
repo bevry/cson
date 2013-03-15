@@ -24,17 +24,20 @@ But with the invention of CoffeeScript you can also write the same thing in CSON
 
 ``` coffeescript
 {
+	# an array
 	abc: [
 		'a'
 		'b'
 		'c'
 	]
+
+	# an object
 	a:
 		b: 'c'
 }
 ```
 
-Which is far more lenient than JSON, nicer to write and read, and won't fail if you forget a comma.
+Which is far more lenient than JSON, nicer to write and read, you don't have to quote everything, you have comments, and won't fail if you forget a comma.
 
 
 
