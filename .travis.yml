@@ -3,10 +3,8 @@ install: "npm install"
 before_script: "./node_modules/.bin/cake test-prepare"
 script: "./node_modules/.bin/cake test"
 node_js:
-  - 0.4
-  - 0.6
-  - 0.8
-  - 0.10
+  - "0.8"
+  - "0.10"
 notifications:
   irc:
     - "irc.freenode.org#bevry-dev"
