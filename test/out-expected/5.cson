@@ -1,6 +1,6 @@
 {
   filename: "5.coffee"
-  abc: [ "a", "b", "c" ]
+  abc: ["a", "b", "c"]
   a:
     b: "c"
 }

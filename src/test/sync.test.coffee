@@ -1,8 +1,8 @@
 # Requires
 joe = require('joe')
-assert = require('assert')
+{expect} = require('chai')
 fsUtil = require('fs')
-CSON = require(__dirname+'/../lib/cson')
+CSON = require('../../')
 srcPath = __dirname+'/../../test/src'
 outPath = __dirname+'/../../test/out-expected'
 
@@ -44,9 +44,9 @@ joe.describe 'sync', (describe,it) ->
 				expectedCsonStr = fsUtil.readFileSync(expectedCsonPath).toString()
 
 			it "compare json", ->
-				assert.deepEqual(actualJsonStr,expectedJsonStr)
+				expect(actualJsonStr).to.equal(expectedJsonStr)
 			it "compare cson", ->
-				assert.equal(actualCsonStr, expectedCsonStr)
+				expect(actualCsonStr).to.equal(expectedCsonStr)
 
 	# Create Tests
 	testExtensions = ['cson','cson','cson','json','coffee','js','cson']

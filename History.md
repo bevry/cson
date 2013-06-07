@@ -1,11 +1,11 @@
 ## History
 
+- v1.4.2 June 7, 2013
+	- Updated dependencies
+
 - v1.4.1 March 16, 2013
 	- Added `npm-shrinkwrap.json` that ensures `js2coffee` uses `coffee-script` 1.4.0
 	- Updated dependencies
-		- coffee-script 1.4.x to ~1.6.1
-		- joe 1.0.x to ~1.1.1
-		- js2coffee 0.1.x to ~0.1.3
 
 - v1.4.0 October 25, 2012
 	- Dropped require extensions following [CoffeeScript's lead](https://github.com/jashkenas/coffee-script/issues/2441)
