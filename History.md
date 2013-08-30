@@ -1,5 +1,8 @@
 ## History
 
+- v1.4.4 August 30, 2013
+	- Updated dependencies
+
 - v1.4.3 August 30, 2013
 	- Better error handling when requiring a file that has syntax errors
 	- Fixed stringify of '{}' giving '{{}}' which is invalid
