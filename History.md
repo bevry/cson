@@ -1,5 +1,10 @@
 ## History
 
+- v1.4.3 August 30, 2013
+	- Better error handling when requiring a file that has syntax errors
+	- Fixed stringify of '{}' giving '{{}}' which is invalid
+		- Closes [issue #21](https://github.com/bevry/cson/issues/21)
+
 - v1.4.2 June 7, 2013
 	- Updated dependencies
 

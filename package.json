@@ -1,56 +1,58 @@
 {
-	"name": "cson",
-	"version": "1.4.2",
-	"description": "CoffeeScript-Object-Notation Parser. Same as JSON but for CoffeeScript objects",
-	"homepage": "https://github.com/bevry/cson",
-	"keywords": [
-		"javascript",
-		"coffeescript",
-		"json",
-		"cson",
-		"parse",
-		"stringify"
-	],
-	"author": "Bevry Pty Ltd <us@bevry.me> (http://bevry.me)",
-	"maintainers": [
-		"Benjamin Lupton <b@lupton.cc> (https://github.com/balupton)"
-	],
-	"contributors": [
-		"Benjamin Lupton <b@lupton.cc> (https://github.com/balupton)",
-		"Ryan LeFevre <meltingice8917@gmail.com> (https://github.com/meltingice)",
-		"Linus G Thiel <linus@hanssonlarsson.se> (https://github.com/linus)",
-		"Zhang Cheng <czhang.oss@gmail.com> (https://github.com/zhangcheng)",
-		"Nicolae Claudius <claudius.nicolae@gmail.com> (https://github.com/clyfe)",
-		"Joel Perras <joel.perras@gmail.com> (https://github.com/jperras)"
-	],
-	"bugs": {
-		"url": "https://github.com/bevry/cson/issues"
-	},
-	"repository" : {
-		"type": "git",
-		"url": "http://github.com/bevry/cson.git"
-	},
-	"engines" : {
-		"node": ">=0.6.0"
-	},
-	"dependencies": {
-		"coffee-script": "~1.6.3",
-		"js2coffee": "~0.1.4"
-	},
-	"devDependencies": {
-		"chai": "~1.6.1",
-		"joe": "~1.2.0",
-		"joe-reporter-console": "~1.2.1"
-	},
-	"directories": {
-		"lib": "./out/lib"
-	},
-	"scripts": {
-		"test": "node ./out/test/everything.test.js"
-	},
-	"bin": {
-		"cson2json": "./bin/cson2json",
-		"json2cson": "./bin/json2cson"
-	},
-	"main": "./out/lib/cson"
+  "name": "cson",
+  "version": "1.4.3",
+  "description": "CoffeeScript-Object-Notation Parser. Same as JSON but for CoffeeScript objects",
+  "homepage": "https://github.com/bevry/cson",
+  "keywords": [
+    "javascript",
+    "coffeescript",
+    "json",
+    "cson",
+    "parse",
+    "stringify"
+  ],
+  "author": "Bevry Pty Ltd <us@bevry.me> (http://bevry.me)",
+  "maintainers": [
+    "Benjamin Lupton <b@lupton.cc> (https://github.com/balupton)"
+  ],
+  "contributors": [
+    "Benjamin Lupton <b@lupton.cc> (https://github.com/balupton)",
+    "Ryan LeFevre <meltingice8917@gmail.com> (https://github.com/meltingice)",
+    "Linus G Thiel <linus@hanssonlarsson.se> (https://github.com/linus)",
+    "Zhang Cheng <czhang.oss@gmail.com> (https://github.com/zhangcheng)",
+    "Nicolae Claudius <claudius.nicolae@gmail.com> (https://github.com/clyfe)",
+    "Joel Perras <joel.perras@gmail.com> (https://github.com/jperras)"
+  ],
+  "bugs": {
+    "url": "https://github.com/bevry/cson/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "http://github.com/bevry/cson.git"
+  },
+  "engines": {
+    "node": ">=0.8.0"
+  },
+  "dependencies": {
+    "coffee-script": "~1.6.3",
+    "js2coffee": "~0.1.4",
+    "extract-opts": "~2.2.0",
+    "requirefresh": "~1.1.1"
+  },
+  "devDependencies": {
+    "chai": "~1.7.2",
+    "joe": "~1.3.0",
+    "joe-reporter-console": "~1.2.1"
+  },
+  "directories": {
+    "lib": "./out/lib"
+  },
+  "scripts": {
+    "test": "node ./out/test/everything.test.js"
+  },
+  "bin": {
+    "cson2json": "./bin/cson2json",
+    "json2cson": "./bin/json2cson"
+  },
+  "main": "./out/lib/cson"
 }

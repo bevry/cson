@@ -3,34 +3,26 @@ coffee = require('coffee-script')
 js2coffee = require('js2coffee')
 fsUtil = require('fs')
 pathUtil = require('path')
+{extractOpts} = require('extract-opts')
+{requireFreshSafe} = require('requirefresh')
 
 # Awesomeness
-wait = (delay,fn) -> setTimeout(fn,delay)
+wait = (delay,fn) -> setTimeout(fn, delay)
 
 # Define
 CSON =
 	# Parse a CSON file
-	# next(err,obj)
+	# next(err, obj)
 	parseFile: (filePath,opts,next) ->
 		# Prepare
-		if opts? is true and next? is false
-			next = opts
-			opts = null
-		opts or= {}
+		[opts, next] = extractOpts(opts, next)
 
 		# Resolve
 		filePath = pathUtil.resolve(filePath)
 
 		# Try require
 		if /\.(js|coffee)$/.test(filePath)
-			try
-				delete require.cache[filePath]  # clear require cache for the config file
-				result = require(filePath)
-				delete require.cache[filePath]  # clear require cache for the config file
-			catch err
-				return next(err,result)
-			finally
-				return next(null,result)
+			requireFreshSafe(filePath, next)
 
 		# Try read
 		else if /\.(json|cson)$/.test(filePath)
@@ -40,7 +32,7 @@ CSON =
 
 				# Parse
 				dataStr = data.toString()
-				@parse(dataStr,opts,next)
+				@parse(dataStr, opts, next)
 
 		# Unknown
 		else
@@ -61,13 +53,7 @@ CSON =
 
 		# Try require
 		if /\.(js|coffee)$/.test(filePath)
-			try
-				delete require.cache[filePath]  # clear require cache for the config file
-				result = require(filePath)
-				delete require.cache[filePath]  # clear require cache for the config file
-				return result
-			catch err
-				return err
+			result = requireFreshSafe(filePath)
 
 		# Try read
 		else if /\.(json|cson)$/.test(filePath)
@@ -80,7 +66,7 @@ CSON =
 			else
 				# Parse the result
 				dataStr = data.toString()
-				result = @parseSync(dataStr,opts)
+				result = @parseSync(dataStr, opts)
 
 			# Return
 			return result
@@ -95,16 +81,13 @@ CSON =
 	# next(err,obj)
 	parse: (src,opts,next) ->
 		# Prepare
-		if opts? is true and next? is false
-			next = opts
-			opts = null
-		opts or= {}
+		[opts, next] = extractOpts(opts, next)
 
 		# currently the parser only exists in a synchronous version
 		# so we use an instant timeout to simulate async code without any overhead
 		wait 0, =>
 			# Parse
-			result = @parseSync(src,opts)
+			result = @parseSync(src, opts)
 
 			# Check for error
 			if result instanceof Error
@@ -112,7 +95,7 @@ CSON =
 				next(result)
 			else
 				# Success
-				next(null,result)
+				next(null, result)
 
 		# Chain
 		@
@@ -136,7 +119,7 @@ CSON =
 				result = err
 
 		# Return
-		result
+		return result
 
 
 	# Turn an object into CSON
@@ -154,7 +137,7 @@ CSON =
 				next(result)
 			else
 				# Success
-				next(null,result)
+				next(null, result)
 
 		# Chain
 		@
@@ -169,12 +152,12 @@ CSON =
 			result = result.replace(/^\s*result\s*\=\s/,'')
 			if typeof obj is 'object'
 				unless Array.isArray(obj)
-					result = '{\n'+result+'\n}'
+					result = '{\n'+result+'\n}'  unless result is '{}'
 		catch err
 			result = err
 
 		# Return
-		result
+		return result
 
 
 # Export
