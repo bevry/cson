@@ -49,12 +49,12 @@ Which is far more lenient than JSON, nicer to write and read, you don't have to 
 ## Installing
 
 
-1. [Install Node.js](https://github.com/balupton/node/wiki/Installing-Node.js)
+1. [Install Node.js](http://bevry.me/node/install)
 
 2. Install CSON
 
 	``` bash
-	npm install cson
+	npm install --save cson
 	```
 
 
