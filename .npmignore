@@ -1,9 +1,26 @@
-.DS_Store
-.git*
-.travis*
-*.md
-Makefile
+# v1.3.3 October 26, 2013
+# https://github.com/bevry/base
 
-src/
-out/test/
-test/
+# Temp Files
+**/*.log
+
+# Build Files
+build/
+components/
+bower_components/
+node_modules/
+
+# Development Files
+.travis*
+Cakefile
+Makefile
+BACKERS.md
+CONTRIBUTING.md
+HISTORY.md
+**/src/
+**/test/
+
+# Other Package Definitions
+template.js
+component.json
+bower.json

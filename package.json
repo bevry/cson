@@ -1,8 +1,19 @@
 {
+  "title": "CSON",
   "name": "cson",
-  "version": "1.4.4",
+  "version": "1.4.5",
   "description": "CoffeeScript-Object-Notation Parser. Same as JSON but for CoffeeScript objects",
   "homepage": "https://github.com/bevry/cson",
+  "license": {
+    "type": "MIT"
+  },
+  "badges": {
+    "travis": true,
+    "npm": true,
+    "gittip": "bevry",
+    "flattr": "344188/balupton-on-Flattr",
+    "paypal": "QB8GQPZAH84N6"
+  },
   "keywords": [
     "javascript",
     "coffeescript",
@@ -11,17 +22,17 @@
     "parse",
     "stringify"
   ],
-  "author": "Bevry Pty Ltd <us@bevry.me> (http://bevry.me)",
+  "author": "2012+ Bevry Pty Ltd <us@bevry.me> (http://bevry.me), 2011 Benjamin Lupton <b@lupton.cc> (http://balupton.com)",
   "maintainers": [
     "Benjamin Lupton <b@lupton.cc> (https://github.com/balupton)"
   ],
   "contributors": [
     "Benjamin Lupton <b@lupton.cc> (https://github.com/balupton)",
-    "Ryan LeFevre <meltingice8917@gmail.com> (https://github.com/meltingice)",
+    "Joel Perras <joel.perras@gmail.com> (https://github.com/jperras)",
     "Linus G Thiel <linus@hanssonlarsson.se> (https://github.com/linus)",
-    "Zhang Cheng <czhang.oss@gmail.com> (https://github.com/zhangcheng)",
     "Nicolae Claudius <claudius.nicolae@gmail.com> (https://github.com/clyfe)",
-    "Joel Perras <joel.perras@gmail.com> (https://github.com/jperras)"
+    "Ryan LeFevre <meltingice8917@gmail.com> (https://github.com/meltingice)",
+    "Zhang Cheng <czhang.oss@gmail.com> (https://github.com/zhangcheng)"
   ],
   "bugs": {
     "url": "https://github.com/bevry/cson/issues"
@@ -35,20 +46,22 @@
   },
   "dependencies": {
     "coffee-script": "~1.6.3",
-    "js2coffee": "~0.1.4",
+    "js2coffee": "~0.2.3",
     "extract-opts": "~2.2.0",
     "requirefresh": "~1.1.2"
   },
   "devDependencies": {
-    "chai": "~1.7.2",
+    "chai": "~1.8.1",
     "joe": "~1.3.0",
-    "joe-reporter-console": "~1.2.1"
+    "joe-reporter-console": "~1.2.1",
+    "projectz": "~0.2.5"
   },
   "directories": {
     "lib": "./out/lib"
   },
   "scripts": {
-    "test": "node ./out/test/everything.test.js"
+    "preinstall": "node ./cyclic.js",
+    "test": "node ./out/test/cson-test.js"
   },
   "bin": {
     "cson2json": "./bin/cson2json",
