@@ -120,7 +120,7 @@ Which is far more lenient than JSON, nicer to write and read, you don't have to 
 
 	# Parse a file path
 	CSON.parseFile 'data.cson', (err,obj) ->  # async
-	result = CSON.parseFile('data.cson')  # sync
+	result = CSON.parseFileSync('data.cson')  # sync
 
 	# Parse a string
 	CSON.parse src, (err,obj) ->  # async
