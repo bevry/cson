@@ -1,7 +1,7 @@
 {
   "title": "CSON",
   "name": "cson",
-  "version": "1.4.5",
+  "version": "1.5.0",
   "description": "CoffeeScript-Object-Notation Parser. Same as JSON but for CoffeeScript objects",
   "homepage": "https://github.com/bevry/cson",
   "license": {
@@ -10,9 +10,13 @@
   "badges": {
     "travis": true,
     "npm": true,
+    "david": true,
+    "daviddev": true,
     "gittip": "bevry",
     "flattr": "344188/balupton-on-Flattr",
-    "paypal": "QB8GQPZAH84N6"
+    "paypal": "QB8GQPZAH84N6",
+    "bitcoin": "https://coinbase.com/checkouts/9ef59f5479eec1d97d63382c9ebcb93a",
+    "wishlist": "http://amzn.com/w/2F8TXKSNAFG4V"
   },
   "keywords": [
     "javascript",
@@ -28,6 +32,7 @@
   ],
   "contributors": [
     "Benjamin Lupton <b@lupton.cc> (https://github.com/balupton)",
+    "jasonkarns (https://github.com/jasonkarns)",
     "Joel Perras <joel.perras@gmail.com> (https://github.com/jperras)",
     "Linus G Thiel <linus@hanssonlarsson.se> (https://github.com/linus)",
     "Nicolae Claudius <claudius.nicolae@gmail.com> (https://github.com/clyfe)",
@@ -45,16 +50,16 @@
     "node": ">=0.8.0"
   },
   "dependencies": {
-    "coffee-script": "~1.6.3",
+    "coffee-script": "~1.7.1",
     "js2coffee": "~0.2.3",
     "extract-opts": "~2.2.0",
     "requirefresh": "~1.1.2"
   },
   "devDependencies": {
-    "chai": "~1.8.1",
+    "chai": "~1.9.0",
     "joe": "~1.3.0",
     "joe-reporter-console": "~1.2.1",
-    "projectz": "~0.2.5"
+    "projectz": "~0.3.10"
   },
   "directories": {
     "lib": "./out/lib"
