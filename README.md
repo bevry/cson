@@ -129,7 +129,7 @@ Which is far more lenient than JSON, way nicer to write and read, no need to quo
 
 ## Use Case
 
-CSON is fantastic for developers writing their own configuration to be executed on their own machines, but bad for configuration you can't trust. This is because parsing CSON will execute the CSON input as CoffeeScript code (making it unsafe, `while true` would work) but it does so inside a [node virtual machine](http://nodejs.org/api/vm.html) for isolation (making it secure, `require('fs')` won't work) resulting in the evaluated JavaScript object. This is a non-issue for the only use case which CSON actually makes sense for (developers writing their own configuration to be executed on their own machines). [Issue #32 has more information.](https://github.com/bevry/cson/issues/32)
+CSON is fantastic for developers writing their own configuration to be executed on their own machines, but bad for configuration you can't trust. This is because parsing CSON will execute the CSON input as CoffeeScript code (making it unsafe, so `while true` would work) but it does so inside a [node virtual machine](http://nodejs.org/api/vm.html) for isolation (making it secure, so `require('fs')` won't work) resulting in the evaluated JavaScript object. This is a non-issue for the only use case which CSON actually makes sense for (developers writing their own configuration to be executed on their own machines). [Issue #32 has more information.](https://github.com/bevry/cson/issues/32)
 
 
 
