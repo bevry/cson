@@ -106,6 +106,9 @@ CSON =
 		# Prepare
 		opts or= {}
 		opts.sandbox ?= true
+		# ^ wraps execution of the CSON code in a node virtual machine
+		# http://nodejs.org/api/vm.html
+		# hiding away external data like the file system from the executed code
 
 		# Try parse JSON
 		try
