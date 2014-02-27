@@ -18,8 +18,6 @@
 
 CoffeeScript-Object-Notation Parser. Same as JSON but for CoffeeScript objects.
 
-[Projects using CSON.](https://www.npmjs.org/browse/depended/cson)
-
 
 <!-- INSTALL/ -->
 
@@ -125,6 +123,8 @@ Which is far more lenient than JSON, nicer to write and read, you don't have to 
 	# CSON file to JSON String
 	cson2json filePath > out.json
 	```
+
+[Projects using CSON.](https://www.npmjs.org/browse/depended/cson)
 
 
 ## Use Case
