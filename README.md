@@ -1,4 +1,3 @@
-
 <!-- TITLE/ -->
 
 # CSON
@@ -77,18 +76,6 @@ Which is far more lenient than JSON, nicer to write and read, you don't have to 
 
 
 
-## Installing
-
-
-1. [Install Node.js](http://bevry.me/node/install)
-
-2. Install CSON
-
-	``` bash
-	npm install --save cson
-	```
-
-
 ## Using CSON
 
 
@@ -140,6 +127,12 @@ Which is far more lenient than JSON, nicer to write and read, you don't have to 
 	# CSON file to JSON String
 	cson2json filePath > out.json
 	```
+
+
+## Note
+
+Parsing CSON will execute the CSON input as CoffeeScript code inside a [node virtual machine](http://nodejs.org/api/vm.html) for isolation which results in the evaluated JavaScript object. This is great for developers writing their own configuration to be executed on their own machines, but bad for configuration you can't trust. [See issue #32 for more information.](https://github.com/bevry/cson/issues/32)
+
 
 
 <!-- HISTORY/ -->
