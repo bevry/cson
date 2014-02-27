@@ -16,11 +16,9 @@
 <!-- /BADGES -->
 
 
-<!-- DESCRIPTION/ -->
+CoffeeScript-Object-Notation Parser. Same as JSON but for CoffeeScript objects.
 
-CoffeeScript-Object-Notation Parser. Same as JSON but for CoffeeScript objects
-
-<!-- /DESCRIPTION -->
+[Projects using CSON.](https://www.npmjs.org/browse/depended/cson)
 
 
 <!-- INSTALL/ -->
@@ -131,7 +129,7 @@ Which is far more lenient than JSON, nicer to write and read, you don't have to 
 
 ## Note
 
-Parsing CSON will execute the CSON input as CoffeeScript code inside a [node virtual machine](http://nodejs.org/api/vm.html) for isolation which results in the evaluated JavaScript object. This is great for developers writing their own configuration to be executed on their own machines, but bad for configuration you can't trust. [See issue #32 for more information.](https://github.com/bevry/cson/issues/32)
+CSON is great for developers writing their own configuration to be executed on their own machines, but bad for configuration you can't trust. This is because parsing CSON will execute the CSON input as CoffeeScript code inside a [node virtual machine](http://nodejs.org/api/vm.html) for isolation which results in the evaluated JavaScript object. [Issue #32 has more information.](https://github.com/bevry/cson/issues/32)
 
 
 
