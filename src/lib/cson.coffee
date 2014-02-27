@@ -117,8 +117,7 @@ CSON =
 		# Try parse CSON
 		catch err
 			try
-				# Before people get their knickers in a twist thinking CSON replaces JSON
-				# Read this: https://github.com/bevry/cson/blob/master/README.md#use-case
+				# https://github.com/bevry/cson/blob/master/README.md#use-case
 				result = coffee.eval(src,opts)
 			catch err
 				result = err
@@ -152,8 +151,7 @@ CSON =
 	stringifySync: (obj) ->
 		# Stringify
 		try
-			# Before people get their knickers in a twist thinking CSON replaces JSON
-			# Read this: https://github.com/bevry/cson/blob/master/README.md#use-case
+			# https://github.com/bevry/cson/blob/master/README.md#use-case
 			src = "var result = #{JSON.stringify obj}"
 			result = js2coffee.build(src)
 			result = result.replace(/^\s*result\s*\=\s/,'')
