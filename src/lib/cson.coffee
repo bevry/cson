@@ -151,7 +151,8 @@ CSON =
 	stringifySync: (obj) ->
 		# Stringify
 		try
-			# https://github.com/bevry/cson/blob/master/README.md#use-case
+			# This is a non-turing operation, js2coffee is a static parser
+			# The wrapping of `var result` is to simplify the extraction of the result data
 			src = "var result = #{JSON.stringify obj}"
 			result = js2coffee.build(src)
 			result = result.replace(/^\s*result\s*\=\s/,'')
