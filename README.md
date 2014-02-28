@@ -29,7 +29,7 @@ CoffeeScript-Object-Notation Parser. Same as JSON but for CoffeeScript objects.
 
 ## Install
 
-### [Node](http://nodejs.org/)
+### [NPM](http://npmjs.org/)
 - Use: `require('cson')`
 - Install: `npm install --save cson`
 
