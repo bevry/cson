@@ -105,10 +105,7 @@ CSON =
 	parseSync: (src,opts) ->
 		# Prepare
 		opts or= {}
-		opts.sandbox ?= true
-		# ^ wraps execution of the CSON code in a node virtual machine
-		# http://nodejs.org/api/vm.html
-		# hiding away external data like the file system from the executed code
+		opts.bare ?= true
 
 		# Try parse JSON
 		try
@@ -117,8 +114,16 @@ CSON =
 		# Try parse CSON
 		catch err
 			try
-				# https://github.com/bevry/cson/blob/master/README.md#use-case
-				result = coffee.eval(src,opts)
+				result = coffee.compile(src, opts)
+				# console.log('----', '\n', result, '\n', '----')
+				result = result.replace(/^[(\s]+|[\s);]+$/g, '')
+				# console.log('----', '\n', result, '\n', '----')
+				result = result
+					.replace(/([\s\[])'|'([\s,\]])/g, '$1"$2')
+					.replace(/\\'/g, "'")
+					.replace(/^(\s*)([a-z0-9_]+)(\: )/mgi, '$1"$2"$3')
+				# console.log('----', '\n', result, '\n', '----')
+				result = JSON.parse(result)
 			catch err
 				result = err
 
@@ -128,12 +133,15 @@ CSON =
 
 	# Turn an object into CSON
 	# next(err,str)
-	stringify: (obj,next) ->
+	stringify: (obj,opts,next) ->
+		# Prepare
+		[opts, next] = extractOpts(opts, next)
+
 		# currently the parser only exists in a synchronous version
 		# so we use an instant timeout to simulate async code without any overhead
 		wait 0, =>
 			# Stringify
-			result = @stringifySync(obj)
+			result = @stringifySync(obj, opts)
 
 			# Check
 			if result instanceof Error
@@ -148,7 +156,7 @@ CSON =
 
 
 	# Turn an object into JSON/CSON Synchronously
-	stringifySync: (obj) ->
+	stringifySync: (obj, opts) ->
 		# Stringify
 		try
 			# js2coffee is a static parser

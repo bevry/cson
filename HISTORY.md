@@ -1,4 +1,4 @@
-## History
+# History
 
 - v1.5.0 February 8th, 2014
 	- Updated dependencies
