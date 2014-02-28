@@ -151,7 +151,8 @@ CSON =
 	stringifySync: (obj) ->
 		# Stringify
 		try
-			# This is a non-turing operation, js2coffee is a static parser
+			# js2coffee is a static parser
+			# The passed code is not execued, but simply converted
 			# The wrapping of `var result` is to simplify the extraction of the result data
 			src = "var result = #{JSON.stringify obj}"
 			result = js2coffee.build(src)
