@@ -145,7 +145,7 @@ CSON is fantastic for developers writing their own configuration to be executed 
 
 ## Contribute
 
-[Discover how you can contribute by heading on over to the `Contributing.md` file.](https://github.com/bevry/cson/blob/master/Contributing.md#files)
+[Discover how you can contribute by heading on over to the `Contributing.md` file.](https://github.com/evinugur/cson/blob/master/CONTRIBUTING.md#contribute)
 
 <!-- /CONTRIBUTE -->
 
