@@ -182,7 +182,7 @@ These amazing people have contributed code to this project:
 - [Ryan LeFevre](https://github.com/meltingice) <meltingice8917@gmail.com> — [view contributions](https://github.com/bevry/cson/commits?author=meltingice)
 - [Zhang Cheng](https://github.com/zhangcheng) <czhang.oss@gmail.com> — [view contributions](https://github.com/bevry/cson/commits?author=zhangcheng)
 
-[Become a contributor!](https://github.com/bevry/cson/blob/master/CONTRIBUTING.md#files)
+[Become a contributor!](https://github.com/bevry/cson/blob/master/CONTRIBUTING.md#contribute)
 
 <!-- /BACKERS -->
 
