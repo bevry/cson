@@ -9,9 +9,13 @@
 
 [![Build Status](http://img.shields.io/travis-ci/bevry/cson.png?branch=master)](http://travis-ci.org/bevry/cson "Check this project's build status on TravisCI")
 [![NPM version](http://badge.fury.io/js/cson.png)](https://npmjs.org/package/cson "View this project on NPM")
+[![Dependency Status](https://david-dm.org/bevry/cson.png?theme=shields.io)](https://david-dm.org/bevry/cson)
+[![Development Dependency Status](https://david-dm.org/bevry/cson/dev-status.png?theme=shields.io)](https://david-dm.org/bevry/cson#info=devDependencies)<br/>
 [![Gittip donate button](http://img.shields.io/gittip/bevry.png)](https://www.gittip.com/bevry/ "Donate weekly to this project using Gittip")
 [![Flattr donate button](http://img.shields.io/flattr/donate.png?color=yellow)](http://flattr.com/thing/344188/balupton-on-Flattr "Donate monthly to this project using Flattr")
 [![PayPayl donate button](http://img.shields.io/paypal/donate.png?color=yellow)](https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=QB8GQPZAH84N6 "Donate once-off to this project using Paypal")
+[![BitCoin donate button](http://img.shields.io/bitcoin/donate.png?color=yellow)](https://coinbase.com/checkouts/9ef59f5479eec1d97d63382c9ebcb93a "Donate once-off to this project using BitCoin")
+[![Wishlist browse button](http://img.shields.io/wishlist/browse.png?color=yellow)](http://amzn.com/w/2F8TXKSNAFG4V "Buy an item on our wishlist for us")
 
 <!-- /BADGES -->
 
@@ -25,13 +29,9 @@ CoffeeScript-Object-Notation Parser. Same as JSON but for CoffeeScript objects.
 
 ## Install
 
-### [Node](http://nodejs.org/), [Browserify](http://browserify.org/)
+### [Node](http://nodejs.org/)
 - Use: `require('cson')`
 - Install: `npm install --save cson`
-
-### [Ender](http://ender.jit.su/)
-- Use: `require('cson')`
-- Install: `ender add cson`
 
 <!-- /INSTALL -->
 
@@ -136,7 +136,7 @@ CSON is fantastic for developers writing their own configuration to be executed 
 <!-- HISTORY/ -->
 
 ## History
-[Discover the change history by heading on over to the `History.md` file.](https://github.com/bevry/cson/blob/master/History.md#files)
+[Discover the change history by heading on over to the `HISTORY.md` file.](https://github.com/bevry/cson/blob/master/HISTORY.md#files)
 
 <!-- /HISTORY -->
 
@@ -167,17 +167,20 @@ No sponsors yet! Will you be the first?
 [![Gittip donate button](http://img.shields.io/gittip/bevry.png)](https://www.gittip.com/bevry/ "Donate weekly to this project using Gittip")
 [![Flattr donate button](http://img.shields.io/flattr/donate.png?color=yellow)](http://flattr.com/thing/344188/balupton-on-Flattr "Donate monthly to this project using Flattr")
 [![PayPayl donate button](http://img.shields.io/paypal/donate.png?color=yellow)](https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=QB8GQPZAH84N6 "Donate once-off to this project using Paypal")
+[![BitCoin donate button](http://img.shields.io/bitcoin/donate.png?color=yellow)](https://coinbase.com/checkouts/9ef59f5479eec1d97d63382c9ebcb93a "Donate once-off to this project using BitCoin")
+[![Wishlist browse button](http://img.shields.io/wishlist/browse.png?color=yellow)](http://amzn.com/w/2F8TXKSNAFG4V "Buy an item on our wishlist for us")
 
 ### Contributors
 
 These amazing people have contributed code to this project:
 
-- Benjamin Lupton <b@lupton.cc> (https://github.com/balupton) - [view contributions](https://github.com/bevry/cson/commits?author=balupton)
-- Joel Perras <joel.perras@gmail.com> (https://github.com/jperras) - [view contributions](https://github.com/bevry/cson/commits?author=jperras)
-- Linus G Thiel <linus@hanssonlarsson.se> (https://github.com/linus) - [view contributions](https://github.com/bevry/cson/commits?author=linus)
-- Nicolae Claudius <claudius.nicolae@gmail.com> (https://github.com/clyfe) - [view contributions](https://github.com/bevry/cson/commits?author=clyfe)
-- Ryan LeFevre <meltingice8917@gmail.com> (https://github.com/meltingice) - [view contributions](https://github.com/bevry/cson/commits?author=meltingice)
-- Zhang Cheng <czhang.oss@gmail.com> (https://github.com/zhangcheng) - [view contributions](https://github.com/bevry/cson/commits?author=zhangcheng)
+- [Benjamin Lupton](https://github.com/balupton) <b@lupton.cc> — [view contributions](https://github.com/bevry/cson/commits?author=balupton)
+- [jasonkarns](https://github.com/jasonkarns) — [view contributions](https://github.com/bevry/cson/commits?author=jasonkarns)
+- [Joel Perras](https://github.com/jperras) <joel.perras@gmail.com> — [view contributions](https://github.com/bevry/cson/commits?author=jperras)
+- [Linus G Thiel](https://github.com/linus) <linus@hanssonlarsson.se> — [view contributions](https://github.com/bevry/cson/commits?author=linus)
+- [Nicolae Claudius](https://github.com/clyfe) <claudius.nicolae@gmail.com> — [view contributions](https://github.com/bevry/cson/commits?author=clyfe)
+- [Ryan LeFevre](https://github.com/meltingice) <meltingice8917@gmail.com> — [view contributions](https://github.com/bevry/cson/commits?author=meltingice)
+- [Zhang Cheng](https://github.com/zhangcheng) <czhang.oss@gmail.com> — [view contributions](https://github.com/bevry/cson/commits?author=zhangcheng)
 
 [Become a contributor!](https://github.com/bevry/cson/blob/master/CONTRIBUTING.md#files)
 
