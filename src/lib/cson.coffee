@@ -1,8 +1,12 @@
 # Requires
-coffee = require('coffee-script')
-js2coffee = require('js2coffee')
+
+# Standard Library
 fsUtil = require('fs')
 pathUtil = require('path')
+
+# External
+coffee = require('coffee-script')
+js2coffee = require('js2coffee')
 {extractOpts} = require('extract-opts')
 {requireFreshSafe} = require('requirefresh')
 
