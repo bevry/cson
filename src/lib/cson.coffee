@@ -1,48 +1,115 @@
+###
 # Requires
-coffee = require('coffee-script')
-js2coffee = require('js2coffee')
+###
+
+# Standard Library
+EventEmitter = require('events').EventEmitter
 fsUtil = require('fs')
 pathUtil = require('path')
+
+# External
+coffee = require('coffee-script')
+js2coffee = require('js2coffee')
 {extractOpts} = require('extract-opts')
 {requireFreshSafe} = require('requirefresh')
+
+
+###
+# Helpers
+###
 
 # Awesomeness
 wait = (delay,fn) -> setTimeout(fn, delay)
 
-# Define
-CSON =
-	# Parse a CSON file
-	# next(err, obj)
-	parseFile: (filePath,opts,next) ->
-		# Prepare
-		[opts, next] = extractOpts(opts, next)
 
-		# Resolve
-		filePath = pathUtil.resolve(filePath)
+###
+# Main content
+###
+class CSONemitter extends EventEmitter
+	constructor: () ->
+		# Parse a CSON file
+		# next(err, obj)
+		@on 'parseFile', (filePath, opts, next) ->
+			# Prepare
+			[opts, next] = extractOpts(opts, next)
 
-		# Try require
-		if /\.(js|coffee)$/.test(filePath)
-			requireFreshSafe(filePath, next)
+			# Resolve
+			filePath = pathUtil.resolve(filePath)
 
-		# Try read
-		else if /\.(json|cson)$/.test(filePath)
-			fsUtil.readFile filePath, (err,data) =>
-				# Check
-				return next(err)  if err
+			# Try require
+			if /\.(js|coffee)$/.test(filePath)
+				requireFreshSafe(filePath, next)
 
+			# Try read
+			else if /\.(json|cson)$/.test(filePath)
+				fsUtil.readFile filePath, (err,data) =>
+					# Check
+					return next(err)  if err
+
+					# Parse
+					dataStr = data.toString()
+					@emit 'parse', dataStr, opts, next
+
+			# Unknown
+			else
+				err = new Error("CSON.parseFile: Unknown extension type for #{filePath}")
+				next(err)
+
+			# Chain
+			@
+
+
+		# Parse a CSON string
+		# next(err,obj)
+		@on 'parse', (src, opts, next) ->
+			# Prepare
+			[opts, next] = extractOpts(opts, next)
+
+			# currently the parser only exists in a synchronous version
+			# so we use an instant timeout to simulate async code without any overhead
+			wait 0, =>
 				# Parse
-				dataStr = data.toString()
-				@parse(dataStr, opts, next)
+				result = @parseSync(src, opts)
 
-		# Unknown
-		else
-			err = new Error("CSON.parseFile: Unknown extension type for #{filePath}")
-			next(err)
+				# Check for error
+				if result instanceof Error
+					# Error
+					next(result)
+				else
+					# Success
+					next(null, result)
 
-		# Chain
-		@
+			# Chain
+			@
 
 
+		# Turn an object into CSON
+		# next(err,str)
+		@on 'stringify', (obj, next) ->
+			# currently the parser only exists in a synchronous version
+			# so we use an instant timeout to simulate async code without any overhead
+			wait 0, =>
+				# Stringify
+				result = @stringifySync(obj)
+
+				# Check
+				if result instanceof Error
+					# Error
+					next(result)
+				else
+					# Success
+					next(null, result)
+
+			# Chain
+			@
+
+	parseFile: (filePath, opts, next) ->
+		@emit 'parseFile', filePath, opts, next
+	parse: (src, opts, next) ->
+		@emit 'parse', src, opts, next
+	stringify: (obj, next) ->
+		@emit 'stringify', obj, next
+	
 	# Parse a CSON file
 	parseFileSync: (filePath,opts) ->
 		# Prepare
@@ -77,30 +144,6 @@ CSON =
 			return err
 
 
-	# Parse a CSON string
-	# next(err,obj)
-	parse: (src,opts,next) ->
-		# Prepare
-		[opts, next] = extractOpts(opts, next)
-
-		# currently the parser only exists in a synchronous version
-		# so we use an instant timeout to simulate async code without any overhead
-		wait 0, =>
-			# Parse
-			result = @parseSync(src, opts)
-
-			# Check for error
-			if result instanceof Error
-				# Error
-				next(result)
-			else
-				# Success
-				next(null, result)
-
-		# Chain
-		@
-
-
 	# Parse a CSON string Synchronously
 	parseSync: (src,opts) ->
 		# Prepare
@@ -126,27 +169,6 @@ CSON =
 		return result
 
 
-	# Turn an object into CSON
-	# next(err,str)
-	stringify: (obj,next) ->
-		# currently the parser only exists in a synchronous version
-		# so we use an instant timeout to simulate async code without any overhead
-		wait 0, =>
-			# Stringify
-			result = @stringifySync(obj)
-
-			# Check
-			if result instanceof Error
-				# Error
-				next(result)
-			else
-				# Success
-				next(null, result)
-
-		# Chain
-		@
-
-
 	# Turn an object into JSON/CSON Synchronously
 	stringifySync: (obj) ->
 		# Stringify
@@ -168,4 +190,4 @@ CSON =
 
 
 # Export
-module.exports = CSON
+module.exports = CSON = new CSONemitter
