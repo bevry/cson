@@ -1,8 +1,11 @@
-## History
+# History
+
+- v1.6.0 May 17, 2014
+	- Updated dependencies
+	- Fixed error handling in certain conditions
 
 - v1.5.0 February 8th, 2014
 	- Updated dependencies
-		- coffee-script 1.6.x to 1.7.x
 
 - v1.4.5 October 31, 2013
 	- Updated dependencies

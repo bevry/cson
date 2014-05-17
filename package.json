@@ -1,7 +1,7 @@
 {
   "title": "CSON",
   "name": "cson",
-  "version": "1.5.0",
+  "version": "1.6.0",
   "description": "CoffeeScript-Object-Notation Parser. Same as JSON but for CoffeeScript objects",
   "homepage": "https://github.com/bevry/cson",
   "license": {
@@ -50,9 +50,10 @@
     "node": ">=0.8.0"
   },
   "dependencies": {
+    "ambi": "^2.2.0",
     "coffee-script": "~1.7.1",
-    "js2coffee": "~0.2.3",
     "extract-opts": "~2.2.0",
+    "js2coffee": "~0.3.0",
     "requirefresh": "~1.1.2"
   },
   "devDependencies": {
@@ -72,5 +73,8 @@
     "cson2json": "./bin/cson2json",
     "json2cson": "./bin/json2cson"
   },
-  "main": "./out/lib/cson"
+  "main": "./out/lib/cson",
+  "cakeConfiguration": {
+    "COFFEE_SRC_PATH": "src"
+  }
 }

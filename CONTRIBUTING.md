@@ -75,8 +75,7 @@ For project maintainers
 	```
 
 5. Publish new version
-	
+
 	``` bash
 	cake publish
 	```
-

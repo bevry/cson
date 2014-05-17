@@ -3,8 +3,10 @@ coffee = require('coffee-script')
 js2coffee = require('js2coffee')
 fsUtil = require('fs')
 pathUtil = require('path')
+ambi = require('ambi')
 {extractOpts} = require('extract-opts')
 {requireFreshSafe} = require('requirefresh')
+require('coffee-script/register')
 
 # Awesomeness
 wait = (delay,fn) -> setTimeout(fn, delay)
@@ -32,6 +34,7 @@ CSON =
 
 				# Parse
 				dataStr = data.toString()
+				opts.filename = filePath
 				@parse(dataStr, opts, next)
 
 		# Unknown
@@ -53,11 +56,15 @@ CSON =
 
 		# Try require
 		if /\.(js|coffee)$/.test(filePath)
-			result = requireFreshSafe(filePath)
+			try
+				result = requireFreshSafe(filePath)
+			catch err
+				result = err
 
 		# Try read
 		else if /\.(json|cson)$/.test(filePath)
 			data = fsUtil.readFileSync(filePath)
+			opts.filename = filePath
 
 			# Check the result
 			if data instanceof Error
@@ -85,17 +92,8 @@ CSON =
 
 		# currently the parser only exists in a synchronous version
 		# so we use an instant timeout to simulate async code without any overhead
-		wait 0, =>
-			# Parse
-			result = @parseSync(src, opts)
-
-			# Check for error
-			if result instanceof Error
-				# Error
-				next(result)
-			else
-				# Success
-				next(null, result)
+		# we also use ambi to fire the synchronous function as an asychronous one
+		wait 0, => ambi(@parseSync, src, opts, next)
 
 		# Chain
 		@
@@ -118,7 +116,8 @@ CSON =
 		catch err
 			try
 				# https://github.com/bevry/cson/blob/master/README.md#use-case
-				result = coffee.eval(src,opts)
+				result = coffee.eval(src, opts)
+
 			catch err
 				result = err
 
@@ -131,17 +130,8 @@ CSON =
 	stringify: (obj,next) ->
 		# currently the parser only exists in a synchronous version
 		# so we use an instant timeout to simulate async code without any overhead
-		wait 0, =>
-			# Stringify
-			result = @stringifySync(obj)
-
-			# Check
-			if result instanceof Error
-				# Error
-				next(result)
-			else
-				# Success
-				next(null, result)
+		# we also use ambi to fire the synchronous function as an asychronous one
+		wait 0, => ambi(@stringifySync, obj, next)
 
 		# Chain
 		@
