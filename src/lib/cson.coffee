@@ -11,6 +11,10 @@ require('coffee-script/register')
 # Awesomeness
 wait = (delay,fn) -> setTimeout(fn, delay)
 
+# Helpers
+isJsOrCoffee = (filePath) -> /\.(js|coffee)$/.test(filePath)
+isJsonOrCson = (filePath) -> /\.(json|cson)$/.test(filePath)
+
 # Define
 CSON =
 	# Parse a CSON file
@@ -23,11 +27,11 @@ CSON =
 		filePath = pathUtil.resolve(filePath)
 
 		# Try require
-		if /\.(js|coffee)$/.test(filePath)
+		if isJsOrCoffee(filePath)
 			requireFreshSafe(filePath, next)
 
 		# Try read
-		else if /\.(json|cson)$/.test(filePath)
+		else if isJsonOrCson(filePath)
 			fsUtil.readFile filePath, (err,data) =>
 				# Check
 				return next(err)  if err
@@ -55,14 +59,14 @@ CSON =
 		filePath = pathUtil.resolve(filePath)
 
 		# Try require
-		if /\.(js|coffee)$/.test(filePath)
+		if isJsOrCoffee(filePath)
 			try
 				result = requireFreshSafe(filePath)
 			catch err
 				result = err
 
 		# Try read
-		else if /\.(json|cson)$/.test(filePath)
+		else if isJsonOrCson(filePath)
 			data = fsUtil.readFileSync(filePath)
 			opts.filename = filePath
 
