@@ -29,7 +29,7 @@ CoffeeScript-Object-Notation Parser. Same as JSON but for CoffeeScript objects.
 
 ## Install
 
-### [Node](http://nodejs.org/)
+### [NPM](http://npmjs.org/)
 - Use: `require('cson')`
 - Install: `npm install --save cson`
 
@@ -145,7 +145,7 @@ CSON is fantastic for developers writing their own configuration to be executed 
 
 ## Contribute
 
-[Discover how you can contribute by heading on over to the `Contributing.md` file.](https://github.com/bevry/cson/blob/master/CONTRIBUTING.md#contribute)
+[Discover how you can contribute by heading on over to the `CONTRIBUTING.md` file.](https://github.com/bevry/cson/blob/master/CONTRIBUTING.md#files)
 
 <!-- /CONTRIBUTE -->
 
@@ -174,15 +174,19 @@ No sponsors yet! Will you be the first?
 
 These amazing people have contributed code to this project:
 
+- [attilaolah](https://github.com/attilaolah) — [view contributions](https://github.com/bevry/cson/commits?author=attilaolah)
 - [Benjamin Lupton](https://github.com/balupton) <b@lupton.cc> — [view contributions](https://github.com/bevry/cson/commits?author=balupton)
+- [evinugur](https://github.com/evinugur) — [view contributions](https://github.com/bevry/cson/commits?author=evinugur)
 - [jasonkarns](https://github.com/jasonkarns) — [view contributions](https://github.com/bevry/cson/commits?author=jasonkarns)
 - [Joel Perras](https://github.com/jperras) <joel.perras@gmail.com> — [view contributions](https://github.com/bevry/cson/commits?author=jperras)
 - [Linus G Thiel](https://github.com/linus) <linus@hanssonlarsson.se> — [view contributions](https://github.com/bevry/cson/commits?author=linus)
 - [Nicolae Claudius](https://github.com/clyfe) <claudius.nicolae@gmail.com> — [view contributions](https://github.com/bevry/cson/commits?author=clyfe)
+- [RobLoach](https://github.com/RobLoach) — [view contributions](https://github.com/bevry/cson/commits?author=RobLoach)
 - [Ryan LeFevre](https://github.com/meltingice) <meltingice8917@gmail.com> — [view contributions](https://github.com/bevry/cson/commits?author=meltingice)
+- [Zearin](https://github.com/Zearin) — [view contributions](https://github.com/bevry/cson/commits?author=Zearin)
 - [Zhang Cheng](https://github.com/zhangcheng) <czhang.oss@gmail.com> — [view contributions](https://github.com/bevry/cson/commits?author=zhangcheng)
 
-[Become a contributor!](https://github.com/bevry/cson/blob/master/CONTRIBUTING.md#contribute)
+[Become a contributor!](https://github.com/bevry/cson/blob/master/CONTRIBUTING.md#files)
 
 <!-- /BACKERS -->
 
