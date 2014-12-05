@@ -51,6 +51,6 @@ joe.describe 'async', (describe,it) ->
 				expect(actualCsonStr).to.equal(expectedCsonStr)
 
 	# Create Tests
-	testExtensions = ['cson','cson','cson','json','coffee','js','cson','cson']
+	testExtensions = ['cson','cson','cson','json','coffee','js','cson']
 	for testExtension,i in testExtensions
 		createTest(testExtension,i)

@@ -55,15 +55,16 @@
   },
   "dependencies": {
     "ambi": "^2.2.0",
-    "coffee-script": "~1.7.1",
+    "cson-safe": "^1.0.0",
     "extract-opts": "~2.2.0",
-    "js2coffee": "~0.3.1",
     "requirefresh": "~1.1.2"
   },
   "devDependencies": {
     "chai": "~1.9.0",
+    "coffee-script": "~1.7.1",
     "joe": "~1.5.0",
     "joe-reporter-console": "~1.2.1",
+    "js2coffee": "0.2.5",
     "projectz": "~0.3.15"
   },
   "directories": {
