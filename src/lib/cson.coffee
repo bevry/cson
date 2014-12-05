@@ -1,6 +1,5 @@
 # Requires
-coffee = require('coffee-script')
-js2coffee = require('js2coffee')
+Parser = require('cson-safe')
 fsUtil = require('fs')
 pathUtil = require('path')
 ambi = require('ambi')
@@ -104,26 +103,19 @@ CSON =
 
 
 	# Parse a CSON string Synchronously
-	parseSync: (src,opts) ->
-		# Prepare
-		opts or= {}
-		opts.sandbox ?= true
-		# ^ wraps execution of the CSON code in a node virtual machine
-		# http://nodejs.org/api/vm.html
-		# hiding away external data like the file system from the executed code
-
+	parseSync: (src) ->
 		# Try parse JSON
 		try
 			result = JSON.parse(src)
 
 		# Try parse CSON
 		catch err
-			try
-				# https://github.com/bevry/cson/blob/master/README.md#use-case
-				result = coffee.eval(src, opts)
-
-			catch err
-				result = err
+			result =
+				try
+					# https://github.com/bevry/cson/blob/master/README.md#use-case
+					Parser.parse src
+				catch err
+					err
 
 		# Return
 		return result
@@ -144,18 +136,11 @@ CSON =
 	# Turn an object into JSON/CSON Synchronously
 	stringifySync: (obj) ->
 		# Stringify
-		try
-			# js2coffee is a static parser
-			# The passed code is not execued, but simply converted
-			# The wrapping of `var result` is to simplify the extraction of the result data
-			src = "var result = #{JSON.stringify obj}"
-			result = js2coffee.build(src)
-			result = result.replace(/^\s*result\s*\=\s/,'')
-			if typeof obj is 'object'
-				unless Array.isArray(obj)
-					result = '{\n'+result+'\n}'  unless result is '{}'
-		catch err
-			result = err
+		result =
+			try
+				Parser.stringify obj, null, 2
+			catch err
+				err
 
 		# Return
 		return result
