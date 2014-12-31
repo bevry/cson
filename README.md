@@ -115,6 +115,7 @@ Which is far more lenient than JSON, way nicer to write and read, no need to quo
 	# Stringify an object to CSON
 	CSON.stringify data, (err,str) ->  # async
 	result = CSON.stringifySync(obj)  # sync
+	```
 
 
 - Via the command line (requires a global installation of CSON via `npm install -g cson`)
