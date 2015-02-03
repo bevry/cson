@@ -1,7 +1,5 @@
 # Requires
-coffee = require('coffee-script')
-js2coffee = require('js2coffee')
-fsUtil = require('fs')
+fsUtil = require('safefs')
 pathUtil = require('path')
 ambi = require('ambi')
 {extractOpts} = require('extract-opts')
@@ -11,154 +9,194 @@ require('coffee-script/register')
 # Awesomeness
 wait = (delay,fn) -> setTimeout(fn, delay)
 
-# Helpers
-isJsOrCoffee = (filePath) -> /\.(js|coffee)$/.test(filePath)
-isJsonOrCson = (filePath) -> /\.(json|cson)$/.test(filePath)
-
 # Define
 CSON =
-	# Parse a CSON file
-	# next(err, obj)
-	parseFile: (filePath,opts,next) ->
-		# Prepare
-		[opts, next] = extractOpts(opts, next)
-
-		# Resolve
-		filePath = pathUtil.resolve(filePath)
-
-		# Try require
-		if isJsOrCoffee(filePath)
-			requireFreshSafe(filePath, next)
-
-		# Try read
-		else if isJsonOrCson(filePath)
-			fsUtil.readFile filePath, (err,data) =>
-				# Check
-				return next(err)  if err
-
-				# Parse
-				dataStr = data.toString()
-				opts.filename = filePath
-				@parse(dataStr, opts, next)
-
-		# Unknown
-		else
-			err = new Error("CSON.parseFile: Unknown extension type for #{filePath}")
-			next(err)
-
-		# Chain
-		@
+	# Helpers
+	isJSON:   (filePath) -> /\.(json)$/.test(filePath)
+	isCSON:   (filePath) -> /\.(cson)$/.test(filePath)
+	isJS:     (filePath) -> /\.(js)$/.test(filePath)
+	isCS:     (filePath) -> /\.(coffee)$/.test(filePath)
+	isUnsafe: (filePath) -> /\.(js|coffee)$/.test(filePath)
+	isSafe:   (filePath) -> /\.(json|cson)$/.test(filePath)
 
 
-	# Parse a CSON file
-	parseFileSync: (filePath,opts) ->
-		# Prepare
-		opts or= {}
+	# ====================================
+	# Parsing Strings to Objects
 
-		# Resolve
-		filePath = pathUtil.resolve(filePath)
-
-		# Try require
-		if isJsOrCoffee(filePath)
-			try
-				result = requireFreshSafe(filePath)
-			catch err
-				result = err
-
-		# Try read
-		else if isJsonOrCson(filePath)
-			data = fsUtil.readFileSync(filePath)
-			opts.filename = filePath
-
-			# Check the result
-			if data instanceof Error
-				# An error occured
-				result = data
-			else
-				# Parse the result
-				dataStr = data.toString()
-				result = @parseSync(dataStr, opts)
-
-			# Return
-			return result
-
-		# Unknown
-		else
-			err = new Error("CSON.parseFileSync: Unknown extension type for #{filePath}")
+	parseJSON: (data, opts) ->
+		try
+			return JSON.parse(data)
+		catch err
 			return err
 
+	parseCSON: (data, opts) ->
+		try
+			return require('cson-safe').parse(data)
+		catch err
+			return err
 
-	# Parse a CSON string
-	# next(err,obj)
-	parse: (src,opts,next) ->
-		# Prepare
-		[opts, next] = extractOpts(opts, next)
-
-		# currently the parser only exists in a synchronous version
-		# so we use an instant timeout to simulate async code without any overhead
-		# we also use ambi to fire the synchronous function as an asychronous one
-		wait 0, => ambi(@parseSync, src, opts, next)
-
-		# Chain
-		@
-
-
-	# Parse a CSON string Synchronously
-	parseSync: (src,opts) ->
+	parseJS: (data, opts) ->
 		# Prepare
 		opts or= {}
 		opts.sandbox ?= true
-		# ^ wraps execution of the CSON code in a node virtual machine
-		# http://nodejs.org/api/vm.html
-		# hiding away external data like the file system from the executed code
+		opts.context ?= {}
+		opts.filename ?= null
 
-		# Try parse JSON
+		# Parse
 		try
-			result = JSON.parse(src)
-
-		# Try parse CSON
+			if opts.sandbox isnt false
+				return require('vm').runInNewContext(data, opts.context, opts.filename)
+			else
+				return eval(data)
 		catch err
-			try
-				# https://github.com/bevry/cson/blob/master/README.md#use-case
-				result = coffee.eval(src, opts)
+			return err
 
-			catch err
-				result = err
+	parseCS: (data, opts) ->
+		# Prepare
+		opts or= {}
+		opts.sandbox ?= true
 
-		# Return
-		return result
-
-
-	# Turn an object into CSON
-	# next(err,str)
-	stringify: (obj,next) ->
-		# currently the parser only exists in a synchronous version
-		# so we use an instant timeout to simulate async code without any overhead
-		# we also use ambi to fire the synchronous function as an asychronous one
-		wait 0, => ambi(@stringifySync, obj, next)
-
-		# Chain
-		@
+		# Parse
+		try
+			return require('coffee-script').eval(data, opts)
+		catch err
+			return err
 
 
-	# Turn an object into JSON/CSON Synchronously
-	stringifySync: (obj) ->
+	# ====================================
+	# Creating Strings from Objects
+
+	createJSON: (data, opts) ->
+		# Prepare
+		opts or= {}
+		opts.visitor ?= null
+		opts.indent ?= '  '
+
 		# Stringify
 		try
-			# js2coffee is a static parser
-			# The passed code is not execued, but simply converted
-			# The wrapping of `var result` is to simplify the extraction of the result data
-			src = "var result = #{JSON.stringify obj}"
-			result = js2coffee.build(src)
-			result = result.replace(/^\s*result\s*\=\s/,'')
-			if typeof obj is 'object'
-				unless Array.isArray(obj)
-					result = '{\n'+result+'\n}'  unless result is '{}'
+			return JSON.stringify(data, opts.visitor, opts.indent)
 		catch err
-			result = err
+			return err
 
-		# Return
-		return result
+	createCSON: (data, opts) ->
+		# Prepare
+		opts or= {}
+		opts.visitor ?= null
+		opts.indent ?= '\t'
+
+		# Stringify
+		try
+			return require('cson-safe').parse(data, opts.visitor, opts.indent)
+		catch err
+			return err
+
+	createCS: (data, opts) ->
+		return new Error('CSON.createCS: Creating CoffeeScript code is not yet supported')
+
+	createJS: (data, opts) ->
+		return new Error('CSON.createJS: Creating JavaScript code is not yet supported')
+
+
+	# ====================================
+	# Parsing Files to Objects
+
+	parseFile: (file, opts) ->
+		if @isJS(file)
+			if opts.safe is false
+				return @parseFileJS(file, opts)
+			else
+				return new Error('CSON.parseFile: Can only parse JavaScript files in Unsafe Mode')
+
+		else if @isCS(file)
+			if opts.safe is false
+				return @parseFileCS(file, opts)
+			else
+				return new Error('CSON.parseFile: Can only parse CoffeeScript files in Unsafe Mode')
+
+		else if @isJSON(file)
+			return @requireFileJSON(file, opts)
+
+		else if @isCSON(file)
+			return @requireFileCSON(file, opts)
+
+		else
+			return Error("CSON.parseFile: Unknown extension type for #{filePath}")
+
+	parseJSONFile: (file, opts) ->
+		result = fsUtil.readFileSync(file)
+		if result instanceof Error
+			return result
+		else
+			return @parseJS(result, opts)
+
+	parseCSONFile: (file, opts) ->
+		result = fsUtil.readFileSync(file)
+		if result instanceof Error
+			return result
+		else
+			return @parseCSON(result, opts)
+
+	parseJSFile: (file, opts) ->
+		result = fsUtil.readFileSync(file)
+		if result instanceof Error
+			return result
+		else
+			return @parseJS(result, opts)
+
+	parseCSFile: (file, opts) ->
+		result = fsUtil.readFileSync(file)
+		if result instanceof Error
+			return result
+		else
+			return @parseCS(result, opts)
+
+
+
+	# ====================================
+	# Requiring Files to Objects
+
+	requireFile: (file, opts) ->
+		if @isJSON(file)
+			return @requireFileJSON(file, opts)
+
+		else if @isCSON(file)
+			return @requireFileCSON(file, opts)
+
+		else if @isJS(file)
+			if opts.safe is false
+				return @requireFileJS(file, opts)
+			else
+				return new Error('CSON.requireFile: Can only require JavaScript files in Unsafe Mode')
+
+		else if @isCS(file)
+			if opts.safe is false
+				return @requireFileCS(file, opts)
+			else
+				return new Error('CSON.requireFile: Can only require CoffeeScript files in Unsafe Mode')
+
+		else
+			return Error("CSON.requireFile: Unknown extension type for #{filePath}")
+
+	requireFileJSON: (file, opts) ->
+		return @parseFileJSON(file, opts)
+
+	requireFileCSON: (file, opts) ->
+		return @parseFileCSON(file, opts)
+
+	requireFileJS: (file, opts) ->
+		try
+			return requireFreshSafe(file)
+		catch err
+			return err
+
+	requireFileCS: (file, opts) ->
+		require('coffee-script/register')
+		try
+			return requireFreshSafe(file)
+		catch err
+			return err
+
+
 
 
 # Export

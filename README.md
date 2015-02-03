@@ -78,43 +78,78 @@ Which is far more lenient than JSON, way nicer to write and read, no need to quo
 ## Using CSON
 
 
-- With Node.js in JavaScript
+- With Node.js (JavaScript Example)
 
 	``` javascript
 	// Include CSON
-	CSON = require('cson');
-
-	// Parse a file path
-	CSON.parseFile('data.cson', function(err,obj){});  // async
-	result = CSON.parseFileSync('data.cson');  // sync
-
-	// Parse a String
-	CSON.parse(src, function(err,obj){});  // async
-	result = CSON.parseSync(src);  // sync
-
-	// Stringify an object to CSON
-	CSON.stringify(obj, function(err,str){});  // async
-	result = CSON.stringifySync(obj);  // sync
-	```
+	var CSON = require('cson')
+	var result = null
+	var file = 'data.cson'
+	var source = '{a:b:1}'
+	var opts = {}
 
 
-- With Node.js in CoffeeScript
+	// -----------------------------------
+	// Parsing a CSON or JSON file to an Object
 
-	``` coffeescript
-	# Include CSON
-	CSON = require('cson')
+	// Asynchronously
+	CSON.parseFile(file, opts, function(err,result){
+		if ( err ) {
+			console.log(err.stack)
+		} else {
+			console.log(result)
+		}
+	})
 
-	# Parse a file path
-	CSON.parseFile 'data.cson', (err,obj) ->  # async
-	result = CSON.parseFileSync('data.cson')  # sync
+	// Synchronously
+	result = CSON.parseFileSync(file, opts)
+	if ( result instanceof Error ) {
+		console.log(result.stack)
+	} else {
+		console.log(result)
+	}
 
-	# Parse a string
-	CSON.parse src, (err,obj) ->  # async
-	result = CSON.parseSync(src)  # sync
 
-	# Stringify an object to CSON
-	CSON.stringify data, (err,str) ->  # async
-	result = CSON.stringifySync(obj)  # sync
+	// -----------------------------------
+	// Parsing CSON or JSON to an Object
+
+	// Asynchronously
+	CSON.parseFile(source, opts, function(err,result){
+		if ( err ) {
+			console.log(err.stack)
+		} else {
+			console.log(result)
+		}
+	})
+
+	// Synchronously
+	result = CSON.parseFileSync(source, opts)
+	if ( result instanceof Error ) {
+		console.log(result.stack)
+	} else {
+		console.log(result)
+	}
+
+
+	// -----------------------------------
+	// Stringify an Object to a CSON string
+
+	// Asynchronously
+	CSON.stringify(source, opts, function(err,result){
+		if ( err ) {
+			console.log(err.stack)
+		} else {
+			console.log(result)
+		}
+	})
+
+	// Synchronously
+	result = CSON.stringifySync(source, opts)
+	if ( result instanceof Error ) {
+		console.log(result.stack)
+	} else {
+		console.log(result)
+	}
 	```
 
 
@@ -129,9 +164,48 @@ Which is far more lenient than JSON, way nicer to write and read, no need to quo
 	```
 
 
-## Use Case
+## API
 
-CSON is fantastic for developers writing their own configuration to be executed on their own machines, but bad for configuration you can't trust. This is because parsing CSON will execute the CSON input as CoffeeScript code (making it unsafe, so `while true` would work) but it does so inside a [node virtual machine](http://nodejs.org/api/vm.html) for isolation (making it secure, so `require('fs')` won't work) resulting in the evaluated JavaScript object. This is a non-issue for the only use case which CSON actually makes sense for (developers writing their own configuration to be executed on their own machines). [Issue #32 has more information.](https://github.com/bevry/cson/issues/32)
+### Parsing Files
+
+- `CSON.parseFile(filepath, opts?, next)`
+	- `filepath` is a `cson` or `json` file that you would like to parse, if the `safe` option is `false`, then it will also parse `coffee` and `js` files
+	- `opts` is an optional object that is also sent to the parser if needed
+	- `next` the completion callback, accepts the arguments `(err, resultObject)`
+
+- `var resultObject = CSON.parseFile(filepath, opts?)`, same as above but synchronous
+
+
+### Parsing Source Code
+
+- `CSON.parse(source, opts?, next)`
+	- `source` is a JSON or CSON string that you would like to parse
+	- `opts` is an optional object that is also sent to the parser if needed
+	- `next` the completion callback, accepts the arguments `(err, resultObject)`
+
+- `var resultObjectOrError = CSON.parse(filepath, opts?)`, same as above but synchronous
+
+
+### Stringifying an Object
+
+- `CSON.stringify(object, opts?, next)`
+	- `object` is an object that you would like to convert to a CSON string
+	- `opts` is an optional object that is also sent to the parser if needed
+	- `next` the completion callback, accepts the arguments `(err, resultString)`
+
+- `var resultStringOrError = CSON.stringify(filepath, opts?)`, same as above but synchronous
+
+
+
+## Safe VS Unsafe
+
+There is a `safe` option that is `true` by default, that you can set to `false` to run in Unsafe Mode if desired.
+
+In the default Safe Mode, CSON parses CSON and JSON content securely and safely without execution. To do this, CSON uses the [cson-safe package](https://www.npmjs.com/package/cson-safe) for this.
+
+In Unsafe Mode, CSON parses CSON, CoffeeScript, and JS content securely but unsafely. Unsafe as in things like `while true` would work, secure as in things like `require('fs')` would not work. To do this, CSON uses the [coffee-script package](https://www.npmjs.com/package/coffee-script)'s eval function to parse, doing so within a [node virtual machine](http://nodejs.org/api/vm.html) for isolation.
+
+Unsafe mode also enables parsing of `js` and `coffee` files using `CSON.parseFile` and `CSON.parseFileSync`.
 
 
 

@@ -15,6 +15,7 @@ out/
 # Private Files
 .env
 .idea
+.cake_task_cache
 
 
 # =====================================

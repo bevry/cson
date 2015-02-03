@@ -1,5 +1,9 @@
 # History
 
+## v2.0.0 February 2, 2015
+- Updated dependencies
+- Now uses `cson-safe` by default, can use unsafe techniques via the `safe: false` flag
+
 ## v1.6.2 December 11, 2014
 - Updated dependencies
 

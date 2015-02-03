@@ -1,10 +1,9 @@
 {
-  filename: "6.js"
-  abc: [
-    "a"
-    "b"
-    "c"
+  'filename': '6.js'
+  'abc': [
+    'a'
+    'b'
+    'c'
   ]
-  a:
-    b: "c"
+  'a': 'b': 'c'
 }
