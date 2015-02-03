@@ -3,8 +3,8 @@ joe = require('joe')
 {expect} = require('chai')
 fsUtil = require('fs')
 CSON = require('../../')
-srcPath = __dirname+'/../../test/src'
-outPath = __dirname+'/../../test/out-expected'
+srcDirectoryPath = __dirname+'/../../test/src'
+outDirectoryPath = __dirname+'/../../test/out-expected'
 compare = (actual,expected) ->
 	if actual isnt expected
 		console.log('\nactual:\n'+actual)
@@ -21,9 +21,9 @@ joe.describe 'sync', (describe,it) ->
 		# Prepare
 		index = i+1
 		srcFilename = index+'.'+testExtension
-		srcCsonPath = srcPath+'/'+srcFilename
-		expectedJsonPath = outPath+'/'+index+'.json'
-		expectedCsonPath = outPath+'/'+index+'.cson'
+		srcPath = srcDirectoryPath+'/'+srcFilename
+		expectedJsonPath = outDirectoryPath+'/'+index+'.json'
+		expectedCsonPath = outDirectoryPath+'/'+index+'.cson'
 		obj = null
 		requiredObj = null
 		actualJsonStr = null
@@ -34,15 +34,27 @@ joe.describe 'sync', (describe,it) ->
 		# Test
 		describe srcFilename, (describe,it) ->
 			it "parse source file", (done) ->
-				obj = CSON.parseFileSync(srcCsonPath)
-				return done(obj)  if obj instanceof Error
-				done()
+				format = CSON.getFormat(srcPath)
+				if format in ['javascript', 'coffeescript']
+					obj = CSON.requireFile(srcPath)
+					expect(obj.message).to.contain('disabled')
+					obj = CSON.requireFile(srcPath, {javascript:true, coffeescript:true})
+				else
+					obj = CSON.requireFile(srcPath)
+
+				if obj instanceof Error
+					return done(obj)
+				else
+					return done()
 
 			it "grab conversions", (done) ->
-				actualJsonStr = JSON.stringify(obj)
-				actualCsonStr = CSON.stringifySync(obj)
-				return done(actualCsonStr)  if actualCsonStr instanceof Error
-				done()
+				actualJsonStr = JSON.stringify(obj, null, '  ')
+				actualCsonStr = CSON.stringify(obj, null, '\t')
+
+				if actualCsonStr instanceof Error
+					return done(actualCsonStr)
+				else
+					return done()
 
 			it "read expectations", ->
 				expectedJsonStr = fsUtil.readFileSync(expectedJsonPath).toString()

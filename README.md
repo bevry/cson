@@ -197,16 +197,17 @@ Which is far more lenient than JSON, way nicer to write and read, no need to quo
 
 
 
-## Safe VS Unsafe
+## Safe Mode VS Unsafe Mode
+
+By default CSON v2 and above operate in safe mode.
 
 There is a `safe` option that is `true` by default, that you can set to `false` to run in Unsafe Mode if desired.
 
-In the default Safe Mode, CSON parses CSON and JSON content securely and safely without execution. To do this, CSON uses the [cson-safe package](https://www.npmjs.com/package/cson-safe) for this.
+In the default Safe Mode, CSON parses CSON and JSON content securely and safely without execution. To do this, CSON loads the [cson-safe package](https://www.npmjs.com/package/cson-safe).
 
-In Unsafe Mode, CSON parses CSON, CoffeeScript, and JS content securely but unsafely. Unsafe as in things like `while true` would work, secure as in things like `require('fs')` would not work. To do this, CSON uses the [coffee-script package](https://www.npmjs.com/package/coffee-script)'s eval function to parse, doing so within a [node virtual machine](http://nodejs.org/api/vm.html) for isolation.
+In Unsafe Mode, CSON parses CSON, CoffeeScript, and JS content securely but unsafely. Unsafe as in things like `while true` would work, secure as in things like `require('fs')` would not work. To do the parsing, CSON loads the [coffee-script package](https://www.npmjs.com/package/coffee-script)'s eval function to parse, with the sandbox mode option enabled to that the parsing/execution occurs within a [node virtual machine](http://nodejs.org/api/vm.html) for isolation. To do the stringifying CSON loads the [js2coffee](https://www.npmjs.com/package/js2coffee) package to do a safe and secure conversion of an object to a unsafe CSON string (unsafe CSON string, as the result CSON string is able to contain functions).
 
-Unsafe mode also enables parsing of `js` and `coffee` files using `CSON.parseFile` and `CSON.parseFileSync`.
-
+For nearly all use cases the default safe mode is sufficient. However, if you are writing applications for developers where the CSON configuration writer is also the application developer and you would like the ability to have functions inside your configuration (such as specifying event handlers), then unsafe mode is an option. For instance, [DocPad](http://docpad.org/) the largest static site generator for Node.js uses CSON in unsafe mode for it's [configuration](https://docpad.org/docs/config) to allow its users (fellow web developers) to specify
 
 
 <!-- HISTORY/ -->

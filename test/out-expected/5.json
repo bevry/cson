@@ -1,1 +1,11 @@
-{"filename":"5.coffee","abc":["a","b","c"],"a":{"b":"c"}}
+{
+  "filename": "5.coffee",
+  "abc": [
+    "a",
+    "b",
+    "c"
+  ],
+  "a": {
+    "b": "c"
+  }
+}
