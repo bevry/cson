@@ -1,9 +1,12 @@
 {
+	# an array
 	abc: [
 		'a'
 		'b'
 		'c'
 	]
+
+	# an object
 	a:
 		b: 'c'
 }

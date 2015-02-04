@@ -94,7 +94,6 @@ CSON =
 		return @action('parseFile', 'parse', 'File', data, opts)
 
 	requireFile: (data, opts) ->
-		console.log {data, opts}
 		return @action('requireFile', 'require', 'File', data, opts)
 
 	# ====================================
@@ -177,7 +176,7 @@ CSON =
 
 	parseCS: (data, opts) ->
 		opts = @getOptions(opts)
-		opts.sandbox = true
+		opts.sandbox ?= true
 
 		# Parse
 		try

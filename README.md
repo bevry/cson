@@ -21,7 +21,7 @@
 <!-- /BADGES -->
 
 
-CoffeeScript-Object-Notation Parser. Same as JSON but for CoffeeScript objects.
+CoffeeScript-Object-Notation. Same as JSON but for CoffeeScript objects.
 
 [Projects using CSON.](https://www.npmjs.org/browse/depended/cson)
 
@@ -39,39 +39,71 @@ CoffeeScript-Object-Notation Parser. Same as JSON but for CoffeeScript objects.
 
 ## What is CSON?
 
-Everyone knows JSON, it's the thing that looks like this:
+Everyone knows JSON, it's the _ugly_ thing that looks like this:
 
 ``` javascript
 {
-	"abc": [
-		"a",
-		"b",
-		"c"
-	],
-	"a": {
-		"b": "c"
-	}
+  "greatDocumentaries": [
+    "earthlings.com",
+    "forksoverknives.com",
+    "cowspiracy.com"
+  ],
+  "importantFacts": {
+    "emissions": "Livestock and their byproducts account for at least 32,000 million tons of carbon dioxide (CO2) per year, or 51% of all worldwide greenhouse gas emissions.\nGoodland, R Anhang, J. “Livestock and Climate Change: What if the key actors in climate change were pigs, chickens and cows?”\nWorldWatch, November/December 2009. Worldwatch Institute, Washington, DC, USA. Pp. 10–19.\nhttp://www.worldwatch.org/node/6294",
+    "landuse": "Livestock covers 45% of the earth’s total land.\nThornton, Phillip, Mario Herrero, and Polly Ericksen. “Livestock and Climate Change.” Livestock Exchange, no. 3 (2011).\nhttps://cgspace.cgiar.org/bitstream/handle/10568/10601/IssueBrief3.pdf",
+    "burger": "One hamburger requires 660 gallons of water to produce – the equivalent of 2 months’ worth of showers.\nCatanese, Christina. “Virtual Water, Real Impacts.” Greenversations: Official Blog of the U.S. EPA. 2012.\nhttp://blog.epa.gov/healthywaters/2012/03/virtual-water-real-impacts-world-water-day-2012/\n“50 Ways to Save Your River.” Friends of the River.\nhttp://www.friendsoftheriver.org/site/PageServer?pagename=50ways",
+    "milk": "1,000 gallons of water are required to produce 1 gallon of milk.\n“Water trivia facts.” United States Environmental Protection Agency.\nhttp://water.epa.gov/learn/kids/drinkingwater/water_trivia_facts.cfm#_edn11",
+    "more": "http://cowspiracy.com/facts"
+  }
 }
 ```
 
-But with the invention of CoffeeScript you can also write the same thing in CSON which looks like this:
+Now let's write the same thing in CSON:
 
 ``` coffeescript
-{
-	# an array
-	abc: [
-		'a'
-		'b'
-		'c'
-	]
+# Look Ma! Comments!!!
 
-	# an object
-	a:
-		b: 'c'
-}
+# Look Ma! An Array with no commas!
+greatDocumentaries: [
+	'earthlings.com'
+	'forksoverknives.com'
+	'cowspiracy.com'
+]
+
+# Look Ma! An Object without braces!
+importantFacts:
+	# Look Ma! Multi-Line Strings! Without Quote Escaping!
+	emissions: '''
+		Livestock and their byproducts account for at least 32,000 million tons of carbon dioxide (CO2) per year, or 51% of all worldwide greenhouse gas emissions.
+		Goodland, R Anhang, J. “Livestock and Climate Change: What if the key actors in climate change were pigs, chickens and cows?”
+		WorldWatch, November/December 2009. Worldwatch Institute, Washington, DC, USA. Pp. 10–19.
+		http://www.worldwatch.org/node/6294
+		'''
+
+	landuse: '''
+		Livestock covers 45% of the earth’s total land.
+		Thornton, Phillip, Mario Herrero, and Polly Ericksen. “Livestock and Climate Change.” Livestock Exchange, no. 3 (2011).
+		https://cgspace.cgiar.org/bitstream/handle/10568/10601/IssueBrief3.pdf
+		'''
+
+	burger: '''
+		One hamburger requires 660 gallons of water to produce – the equivalent of 2 months’ worth of showers.
+		Catanese, Christina. “Virtual Water, Real Impacts.” Greenversations: Official Blog of the U.S. EPA. 2012.
+		http://blog.epa.gov/healthywaters/2012/03/virtual-water-real-impacts-world-water-day-2012/
+		“50 Ways to Save Your River.” Friends of the River.
+		http://www.friendsoftheriver.org/site/PageServer?pagename=50ways
+		'''
+
+	milk: '''
+		1,000 gallons of water are required to produce 1 gallon of milk.
+		“Water trivia facts.” United States Environmental Protection Agency.
+		http://water.epa.gov/learn/kids/drinkingwater/water_trivia_facts.cfm#_edn11
+		'''
+
+	more: 'http://cowspiracy.com/facts'
 ```
 
-Which is far more lenient than JSON, way nicer to write and read, no need to quote everything, has comments and readable multi-line strings, and won't fail if you forget a comma.
+That's far more lenient that JSON, way nicer to write and read, no need to quote and escape everything, has comments and readable multi-line strings, and won't fail if you forget a comma.
 
 
 
