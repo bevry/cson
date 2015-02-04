@@ -39,7 +39,7 @@ CoffeeScript-Object-Notation. Same as JSON but for CoffeeScript objects.
 
 ## What is CSON?
 
-Everyone knows JSON, it's the _ugly_ thing that looks like this:
+Everyone knows JSON, it's the thing that looks like this:
 
 ``` javascript
 {
