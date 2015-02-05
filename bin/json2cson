@@ -1,2 +1,2 @@
 #!/usr/bin/env node
-require(__dirname+'/../out/bin/json2cson');
+require(__dirname+'/../out/bin/cson-cli')
