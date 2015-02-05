@@ -103,143 +103,185 @@ importantFacts:
 	more: 'http://cowspiracy.com/facts'
 ```
 
-That's far more lenient that JSON, way nicer to write and read, no need to quote and escape everything, has comments and readable multi-line strings, and won't fail if you forget a comma.
+Which is far more lenient that JSON, way nicer to write and read, no need to quote and escape everything, has comments and readable multi-line strings, and won't fail if you forget a comma.
 
 
 
 ## Using CSON
 
+### CLI
 
-- With Node.js (JavaScript Example)
+Use CSON on the command line by installing CSON globally `npm install -g cson` then with:
 
-	``` javascript
-	// Include CSON
-	var CSON = require('cson')
-	var result = null
-	var file = 'data.cson'
-	var source = '{a:b:1}'
-	var opts = {}
+``` bash
+# Convert a JSON file into a CSON file
+json2cson in.json > out.cson
+# Same thing via piping
+cat in.json | json2cson > out.cson
 
+# Convert a CSON file into a JSON file
+cson2json in.cson > out.json
+# Same thing via piping
+cat in.cson | cson2json > out.json
+```
 
-	// -----------------------------------
-	// Parsing a CSON or JSON file to an Object
+### Code
 
-	// Asynchronously
-	CSON.parseFile(file, opts, function(err,result){
-		if ( err ) {
-			console.log(err.stack)
-		} else {
-			console.log(result)
-		}
-	})
+``` javascript
+// Prepare
+var CSON = require('cson')
+var result = null
 
-	// Synchronously
-	result = CSON.parseFileSync(file, opts)
-	if ( result instanceof Error ) {
-		console.log(result.stack)
-	} else {
-		console.log(result)
-	}
+// Create a CSON string
+result = CSON.stringify(object)
+if ( result instanceof Error ) {
+	console.log(result.stack)
+} else {
+	console.log(result)
+}
 
+// Parse a CSON string
+result = CSON.parse(object)
+if ( result instanceof Error ) {
+	console.log(result.stack)
+} else {
+	console.log(result)
+}
 
-	// -----------------------------------
-	// Parsing CSON or JSON to an Object
+// Load a CSON file
+result = CSON.load(filePath)
+if ( result instanceof Error ) {
+	console.log(result.stack)
+} else {
+	console.log(result)
+}
 
-	// Asynchronously
-	CSON.parseFile(source, opts, function(err,result){
-		if ( err ) {
-			console.log(err.stack)
-		} else {
-			console.log(result)
-		}
-	})
+// Require a configuration file
+result = CSON.requireFile(filePath, {
+	cson: true, // support CSON files (default is true)
+	json: true, // support JSON files (default is true)
+	coffeescript: false, // support CSON files (default is false)
+	javascript: false // support CSON files (default is false)
+})
+if ( result instanceof Error ) {
+	console.log(result.stack)
+} else {
+	console.log(result)
+}
 
-	// Synchronously
-	result = CSON.parseFileSync(source, opts)
-	if ( result instanceof Error ) {
-		console.log(result.stack)
-	} else {
-		console.log(result)
-	}
+// Parse/Load a configuration file
+result = CSON.parseFile(filePath, {
+	cson: true, // support CSON files (default is true)
+	json: true, // support JSON files (default is true)
+	coffeescript: false, // support CSON files (default is false)
+	javascript: false // support CSON files (default is false)
+})
+if ( result instanceof Error ) {
+	console.log(result.stack)
+} else {
+	console.log(result)
+}
+```
 
-
-	// -----------------------------------
-	// Stringify an Object to a CSON string
-
-	// Asynchronously
-	CSON.stringify(source, opts, function(err,result){
-		if ( err ) {
-			console.log(err.stack)
-		} else {
-			console.log(result)
-		}
-	})
-
-	// Synchronously
-	result = CSON.stringifySync(source, opts)
-	if ( result instanceof Error ) {
-		console.log(result.stack)
-	} else {
-		console.log(result)
-	}
-	```
-
-
-- Via the command line (requires a global installation of CSON via `npm install -g cson`)
-
-	``` bash
-	# JSON file to CSON String
-	json2cson filePath > out.cson
-
-	# CSON file to JSON String
-	cson2json filePath > out.json
-	```
+### API
 
 
-## API
+#### Create Strings
 
-### Parsing Files
+- <a href='http://rawgit.com/bevry/cson/master/docs/classes/CSON.html#stringify-instance'>
+String ::<strong>stringify</strong>(data, opts)
+</a> <br/> Converts an <a href='https://developer.mozilla.org/en-US/docs/JavaScript/Reference/Global_Objects/Object'>Object</a> into a <a href='https://developer.mozilla.org/en-US/docs/JavaScript/Reference/Global_Objects/String'>String</a> of the desired format If the format option is not specified, we default to CSON
 
-- `CSON.parseFile(filepath, opts?, next)`
-	- `filepath` is a `cson` or `json` file that you would like to parse, if the `safe` option is `false`, then it will also parse `coffee` and `js` files
-	- `opts` is an optional object that is also sent to the parser if needed
-	- `next` the completion callback, accepts the arguments `(err, resultObject)`
+- <a href='http://rawgit.com/bevry/cson/master/docs/classes/CSON.html#createString-instance'>
+String ::<strong>createString</strong>(data, opts)
+</a> <br/> Converts an <a href='https://developer.mozilla.org/en-US/docs/JavaScript/Reference/Global_Objects/Object'>Object</a> into a <a href='https://developer.mozilla.org/en-US/docs/JavaScript/Reference/Global_Objects/String'>String</a> of the desired format If the format option is not specified, we default to CSON
 
-- `var resultObject = CSON.parseFile(filepath, opts?)`, same as above but synchronous
+- <a href='http://rawgit.com/bevry/cson/master/docs/classes/CSON.html#createCSONString-instance'>
+String ::<strong>createCSONString</strong>(data, opts)
+</a> <br/> Converts an <a href='https://developer.mozilla.org/en-US/docs/JavaScript/Reference/Global_Objects/Object'>Object</a> into a CSON <a href='https://developer.mozilla.org/en-US/docs/JavaScript/Reference/Global_Objects/String'>String</a>
 
-
-### Parsing Source Code
-
-- `CSON.parse(source, opts?, next)`
-	- `source` is a JSON or CSON string that you would like to parse
-	- `opts` is an optional object that is also sent to the parser if needed
-	- `next` the completion callback, accepts the arguments `(err, resultObject)`
-
-- `var resultObjectOrError = CSON.parse(filepath, opts?)`, same as above but synchronous
+- <a href='http://rawgit.com/bevry/cson/master/docs/classes/CSON.html#createJSONString-instance'>
+String ::<strong>createJSONString</strong>(data, opts)
+</a> <br/> Converts an <a href='https://developer.mozilla.org/en-US/docs/JavaScript/Reference/Global_Objects/Object'>Object</a> into a JSON <a href='https://developer.mozilla.org/en-US/docs/JavaScript/Reference/Global_Objects/String'>String</a>
 
 
-### Stringifying an Object
+### Parse Strings
 
-- `CSON.stringify(object, opts?, next)`
-	- `object` is an object that you would like to convert to a CSON string
-	- `opts` is an optional object that is also sent to the parser if needed
-	- `next` the completion callback, accepts the arguments `(err, resultString)`
+- <a href='http://rawgit.com/bevry/cson/master/docs/classes/CSON.html#parse-instance'>
+Object ::<strong>parse</strong>(data, opts)
+</a> <br/> Converts a <a href='https://developer.mozilla.org/en-US/docs/JavaScript/Reference/Global_Objects/String'>String</a> of the desired format into an <a href='https://developer.mozilla.org/en-US/docs/JavaScript/Reference/Global_Objects/Object'>Object</a> If the format option is not specified, we default to CSON
 
-- `var resultStringOrError = CSON.stringify(filepath, opts?)`, same as above but synchronous
+- <a href='http://rawgit.com/bevry/cson/master/docs/classes/CSON.html#parseString-instance'>
+Object ::<strong>parseString</strong>(data, opts)
+</a> <br/> Converts a <a href='https://developer.mozilla.org/en-US/docs/JavaScript/Reference/Global_Objects/String'>String</a> of the desired format into an <a href='https://developer.mozilla.org/en-US/docs/JavaScript/Reference/Global_Objects/Object'>Object</a> If the format option is not specified, we default to CSON
 
+- <a href='http://rawgit.com/bevry/cson/master/docs/classes/CSON.html#parseCSONString-instance'>
+Object ::<strong>parseCSONString</strong>(data, opts)
+</a> <br/> Parses a CSON <a href='https://developer.mozilla.org/en-US/docs/JavaScript/Reference/Global_Objects/String'>String</a> into an <a href='https://developer.mozilla.org/en-US/docs/JavaScript/Reference/Global_Objects/Object'>Object</a>
 
+- <a href='http://rawgit.com/bevry/cson/master/docs/classes/CSON.html#parseJSONString-instance'>
+Object ::<strong>parseJSONString</strong>(data, opts)
+</a> <br/> Parses a JSON <a href='https://developer.mozilla.org/en-US/docs/JavaScript/Reference/Global_Objects/String'>String</a> into an <a href='https://developer.mozilla.org/en-US/docs/JavaScript/Reference/Global_Objects/Object'>Object</a>
 
-## Safe Mode VS Unsafe Mode
+- <a href='http://rawgit.com/bevry/cson/master/docs/classes/CSON.html#parseCSString-instance'>
+Object ::<strong>parseCSString</strong>(data, opts)
+</a> <br/> Parses a CoffeeScript <a href='https://developer.mozilla.org/en-US/docs/JavaScript/Reference/Global_Objects/String'>String</a> into an <a href='https://developer.mozilla.org/en-US/docs/JavaScript/Reference/Global_Objects/Object'>Object</a>
 
-By default CSON v2 and above operate in safe mode.
+- <a href='http://rawgit.com/bevry/cson/master/docs/classes/CSON.html#parseJSString-instance'>
+Object ::<strong>parseJSString</strong>(data, opts)
+</a> <br/> Parses a JavaScript <a href='https://developer.mozilla.org/en-US/docs/JavaScript/Reference/Global_Objects/String'>String</a> into an <a href='https://developer.mozilla.org/en-US/docs/JavaScript/Reference/Global_Objects/Object'>Object</a>
 
-There is a `safe` option that is `true` by default, that you can set to `false` to run in Unsafe Mode if desired.
+#### Parse Files
 
-In the default Safe Mode, CSON parses CSON and JSON content securely and safely without execution. To do this, CSON loads the [cson-safe package](https://www.npmjs.com/package/cson-safe).
+- <a href='http://rawgit.com/bevry/cson/master/docs/classes/CSON.html#load-instance'>
+Object ::<strong>load</strong>(data, opts)
+</a> <br/> Parses a file path of the desired format into an <a href='https://developer.mozilla.org/en-US/docs/JavaScript/Reference/Global_Objects/Object'>Object</a> If the format option is not specified, we use the filename to detect what it should be, otherwise we default to CSON
 
-In Unsafe Mode, CSON parses CSON, CoffeeScript, and JS content securely but unsafely. Unsafe as in things like `while true` would work, secure as in things like `require('fs')` would not work. To do the parsing, CSON loads the [coffee-script package](https://www.npmjs.com/package/coffee-script)'s eval function to parse, with the sandbox mode option enabled to that the parsing/execution occurs within a [node virtual machine](http://nodejs.org/api/vm.html) for isolation. To do the stringifying CSON loads the [js2coffee](https://www.npmjs.com/package/js2coffee) package to do a safe and secure conversion of an object to a unsafe CSON string (unsafe CSON string, as the result CSON string is able to contain functions).
+- <a href='http://rawgit.com/bevry/cson/master/docs/classes/CSON.html#parseFile-instance'>
+Object ::<strong>parseFile</strong>(data, opts)
+</a> <br/> Parses a file path of the desired format into an <a href='https://developer.mozilla.org/en-US/docs/JavaScript/Reference/Global_Objects/Object'>Object</a> If the format option is not specified, we use the filename to detect what it should be, otherwise we default to CSON
 
-For nearly all use cases the default safe mode is sufficient. However, if you are writing applications for developers where the CSON configuration writer is also the application developer and you would like the ability to have functions inside your configuration (such as specifying event handlers), then unsafe mode is an option. For instance, [DocPad](http://docpad.org/) the largest static site generator for Node.js uses CSON in unsafe mode for it's [configuration](https://docpad.org/docs/config) to allow its users (fellow web developers) to specify
+- <a href='http://rawgit.com/bevry/cson/master/docs/classes/CSON.html#parseCSONFile-instance'>
+Object ::<strong>parseCSONFile</strong>(file, opts)
+</a> <br/> Parses a CSON file into an <a href='https://developer.mozilla.org/en-US/docs/JavaScript/Reference/Global_Objects/Object'>Object</a>
+
+- <a href='http://rawgit.com/bevry/cson/master/docs/classes/CSON.html#parseJSONFile-instance'>
+Object ::<strong>parseJSONFile</strong>(file, opts)
+</a> <br/> Parses a JSON file into an <a href='https://developer.mozilla.org/en-US/docs/JavaScript/Reference/Global_Objects/Object'>Object</a>
+
+- <a href='http://rawgit.com/bevry/cson/master/docs/classes/CSON.html#parseCSFile-instance'>
+Object ::<strong>parseCSFile</strong>(file, opts)
+</a> <br/> Parses a CoffeeScript file into an <a href='https://developer.mozilla.org/en-US/docs/JavaScript/Reference/Global_Objects/Object'>Object</a>
+
+- <a href='http://rawgit.com/bevry/cson/master/docs/classes/CSON.html#parseJSFile-instance'>
+Object ::<strong>parseJSFile</strong>(file, opts)
+</a> <br/> Parses a JAvaScript file into an <a href='https://developer.mozilla.org/en-US/docs/JavaScript/Reference/Global_Objects/Object'>Object</a>
+
+### Require Files
+
+- <a href='http://rawgit.com/bevry/cson/master/docs/classes/CSON.html#require-instance'>
+Object ::<strong>require</strong>(data, opts)
+</a> <br/> Requires or parses a file path of the desired format into an <a href='https://developer.mozilla.org/en-US/docs/JavaScript/Reference/Global_Objects/Object'>Object</a> If the format option is not specified, we use the filename to detect what it should be, otherwise we default to CSON
+
+- <a href='http://rawgit.com/bevry/cson/master/docs/classes/CSON.html#requireFile-instance'>
+Object ::<strong>requireFile</strong>(data, opts)
+</a> <br/> Requires or parses a file path of the desired format into an <a href='https://developer.mozilla.org/en-US/docs/JavaScript/Reference/Global_Objects/Object'>Object</a> If the format option is not specified, we use the filename to detect what it should be, otherwise we default to CSON
+
+- <a href='http://rawgit.com/bevry/cson/master/docs/classes/CSON.html#requireCSONFile-instance'>
+Object ::<strong>requireCSONFile</strong>(file, opts)
+</a> <br/> Parses a CSON file into an <a href='https://developer.mozilla.org/en-US/docs/JavaScript/Reference/Global_Objects/Object'>Object</a>
+
+- <a href='http://rawgit.com/bevry/cson/master/docs/classes/CSON.html#requireJSONFile-instance'>
+Object ::<strong>requireJSONFile</strong>(file, opts)
+</a> <br/> Parses a JSON file into an <a href='https://developer.mozilla.org/en-US/docs/JavaScript/Reference/Global_Objects/Object'>Object</a>
+
+- <a href='http://rawgit.com/bevry/cson/master/docs/classes/CSON.html#requireCSFile-instance'>
+Object ::<strong>requireCSFile</strong>(file, opts)
+</a> <br/> Requires a CoffeeScript file and returns the result <a href='https://developer.mozilla.org/en-US/docs/JavaScript/Reference/Global_Objects/Object'>Object</a>
+
+- <a href='http://rawgit.com/bevry/cson/master/docs/classes/CSON.html#requireJSFile-instance'>
+Object ::<strong>requireJSFile</strong>(file, opts)
+</a> <br/> Requires a JavaScript file and returns the result <a href='https://developer.mozilla.org/en-US/docs/JavaScript/Reference/Global_Objects/Object'>Object</a>
 
 
 <!-- HISTORY/ -->
