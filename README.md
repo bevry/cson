@@ -25,6 +25,8 @@ CoffeeScript-Object-Notation. Same as JSON but for CoffeeScript objects.
 
 [Projects using CSON.](https://www.npmjs.org/browse/depended/cson)
 
+[Projects using CSON Parser directly.](https://www.npmjs.org/browse/depended/cson-parser)
+
 
 <!-- INSTALL/ -->
 
@@ -109,9 +111,9 @@ Which is far more lenient that JSON, way nicer to write and read, no need to quo
 
 ## Using CSON
 
-### CLI
+### Via the Command Line
 
-Use CSON on the command line by installing CSON globally `npm install -g cson` then with:
+Use CSON with the command line with:
 
 ``` bash
 # Convert a JSON file into a CSON file
@@ -125,7 +127,10 @@ cson2json in.cson > out.json
 cat in.cson | cson2json > out.json
 ```
 
-### Code
+Requires a global CSON install: `npm install -g cson`
+
+
+### Via Code
 
 ``` javascript
 // Prepare
@@ -183,7 +188,7 @@ if ( result instanceof Error ) {
 }
 ```
 
-### API
+### The API
 
 
 #### Create Strings
