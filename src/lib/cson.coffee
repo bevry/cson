@@ -1,16 +1,18 @@
-# Requires
+# Imports
 fsUtil = require('safefs')
 pathUtil = require('path')
 {requireFreshSafe} = require('requirefresh')
 
-# Awesomeness
-wait = (delay,fn) -> setTimeout(fn, delay)
-
-# Define
-CSON =
+# Public: The exported CSON singleton
+class CSON
 	# ====================================
 	# Helpers
 
+	# Internal: Fills in any missing options for use in our methods
+	#
+	# opts - {Object} The options to prepare
+	#
+	# Returns the same opts {Object} that we received
 	getOptions: (opts={}) ->
 		opts.format ?= null
 		opts.filename ?= null
@@ -25,6 +27,11 @@ CSON =
 
 		return opts
 
+	# Internal: Gets the format for a file name or path
+	#
+	# file - {String} to get the format for
+	#
+	# Returns the determined format as a {String} ("json", "cson", "coffeescript", or "javascript", or null)
 	getFormat: (file) ->
 		return switch pathUtil.extname(file)
 			when '.json'
@@ -35,15 +42,92 @@ CSON =
 				'coffeescript'
 			when '.js'
 				'javascript'
+			else
+				null
 
 
 	# ====================================
 	# Bundles
 
+	# Public: {Delegates to: .createString}
 	stringify: (data, opts) ->
-		opts = @getOptions(opts)
-		return @createCSON(data, opts)
+		return @createString(data, opts)
 
+	# Public: {Delegates to: .parseString}
+	parse: (data, opts) ->
+		return @parseString(data, opts)
+
+	# Public: {Delegates to: .parseFile}
+	load: (data, opts) ->
+		return @parseFile(data, opts)
+
+	# Public: {Delegates to: .requireFile}
+	require: (data, opts) ->
+		return @requireFile(data, opts)
+
+	# Public: Converts an {Object} into a {String} of the desired format
+	#
+	# If the format option is not specified, we default to CSON
+	#
+	# data - {Object} The data to convert
+	# opts - {Object} The options (options may also be forwarded onto the parser library)
+	#        :format - {String} The format to use: "cson" (default), "json", "coffeescript", or "javascript"
+	#        :cson - {Boolean} Whether or not the CSON format should be allowed (defaults to `true`)
+	#        :json - {Boolean} Whether or not the JSON format should be allowed (defaults to `true`)
+	#
+	# Returns {String} or {Error}
+	createString: (data, opts) ->
+		return @action('createString', 'create', 'String', data, opts)
+
+	# Public: Converts a {String} of the desired format into an {Object}
+	#
+	# If the format option is not specified, we default to CSON
+	#
+	# data - {String} The string to parse
+	# opts - {Object} The options (options may also be forwarded onto the parser library)
+	#        :format - {String} The format to use: "cson" (default), "json", "coffeescript", or "javascript"
+	#        :cson - {Boolean} Whether or not the CSON format should be allowed (defaults to `true`)
+	#        :json - {Boolean} Whether or not the JSON format should be allowed (defaults to `true`)
+	#        :coffeescript - {Boolean} Whether or not the CoffeeScript format should be allowed (defaults to `false`)
+	#        :json - {Boolean} Whether or not the CoffeeScript format should be allowed (defaults to `json`)
+	#
+	# Returns {Object} or {Error}
+	parseString: (data, opts) ->
+		return @action('parseString', 'parse', 'String', data, opts)
+
+	# Public: Parses a file path of the desired format into an {Object}
+	#
+	# If the format option is not specified, we use the filename to detect what it should be, otherwise we default to CSON
+	#
+	# data - {String} The file path to parse
+	# opts - {Object} The options (options may also be forwarded onto the parser library)
+	#        :format - {String} The format to use: "cson" (default), "json", "coffeescript", or "javascript"
+	#        :cson - {Boolean} Whether or not the CSON format should be allowed (defaults to `true`)
+	#        :json - {Boolean} Whether or not the JSON format should be allowed (defaults to `true`)
+	#        :coffeescript - {Boolean} Whether or not the CoffeeScript format should be allowed (defaults to `false`)
+	#        :json - {Boolean} Whether or not the CoffeeScript format should be allowed (defaults to `json`)
+	#
+	# Returns {Object} or {Error}
+	parseFile: (data, opts) ->
+		return @action('parseFile', 'parse', 'File', data, opts)
+
+	# Public: Requires or parses a file path of the desired format into an {Object}
+	#
+	# If the format option is not specified, we use the filename to detect what it should be, otherwise we default to CSON
+	#
+	# data - {String} The file path to require or parse
+	# opts - {Object} The options (options may also be forwarded onto the parser library)
+	#        :format - {String} The format to use: "cson" (default), "json", "coffeescript", or "javascript"
+	#        :cson - {Boolean} Whether or not the CSON format should be allowed (defaults to `true`)
+	#        :json - {Boolean} Whether or not the JSON format should be allowed (defaults to `true`)
+	#        :coffeescript - {Boolean} Whether or not the CoffeeScript format should be allowed (defaults to `false`)
+	#        :json - {Boolean} Whether or not the CoffeeScript format should be allowed (defaults to `json`)
+	#
+	# Returns {Object} or {Error}
+	requireFile: (data, opts) ->
+		return @action('requireFile', 'require', 'File', data, opts)
+
+	# Internal: Helper for {::createString}, {::parseString}, {::parseFile}, {::requireFile}
 	action: (action, prefix, suffix='', data, opts={}) ->
 		# Prepare options
 		switch action
@@ -84,22 +168,18 @@ CSON =
 		else
 			return new Error("CSON.#{action}: Desired format is not supported")
 
-	create: (data, opts) ->
-		return @action('create', 'create', '', data, opts)
-
-	parse: (data, opts) ->
-		return @action('parse', 'parse', '', data, opts)
-
-	parseFile: (data, opts) ->
-		return @action('parseFile', 'parse', 'File', data, opts)
-
-	requireFile: (data, opts) ->
-		return @action('requireFile', 'require', 'File', data, opts)
-
 	# ====================================
 	# Creating Strings from Objects
 
-	createJSON: (data, opts) ->
+	# Public: Converts an {Object} into a JSON {String}
+	#
+	# data - {Object} The data to convert
+	# opts - {Object} The options (options may also be forwarded onto the parser library)
+	#        :visitor - {Boolean} The visitor option for `JSON.stringify` (defaults to `null`)
+	#        :indent - {Boolean} The indent option for `JSON.stringify` (defaults to two spaces `  `)
+	#
+	# Returns {String} or {Error}
+	createJSONString: (data, opts) ->
 		opts = @getOptions(opts)
 		opts.visitor ?= null
 		opts.indent ?= '  '
@@ -110,7 +190,15 @@ CSON =
 		catch err
 			return new Error(err)
 
-	createCSON: (data, opts) ->
+	# Public: Converts an {Object} into a CSON {String}
+	#
+	# data - {Object} The data to convert
+	# opts - {Object} The options (options may also be forwarded onto the parser library)
+	#        :visitor - {Boolean} The visitor option for `require('cson-safe').stringify` (defaults to `null`)
+	#        :indent - {Boolean} The indent option for `require('cson-safe').stringify` (defaults to a single tab `'\t'`)
+	#
+	# Returns {String} or {Error}
+	createCSONString: (data, opts) ->
 		opts = @getOptions(opts)
 		opts.visitor ?= null
 		opts.indent ?= '\t'
@@ -121,7 +209,8 @@ CSON =
 		catch err
 			return new Error(err)
 
-	createCS: (data, opts) ->
+	# Private: Not yet supported
+	createCSString: (data, opts) ->
 		return new Error('CSON.createCS: Creating CoffeeScript code is not yet supported')
 		###
 		Potentially we could use something like the following from CSON v1
@@ -145,26 +234,47 @@ CSON =
 		###
 
 
-	createJS: (data, opts) ->
+	# Private: Not yet supported
+	createJSString: (data, opts) ->
 		return new Error('CSON.createJS: Creating JavaScript code is not yet supported')
 
 
 	# ====================================
 	# Parsing Strings to Objects
 
-	parseJSON: (data, opts) ->
+	# Public: Parses a JSON {String} into an {Object}
+	#
+	# data - The JSON {String} to parse
+	# opts - {Object} The options, unused
+	#
+	# Returns {Object} or {Error}
+	parseJSONString: (data, opts) ->
 		try
 			return JSON.parse(data)
 		catch err
 			return new Error(err)
 
-	parseCSON: (data, opts) ->
+	# Public: Parses a CSON {String} into an {Object}
+	#
+	# data - The CSON {String} to parse
+	# opts - {Object} The options, unused
+	#
+	# Returns {Object} or {Error}
+	parseCSONString: (data, opts) ->
 		try
 			return require('cson-safe').parse(data)
 		catch err
 			return new Error(err)
 
-	parseJS: (data, opts) ->
+	# Public: Parses a JavaScript {String} into an {Object}
+	#
+	# data - The JavaScript {String} to parse
+	# opts - {Object} The options
+	#        :content - {Object} The context option that is used in `require('vm').runInNewContext`, defaults to an empty object `{}`
+	#        :filename - {Object} The filename option that is used in `require('vm').runInNewContext`, defaults to the filename if specified
+	#
+	# Returns {Object} or {Error}
+	parseJSString: (data, opts) ->
 		opts = @getOptions(opts)
 		opts.context ?= {}
 
@@ -174,7 +284,13 @@ CSON =
 		catch err
 			return new Error(err)
 
-	parseCS: (data, opts) ->
+	# Public: Parses a CoffeeScript {String} into an {Object}
+	#
+	# data - The CoffeeScript {String} to parse
+	# opts - {Object} The options, forwarded onto `require('coffee-scriot').eval`
+	#
+	# Returns {Object} or {Error}
+	parseCSString: (data, opts) ->
 		opts = @getOptions(opts)
 		opts.sandbox ?= true
 
@@ -188,51 +304,89 @@ CSON =
 	# ====================================
 	# Parsing Files to Objects
 
+	# Public: Parses a JSON file into an {Object}
+	#
+	# data - {String} The file path to parse
+	# opts - {Object} The options, forwarded onto {::parseJSONString}
+	#
+	# Returns {Object} or {Error}
 	parseJSONFile: (file, opts) ->
 		result = fsUtil.readFileSync(file)
 		if result instanceof Error
 			return result
 		else
-			return @parseJSON(result.toString(), opts)
+			return @parseJSONString(result.toString(), opts)
 
+	# Public: Parses a CSON file into an {Object}
+	#
+	# data - {String} The file path to parse
+	# opts - {Object} The options, forwarded onto {::parseCSONString}
+	#
+	# Returns {Object} or {Error}
 	parseCSONFile: (file, opts) ->
 		result = fsUtil.readFileSync(file)
 		if result instanceof Error
 			return result
 		else
-			return @parseCSON(result.toString(), opts)
+			return @parseCSONString(result.toString(), opts)
 
+	# Public: Parses a JAvaScript file into an {Object}
+	#
+	# data - {String} The file path to parse
+	# opts - {Object} The options, forwarded onto {::parseJSString}
+	#
+	# Returns {Object} or {Error}
 	parseJSFile: (file, opts) ->
 		result = fsUtil.readFileSync(file)
 		if result instanceof Error
 			return result
 		else
-			return @parseJS(result.toString(), opts)
+			return @parseJSString(result.toString(), opts)
 
+	# Public: Parses a CoffeeScript file into an {Object}
+	#
+	# data - {String} The file path to parse
+	# opts - {Object} The options, forwarded onto {::parseCSString}
+	#
+	# Returns {Object} or {Error}
 	parseCSFile: (file, opts) ->
 		result = fsUtil.readFileSync(file)
 		if result instanceof Error
 			return result
 		else
-			return @parseCS(result.toString(), opts)
+			return @parseCSString(result.toString(), opts)
 
 
 
 	# ====================================
 	# Requiring Files to Objects
 
+	# Public: {Delegates to: .parseJSONFile}
 	requireJSONFile: (file, opts) ->
 		return @parseJSONFile(file, opts)
 
+	# Public: {Delegates to: .parseCSONFile}
 	requireCSONFile: (file, opts) ->
 		return @parseCSONFile(file, opts)
 
+	# Public: Requires a JavaScript file and returns the result {Object}
+	#
+	# data - {String} The file path to require
+	# opts - {Object} The options, unused
+	#
+	# Returns {Object} or {Error}
 	requireJSFile: (file, opts) ->
 		try
 			return requireFreshSafe(file)
 		catch err
 			return err
 
+	# Public: Requires a CoffeeScript file and returns the result {Object}
+	#
+	# data - {String} The file path to require
+	# opts - {Object} The options, unused
+	#
+	# Returns {Object} or {Error}
 	requireCSFile: (file, opts) ->
 		require('coffee-script/register')
 		try
@@ -242,4 +396,4 @@ CSON =
 
 
 # Export
-module.exports = CSON
+module.exports = new CSON()

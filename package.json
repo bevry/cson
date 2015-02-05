@@ -38,6 +38,7 @@
     "jasonkarns (https://github.com/jasonkarns)",
     "Joel Perras <joel.perras@gmail.com> (https://github.com/jperras)",
     "Linus G Thiel <linus@hanssonlarsson.se> (https://github.com/linus)",
+    "nanuclickity (https://github.com/nanuclickity)",
     "Nicolae Claudius <claudius.nicolae@gmail.com> (https://github.com/clyfe)",
     "RobLoach (https://github.com/RobLoach)",
     "Ryan LeFevre <meltingice8917@gmail.com> (https://github.com/meltingice)",
@@ -57,10 +58,11 @@
   "dependencies": {
     "coffee-script": "~1.9.0",
     "cson-parser": "^1.0.6",
-    "requirefresh": "~1.1.2",
+    "requirefresh": "^1.1.2",
     "safefs": "^3.1.2"
   },
   "devDependencies": {
+    "biscotto": "^2.3.1",
     "chai": "~1.10.0",
     "joe": "~1.6.0",
     "joe-reporter-console": "~1.2.1",
@@ -79,6 +81,7 @@
   },
   "main": "./out/lib/cson",
   "cakeConfiguration": {
-    "COFFEE_SRC_PATH": "src"
+    "COFFEE_SRC_PATH": "src",
+    "BISCOTTO_SRC_PATH": "src"
   }
 }
