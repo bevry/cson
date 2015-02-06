@@ -126,7 +126,7 @@
 <a href="http://flattr.com/thing/344188/balupton-on-Flattr" title="Donate monthly to this project using Flattr"><img src="https://img.shields.io/badge/flattr-donate-yellow.svg" alt="Flattr donate button"></a>
 <a href="https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&amp;hosted_button_id=QB8GQPZAH84N6" title="Donate once-off to this project using Paypal"><img src="https://img.shields.io/badge/paypal-donate-yellow.svg" alt="PayPayl donate button"></a>
 <a href="https://coinbase.com/checkouts/9ef59f5479eec1d97d63382c9ebcb93a" title="Donate once-off to this project using BitCoin"><img src="https://img.shields.io/badge/bitcoin-donate-yellow.svg" alt="BitCoin donate button"></a>
-<a href="http://amzn.com/w/2F8TXKSNAFG4V" title="Buy an item on our wishlist for us"><img src="https://img.shields.io/badge/wishlist-donate-yellow.svg" alt="Wishlist browse button"></a></p><!-- /BADGES --><p>CoffeeScript-Object-Notation. Same as JSON but for CoffeeScript objects.</p><p><a href="https://www.npmjs.org/browse/depended/cson">Projects using CSON.</a></p><!-- INSTALL/ -->
+<a href="http://amzn.com/w/2F8TXKSNAFG4V" title="Buy an item on our wishlist for us"><img src="https://img.shields.io/badge/wishlist-donate-yellow.svg" alt="Wishlist browse button"></a></p><!-- /BADGES --><p>CoffeeScript-Object-Notation. Same as JSON but for CoffeeScript objects.</p><p><a href="https://www.npmjs.org/browse/depended/cson">Projects using CSON.</a></p><p><a href="https://www.npmjs.org/browse/depended/cson-parser">Projects using CSON Parser directly.</a></p><!-- INSTALL/ -->
 <h2 id="install">Install</h2>
 <h3 id="-npm-http-npmjs-org-"><a href="http://npmjs.org/">NPM</a></h3>
 <ul>
@@ -188,126 +188,157 @@ importantFacts:
         &#39;&#39;&#39;
 
     more: &#39;http://cowspiracy.com/facts&#39;
-</code></pre><p>That&#39;s far more lenient that JSON, way nicer to write and read, no need to quote and escape everything, has comments and readable multi-line strings, and won&#39;t fail if you forget a comma.</p><h2 id="using-cson">Using CSON</h2>
-<ul>
-<li><p>With Node.js (JavaScript Example)</p><p>  ``` javascript
-  // Include CSON
-  var CSON = require(&#39;cson&#39;)
-  var result = null
-  var file = &#39;data.cson&#39;
-  var source = &#39;{a:b:1}&#39;
-  var opts = {}</p></li>
-</ul>
-<pre><code>// -----------------------------------
-// Parsing a CSON or JSON file to an Object
+</code></pre><p>Which is far more lenient that JSON, way nicer to write and read, no need to quote and escape everything, has comments and readable multi-line strings, and won&#39;t fail if you forget a comma.</p><h2 id="using-cson">Using CSON</h2>
+<h3 id="via-the-command-line">Via the Command Line</h3><p>Use CSON with the command line with:</p><pre><code class="lang-bash"># Convert a JSON file into a CSON file
+json2cson in.json &gt; out.cson
+# Same thing via piping
+cat in.json | json2cson &gt; out.cson
 
-// Asynchronously
-CSON.parseFile(file, opts, function(err,result){
-    if ( err ) {
-        console.log(err.stack)
-    } else {
-        console.log(result)
-    }
-})
+# Convert a CSON file into a JSON file
+cson2json in.cson &gt; out.json
+# Same thing via piping
+cat in.cson | cson2json &gt; out.json
+</code></pre><p>Requires a global CSON install: <code>npm install -g cson</code></p><h3 id="via-code">Via Code</h3>
+<pre><code class="lang-javascript">// Prepare
+var CSON = require(&#39;cson&#39;)
+var result = null
 
-// Synchronously
-result = CSON.parseFileSync(file, opts)
+// Create a CSON string
+result = CSON.stringify(object)
 if ( result instanceof Error ) {
     console.log(result.stack)
 } else {
     console.log(result)
 }
 
-
-// -----------------------------------
-// Parsing CSON or JSON to an Object
-
-// Asynchronously
-CSON.parseFile(source, opts, function(err,result){
-    if ( err ) {
-        console.log(err.stack)
-    } else {
-        console.log(result)
-    }
-})
-
-// Synchronously
-result = CSON.parseFileSync(source, opts)
+// Parse a CSON string
+result = CSON.parse(object)
 if ( result instanceof Error ) {
     console.log(result.stack)
 } else {
     console.log(result)
 }
 
-
-// -----------------------------------
-// Stringify an Object to a CSON string
-
-// Asynchronously
-CSON.stringify(source, opts, function(err,result){
-    if ( err ) {
-        console.log(err.stack)
-    } else {
-        console.log(result)
-    }
-})
-
-// Synchronously
-result = CSON.stringifySync(source, opts)
+// Load a CSON file
+result = CSON.load(filePath)
 if ( result instanceof Error ) {
     console.log(result.stack)
 } else {
     console.log(result)
 }
-```
-</code></pre><ul>
-<li><p>Via the command line (requires a global installation of CSON via <code>npm install -g cson</code>)</p><pre><code class="lang-bash">  # JSON file to CSON String
-  json2cson filePath &gt; out.cson
 
-  # CSON file to JSON String
-  cson2json filePath &gt; out.json
+// Require a configuration file
+result = CSON.requireFile(filePath, {
+    cson: true, // support CSON files (default is true)
+    json: true, // support JSON files (default is true)
+    coffeescript: false, // support CSON files (default is false)
+    javascript: false // support CSON files (default is false)
+})
+if ( result instanceof Error ) {
+    console.log(result.stack)
+} else {
+    console.log(result)
+}
+
+// Parse/Load a configuration file
+result = CSON.parseFile(filePath, {
+    cson: true, // support CSON files (default is true)
+    json: true, // support JSON files (default is true)
+    coffeescript: false, // support CSON files (default is false)
+    javascript: false // support CSON files (default is false)
+})
+if ( result instanceof Error ) {
+    console.log(result.stack)
+} else {
+    console.log(result)
+}
 </code></pre>
-</li>
-</ul>
-<h2 id="api">API</h2>
-<h3 id="parsing-files">Parsing Files</h3>
+<h3 id="the-api">The API</h3><p>Click the function names for more details on how the specific function operates including the options it supports.</p><h4 id="create-strings">Create Strings</h4>
 <ul>
-<li><p><code>CSON.parseFile(filepath, opts?, next)</code></p><ul>
-<li><code>filepath</code> is a <code>cson</code> or <code>json</code> file that you would like to parse, if the <code>safe</code> option is <code>false</code>, then it will also parse <code>coffee</code> and <code>js</code> files</li>
-<li><code>opts</code> is an optional object that is also sent to the parser if needed</li>
-<li><code>next</code> the completion callback, accepts the arguments <code>(err, resultObject)</code></li>
+<li><p><a href='http://rawgit.com/bevry/cson/master/docs/classes/CSON.html#stringify-instance'>
+String ::<strong>stringify</strong>(data, opts)
+</a> <br/> Converts an <a href='https://developer.mozilla.org/en-US/docs/JavaScript/Reference/Global_Objects/Object'>Object</a> into a <a href='https://developer.mozilla.org/en-US/docs/JavaScript/Reference/Global_Objects/String'>String</a> of the desired format If the format option is not specified, we default to CSON</p></li>
+<li><p><a href='http://rawgit.com/bevry/cson/master/docs/classes/CSON.html#createString-instance'>
+String ::<strong>createString</strong>(data, opts)
+</a> <br/> Converts an <a href='https://developer.mozilla.org/en-US/docs/JavaScript/Reference/Global_Objects/Object'>Object</a> into a <a href='https://developer.mozilla.org/en-US/docs/JavaScript/Reference/Global_Objects/String'>String</a> of the desired format If the format option is not specified, we default to CSON</p></li>
+<li><p><a href='http://rawgit.com/bevry/cson/master/docs/classes/CSON.html#createCSONString-instance'>
+String ::<strong>createCSONString</strong>(data, opts)
+</a> <br/> Converts an <a href='https://developer.mozilla.org/en-US/docs/JavaScript/Reference/Global_Objects/Object'>Object</a> into a CSON <a href='https://developer.mozilla.org/en-US/docs/JavaScript/Reference/Global_Objects/String'>String</a></p></li>
+<li><p><a href='http://rawgit.com/bevry/cson/master/docs/classes/CSON.html#createJSONString-instance'>
+String ::<strong>createJSONString</strong>(data, opts)
+</a> <br/> Converts an <a href='https://developer.mozilla.org/en-US/docs/JavaScript/Reference/Global_Objects/Object'>Object</a> into a JSON <a href='https://developer.mozilla.org/en-US/docs/JavaScript/Reference/Global_Objects/String'>String</a></p></li>
 </ul>
-</li>
-<li><p><code>var resultObject = CSON.parseFile(filepath, opts?)</code>, same as above but synchronous</p></li>
-</ul>
-<h3 id="parsing-source-code">Parsing Source Code</h3>
+<h3 id="parse-strings">Parse Strings</h3>
 <ul>
-<li><p><code>CSON.parse(source, opts?, next)</code></p><ul>
-<li><code>source</code> is a JSON or CSON string that you would like to parse</li>
-<li><code>opts</code> is an optional object that is also sent to the parser if needed</li>
-<li><code>next</code> the completion callback, accepts the arguments <code>(err, resultObject)</code></li>
+<li><p><a href='http://rawgit.com/bevry/cson/master/docs/classes/CSON.html#parse-instance'>
+Object ::<strong>parse</strong>(data, opts)
+</a> <br/> Converts a <a href='https://developer.mozilla.org/en-US/docs/JavaScript/Reference/Global_Objects/String'>String</a> of the desired format into an <a href='https://developer.mozilla.org/en-US/docs/JavaScript/Reference/Global_Objects/Object'>Object</a> If the format option is not specified, we default to CSON</p></li>
+<li><p><a href='http://rawgit.com/bevry/cson/master/docs/classes/CSON.html#parseString-instance'>
+Object ::<strong>parseString</strong>(data, opts)
+</a> <br/> Converts a <a href='https://developer.mozilla.org/en-US/docs/JavaScript/Reference/Global_Objects/String'>String</a> of the desired format into an <a href='https://developer.mozilla.org/en-US/docs/JavaScript/Reference/Global_Objects/Object'>Object</a> If the format option is not specified, we default to CSON</p></li>
+<li><p><a href='http://rawgit.com/bevry/cson/master/docs/classes/CSON.html#parseCSONString-instance'>
+Object ::<strong>parseCSONString</strong>(data, opts)
+</a> <br/> Parses a CSON <a href='https://developer.mozilla.org/en-US/docs/JavaScript/Reference/Global_Objects/String'>String</a> into an <a href='https://developer.mozilla.org/en-US/docs/JavaScript/Reference/Global_Objects/Object'>Object</a></p></li>
+<li><p><a href='http://rawgit.com/bevry/cson/master/docs/classes/CSON.html#parseJSONString-instance'>
+Object ::<strong>parseJSONString</strong>(data, opts)
+</a> <br/> Parses a JSON <a href='https://developer.mozilla.org/en-US/docs/JavaScript/Reference/Global_Objects/String'>String</a> into an <a href='https://developer.mozilla.org/en-US/docs/JavaScript/Reference/Global_Objects/Object'>Object</a></p></li>
+<li><p><a href='http://rawgit.com/bevry/cson/master/docs/classes/CSON.html#parseCSString-instance'>
+Object ::<strong>parseCSString</strong>(data, opts)
+</a> <br/> Parses a CoffeeScript <a href='https://developer.mozilla.org/en-US/docs/JavaScript/Reference/Global_Objects/String'>String</a> into an <a href='https://developer.mozilla.org/en-US/docs/JavaScript/Reference/Global_Objects/Object'>Object</a></p></li>
+<li><p><a href='http://rawgit.com/bevry/cson/master/docs/classes/CSON.html#parseJSString-instance'>
+Object ::<strong>parseJSString</strong>(data, opts)
+</a> <br/> Parses a JavaScript <a href='https://developer.mozilla.org/en-US/docs/JavaScript/Reference/Global_Objects/String'>String</a> into an <a href='https://developer.mozilla.org/en-US/docs/JavaScript/Reference/Global_Objects/Object'>Object</a></p></li>
 </ul>
-</li>
-<li><p><code>var resultObjectOrError = CSON.parse(filepath, opts?)</code>, same as above but synchronous</p></li>
-</ul>
-<h3 id="stringifying-an-object">Stringifying an Object</h3>
+<h4 id="parse-files">Parse Files</h4>
 <ul>
-<li><p><code>CSON.stringify(object, opts?, next)</code></p><ul>
-<li><code>object</code> is an object that you would like to convert to a CSON string</li>
-<li><code>opts</code> is an optional object that is also sent to the parser if needed</li>
-<li><code>next</code> the completion callback, accepts the arguments <code>(err, resultString)</code></li>
+<li><p><a href='http://rawgit.com/bevry/cson/master/docs/classes/CSON.html#load-instance'>
+Object ::<strong>load</strong>(data, opts)
+</a> <br/> Parses a file path of the desired format into an <a href='https://developer.mozilla.org/en-US/docs/JavaScript/Reference/Global_Objects/Object'>Object</a> If the format option is not specified, we use the filename to detect what it should be, otherwise we default to CSON</p></li>
+<li><p><a href='http://rawgit.com/bevry/cson/master/docs/classes/CSON.html#parseFile-instance'>
+Object ::<strong>parseFile</strong>(data, opts)
+</a> <br/> Parses a file path of the desired format into an <a href='https://developer.mozilla.org/en-US/docs/JavaScript/Reference/Global_Objects/Object'>Object</a> If the format option is not specified, we use the filename to detect what it should be, otherwise we default to CSON</p></li>
+<li><p><a href='http://rawgit.com/bevry/cson/master/docs/classes/CSON.html#parseCSONFile-instance'>
+Object ::<strong>parseCSONFile</strong>(file, opts)
+</a> <br/> Parses a CSON file into an <a href='https://developer.mozilla.org/en-US/docs/JavaScript/Reference/Global_Objects/Object'>Object</a></p></li>
+<li><p><a href='http://rawgit.com/bevry/cson/master/docs/classes/CSON.html#parseJSONFile-instance'>
+Object ::<strong>parseJSONFile</strong>(file, opts)
+</a> <br/> Parses a JSON file into an <a href='https://developer.mozilla.org/en-US/docs/JavaScript/Reference/Global_Objects/Object'>Object</a></p></li>
+<li><p><a href='http://rawgit.com/bevry/cson/master/docs/classes/CSON.html#parseCSFile-instance'>
+Object ::<strong>parseCSFile</strong>(file, opts)
+</a> <br/> Parses a CoffeeScript file into an <a href='https://developer.mozilla.org/en-US/docs/JavaScript/Reference/Global_Objects/Object'>Object</a></p></li>
+<li><p><a href='http://rawgit.com/bevry/cson/master/docs/classes/CSON.html#parseJSFile-instance'>
+Object ::<strong>parseJSFile</strong>(file, opts)
+</a> <br/> Parses a JAvaScript file into an <a href='https://developer.mozilla.org/en-US/docs/JavaScript/Reference/Global_Objects/Object'>Object</a></p></li>
 </ul>
-</li>
-<li><p><code>var resultStringOrError = CSON.stringify(filepath, opts?)</code>, same as above but synchronous</p></li>
+<h3 id="require-files">Require Files</h3>
+<ul>
+<li><p><a href='http://rawgit.com/bevry/cson/master/docs/classes/CSON.html#require-instance'>
+Object ::<strong>require</strong>(data, opts)
+</a> <br/> Requires or parses a file path of the desired format into an <a href='https://developer.mozilla.org/en-US/docs/JavaScript/Reference/Global_Objects/Object'>Object</a> If the format option is not specified, we use the filename to detect what it should be, otherwise we default to CSON</p></li>
+<li><p><a href='http://rawgit.com/bevry/cson/master/docs/classes/CSON.html#requireFile-instance'>
+Object ::<strong>requireFile</strong>(data, opts)
+</a> <br/> Requires or parses a file path of the desired format into an <a href='https://developer.mozilla.org/en-US/docs/JavaScript/Reference/Global_Objects/Object'>Object</a> If the format option is not specified, we use the filename to detect what it should be, otherwise we default to CSON</p></li>
+<li><p><a href='http://rawgit.com/bevry/cson/master/docs/classes/CSON.html#requireCSONFile-instance'>
+Object ::<strong>requireCSONFile</strong>(file, opts)
+</a> <br/> Parses a CSON file into an <a href='https://developer.mozilla.org/en-US/docs/JavaScript/Reference/Global_Objects/Object'>Object</a></p></li>
+<li><p><a href='http://rawgit.com/bevry/cson/master/docs/classes/CSON.html#requireJSONFile-instance'>
+Object ::<strong>requireJSONFile</strong>(file, opts)
+</a> <br/> Parses a JSON file into an <a href='https://developer.mozilla.org/en-US/docs/JavaScript/Reference/Global_Objects/Object'>Object</a></p></li>
+<li><p><a href='http://rawgit.com/bevry/cson/master/docs/classes/CSON.html#requireCSFile-instance'>
+Object ::<strong>requireCSFile</strong>(file, opts)
+</a> <br/> Requires a CoffeeScript file and returns the result <a href='https://developer.mozilla.org/en-US/docs/JavaScript/Reference/Global_Objects/Object'>Object</a></p></li>
+<li><p><a href='http://rawgit.com/bevry/cson/master/docs/classes/CSON.html#requireJSFile-instance'>
+Object ::<strong>requireJSFile</strong>(file, opts)
+</a> <br/> Requires a JavaScript file and returns the result <a href='https://developer.mozilla.org/en-US/docs/JavaScript/Reference/Global_Objects/Object'>Object</a></p></li>
 </ul>
-<h2 id="safe-mode-vs-unsafe-mode">Safe Mode VS Unsafe Mode</h2><p>By default CSON v2 and above operate in safe mode.</p><p>There is a <code>safe</code> option that is <code>true</code> by default, that you can set to <code>false</code> to run in Unsafe Mode if desired.</p><p>In the default Safe Mode, CSON parses CSON and JSON content securely and safely without execution. To do this, CSON loads the <a href="https://www.npmjs.com/package/cson-safe">cson-safe package</a>.</p><p>In Unsafe Mode, CSON parses CSON, CoffeeScript, and JS content securely but unsafely. Unsafe as in things like <code>while true</code> would work, secure as in things like <code>require(&#39;fs&#39;)</code> would not work. To do the parsing, CSON loads the <a href="https://www.npmjs.com/package/coffee-script">coffee-script package</a>&#39;s eval function to parse, with the sandbox mode option enabled to that the parsing/execution occurs within a <a href="http://nodejs.org/api/vm.html">node virtual machine</a> for isolation. To do the stringifying CSON loads the <a href="https://www.npmjs.com/package/js2coffee">js2coffee</a> package to do a safe and secure conversion of an object to a unsafe CSON string (unsafe CSON string, as the result CSON string is able to contain functions).</p><p>For nearly all use cases the default safe mode is sufficient. However, if you are writing applications for developers where the CSON configuration writer is also the application developer and you would like the ability to have functions inside your configuration (such as specifying event handlers), then unsafe mode is an option. For instance, <a href="http://docpad.org/">DocPad</a> the largest static site generator for Node.js uses CSON in unsafe mode for it&#39;s <a href="https://docpad.org/docs/config">configuration</a> to allow its users (fellow web developers) to specify</p><!-- HISTORY/ -->
+<!-- HISTORY/ -->
 <h2 id="history">History</h2><p><a href="https://github.com/bevry/cson/blob/master/HISTORY.md#files">Discover the change history by heading on over to the <code>HISTORY.md</code> file.</a></p><!-- /HISTORY -->
 <!-- CONTRIBUTE/ -->
 <h2 id="contribute">Contribute</h2><p><a href="https://github.com/bevry/cson/blob/master/CONTRIBUTING.md#files">Discover how you can contribute by heading on over to the <code>CONTRIBUTING.md</code> file.</a></p><!-- /CONTRIBUTE -->
 <!-- BACKERS/ -->
 <h2 id="backers">Backers</h2>
 <h3 id="maintainers">Maintainers</h3><p>These amazing people are maintaining this project:</p><ul>
-<li>Benjamin Lupton <a href="&#x6d;&#x61;&#x69;&#108;&#116;&#x6f;&#58;&#98;&#x40;&#108;&#x75;&#112;&#116;&#111;&#110;&#46;&#x63;&#x63;">&#98;&#x40;&#108;&#x75;&#112;&#116;&#111;&#110;&#46;&#x63;&#x63;</a> (<a href="https://github.com/balupton">https://github.com/balupton</a>)</li>
+<li>Benjamin Lupton <a href="&#109;&#x61;&#105;&#x6c;&#x74;&#111;&#x3a;&#x62;&#x40;&#108;&#117;&#112;&#116;&#111;&#x6e;&#x2e;&#x63;&#99;">&#x62;&#x40;&#108;&#117;&#112;&#116;&#111;&#x6e;&#x2e;&#x63;&#99;</a> (<a href="https://github.com/balupton">https://github.com/balupton</a>)</li>
 </ul>
 <h3 id="sponsors">Sponsors</h3><p>No sponsors yet! Will you be the first?</p><p><a href="https://www.gratipay.com/bevry/" title="Donate weekly to this project using Gratipay"><img src="https://img.shields.io/gratipay/bevry.svg" alt="Gratipay donate button"></a>
 <a href="http://flattr.com/thing/344188/balupton-on-Flattr" title="Donate monthly to this project using Flattr"><img src="https://img.shields.io/badge/flattr-donate-yellow.svg" alt="Flattr donate button"></a>
@@ -315,27 +346,27 @@ if ( result instanceof Error ) {
 <a href="https://coinbase.com/checkouts/9ef59f5479eec1d97d63382c9ebcb93a" title="Donate once-off to this project using BitCoin"><img src="https://img.shields.io/badge/bitcoin-donate-yellow.svg" alt="BitCoin donate button"></a>
 <a href="http://amzn.com/w/2F8TXKSNAFG4V" title="Buy an item on our wishlist for us"><img src="https://img.shields.io/badge/wishlist-donate-yellow.svg" alt="Wishlist browse button"></a></p><h3 id="contributors">Contributors</h3><p>These amazing people have contributed code to this project:</p><ul>
 <li><a href="https://github.com/attilaolah">attilaolah</a> — <a href="https://github.com/bevry/cson/commits?author=attilaolah">view contributions</a></li>
-<li><a href="https://github.com/balupton">Benjamin Lupton</a> <a href="&#x6d;&#97;&#105;&#108;&#116;&#111;&#58;&#98;&#x40;&#x6c;&#x75;&#112;&#116;&#111;&#110;&#x2e;&#99;&#99;">&#98;&#x40;&#x6c;&#x75;&#112;&#116;&#111;&#110;&#x2e;&#99;&#99;</a> — <a href="https://github.com/bevry/cson/commits?author=balupton">view contributions</a></li>
+<li><a href="https://github.com/balupton">Benjamin Lupton</a> <a href="&#x6d;&#x61;&#105;&#x6c;&#x74;&#x6f;&#58;&#x62;&#x40;&#x6c;&#x75;&#112;&#116;&#x6f;&#x6e;&#x2e;&#99;&#x63;">&#x62;&#x40;&#x6c;&#x75;&#112;&#116;&#x6f;&#x6e;&#x2e;&#99;&#x63;</a> — <a href="https://github.com/bevry/cson/commits?author=balupton">view contributions</a></li>
 <li><a href="https://github.com/evinugur">evinugur</a> — <a href="https://github.com/bevry/cson/commits?author=evinugur">view contributions</a></li>
 <li><a href="https://github.com/jasonkarns">jasonkarns</a> — <a href="https://github.com/bevry/cson/commits?author=jasonkarns">view contributions</a></li>
-<li><a href="https://github.com/jperras">Joel Perras</a> <a href="&#109;&#97;&#x69;&#x6c;&#x74;&#111;&#x3a;&#x6a;&#x6f;&#x65;&#108;&#x2e;&#112;&#x65;&#x72;&#x72;&#x61;&#115;&#64;&#103;&#x6d;&#97;&#x69;&#x6c;&#x2e;&#99;&#111;&#109;">&#x6a;&#x6f;&#x65;&#108;&#x2e;&#112;&#x65;&#x72;&#x72;&#x61;&#115;&#64;&#103;&#x6d;&#97;&#x69;&#x6c;&#x2e;&#99;&#111;&#109;</a> — <a href="https://github.com/bevry/cson/commits?author=jperras">view contributions</a></li>
-<li><a href="https://github.com/linus">Linus G Thiel</a> <a href="&#x6d;&#97;&#x69;&#108;&#x74;&#x6f;&#58;&#x6c;&#105;&#110;&#117;&#x73;&#x40;&#104;&#97;&#x6e;&#115;&#x73;&#x6f;&#x6e;&#x6c;&#97;&#x72;&#115;&#115;&#x6f;&#110;&#x2e;&#115;&#x65;">&#x6c;&#105;&#110;&#117;&#x73;&#x40;&#104;&#97;&#x6e;&#115;&#x73;&#x6f;&#x6e;&#x6c;&#97;&#x72;&#115;&#115;&#x6f;&#110;&#x2e;&#115;&#x65;</a> — <a href="https://github.com/bevry/cson/commits?author=linus">view contributions</a></li>
+<li><a href="https://github.com/jperras">Joel Perras</a> <a href="&#x6d;&#97;&#105;&#x6c;&#x74;&#x6f;&#58;&#106;&#x6f;&#x65;&#x6c;&#46;&#112;&#x65;&#114;&#114;&#97;&#x73;&#x40;&#x67;&#109;&#x61;&#x69;&#108;&#x2e;&#99;&#111;&#x6d;">&#106;&#x6f;&#x65;&#x6c;&#46;&#112;&#x65;&#114;&#114;&#97;&#x73;&#x40;&#x67;&#109;&#x61;&#x69;&#108;&#x2e;&#99;&#111;&#x6d;</a> — <a href="https://github.com/bevry/cson/commits?author=jperras">view contributions</a></li>
+<li><a href="https://github.com/linus">Linus G Thiel</a> <a href="&#x6d;&#97;&#105;&#108;&#116;&#x6f;&#58;&#108;&#105;&#x6e;&#x75;&#115;&#64;&#x68;&#97;&#x6e;&#115;&#x73;&#x6f;&#x6e;&#108;&#97;&#114;&#115;&#x73;&#x6f;&#x6e;&#46;&#x73;&#101;">&#108;&#105;&#x6e;&#x75;&#115;&#64;&#x68;&#97;&#x6e;&#115;&#x73;&#x6f;&#x6e;&#108;&#97;&#114;&#115;&#x73;&#x6f;&#x6e;&#46;&#x73;&#101;</a> — <a href="https://github.com/bevry/cson/commits?author=linus">view contributions</a></li>
 <li><a href="https://github.com/nanuclickity">nanuclickity</a> — <a href="https://github.com/bevry/cson/commits?author=nanuclickity">view contributions</a></li>
-<li><a href="https://github.com/clyfe">Nicolae Claudius</a> <a href="&#x6d;&#97;&#105;&#x6c;&#x74;&#111;&#58;&#99;&#x6c;&#x61;&#x75;&#x64;&#x69;&#x75;&#115;&#x2e;&#110;&#105;&#x63;&#111;&#x6c;&#97;&#x65;&#64;&#x67;&#x6d;&#x61;&#x69;&#108;&#x2e;&#99;&#111;&#109;">&#99;&#x6c;&#x61;&#x75;&#x64;&#x69;&#x75;&#115;&#x2e;&#110;&#105;&#x63;&#111;&#x6c;&#97;&#x65;&#64;&#x67;&#x6d;&#x61;&#x69;&#108;&#x2e;&#99;&#111;&#109;</a> — <a href="https://github.com/bevry/cson/commits?author=clyfe">view contributions</a></li>
+<li><a href="https://github.com/clyfe">Nicolae Claudius</a> <a href="&#109;&#97;&#x69;&#108;&#116;&#x6f;&#x3a;&#x63;&#108;&#97;&#x75;&#x64;&#105;&#117;&#115;&#x2e;&#x6e;&#105;&#99;&#111;&#x6c;&#x61;&#x65;&#64;&#x67;&#x6d;&#x61;&#x69;&#108;&#x2e;&#99;&#111;&#x6d;">&#x63;&#108;&#97;&#x75;&#x64;&#105;&#117;&#115;&#x2e;&#x6e;&#105;&#99;&#111;&#x6c;&#x61;&#x65;&#64;&#x67;&#x6d;&#x61;&#x69;&#108;&#x2e;&#99;&#111;&#x6d;</a> — <a href="https://github.com/bevry/cson/commits?author=clyfe">view contributions</a></li>
 <li><a href="https://github.com/RobLoach">RobLoach</a> — <a href="https://github.com/bevry/cson/commits?author=RobLoach">view contributions</a></li>
-<li><a href="https://github.com/meltingice">Ryan LeFevre</a> <a href="&#109;&#x61;&#x69;&#x6c;&#x74;&#x6f;&#58;&#x6d;&#x65;&#x6c;&#116;&#x69;&#110;&#103;&#x69;&#99;&#x65;&#56;&#x39;&#x31;&#55;&#64;&#x67;&#109;&#97;&#x69;&#108;&#46;&#99;&#111;&#109;">&#x6d;&#x65;&#x6c;&#116;&#x69;&#110;&#103;&#x69;&#99;&#x65;&#56;&#x39;&#x31;&#55;&#64;&#x67;&#109;&#97;&#x69;&#108;&#46;&#99;&#111;&#109;</a> — <a href="https://github.com/bevry/cson/commits?author=meltingice">view contributions</a></li>
+<li><a href="https://github.com/meltingice">Ryan LeFevre</a> <a href="&#x6d;&#97;&#105;&#x6c;&#x74;&#x6f;&#x3a;&#109;&#101;&#x6c;&#x74;&#105;&#110;&#103;&#x69;&#x63;&#x65;&#56;&#57;&#49;&#x37;&#64;&#x67;&#109;&#97;&#105;&#108;&#46;&#x63;&#x6f;&#x6d;">&#109;&#101;&#x6c;&#x74;&#105;&#110;&#103;&#x69;&#x63;&#x65;&#56;&#57;&#49;&#x37;&#64;&#x67;&#109;&#97;&#105;&#108;&#46;&#x63;&#x6f;&#x6d;</a> — <a href="https://github.com/bevry/cson/commits?author=meltingice">view contributions</a></li>
 <li><a href="https://github.com/Zearin">Zearin</a> — <a href="https://github.com/bevry/cson/commits?author=Zearin">view contributions</a></li>
-<li><a href="https://github.com/zhangcheng">Zhang Cheng</a> <a href="&#109;&#97;&#x69;&#108;&#x74;&#x6f;&#x3a;&#x63;&#122;&#104;&#x61;&#x6e;&#x67;&#x2e;&#x6f;&#115;&#115;&#x40;&#103;&#109;&#x61;&#105;&#108;&#46;&#x63;&#111;&#109;">&#x63;&#122;&#104;&#x61;&#x6e;&#x67;&#x2e;&#x6f;&#115;&#115;&#x40;&#103;&#109;&#x61;&#105;&#108;&#46;&#x63;&#111;&#109;</a> — <a href="https://github.com/bevry/cson/commits?author=zhangcheng">view contributions</a></li>
+<li><a href="https://github.com/zhangcheng">Zhang Cheng</a> <a href="&#109;&#97;&#105;&#108;&#116;&#111;&#x3a;&#x63;&#x7a;&#104;&#97;&#110;&#103;&#x2e;&#111;&#x73;&#x73;&#x40;&#103;&#109;&#x61;&#x69;&#108;&#46;&#x63;&#x6f;&#x6d;">&#x63;&#x7a;&#104;&#97;&#110;&#103;&#x2e;&#111;&#x73;&#x73;&#x40;&#103;&#109;&#x61;&#x69;&#108;&#46;&#x63;&#x6f;&#x6d;</a> — <a href="https://github.com/bevry/cson/commits?author=zhangcheng">view contributions</a></li>
 </ul><p><a href="https://github.com/bevry/cson/blob/master/CONTRIBUTING.md#files">Become a contributor!</a></p><!-- /BACKERS -->
 <!-- LICENSE/ -->
-<h2 id="license">License</h2><p>Licensed under the incredibly <a href="http://en.wikipedia.org/wiki/Permissive_free_software_licence">permissive</a> <a href="http://creativecommons.org/licenses/MIT/">MIT license</a></p><p>Copyright &copy; 2012+ Bevry Pty Ltd <a href="&#x6d;&#x61;&#x69;&#x6c;&#116;&#111;&#x3a;&#x75;&#x73;&#x40;&#98;&#x65;&#118;&#x72;&#121;&#46;&#x6d;&#101;">&#x75;&#x73;&#x40;&#98;&#x65;&#118;&#x72;&#121;&#46;&#x6d;&#101;</a> (<a href="http://bevry.me">http://bevry.me</a>)
-<br/>Copyright &copy; 2011 Benjamin Lupton <a href="&#x6d;&#97;&#x69;&#108;&#116;&#111;&#x3a;&#98;&#64;&#108;&#117;&#112;&#x74;&#x6f;&#110;&#46;&#99;&#99;">&#98;&#64;&#108;&#117;&#112;&#x74;&#x6f;&#110;&#46;&#99;&#99;</a> (<a href="http://balupton.com">http://balupton.com</a>)</p><!-- /LICENSE -->
+<h2 id="license">License</h2><p>Licensed under the incredibly <a href="http://en.wikipedia.org/wiki/Permissive_free_software_licence">permissive</a> <a href="http://creativecommons.org/licenses/MIT/">MIT license</a></p><p>Copyright &copy; 2012+ Bevry Pty Ltd <a href="&#x6d;&#97;&#105;&#x6c;&#116;&#111;&#x3a;&#117;&#115;&#64;&#x62;&#101;&#x76;&#114;&#x79;&#46;&#x6d;&#x65;">&#117;&#115;&#64;&#x62;&#101;&#x76;&#114;&#x79;&#46;&#x6d;&#x65;</a> (<a href="http://bevry.me">http://bevry.me</a>)
+<br/>Copyright &copy; 2011 Benjamin Lupton <a href="&#x6d;&#97;&#105;&#108;&#116;&#111;&#x3a;&#98;&#x40;&#108;&#117;&#112;&#x74;&#111;&#110;&#x2e;&#99;&#99;">&#98;&#x40;&#108;&#117;&#112;&#x74;&#111;&#110;&#x2e;&#99;&#99;</a> (<a href="http://balupton.com">http://balupton.com</a>)</p><!-- /LICENSE -->
 
       </div>
     </div>
     <div id='footer'>
   Generated on
-  Fri Feb 06 2015 01:35:30 GMT+0800 (AWST)
+  Fri Feb 06 2015 11:07:50 GMT+0800 (AWST)
   by
   <a href='https://github.com/gjtorikian/biscotto' title='TomDoc-CoffeeScript API documentation generator'>Biscotto</a>
   v2.3.1

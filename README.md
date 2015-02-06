@@ -190,6 +190,8 @@ if ( result instanceof Error ) {
 
 ### The API
 
+Click the function names for more details on how the specific function operates including the options it supports.
+
 
 #### Create Strings
 

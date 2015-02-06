@@ -292,7 +292,7 @@ class CSON
 	# Returns {Object} or {Error}
 	parseCSString: (data, opts) ->
 		opts = @getOptions(opts)
-		opts.sandbox ?= true
+		opts.sandbox ?= {}
 
 		# Parse
 		try
@@ -379,7 +379,7 @@ class CSON
 		try
 			return requireFreshSafe(file)
 		catch err
-			return err
+			return new Error(err)
 
 	# Public: Requires a CoffeeScript file and returns the result {Object}
 	#
@@ -392,7 +392,7 @@ class CSON
 		try
 			return requireFreshSafe(file)
 		catch err
-			return err
+			return new Error(err)
 
 
 # Export

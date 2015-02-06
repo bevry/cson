@@ -1,8 +1,10 @@
 # History
 
-## v2.0.0 February 2, 2015
-- Updated dependencies
-- Now uses `cson-safe` by default, can use unsafe techniques via the `safe: false` flag
+## v2.0.0 February 6, 2015
+- API has been rewritten to be more robust and simple
+- CSON data is now parsed and stringified with the [cson-parser](https://www.npmjs.com/package/cson-parser) package
+- CLI now supports stdin input
+- Node v0.11 and IO.js support
 
 ## v1.6.2 December 11, 2014
 - Updated dependencies
