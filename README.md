@@ -165,8 +165,8 @@ if ( result instanceof Error ) {
 result = CSON.requireFile(filePath, {
 	cson: true, // support CSON files (default is true)
 	json: true, // support JSON files (default is true)
-	coffeescript: false, // support CSON files (default is false)
-	javascript: false // support CSON files (default is false)
+	coffeescript: false, // support CoffeeScript files (default is false)
+	javascript: false // support JavaScript files (default is false)
 })
 if ( result instanceof Error ) {
 	console.log(result.stack)
@@ -178,8 +178,8 @@ if ( result instanceof Error ) {
 result = CSON.parseFile(filePath, {
 	cson: true, // support CSON files (default is true)
 	json: true, // support JSON files (default is true)
-	coffeescript: false, // support CSON files (default is false)
-	javascript: false // support CSON files (default is false)
+	coffeescript: false, // support CoffeeScript files (default is false)
+	javascript: false // support JavaScript files (default is false)
 })
 if ( result instanceof Error ) {
 	console.log(result.stack)
