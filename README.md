@@ -137,8 +137,8 @@ Requires a global CSON install: `npm install -g cson`
 var CSON = require('cson')
 var result = null
 
-// Create a CSON string
-result = CSON.stringify(object)
+// Create a CSON string from an Object
+result = CSON.stringify({a:{b:'c'}})
 if ( result instanceof Error ) {
 	console.log(result.stack)
 } else {
@@ -146,7 +146,7 @@ if ( result instanceof Error ) {
 }
 
 // Parse a CSON string
-result = CSON.parse(object)
+result = CSON.parse("a: b: 'c'")
 if ( result instanceof Error ) {
 	console.log(result.stack)
 } else {
@@ -154,7 +154,7 @@ if ( result instanceof Error ) {
 }
 
 // Load a CSON file
-result = CSON.load(filePath)
+result = CSON.load('./config.cson')
 if ( result instanceof Error ) {
 	console.log(result.stack)
 } else {
