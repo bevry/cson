@@ -73,7 +73,6 @@
     "lib": "./out/lib"
   },
   "scripts": {
-    "preinstall": "node ./cyclic.js",
     "test": "node ./out/test/cson-test.js"
   },
   "bin": {

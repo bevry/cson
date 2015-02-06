@@ -194,8 +194,8 @@ class CSON
 	#
 	# data - {Object} The data to convert
 	# opts - {Object} The options (options may also be forwarded onto the parser library)
-	#        :visitor - {Boolean} The visitor option for `require('cson-safe').stringify` (defaults to `null`)
-	#        :indent - {Boolean} The indent option for `require('cson-safe').stringify` (defaults to a single tab `'\t'`)
+	#        :visitor - {Boolean} The visitor option for `require('cson-parser').stringify` (defaults to `null`)
+	#        :indent - {Boolean} The indent option for `require('cson-parser').stringify` (defaults to a single tab `'\t'`)
 	#
 	# Returns {String} or {Error}
 	createCSONString: (data, opts) ->
@@ -205,7 +205,7 @@ class CSON
 
 		# Stringify
 		try
-			return require('cson-safe').stringify(data, opts.visitor, opts.indent)
+			return require('cson-parser').stringify(data, opts.visitor, opts.indent)
 		catch err
 			return new Error(err)
 
@@ -262,7 +262,7 @@ class CSON
 	# Returns {Object} or {Error}
 	parseCSONString: (data, opts) ->
 		try
-			return require('cson-safe').parse(data)
+			return require('cson-parser').parse(data)
 		catch err
 			return new Error(err)
 
