@@ -63,18 +63,18 @@ Everyone knows JSON, it's the thing that looks like this:
 Now let's write the same thing in CSON:
 
 ``` coffeescript
-# Look Ma! Comments!!!
+# Comments!!!
 
-# Look Ma! An Array with no commas!
+# An Array with no commas!
 greatDocumentaries: [
 	'earthlings.com'
 	'forksoverknives.com'
 	'cowspiracy.com'
 ]
 
-# Look Ma! An Object without braces!
+# An Object without braces!
 importantFacts:
-	# Look Ma! Multi-Line Strings! Without Quote Escaping!
+	# Multi-Line Strings! Without Quote Escaping!
 	emissions: '''
 		Livestock and their byproducts account for at least 32,000 million tons of carbon dioxide (CO2) per year, or 51% of all worldwide greenhouse gas emissions.
 		Goodland, R Anhang, J. “Livestock and Climate Change: What if the key actors in climate change were pigs, chickens and cows?”
