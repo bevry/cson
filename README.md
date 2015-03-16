@@ -159,86 +159,86 @@ Click the below function names to open more detailed documentation.
 #### Create Strings
 
 - <a href='http://rawgit.com/bevry/cson/master/docs/classes/CSON.html#stringify-instance'>
-String ::<strong>stringify</strong>(data, replacer?, indent?)
+String <strong>CSON.stringify</strong>(data, replacer?, indent?)
 </a> <br/> Converts an <a href='https://developer.mozilla.org/en-US/docs/JavaScript/Reference/Global_Objects/Object'>Object</a> into a <a href='https://developer.mozilla.org/en-US/docs/JavaScript/Reference/Global_Objects/String'>String</a> of the desired format If the format option is not specified, we default to CSON
 
 - <a href='http://rawgit.com/bevry/cson/master/docs/classes/CSON.html#createString-instance'>
-String ::<strong>createString</strong>(data, opts?, next?)
+String <strong>CSON.createString</strong>(data, opts?, next?)
 </a> <br/> Converts an <a href='https://developer.mozilla.org/en-US/docs/JavaScript/Reference/Global_Objects/Object'>Object</a> into a <a href='https://developer.mozilla.org/en-US/docs/JavaScript/Reference/Global_Objects/String'>String</a> of the desired format If the format option is not specified, we default to CSON
 
 - <a href='http://rawgit.com/bevry/cson/master/docs/classes/CSON.html#createCSONString-instance'>
-String ::<strong>createCSONString</strong>(data, opts?, next?)
+String <strong>CSON.createCSONString</strong>(data, opts?, next?)
 </a> <br/> Converts an <a href='https://developer.mozilla.org/en-US/docs/JavaScript/Reference/Global_Objects/Object'>Object</a> into a CSON <a href='https://developer.mozilla.org/en-US/docs/JavaScript/Reference/Global_Objects/String'>String</a>
 
 - <a href='http://rawgit.com/bevry/cson/master/docs/classes/CSON.html#createJSONString-instance'>
-String ::<strong>createJSONString</strong>(data, opts?, next?)
+String <strong>CSON.createJSONString</strong>(data, opts?, next?)
 </a> <br/> Converts an <a href='https://developer.mozilla.org/en-US/docs/JavaScript/Reference/Global_Objects/Object'>Object</a> into a JSON <a href='https://developer.mozilla.org/en-US/docs/JavaScript/Reference/Global_Objects/String'>String</a>
 
 
 ### Parse Strings
 
 - <a href='http://rawgit.com/bevry/cson/master/docs/classes/CSON.html#parse-instance'>
-Object ::<strong>parse</strong>(data, opts?, next?)
+Object <strong>CSON.parse</strong>(data, opts?, next?)
 </a> <br/> Converts a <a href='https://developer.mozilla.org/en-US/docs/JavaScript/Reference/Global_Objects/String'>String</a> of the desired format into an <a href='https://developer.mozilla.org/en-US/docs/JavaScript/Reference/Global_Objects/Object'>Object</a> If the format option is not specified, we default to CSON
 
 - <a href='http://rawgit.com/bevry/cson/master/docs/classes/CSON.html#parseString-instance'>
-Object ::<strong>parseString</strong>(data, opts?, next?)
+Object <strong>CSON.parseString</strong>(data, opts?, next?)
 </a> <br/> Converts a <a href='https://developer.mozilla.org/en-US/docs/JavaScript/Reference/Global_Objects/String'>String</a> of the desired format into an <a href='https://developer.mozilla.org/en-US/docs/JavaScript/Reference/Global_Objects/Object'>Object</a> If the format option is not specified, we default to CSON
 
 - <a href='http://rawgit.com/bevry/cson/master/docs/classes/CSON.html#parseCSONString-instance'>
-Object ::<strong>parseCSONString</strong>(data, opts?, next?)
+Object <strong>CSON.parseCSONString</strong>(data, opts?, next?)
 </a> <br/> Parses a CSON <a href='https://developer.mozilla.org/en-US/docs/JavaScript/Reference/Global_Objects/String'>String</a> into an <a href='https://developer.mozilla.org/en-US/docs/JavaScript/Reference/Global_Objects/Object'>Object</a>
 
 - <a href='http://rawgit.com/bevry/cson/master/docs/classes/CSON.html#parseJSONString-instance'>
-Object ::<strong>parseJSONString</strong>(data, opts?, next?)
+Object <strong>CSON.parseJSONString</strong>(data, opts?, next?)
 </a> <br/> Parses a JSON <a href='https://developer.mozilla.org/en-US/docs/JavaScript/Reference/Global_Objects/String'>String</a> into an <a href='https://developer.mozilla.org/en-US/docs/JavaScript/Reference/Global_Objects/Object'>Object</a>
 
 - <a href='http://rawgit.com/bevry/cson/master/docs/classes/CSON.html#parseCSString-instance'>
-Object ::<strong>parseCSString</strong>(data, opts?, next?)
+Object <strong>CSON.parseCSString</strong>(data, opts?, next?)
 </a> <br/> Parses a CoffeeScript <a href='https://developer.mozilla.org/en-US/docs/JavaScript/Reference/Global_Objects/String'>String</a> into an <a href='https://developer.mozilla.org/en-US/docs/JavaScript/Reference/Global_Objects/Object'>Object</a>
 
 - <a href='http://rawgit.com/bevry/cson/master/docs/classes/CSON.html#parseJSString-instance'>
-Object ::<strong>parseJSString</strong>(data, opts?, next?)
+Object <strong>CSON.parseJSString</strong>(data, opts?, next?)
 </a> <br/> Parses a JavaScript <a href='https://developer.mozilla.org/en-US/docs/JavaScript/Reference/Global_Objects/String'>String</a> into an <a href='https://developer.mozilla.org/en-US/docs/JavaScript/Reference/Global_Objects/Object'>Object</a>
 
 #### Parse Files
 
 - <a href='http://rawgit.com/bevry/cson/master/docs/classes/CSON.html#load-instance'>
-Object ::<strong>load</strong>(data, opts?, next?)
+Object <strong>CSON.load</strong>(data, opts?, next?)
 </a> <br/> Parses a file path of the desired format into an <a href='https://developer.mozilla.org/en-US/docs/JavaScript/Reference/Global_Objects/Object'>Object</a> If the format option is not specified, we use the filename to detect what it should be, otherwise we default to CSON
 
 - <a href='http://rawgit.com/bevry/cson/master/docs/classes/CSON.html#parseFile-instance'>
-Object ::<strong>parseFile</strong>(data, opts?, next?)
+Object <strong>CSON.parseFile</strong>(data, opts?, next?)
 </a> <br/> Parses a file path of the desired format into an <a href='https://developer.mozilla.org/en-US/docs/JavaScript/Reference/Global_Objects/Object'>Object</a> If the format option is not specified, we use the filename to detect what it should be, otherwise we default to CSON
 
 - <a href='http://rawgit.com/bevry/cson/master/docs/classes/CSON.html#parseCSONFile-instance'>
-Object ::<strong>parseCSONFile</strong>(file, opts?, next?)
+Object <strong>CSON.parseCSONFile</strong>(file, opts?, next?)
 </a> <br/> Parses a CSON file into an <a href='https://developer.mozilla.org/en-US/docs/JavaScript/Reference/Global_Objects/Object'>Object</a>
 
 - <a href='http://rawgit.com/bevry/cson/master/docs/classes/CSON.html#parseJSONFile-instance'>
-Object ::<strong>parseJSONFile</strong>(file, opts?, next?)
+Object <strong>CSON.parseJSONFile</strong>(file, opts?, next?)
 </a> <br/> Parses a JSON file into an <a href='https://developer.mozilla.org/en-US/docs/JavaScript/Reference/Global_Objects/Object'>Object</a>
 
 - <a href='http://rawgit.com/bevry/cson/master/docs/classes/CSON.html#parseCSFile-instance'>
-Object ::<strong>parseCSFile</strong>(file, opts?, next?)
+Object <strong>CSON.parseCSFile</strong>(file, opts?, next?)
 </a> <br/> Parses a CoffeeScript file into an <a href='https://developer.mozilla.org/en-US/docs/JavaScript/Reference/Global_Objects/Object'>Object</a>
 
 - <a href='http://rawgit.com/bevry/cson/master/docs/classes/CSON.html#parseJSFile-instance'>
-Object ::<strong>parseJSFile</strong>(file, opts?, next?)
+Object <strong>CSON.parseJSFile</strong>(file, opts?, next?)
 </a> <br/> Parses a JAvaScript file into an <a href='https://developer.mozilla.org/en-US/docs/JavaScript/Reference/Global_Objects/Object'>Object</a>
 
 ### Require Files
 
 - <a href='http://rawgit.com/bevry/cson/master/docs/classes/CSON.html#requireFile-instance'>
-Object ::<strong>requireFile</strong>(data, opts?, next?)
+Object <strong>CSON.requireFile</strong>(data, opts?, next?)
 </a> <br/> Requires or parses a file path of the desired format into an <a href='https://developer.mozilla.org/en-US/docs/JavaScript/Reference/Global_Objects/Object'>Object</a> If the format option is not specified, we use the filename to detect what it should be, otherwise we default to CSON
 
 - <a href='http://rawgit.com/bevry/cson/master/docs/classes/CSON.html#requireCSFile-instance'>
-Object ::<strong>requireCSFile</strong>(file, opts?, next?)
+Object <strong>CSON.requireCSFile</strong>(file, opts?, next?)
 </a> <br/> Requires a CoffeeScript file and returns the result <a href='https://developer.mozilla.org/en-US/docs/JavaScript/Reference/Global_Objects/Object'>Object</a>
 
 - <a href='http://rawgit.com/bevry/cson/master/docs/classes/CSON.html#requireJSFile-instance'>
-Object ::<strong>requireJSFile</strong>(file, opts?, next?)
+Object <strong>CSON.requireJSFile</strong>(file, opts?, next?)
 </a> <br/> Requires a JavaScript file and returns the result <a href='https://developer.mozilla.org/en-US/docs/JavaScript/Reference/Global_Objects/Object'>Object</a>
 
 
