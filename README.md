@@ -132,8 +132,6 @@ Requires a global CSON install: `npm install -g cson`
 
 ### Via the API
 
-Click the function names to open more detailed documentation.
-
 Each method can be executed without a callback like so:
 
 ``` javascript
@@ -154,6 +152,8 @@ CSON.createCSONString({a:{b:'c'}}, {/* optional options argument */}, function(e
 ```
 
 Executing the method with a callback still executes the method synchronously.
+
+Click the below function names to open more detailed documentation.
 
 
 #### Create Strings
