@@ -1,5 +1,8 @@
 # History
 
+## v3.0.1 March 16, 2015
+- Fixed stdin support on Node 0.8
+
 ## v3.0.0 March 16, 2015
 - Every function now also supports callbacks (2nd or 3rd argument)
 - Errors will now always maintain their stacks where possible
