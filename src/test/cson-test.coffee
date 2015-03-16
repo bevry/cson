@@ -1,13 +1,14 @@
 # Requires
 joe = require('joe')
-{expect} = require('chai')
 fsUtil = require('fs')
 pathUtil = require('path')
 safeps = require('safeps')
+{equal, deepEqual, errorEqual, contains} = require('assert-helpers')
 rootPath = pathUtil.resolve(__dirname+'/../..')
 CSON = require(rootPath)
 
 # Configuraiton
+apiDirectoryPath = __dirname+'/../../test/api'
 srcDirectoryPath = __dirname+'/../../test/src'
 outDirectoryPath = __dirname+'/../../test/out-expected'
 testExtensions = [
@@ -53,21 +54,334 @@ testExtensions = [
 	'cson'
 ]
 
-# Helpers
-compare = (received,expected) ->
-	received = received.replace(/\n\t\n/g, '\n\n')
-	if received isnt expected
-		console.log('\nreceived:\n'+received)
-		console.log('\nexpected:\n'+expected)
-		console.log('\n', {received, expected})
-	expect(received).to.equal(expected)
-
 
 # =====================================
 # Tests
 
-joe.describe 'cson', (describe,it) ->
-	describe 'api', (describe, it) ->
+joe.suite 'cson', (suite,test) ->
+	suite 'api', (suite, test) ->
+		suite 'CSON', (suite, test) ->
+			data = a:b:1
+			strTabs = 'a:\n\tb: 1'
+			strSpaces = 'a:\n  b: 1'
+
+			test 'stringify', ->
+				csonString = CSON.stringify(data)
+				equal(csonString, strTabs)
+
+			test 'stringify spaces', ->
+				csonString = CSON.stringify(data, null, '  ')
+				equal(csonString, strSpaces)
+
+			test 'createCSONString', ->
+				csonString = CSON.createCSONString(data)
+				equal(csonString, strTabs)
+
+			test 'createCSONString spaces', ->
+				csonString = CSON.createCSONString(data, {indent:'  '})
+				equal(csonString, strSpaces)
+
+			test 'createCSONString callback', ->
+				CSON.createCSONString data, (err, csonString) ->
+					errorEqual(err, null)
+					equal(csonString, strTabs)
+
+			test 'createCSONString spaces callback', ->
+				CSON.createCSONString data, {indent:'  '}, (err, csonString) ->
+					errorEqual(err, null)
+					equal(csonString, strSpaces)
+
+			test 'parse', ->
+				csonData = CSON.parse(strTabs)
+				deepEqual(csonData, data)
+
+			test 'parseCSONString', ->
+				csonData = CSON.parseCSONString(strTabs)
+				deepEqual(csonData, data)
+
+			test 'parseCSONString callback', ->
+				CSON.parseCSONString strTabs, (err, csonData) ->
+					errorEqual(err, null)
+					deepEqual(csonData, data)
+
+			test 'load', ->
+				csonData = CSON.load(apiDirectoryPath+'/cson-parse.cson')
+				deepEqual(csonData, data)
+
+			test 'load callback', ->
+				CSON.load apiDirectoryPath+'/cson-parse.cson', (err, csonData) ->
+					errorEqual(err, null)
+					deepEqual(csonData, data)
+
+			test 'parseCSONFile', ->
+				csonData = CSON.parseCSONFile(apiDirectoryPath+'/cson-parse.cson')
+				deepEqual(csonData, data)
+
+			test 'parseCSONFile callback', ->
+				CSON.parseCSONFile apiDirectoryPath+'/cson-parse.cson', (err, csonData) ->
+					errorEqual(err, null)
+					deepEqual(csonData, data)
+
+			test 'requireCSONFile', ->
+				csonData = CSON.requireCSONFile(apiDirectoryPath+'/cson-parse.cson')
+				deepEqual(csonData, data)
+
+			test 'requireCSONFile callback', ->
+				CSON.requireCSONFile apiDirectoryPath+'/cson-parse.cson', (err, csonData) ->
+					errorEqual(err, null)
+					deepEqual(csonData, data)
+
+		suite 'JSON', (suite, test) ->
+			data = a:b:1
+			strSpaces = '{\n  "a": {\n    "b": 1\n  }\n}'
+			strTabs = '{\n\t"a": {\n\t\t"b": 1\n\t}\n}'
+
+			test 'createJSONString', ->
+				jsonString = CSON.createJSONString(data)
+				equal(jsonString, strSpaces)
+
+			test 'createJSONString tabs', ->
+				jsonString = CSON.createJSONString(data, {indent:'\t'})
+				equal(jsonString, strTabs)
+
+			test 'createJSONString callback', ->
+				CSON.createJSONString data, (err,jsonString) ->
+					errorEqual(err, null)
+					equal(jsonString, strSpaces)
+
+			test 'createJSONString callback tabs', ->
+				CSON.createJSONString data, {indent:'\t'}, (err, jsonString) ->
+					errorEqual(err, null)
+					equal(jsonString, strTabs)
+
+			test 'parseJSONString', ->
+				jsonData = CSON.parseJSONString(strSpaces)
+				deepEqual(jsonData, data)
+
+			test 'parseJSONString callback', ->
+				CSON.parseJSONString strSpaces, (err, jsonData) ->
+					errorEqual(err, null)
+					deepEqual(jsonData, data)
+
+			test 'parseJSONFile', ->
+				jsonData = CSON.parseJSONFile(apiDirectoryPath+'/json-parse.json')
+				deepEqual(jsonData, data)
+
+			test 'parseJSONFile callback', ->
+				CSON.parseJSONFile apiDirectoryPath+'/json-parse.json', (err, jsonData) ->
+					errorEqual(err, null)
+					deepEqual(jsonData, data)
+
+			test 'requireJSONFile', ->
+				jsonData = CSON.requireJSONFile(apiDirectoryPath+'/json-parse.json')
+				deepEqual(jsonData, data)
+
+			test 'requireJSONFile callback', ->
+				CSON.requireJSONFile apiDirectoryPath+'/json-parse.json', (err, jsonData) ->
+					errorEqual(err, null)
+					deepEqual(jsonData, data)
+
+
+		suite 'JS', (suite, test) ->
+			data = 25
+			str = '5*5'
+
+			test 'parseJSString', ->
+				jsData = CSON.parseJSString(str)
+				equal(jsData, data)
+
+			test 'parseJSString callback', ->
+				CSON.parseJSString str, (err, jsData) ->
+					errorEqual(err, null)
+					equal(jsData, data)
+
+			test 'parseJSFile', ->
+				jsData = CSON.parseJSFile(apiDirectoryPath+'/js-parse.js')
+				equal(jsData, data)
+
+			test 'parseJSFile callback', ->
+				CSON.parseJSFile apiDirectoryPath+'/js-parse.js', (err, jsData) ->
+					errorEqual(err, null)
+					equal(jsData, data)
+
+			test 'requireJSFile', ->
+				jsData = CSON.requireJSFile(apiDirectoryPath+'/js-require.js')
+				equal(jsData, data)
+
+			test 'requireJSFile callback', ->
+				CSON.requireJSFile apiDirectoryPath+'/js-require.js', (err, jsData) ->
+					errorEqual(err, null)
+					equal(jsData, data)
+
+		suite 'CS', (suite, test) ->
+			data = 25
+			str = '"#{5}"*5'
+
+			test 'parseCSString', ->
+				csData = CSON.parseCSString(str)
+				equal(csData, data)
+
+			test 'parseCSString callback', ->
+				CSON.parseCSString str, (err, csData) ->
+					errorEqual(err, null)
+					equal(csData, data)
+
+			test 'parseCSFile', ->
+				csData = CSON.parseCSFile(apiDirectoryPath+'/cs-parse.coffee')
+				equal(csData, data)
+
+			test 'parseCSFile callback', ->
+				CSON.parseCSFile apiDirectoryPath+'/cs-parse.coffee', (err, csData) ->
+					errorEqual(err, null)
+					equal(csData, data)
+
+			test 'requireCSFile', ->
+				csData = CSON.requireCSFile(apiDirectoryPath+'/cs-require.coffee')
+				equal(csData, data)
+
+			test 'requireCSFile callback', ->
+				CSON.requireCSFile apiDirectoryPath+'/cs-require.coffee', (err, jsData) ->
+					errorEqual(err, null)
+					equal(jsData, data)
+
+		suite 'createString', (suite, test) ->
+			data = a:b:1
+			csonString = 'a:\n\tb: 1'
+			jsonString = '{\n  "a": {\n    "b": 1\n  }\n}'
+
+			test 'CSON', ->
+				CSON.createString data, (err, result) ->
+					errorEqual(err, null)
+					equal(result, csonString)
+
+			test 'JSON', ->
+				CSON.createString data, {format:'json'}, (err, result) ->
+					errorEqual(err, null)
+					equal(result, jsonString)
+
+			test 'JS', ->
+				CSON.createString data, {format:'javascript'}, (err, result) ->
+					errorEqual(err, 'disabled')
+
+			test 'JS', ->
+				CSON.createString data, {format:'javascript', javascript:true}, (err, result) ->
+					errorEqual(err, 'not yet supported')
+
+			test 'CS', ->
+				CSON.createString data, {format:'coffeescript'}, (err, result) ->
+					errorEqual(err, 'disabled')
+
+			test 'CS', ->
+				CSON.createString data, {format:'coffeescript', coffeescript:true}, (err, result) ->
+					errorEqual(err, 'not yet supported')
+
+		suite 'parseString', (suite, test) ->
+			data = a:b:1
+			number = 25
+			csonString = 'a:\n\tb: 1'
+			jsonString = '{\n  "a": {\n    "b": 1\n  }\n}'
+			jsString = '5*5'
+			csString = '"#{5}"*5'
+
+			test 'CSON', ->
+				CSON.parseString csonString, (err, result) ->
+					errorEqual(err, null)
+					deepEqual(result, data)
+
+			test 'JSON', ->
+				CSON.parseString jsonString, {format:'json'}, (err, result) ->
+					errorEqual(err, null)
+					deepEqual(result, data)
+
+			test 'JS', ->
+				CSON.parseString jsString, {format:'javascript'}, (err, result) ->
+					errorEqual(err, 'disabled')
+
+			test 'JS', ->
+				CSON.parseString jsString, {format:'javascript', javascript:true}, (err, result) ->
+					errorEqual(err, null)
+					equal(result, number)
+
+			test 'CS', ->
+				CSON.parseString csString, {format:'coffeescript'}, (err, result) ->
+					errorEqual(err, 'disabled')
+
+			test 'CS', ->
+				CSON.parseString csString, {format:'coffeescript', coffeescript:true}, (err, result) ->
+					errorEqual(err, null)
+					equal(result, number)
+
+		suite 'parseFile', (suite, test) ->
+			data = a:b:1
+			number = 25
+
+			test 'CSON', ->
+				CSON.parseFile apiDirectoryPath+'/cson-parse.cson', (err, result) ->
+					errorEqual(err, null)
+					deepEqual(result, data)
+
+			test 'JSON', ->
+				CSON.parseFile apiDirectoryPath+'/json-parse.json', {format:'json'}, (err, result) ->
+					errorEqual(err, null)
+					deepEqual(result, data)
+
+			test 'JS', ->
+				CSON.parseFile apiDirectoryPath+'/js-parse.js', {format:'javascript'}, (err, result) ->
+					errorEqual(err, 'disabled')
+
+			test 'JS', ->
+				CSON.parseFile apiDirectoryPath+'/js-parse.js', {format:'javascript', javascript:true}, (err, result) ->
+					errorEqual(err, null)
+					equal(result, number)
+
+			test 'CS', ->
+				CSON.parseFile apiDirectoryPath+'/cs-parse.coffee', {format:'coffeescript'}, (err, result) ->
+					errorEqual(err, 'disabled')
+
+			test 'CS', ->
+				CSON.parseFile apiDirectoryPath+'/cs-parse.coffee', {format:'coffeescript', coffeescript:true}, (err, result) ->
+					errorEqual(err, null)
+					equal(result, number)
+
+		suite 'requireFile', (suite, test) ->
+			data = a:b:1
+			number = 25
+
+			test 'CSON', ->
+				CSON.requireFile apiDirectoryPath+'/cson-parse.cson', (err, result) ->
+					errorEqual(err, null)
+					deepEqual(result, data)
+
+			test 'JSON', ->
+				CSON.requireFile apiDirectoryPath+'/json-parse.json', {format:'json'}, (err, result) ->
+					errorEqual(err, null)
+					deepEqual(result, data)
+
+			test 'JS', ->
+				CSON.requireFile apiDirectoryPath+'/js-require.js', {format:'javascript'}, (err, result) ->
+					errorEqual(err, 'disabled')
+
+			test 'JS', ->
+				CSON.requireFile apiDirectoryPath+'/js-require.js', {format:'javascript', javascript:true}, (err, result) ->
+					errorEqual(err, null)
+					equal(result, number)
+
+			test 'CS', ->
+				CSON.requireFile apiDirectoryPath+'/cs-require.coffee', {format:'coffeescript'}, (err, result) ->
+					errorEqual(err, 'disabled')
+
+			test 'CS', ->
+				CSON.requireFile apiDirectoryPath+'/cs-require.coffee', {format:'coffeescript', coffeescript:true}, (err, result) ->
+					errorEqual(err, null)
+					equal(result, number)
+
+		###
+		@TODO Write some tests for createString, parseString, parseFile, and requireFile
+		To make sure the permissions and multiple format parsing works
+		###
+
+
+	suite 'fixtures', (suite, test) ->
 		# Prepare
 		createTest = (testExtension,i) ->
 			# Prepare
@@ -84,8 +398,8 @@ joe.describe 'cson', (describe,it) ->
 			expectedCsonStr = null
 
 			# Test
-			describe srcFilename, (describe,it) ->
-				it "parse source file", (done) ->
+			suite srcFilename, (suite,test) ->
+				test "parse source file", (done) ->
 					format = CSON.getFormat(srcPath)
 
 					if index is 7
@@ -93,7 +407,7 @@ joe.describe 'cson', (describe,it) ->
 
 					else if format in ['javascript', 'coffeescript']
 						obj = CSON.requireFile(srcPath)
-						expect(obj.message).to.contain('disabled')
+						contains(obj.message, 'disabled')
 						obj = CSON.requireFile(srcPath, {javascript:true, coffeescript:true})
 					else
 						obj = CSON.requireFile(srcPath)
@@ -103,7 +417,7 @@ joe.describe 'cson', (describe,it) ->
 					else
 						return done()
 
-				it "grab conversions", (done) ->
+				test "grab conversions", (done) ->
 					actualJsonStr = JSON.stringify(obj, null, '  ')
 					actualCsonStr = CSON.stringify(obj, null, '\t')
 
@@ -112,77 +426,79 @@ joe.describe 'cson', (describe,it) ->
 					else
 						return done()
 
-				it "read expectations", ->
+				test "read expectations", ->
 					expectedJsonStr = fsUtil.readFileSync(expectedJsonPath).toString()
 					expectedCsonStr = fsUtil.readFileSync(expectedCsonPath).toString()
 
-				it "compare json", ->
-					compare(actualJsonStr, expectedJsonStr)
-				it "compare cson", ->
-					compare(actualCsonStr, expectedCsonStr)
+				test "compare json", ->
+					equal(actualJsonStr, expectedJsonStr)
+				test "compare cson", ->
+					equal(actualCsonStr, expectedCsonStr)
 
 		# Create Tests
 		for testExtension,i in testExtensions
 			createTest(testExtension,i)
 
-	describe 'cli', (describe, it) ->
+	suite 'cli', (suite, test) ->
 		cliTests = [
 				name: 'json2cson'
 				bin: rootPath+'/bin/json2cson'
-				source: rootPath+'/test/out-expected/1.json'
-				expected: fsUtil.readFileSync(rootPath+'/test/out-expected/1.cson', 'utf8')
+				sourcePath: rootPath+'/test/out-expected/1.json'
+				sourceData: fsUtil.readFileSync(rootPath+'/test/out-expected/1.json', 'utf8')
+				expectedData: fsUtil.readFileSync(rootPath+'/test/out-expected/1.cson', 'utf8')
 			,
 				name: 'cson2json'
 				bin: rootPath+'/bin/cson2json'
-				source: rootPath+'/test/out-expected/1.cson'
-				expected: fsUtil.readFileSync(rootPath+'/test/out-expected/1.json', 'utf8')
+				sourcePath: rootPath+'/test/out-expected/1.cson'
+				sourceData: fsUtil.readFileSync(rootPath+'/test/out-expected/1.cson', 'utf8')
+				expectedData: fsUtil.readFileSync(rootPath+'/test/out-expected/1.json', 'utf8')
 		]
 
 		cliTests.forEach (cliTest) ->
-
-			describe cliTest.name, (describe, it) ->
-				it 'args', (done) ->
-					safeps.spawn ['node', cliTest.bin, cliTest.source], (err,stdout,stderr,code) ->
-						expect(err).to.equal(null)
-						expect(stdout).to.equal(cliTest.expected)
-						expect(stderr).to.be.empty
-						expect(code).to.equal(0)
+			suite cliTest.name, (suite, test) ->
+				test 'args', (done) ->
+					safeps.spawn ['node', cliTest.bin, cliTest.sourcePath], (err,stdout,stderr,code) ->
+						equal(err, null, "error to be empty")
+						equal(stdout.toString(), cliTest.expectedData, "stdout to be as expected")
+						equal(stderr?.toString() or null, null, "stderr to be empty")
+						equal(code, 0, "exit code to be 0")
 						done()
 
-				it 'stdin', (done) ->
-					safeps.exec ["cat #{cliTest.source} | #{cliTest.bin}"], (err,stdout,stderr) ->
-						expect(err).to.equal(null)
-						expect(stdout).to.equal(cliTest.expected)
-						expect(stderr).to.be.empty
+				test 'stdin', (done) ->
+					safeps.spawn ['node', cliTest.bin], {stdin:cliTest.sourceData}, (err,stdout,stderr,code) ->
+						equal(err, null, "error to be empty")
+						equal(stdout.toString(), cliTest.expectedData, "stdout to be as expected")
+						equal(stderr?.toString() or null, null, "stderr to be empty")
+						equal(code, 0, "exit code to be 0")
 						done()
 
-		describe 'json2cson options', (describe,it) ->
+		suite 'json2cson options', (suite,test) ->
 			cliTest = cliTests[0]
-			sourceData = JSON.parse fsUtil.readFileSync(cliTests[0].source, 'utf8')
+			sourceData = JSON.parse cliTest.sourceData
 
-			it '--tabs', (done) ->
-				safeps.spawn ['node', cliTest.bin, cliTest.source, '--tabs'], (err,stdout,stderr,code) ->
+			test '--tabs', (done) ->
+				safeps.spawn ['node', cliTest.bin, cliTest.sourcePath, '--tabs'], (err,stdout,stderr,code) ->
 					expected = CSON.createCSONString(sourceData, {indent:'\t'})
-					expect(err).to.equal(null)
-					expect(stdout).to.equal(expected)
-					expect(stderr).to.be.empty
-					expect(code).to.equal(0)
+					equal(err, null, "error to be empty")
+					equal(stdout.toString(), expected, "stdout to be as expected")
+					equal(stderr?.toString() or null, null, "stderr to be empty")
+					equal(code, 0, "exit code to be 0")
 					done()
 
-			it '--2spaces', (done) ->
-				safeps.spawn ['node', cliTest.bin, cliTest.source, '--2spaces'], (err,stdout,stderr,code) ->
+			test '--2spaces', (done) ->
+				safeps.spawn ['node', cliTest.bin, cliTest.sourcePath, '--2spaces'], (err,stdout,stderr,code) ->
 					expected = CSON.createCSONString(sourceData, {indent:'  '})
-					expect(err).to.equal(null)
-					expect(stdout).to.equal(expected)
-					expect(stderr).to.be.empty
-					expect(code).to.equal(0)
+					equal(err, null, "error to be empty")
+					equal(stdout.toString(), expected, "stdout to be as expected")
+					equal(stderr?.toString() or null, null, "stderr to be empty")
+					equal(code, 0, "exit code to be 0")
 					done()
 
-			it '--4spaces', (done) ->
-				safeps.spawn ['node', cliTest.bin, cliTest.source, '--4spaces'], (err,stdout,stderr,code) ->
+			test '--4spaces', (done) ->
+				safeps.spawn ['node', cliTest.bin, cliTest.sourcePath, '--4spaces'], (err,stdout,stderr,code) ->
 					expected = CSON.createCSONString(sourceData, {indent:'    '})
-					expect(err).to.equal(null)
-					expect(stdout).to.equal(expected)
-					expect(stderr).to.be.empty
-					expect(code).to.equal(0)
+					equal(err, null, "error to be empty")
+					equal(stdout.toString(), expected, "stdout to be as expected")
+					equal(stderr?.toString() or null, null, "stderr to be empty")
+					equal(code, 0, "exit code to be 0")
 					done()

@@ -1,5 +1,15 @@
 # History
 
+## v3.0.0 March 16, 2015
+- Every function now also supports callbacks (2nd or 3rd argument)
+- Errors will now always maintain their stacks where possible
+- Simplified some aliases (b/c break)
+	- Changed `stringify` to now accept the arguments you would expect `stringify(data, replacer, indent)`
+	- Changed `parse` to delegate to `parseCSONString` instead of `parseString`
+	- Changed `load` to delegate to `parseCSONFile` instead of `parseFile`
+	- Removed `require` (it use to delegate to `requireFile`)
+- Updated dependencies
+
 ## v2.0.0 February 6, 2015
 - API has been rewritten to be more robust and simple
 - CSON data is now parsed and stringified with the [cson-parser](https://www.npmjs.com/package/cson-parser) package

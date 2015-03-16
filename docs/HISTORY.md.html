@@ -115,6 +115,19 @@
       </nav>
       <div id='filecontents'>
         <h1 id="history">History</h1>
+<h2 id="v3-0-0-march-16-2015">v3.0.0 March 16, 2015</h2>
+<ul>
+<li>Every function now also supports callbacks (2nd or 3rd argument)</li>
+<li>Errors will now always maintain their stacks where possible</li>
+<li>Simplified some aliases (b/c break)<ul>
+<li>Changed <code>stringify</code> to now accept the arguments you would expect <code>stringify(data, replacer, indent)</code></li>
+<li>Changed <code>parse</code> to delegate to <code>parseCSONString</code> instead of <code>parseString</code></li>
+<li>Changed <code>load</code> to delegate to <code>parseCSONFile</code> instead of <code>parseFile</code></li>
+<li>Removed <code>require</code> (it use to delegate to <code>requireFile</code>)</li>
+</ul>
+</li>
+<li>Updated dependencies</li>
+</ul>
 <h2 id="v2-0-0-february-6-2015">v2.0.0 February 6, 2015</h2>
 <ul>
 <li>API has been rewritten to be more robust and simple</li>
@@ -261,11 +274,11 @@
     </div>
     <div id='footer'>
   Generated on
-  Fri Feb 06 2015 11:39:54 GMT+0800 (AWST)
+  Mon Mar 16 2015 20:41:09 GMT+0800 (AWST)
   by
   <a href='https://github.com/gjtorikian/biscotto' title='TomDoc-CoffeeScript API documentation generator'>Biscotto</a>
   v2.3.1
-  (Node.js v0.10.35).
+  (Node.js v0.12.0).
   &#10034;
   Press Ctrl-h to see the keyboard shortcuts
 </div>

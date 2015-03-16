@@ -72,14 +72,16 @@ if process.argv.length is 3
 else if process.argv.length is 2
 	# Prepare
 	data = ''
-	useSTDIN = true
-	convertSTDIN = ->
-		process.stdout.write(
-			if conversion is 'cson2json'
-				CSON.createJSONString CSON.parseCSONString(data), opts
-			else
-				 CSON.createCSONString CSON.parseJSONString(data), opts
-		)
+
+	hasData = ->
+		return data.replace(/\s+/, '').length isnt 0
+
+	processData = ->
+		if conversion is 'cson2json'
+			result = CSON.createJSONString CSON.parseCSONString(data), opts
+		else
+			result = CSON.createCSONString CSON.parseJSONString(data), opts
+		process.stdout.write(result)
 
 	# Timeout if we don't have stdin
 	timeoutFunction = ->
@@ -87,27 +89,23 @@ else if process.argv.length is 2
 		timeout = null
 
 		# Skip if we are using stdin
-		return  if data.replace(/\s+/, '')
+		if hasData() is false
+			stdin.pause()
+			process.stderr.write('No STDIN data received...')
+			process.exit(1)
 
-		# Close stdin as we are not using it
-		useSTDIN = false
-		stdin.pause()
-
-		# Render the document
-		convertSTDIN()
 	timeout = setTimeout(timeoutFunction, 1000)
 
 	# Read stdin
 	stdin = process.stdin
-	stdin.resume()
 	stdin.setEncoding('utf8')
 	stdin.on 'data', (_data) ->
 		data += _data.toString()
 	process.stdin.on 'end', ->
-		return  unless useSTDIN
 		if timeout
 			clearTimeout(timeout)
-		convertSTDIN()
+			timeout = null
+		processData()
 
 else
 	outputHelp()
