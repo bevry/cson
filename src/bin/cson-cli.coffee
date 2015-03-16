@@ -99,6 +99,7 @@ else if process.argv.length is 2
 	# Read stdin
 	stdin = process.stdin
 	stdin.setEncoding('utf8')
+	stdin.resume()  # node 0.8
 	stdin.on 'data', (_data) ->
 		data += _data.toString()
 	process.stdin.on 'end', ->
