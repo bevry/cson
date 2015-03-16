@@ -233,14 +233,6 @@ Object ::<strong>parseJSFile</strong>(file, opts?, next?)
 Object ::<strong>requireFile</strong>(data, opts?, next?)
 </a> <br/> Requires or parses a file path of the desired format into an <a href='https://developer.mozilla.org/en-US/docs/JavaScript/Reference/Global_Objects/Object'>Object</a> If the format option is not specified, we use the filename to detect what it should be, otherwise we default to CSON
 
-- <a href='http://rawgit.com/bevry/cson/master/docs/classes/CSON.html#requireCSONFile-instance'>
-Object ::<strong>requireCSONFile</strong>(file, opts?, next?)
-</a> <br/> Parses a CSON file into an <a href='https://developer.mozilla.org/en-US/docs/JavaScript/Reference/Global_Objects/Object'>Object</a>
-
-- <a href='http://rawgit.com/bevry/cson/master/docs/classes/CSON.html#requireJSONFile-instance'>
-Object ::<strong>requireJSONFile</strong>(file, opts?, next?)
-</a> <br/> Parses a JSON file into an <a href='https://developer.mozilla.org/en-US/docs/JavaScript/Reference/Global_Objects/Object'>Object</a>
-
 - <a href='http://rawgit.com/bevry/cson/master/docs/classes/CSON.html#requireCSFile-instance'>
 Object ::<strong>requireCSFile</strong>(file, opts?, next?)
 </a> <br/> Requires a CoffeeScript file and returns the result <a href='https://developer.mozilla.org/en-US/docs/JavaScript/Reference/Global_Objects/Object'>Object</a>
