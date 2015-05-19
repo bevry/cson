@@ -4,9 +4,7 @@
   "version": "3.0.1",
   "description": "CoffeeScript-Object-Notation Parser. Same as JSON but for CoffeeScript objects.",
   "homepage": "https://github.com/bevry/cson",
-  "license": {
-    "type": "MIT"
-  },
+  "license": "MIT",
   "badges": {
     "travis": true,
     "npm": true,
