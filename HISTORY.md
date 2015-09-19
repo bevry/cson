@@ -1,5 +1,8 @@
 # History
 
+## v3.0.2 September 18, 2015
+- Updated dependencies to avoid duplicate CoffeeScript installations
+
 ## v3.0.1 March 16, 2015
 - Fixed stdin support on Node 0.8
 

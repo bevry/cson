@@ -1,24 +1,10 @@
 {
   "title": "CSON",
   "name": "cson",
-  "version": "3.0.1",
+  "version": "3.0.2",
   "description": "CoffeeScript-Object-Notation Parser. Same as JSON but for CoffeeScript objects.",
   "homepage": "https://github.com/bevry/cson",
-  "license": {
-    "type": "MIT"
-  },
-  "badges": {
-    "travis": true,
-    "npm": true,
-    "npmdownloads": true,
-    "david": true,
-    "daviddev": true,
-    "gratipay": "bevry",
-    "flattr": "344188/balupton-on-Flattr",
-    "paypal": "QB8GQPZAH84N6",
-    "bitcoin": "https://coinbase.com/checkouts/9ef59f5479eec1d97d63382c9ebcb93a",
-    "wishlist": "http://amzn.com/w/2F8TXKSNAFG4V"
-  },
+  "license": "MIT",
   "keywords": [
     "javascript",
     "coffeescript",
@@ -27,23 +13,49 @@
     "parse",
     "stringify"
   ],
-  "author": "2012+ Bevry Pty Ltd <us@bevry.me> (http://bevry.me), 2011 Benjamin Lupton <b@lupton.cc> (http://balupton.com)",
+  "badges": {
+    "list": [
+      "travisci",
+      "npmversion",
+      "npmdownloads",
+      "daviddm",
+      "daviddmdev",
+      "---",
+      "slackin",
+      "patreon",
+      "gratipay",
+      "flattr",
+      "paypal",
+      "bitcoin",
+      "wishlist"
+    ],
+    "config": {
+      "patreonUsername": "bevry",
+      "gratipayUsername": "bevry",
+      "flattrCode": "344188/balupton-on-Flattr",
+      "paypalButtonID": "QB8GQPZAH84N6",
+      "bitcoinURL": "https://bevry.me/bitcoin",
+      "wishlistURL": "https://bevry.me/wishlist",
+      "slackinURL": "https://slack.bevry.me"
+    }
+  },
+  "author": "2012+ Bevry Pty Ltd <us@bevry.me> (http://bevry.me), Benjamin Lupton <b@lupton.cc> (http://balupton.com)",
   "maintainers": [
-    "Benjamin Lupton <b@lupton.cc> (https://github.com/balupton)"
+    "Benjamin Lupton <b@lupton.cc> (http://balupton.com)"
   ],
   "contributors": [
-    "attilaolah (https://github.com/attilaolah)",
-    "Benjamin Lupton <b@lupton.cc> (https://github.com/balupton)",
+    "Benjamin Lupton <b@lupton.cc> (http://balupton.com)",
+    "Attila Oláh <attila@attilaolah.eu> (http://attilaolah.eu/)",
     "evinugur (https://github.com/evinugur)",
-    "jasonkarns (https://github.com/jasonkarns)",
-    "Joel Perras <joel.perras@gmail.com> (https://github.com/jperras)",
-    "Linus G Thiel <linus@hanssonlarsson.se> (https://github.com/linus)",
-    "nanuclickity (https://github.com/nanuclickity)",
-    "Nicolae Claudius <claudius.nicolae@gmail.com> (https://github.com/clyfe)",
-    "RobLoach (https://github.com/RobLoach)",
-    "Ryan LeFevre <meltingice8917@gmail.com> (https://github.com/meltingice)",
+    "Jason Karns <jason@karns.name> (http://jasonkarns.com)",
+    "Joël Perras <joel@nerderati.com> (http://nerderati.com)",
+    "Linus Gustav Larsson Thiel <linus@hanssonlarsson.se> (http://yesbabyyes.se/)",
+    "Tushar Kant <nanu.clickity@gmail.com> (https://github.com/nanuclickity)",
+    "Claudius Nicolae <claudius.nicolae@gmail.com> (https://github.com/clyfe)",
+    "Rob Loach <robloach@gmail.com> (http://robloach.net)",
+    "Ryan LeFevre <meltingice8917@gmail.com> (http://meltingice.net)",
     "Zearin (https://github.com/Zearin)",
-    "Zhang Cheng <czhang.oss@gmail.com> (https://github.com/zhangcheng)"
+    "ZHANG Cheng <czhang.oss@gmail.com> (http://about.me/zhangcheng77)"
   ],
   "bugs": {
     "url": "https://github.com/bevry/cson/issues"
@@ -53,35 +65,40 @@
     "url": "http://github.com/bevry/cson.git"
   },
   "engines": {
-    "node": ">=0.8.0"
+    "node": ">=0.8"
   },
   "dependencies": {
-    "coffee-script": "~1.9.0",
+    "coffee-script": "^1.9.0",
     "cson-parser": "^1.0.6",
     "extract-opts": "^3.0.1",
     "requirefresh": "^2.0.0",
-    "safefs": "^3.1.2"
+    "safefs": "^4.0.0"
   },
   "devDependencies": {
     "biscotto": "^2.3.1",
-    "assert-helpers": "^1.0.1",
+    "assert-helpers": "^3.0.0",
     "joe": "^1.6.0",
     "joe-reporter-console": "^1.2.1",
-    "projectz": "^0.5.0",
-    "safeps": "^2.2.12"
+    "projectz": "^1.0.2",
+    "safeps": "^6.0.0"
   },
-  "directories": {
-    "lib": "./out/lib"
-  },
-  "scripts": {
-    "test": "node ./out/test/cson-test.js"
-  },
+  "main": "./out/lib/cson",
   "bin": {
     "cson2json": "./bin/cson2json",
     "json2cson": "./bin/json2cson"
   },
-  "main": "./out/lib/cson",
-  "cakeConfiguration": {
+  "scripts": {
+    "clean": "node --harmony nakefile.js clean",
+    "setup": "node --harmony nakefile.js setup",
+    "compile": "node --harmony nakefile.js compile",
+    "watch": "node --harmony nakefile.js watch",
+    "verify": "node --harmony nakefile.js verify",
+    "meta": "node --harmony nakefile.js meta",
+    "prepare": "node --harmony nakefile.js prepare",
+    "release": "node --harmony nakefile.js release",
+    "test": "node --harmony ./out/test/cson-test.js"
+  },
+  "nakeConfiguration": {
     "COFFEE_SRC_PATH": "src",
     "BISCOTTO_SRC_PATH": "src"
   }

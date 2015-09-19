@@ -1,7 +1,6 @@
 # Requires
 fs = require('fs')
-path = require('path')
-CSON = require(path.join __dirname, '..', 'lib', 'cson')
+CSON = require('../lib/cson')
 opts = {}
 
 # Helpers
