@@ -135,10 +135,16 @@ Requires a global CSON install: `npm install -g cson`
 
 ### Via the API
 
+Include CSON:
+
+``` javascript
+var CSON = require('cson')
+```
+
 Each method can be executed without a callback like so:
 
 ``` javascript
-result = require('CSON').createCSONString({a:{b:'c'}}, {/* optional options argument */})
+var result = CSON.createCSONString({a:{b:'c'}}, {/* optional options argument */})
 if ( result instanceof Error ) {
 	console.log(result.stack)
 } else {
