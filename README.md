@@ -48,17 +48,15 @@ Everyone knows JSON, it's the thing that looks like this:
 
 ``` javascript
 {
-  "greatDocumentaries": [
-    "earthlings.com",
-    "forksoverknives.com",
-    "cowspiracy.com"
+  "cities": [
+    "novosibirsk",
+    "chelyabinsk",
+    "tomsk"
   ],
-  "importantFacts": {
-    "emissions": "Livestock and their byproducts account for at least 32,000 million tons of carbon dioxide (CO2) per year, or 51% of all worldwide greenhouse gas emissions.\nGoodland, R Anhang, J. “Livestock and Climate Change: What if the key actors in climate change were pigs, chickens and cows?”\nWorldWatch, November/December 2009. Worldwatch Institute, Washington, DC, USA. Pp. 10–19.\nhttp://www.worldwatch.org/node/6294",
-    "landuse": "Livestock covers 45% of the earth’s total land.\nThornton, Phillip, Mario Herrero, and Polly Ericksen. “Livestock and Climate Change.” Livestock Exchange, no. 3 (2011).\nhttps://cgspace.cgiar.org/bitstream/handle/10568/10601/IssueBrief3.pdf",
-    "burger": "One hamburger requires 660 gallons of water to produce – the equivalent of 2 months’ worth of showers.\nCatanese, Christina. “Virtual Water, Real Impacts.” Greenversations: Official Blog of the U.S. EPA. 2012.\nhttp://blog.epa.gov/healthywaters/2012/03/virtual-water-real-impacts-world-water-day-2012/\n“50 Ways to Save Your River.” Friends of the River.\nhttp://www.friendsoftheriver.org/site/PageServer?pagename=50ways",
-    "milk": "1,000 gallons of water are required to produce 1 gallon of milk.\n“Water trivia facts.” United States Environmental Protection Agency.\nhttp://water.epa.gov/learn/kids/drinkingwater/water_trivia_facts.cfm#_edn11",
-    "more": "http://cowspiracy.com/facts"
+  "historyExcerpts": {
+    "novosibirsk": "Novosibirsk, founded in 1893, first received the name Novonikolayevsk.\n\nDuring Stalin's industrialization, Novosibirsk secured its place as one of the largest industrial centers of Siberia.\n\nRapid growth and industrialization were the reasons behind Novosibirsk's nickname: the \"Chicago of Siberia\".\n\nSource: https://en.wikipedia.org/wiki/Novosibirsk",
+    "chelyabinsk": "In 1896 the city was linked to Ekaterinburg. Chelyabinsk became the hub for relocation to Siberia.\nFor fifteen years more than fifteen million people passed through.\n\nDuring World War II, it produced 18,000 tanks, as well as over 17 million units of ammunition.\n\nIn the press of the time, Chelyabinsk was informally called \"Tankograd\" or \"Tank City\".\n\nSource: https://en.wikipedia.org/wiki/Chelyabinsk",
+    "tomsk": "Like many Siberian cities, Tomsk became the new home for many factories relocated out of the war.\nThe resulting growth of the city led the Soviet government to establish the new Tomsk Oblast.\n\nDuring the Cold War Tomsk became one of many designated closed cities, which outsiders could not visit.\nMatters went a stage further with the establishment of a secret city, known as \"Tomsk-7\" 15 kilometres north-west of Tomsk.\nThe new settlement became the home of the Tomsk Nuclear Plant.\n\nSource: https://en.wikipedia.org/wiki/Tomsk"
   }
 }
 ```
@@ -69,43 +67,46 @@ Now let's write the same thing in CSON:
 # Comments!!!
 
 # An Array with no commas!
-greatDocumentaries: [
-	'earthlings.com'
-	'forksoverknives.com'
-	'cowspiracy.com'
+cities: [
+	'novosibirsk'
+	'chelyabinsk'
+	'tomsk'
 ]
 
 # An Object without braces!
-importantFacts:
+historyExcerpts:
 	# Multi-Line Strings! Without Quote Escaping!
-	emissions: '''
-		Livestock and their byproducts account for at least 32,000 million tons of carbon dioxide (CO2) per year, or 51% of all worldwide greenhouse gas emissions.
-		Goodland, R Anhang, J. “Livestock and Climate Change: What if the key actors in climate change were pigs, chickens and cows?”
-		WorldWatch, November/December 2009. Worldwatch Institute, Washington, DC, USA. Pp. 10–19.
-		http://www.worldwatch.org/node/6294
+	novosibirsk: '''
+		Novosibirsk, founded in 1893, first received the name Novonikolayevsk.
+
+    During Stalin's industrialization, Novosibirsk secured its place as one of the largest industrial centers of Siberia.
+
+    Rapid growth and industrialization were the reasons behind Novosibirsk's nickname: the "Chicago of Siberia".
+
+    Source: https://en.wikipedia.org/wiki/Novosibirsk
 		'''
 
-	landuse: '''
-		Livestock covers 45% of the earth’s total land.
-		Thornton, Phillip, Mario Herrero, and Polly Ericksen. “Livestock and Climate Change.” Livestock Exchange, no. 3 (2011).
-		https://cgspace.cgiar.org/bitstream/handle/10568/10601/IssueBrief3.pdf
+	chelyabinsk: '''
+		In 1896 the city was linked to Ekaterinburg. Chelyabinsk became the hub for relocation to Siberia.
+    For fifteen years more than fifteen million people passed through.
+
+    During World War II, it produced 18,000 tanks, as well as over 17 million units of ammunition.
+
+    In the press of the time, Chelyabinsk was informally called "Tankograd" or "Tank City".
+
+    Source: https://en.wikipedia.org/wiki/Chelyabinsk
 		'''
 
-	burger: '''
-		One hamburger requires 660 gallons of water to produce – the equivalent of 2 months’ worth of showers.
-		Catanese, Christina. “Virtual Water, Real Impacts.” Greenversations: Official Blog of the U.S. EPA. 2012.
-		http://blog.epa.gov/healthywaters/2012/03/virtual-water-real-impacts-world-water-day-2012/
-		“50 Ways to Save Your River.” Friends of the River.
-		http://www.friendsoftheriver.org/site/PageServer?pagename=50ways
-		'''
+	tomsk: '''
+		Like many Siberian cities, Tomsk became the new home for many factories relocated out of the war.
+    The resulting growth of the city led the Soviet government to establish the new Tomsk Oblast.
 
-	milk: '''
-		1,000 gallons of water are required to produce 1 gallon of milk.
-		“Water trivia facts.” United States Environmental Protection Agency.
-		http://water.epa.gov/learn/kids/drinkingwater/water_trivia_facts.cfm#_edn11
-		'''
+    During the Cold War Tomsk became one of many designated closed cities, which outsiders could not visit.
+    Matters went a stage further with the establishment of a secret city, known as "Tomsk-7" 15 kilometres north-west of Tomsk.
+    The new settlement became the home of the Tomsk Nuclear Plant.
 
-	more: 'http://cowspiracy.com/facts'
+    Source: https://en.wikipedia.org/wiki/Tomsk
+		'''
 ```
 
 Which is far more lenient that JSON, way nicer to write and read, no need to quote and escape everything, has comments and readable multi-line strings, and won't fail if you forget a comma.
