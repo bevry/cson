@@ -108,7 +108,7 @@ importantFacts:
 	more: 'http://cowspiracy.com/facts'
 ```
 
-Which is far more lenient that JSON, way nicer to write and read, no need to quote and escape everything, has comments and readable multi-line strings, and won't fail if you forget a comma.
+Which is far more lenient than JSON, way nicer to write and read, no need to quote and escape everything, has comments and readable multi-line strings, and won't fail if you forget a comma.
 
 
 
