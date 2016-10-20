@@ -1,6 +1,6 @@
 # Requires
 fs = require('fs')
-CSON = require('../lib/cson')
+CSON = require('../')
 opts = {}
 
 # Helpers

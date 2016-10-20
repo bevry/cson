@@ -386,7 +386,6 @@ class CSON
 		# Prepare
 		[opts, next] = extractOptsAndCallback(opts, next)
 		opts = @getOptions(opts)
-		opts.sandbox ?= {}
 
 		# Parse
 		try

@@ -1,2 +1,2 @@
 #!/usr/bin/env node
-require(__dirname+'/../out/bin/cson-cli')
+require(require('path').join(__dirname, '..', 'es5', 'cli.js'))

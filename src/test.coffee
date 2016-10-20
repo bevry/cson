@@ -1,16 +1,18 @@
 # Requires
 joe = require('joe')
 fsUtil = require('fs')
-pathUtil = require('path')
+{resolve, join} = require('path')
 safeps = require('safeps')
 {equal, deepEqual, errorEqual, contains} = require('assert-helpers')
-rootPath = pathUtil.resolve(__dirname+'/../..')
-CSON = require(rootPath)
+CSON = require('../')
 
 # Configuraiton
-apiDirectoryPath = __dirname+'/../../test/api'
-srcDirectoryPath = __dirname+'/../../test/src'
-outDirectoryPath = __dirname+'/../../test/out-expected'
+rootPath = resolve(__dirname, '..')
+binDirectoryPath = join(rootPath, 'bin')
+testFixturesPath = join(rootPath, 'test-fixtures')
+apiDirectoryPath = join(testFixturesPath, 'api')
+srcDirectoryPath = join(testFixturesPath, 'src')
+outDirectoryPath = join(testFixturesPath, 'out-expected')
 testExtensions = [
 	# 1
 	# Test simple example
@@ -403,7 +405,7 @@ joe.suite 'cson', (suite,test) ->
 					format = CSON.getFormat(srcPath)
 
 					if index is 7
-						obj = CSON.parseCSFile(srcPath)
+						obj = CSON.parseCSFile(srcPath, {sandbox: {}})
 
 					else if format in ['javascript', 'coffeescript']
 						obj = CSON.requireFile(srcPath)
@@ -442,16 +444,16 @@ joe.suite 'cson', (suite,test) ->
 	suite 'cli', (suite, test) ->
 		cliTests = [
 				name: 'json2cson'
-				bin: rootPath+'/bin/json2cson'
-				sourcePath: rootPath+'/test/out-expected/1.json'
-				sourceData: fsUtil.readFileSync(rootPath+'/test/out-expected/1.json', 'utf8')
-				expectedData: fsUtil.readFileSync(rootPath+'/test/out-expected/1.cson', 'utf8')
+				bin: join(binDirectoryPath, 'json2cson')
+				sourcePath: join(outDirectoryPath, '1.json')
+				sourceData: fsUtil.readFileSync(join(outDirectoryPath, '1.json'), 'utf8')
+				expectedData: fsUtil.readFileSync(join(outDirectoryPath, '1.cson'), 'utf8')
 			,
 				name: 'cson2json'
-				bin: rootPath+'/bin/cson2json'
-				sourcePath: rootPath+'/test/out-expected/1.cson'
-				sourceData: fsUtil.readFileSync(rootPath+'/test/out-expected/1.cson', 'utf8')
-				expectedData: fsUtil.readFileSync(rootPath+'/test/out-expected/1.json', 'utf8')
+				bin: join(binDirectoryPath, 'cson2json')
+				sourcePath: join(outDirectoryPath, '1.cson')
+				sourceData: fsUtil.readFileSync(join(outDirectoryPath, '1.cson'), 'utf8')
+				expectedData: fsUtil.readFileSync(join(outDirectoryPath, '1.json'), 'utf8')
 		]
 
 		cliTests.forEach (cliTest) ->
