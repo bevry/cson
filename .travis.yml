@@ -1,4 +1,4 @@
-# 2016 October 10
+# 2016 October 21
 # https://github.com/bevry/base
 
 # Use the latest travis infrastructure
@@ -17,9 +17,8 @@ cache:
     - node_modules
 
 # Prepare our tests
-# Ensure the project is setup correctly and compiled
-install: "npm run-script setup"
-before_script: "npm run-script compile"
+before_install: if test "$(npm --version)" != "$(npm view npm version)"; then npm install -g npm; fi
+before_script: "npm run compile"
 
 # Run our tests
 script: "npm test"
