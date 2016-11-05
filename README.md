@@ -40,6 +40,14 @@ CoffeeScript-Object-Notation. Same as JSON but for CoffeeScript objects.
 <li>Executables: <code>cson2json</code>, <code>json2cson</code></li>
 <li>Module: <code>require('cson')</code></li></ul>
 
+<h3><a href="https://github.com/bevry/editions" title="Editions are the best way to produce and consume packages you care about.">Editions</a></h3>
+
+<p>This package is published with the following editions:</p>
+
+<ul><li><code>cson/source/index.js</code> is Source + CoffeeScript + <a href="https://nodejs.org/dist/latest-v5.x/docs/api/modules.html" title="Node/CJS Modules">Require</a></li>
+<li><code>cson</code> aliases <code>cson/es5/index.js</code></li>
+<li><code>cson/es5/index.js</code> is CoffeeScript Compiled + ES5 + <a href="https://nodejs.org/dist/latest-v5.x/docs/api/modules.html" title="Node/CJS Modules">Require</a></li></ul>
+
 <!-- /INSTALL -->
 
 

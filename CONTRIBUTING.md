@@ -1,5 +1,5 @@
 <!--
-2016 October 4
+2016 November 4
 https://github.com/bevry/base
 -->
 
@@ -23,16 +23,10 @@ Our [Contributing Guide](https://learn.bevry.me/community/contribute) contains u
 
 1. Fork the project and clone your fork - [guide](https://help.github.com/articles/fork-a-repo/)
 
-1. Install local dependencies
+1. Setup the project for development
 
   ``` bash
-  npm install
-  ```
-
-1. Perform any other setup operations
-
-  ``` bash
-  npm run-script setup
+  npm run our:setup
   ```
 
 
@@ -41,7 +35,7 @@ Our [Contributing Guide](https://learn.bevry.me/community/contribute) contains u
 1. Compile changes
 
 	``` bash
-	npm run-script compile
+	npm run our:compile
 	```
 
 1. Run tests
@@ -73,9 +67,7 @@ Follow these steps in order to implement your changes/improvements into your des
 1. Ensure the project is ready for publishing:
 
   ```
-  git status
-  git diff
-  npm run-script prepare
+  npm run our:release:prepare
   ```
 
 
@@ -122,15 +114,13 @@ To publish your changes as the project owner:
 1. Ensure the project is ready for publishing:
 
   ```
-  git status
-  git diff
-  npm run-script prepare
+  npm run our:release:prepare
   ```
 
 1. Prepare the release and publish it to npm and git:
 
   ``` bash
-  npm run-script release
+  npm run our:release
   ```
 
 	> A prompt will occur asking you for a git tag annotation, enter the changelog entry that we created earlier, save and exit the prompt.

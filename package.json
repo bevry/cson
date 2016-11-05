@@ -67,26 +67,48 @@
   "engines": {
     "node": ">=0.8"
   },
+  "editions": [
+    {
+      "description": "Source + CoffeeScript + Require",
+      "directory": "source",
+      "entry": "index.js",
+      "syntaxes": [
+        "coffeescript",
+        "require"
+      ]
+    },
+    {
+      "description": "CoffeeScript Compiled + ES5 + Require",
+      "directory": "es5",
+      "entry": "index.js",
+      "syntaxes": [
+        "javascript",
+        "es5",
+        "require"
+      ]
+    }
+  ],
   "main": "es5/index.js",
   "bin": {
     "cson2json": "bin/cson2json",
     "json2cson": "bin/json2cson"
   },
   "scripts": {
-    "setup": "npm install",
-    "clean": "rm -Rf ./docs ./es5",
-    "compile": "npm run compile:coffeescript",
-    "compile:coffeescript": "coffee -bco ./es5 ./src",
-    "meta": "npm run meta:projectz",
-    "meta:projectz": "projectz compile",
-    "prepare": "npm run compile && npm run test && npm run meta",
-    "release": "npm run prepare && npm run release:publish && npm run release:tag && npm run release:push",
-    "release:publish": "npm publish",
-    "release:tag": "git tag v$npm_package_version -a",
-    "release:push": "git push origin master && git push origin --tags",
-    "pretest": "npm run test:coffeelint",
-    "test:coffeelint": "coffeelint ./src",
-    "test": "node --harmony ./es5/test.js"
+    "our:setup": "npm install",
+    "our:clean": "rm -Rf ./es5",
+    "our:compile": "npm run our:compile:coffeescript",
+    "our:compile:coffeescript": "coffee -bco ./es5 ./source",
+    "our:meta": "npm run our:meta:projectz",
+    "our:meta:projectz": "projectz compile",
+    "our:verify": "npm run our:verify:coffeelint",
+    "our:verify:coffeelint": "coffeelint ./source",
+    "our:test": "npm run our:verify && npm test",
+    "our:release": "npm run our:release:prepare && npm run our:release:publish && npm run our:release:tag && npm run our:release:push",
+    "our:release:prepare": "npm run our:clean && npm run our:compile && npm run our:test && npm run our:meta",
+    "our:release:publish": "npm publish",
+    "our:release:tag": "git tag v$npm_package_version -a",
+    "our:release:push": "git push origin master && git push origin --tags",
+    "test": "node --harmony ./es5/test.js --joe-reporter=console"
   },
   "dependencies": {
     "coffee-script": "^1.11.1",
@@ -99,9 +121,9 @@
     "assert-helpers": "^4.4.0",
     "biscotto": "2.3.1",
     "coffeelint": "^1.16.0",
-    "joe": "^1.8.0",
-    "joe-reporter-console": "^1.2.1",
-    "projectz": "^1.3.0",
+    "joe": "^2.0.2",
+    "joe-reporter-console": "^2.0.1",
+    "projectz": "^1.3.2",
     "safeps": "^6.3.0"
   }
 }
