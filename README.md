@@ -30,6 +30,8 @@ CoffeeScript-Object-Notation. Same as JSON but for CoffeeScript objects.
 
 [Projects using CSON Parser directly.](https://www.npmjs.org/browse/depended/cson-parser)
 
+Since v2, this CSON package is a higher-level wrapper around the lower-level [CSON Parser](https://www.npmjs.com/package/cson-parser).
+
 
 <!-- INSTALL/ -->
 
