@@ -180,90 +180,52 @@ Click the below function names to open more detailed documentation.
 
 #### Create Strings
 
-<a href='http://master.cson.bevry.surge.sh/docs/classes/CSON.html#stringify-instance'>
-String <strong>CSON.stringify</strong>(data, replacer?, indent?)
-</a> <br/> Converts an <a href='https://developer.mozilla.org/en-US/docs/JavaScript/Reference/Global_Objects/Object'>Object</a> into a CSON <a href='https://developer.mozilla.org/en-US/docs/JavaScript/Reference/Global_Objects/String'>String</a>
+- <a href='http://master.cson.bevry.surge.sh/docs/classes/CSON.html#stringify-instance'>String <strong>CSON.stringify</strong>(data, replacer?, indent?)</a> <br/> Converts an <a href='https://developer.mozilla.org/en-US/docs/JavaScript/Reference/Global_Objects/Object'>Object</a> into a CSON <a href='https://developer.mozilla.org/en-US/docs/JavaScript/Reference/Global_Objects/String'>String</a>
 
-<a href='http://master.cson.bevry.surge.sh/docs/classes/CSON.html#createCSONString-instance'>
-String <strong>CSON.createCSONString</strong>(data, opts?, next?)
-</a> <br/> Converts an <a href='https://developer.mozilla.org/en-US/docs/JavaScript/Reference/Global_Objects/Object'>Object</a> into a CSON <a href='https://developer.mozilla.org/en-US/docs/JavaScript/Reference/Global_Objects/String'>String</a>
+- <a href='http://master.cson.bevry.surge.sh/docs/classes/CSON.html#createCSONString-instance'>String <strong>CSON.createCSONString</strong>(data, opts?, next?)</a> <br/> Converts an <a href='https://developer.mozilla.org/en-US/docs/JavaScript/Reference/Global_Objects/Object'>Object</a> into a CSON <a href='https://developer.mozilla.org/en-US/docs/JavaScript/Reference/Global_Objects/String'>String</a>
 
-<a href='http://master.cson.bevry.surge.sh/docs/classes/CSON.html#createJSONString-instance'>
-String <strong>CSON.createJSONString</strong>(data, opts?, next?)
-</a> <br/> Converts an <a href='https://developer.mozilla.org/en-US/docs/JavaScript/Reference/Global_Objects/Object'>Object</a> into a JSON <a href='https://developer.mozilla.org/en-US/docs/JavaScript/Reference/Global_Objects/String'>String</a>
+- <a href='http://master.cson.bevry.surge.sh/docs/classes/CSON.html#createJSONString-instance'>String <strong>CSON.createJSONString</strong>(data, opts?, next?)</a> <br/> Converts an <a href='https://developer.mozilla.org/en-US/docs/JavaScript/Reference/Global_Objects/Object'>Object</a> into a JSON <a href='https://developer.mozilla.org/en-US/docs/JavaScript/Reference/Global_Objects/String'>String</a>
 
-<a href='http://master.cson.bevry.surge.sh/docs/classes/CSON.html#createString-instance'>
-String <strong>CSON.createString</strong>(data, opts?, next?)
-</a> <br/> Converts an <a href='https://developer.mozilla.org/en-US/docs/JavaScript/Reference/Global_Objects/Object'>Object</a> into a <a href='https://developer.mozilla.org/en-US/docs/JavaScript/Reference/Global_Objects/String'>String</a> of the desired format If the format option is not specified, we default to CSON
+- <a href='http://master.cson.bevry.surge.sh/docs/classes/CSON.html#createString-instance'>String <strong>CSON.createString</strong>(data, opts?, next?)</a> <br/> Converts an <a href='https://developer.mozilla.org/en-US/docs/JavaScript/Reference/Global_Objects/Object'>Object</a> into a <a href='https://developer.mozilla.org/en-US/docs/JavaScript/Reference/Global_Objects/String'>String</a> of the desired format If the format option is not specified, we default to CSON
 
 
 ### Parse Strings
 
-<a href='http://master.cson.bevry.surge.sh/docs/classes/CSON.html#parse-instance'>
-Object <strong>CSON.parse</strong>(data, opts?, next?)
-</a> <br/> Parses a CSON <a href='https://developer.mozilla.org/en-US/docs/JavaScript/Reference/Global_Objects/String'>String</a> into an <a href='https://developer.mozilla.org/en-US/docs/JavaScript/Reference/Global_Objects/Object'>Object</a>
+- <a href='http://master.cson.bevry.surge.sh/docs/classes/CSON.html#parse-instance'>Object <strong>CSON.parse</strong>(data, opts?, next?)</a> <br/> Parses a CSON <a href='https://developer.mozilla.org/en-US/docs/JavaScript/Reference/Global_Objects/String'>String</a> into an <a href='https://developer.mozilla.org/en-US/docs/JavaScript/Reference/Global_Objects/Object'>Object</a>
 
-<a href='http://master.cson.bevry.surge.sh/docs/classes/CSON.html#parseCSONString-instance'>
-Object <strong>CSON.parseCSONString</strong>(data, opts?, next?)
-</a> <br/> Parses a CSON <a href='https://developer.mozilla.org/en-US/docs/JavaScript/Reference/Global_Objects/String'>String</a> into an <a href='https://developer.mozilla.org/en-US/docs/JavaScript/Reference/Global_Objects/Object'>Object</a>
+- <a href='http://master.cson.bevry.surge.sh/docs/classes/CSON.html#parseCSONString-instance'>Object <strong>CSON.parseCSONString</strong>(data, opts?, next?)</a> <br/> Parses a CSON <a href='https://developer.mozilla.org/en-US/docs/JavaScript/Reference/Global_Objects/String'>String</a> into an <a href='https://developer.mozilla.org/en-US/docs/JavaScript/Reference/Global_Objects/Object'>Object</a>
 
-<a href='http://master.cson.bevry.surge.sh/docs/classes/CSON.html#parseJSONString-instance'>
-Object <strong>CSON.parseJSONString</strong>(data, opts?, next?)
-</a> <br/> Parses a JSON <a href='https://developer.mozilla.org/en-US/docs/JavaScript/Reference/Global_Objects/String'>String</a> into an <a href='https://developer.mozilla.org/en-US/docs/JavaScript/Reference/Global_Objects/Object'>Object</a>
+- <a href='http://master.cson.bevry.surge.sh/docs/classes/CSON.html#parseJSONString-instance'>Object <strong>CSON.parseJSONString</strong>(data, opts?, next?)</a> <br/> Parses a JSON <a href='https://developer.mozilla.org/en-US/docs/JavaScript/Reference/Global_Objects/String'>String</a> into an <a href='https://developer.mozilla.org/en-US/docs/JavaScript/Reference/Global_Objects/Object'>Object</a>
 
-<a href='http://master.cson.bevry.surge.sh/docs/classes/CSON.html#parseCSString-instance'>
-Object <strong>CSON.parseCSString</strong>(data, opts?, next?)
-</a> <br/> Parses a CoffeeScript <a href='https://developer.mozilla.org/en-US/docs/JavaScript/Reference/Global_Objects/String'>String</a> into an <a href='https://developer.mozilla.org/en-US/docs/JavaScript/Reference/Global_Objects/Object'>Object</a>
+- <a href='http://master.cson.bevry.surge.sh/docs/classes/CSON.html#parseCSString-instance'>Object <strong>CSON.parseCSString</strong>(data, opts?, next?)</a> <br/> Parses a CoffeeScript <a href='https://developer.mozilla.org/en-US/docs/JavaScript/Reference/Global_Objects/String'>String</a> into an <a href='https://developer.mozilla.org/en-US/docs/JavaScript/Reference/Global_Objects/Object'>Object</a>
 
-<a href='http://master.cson.bevry.surge.sh/docs/classes/CSON.html#parseJSString-instance'>
-Object <strong>CSON.parseJSString</strong>(data, opts?, next?)
-</a> <br/> Parses a JavaScript <a href='https://developer.mozilla.org/en-US/docs/JavaScript/Reference/Global_Objects/String'>String</a> into an <a href='https://developer.mozilla.org/en-US/docs/JavaScript/Reference/Global_Objects/Object'>Object</a>
+- <a href='http://master.cson.bevry.surge.sh/docs/classes/CSON.html#parseJSString-instance'>Object <strong>CSON.parseJSString</strong>(data, opts?, next?)</a> <br/> Parses a JavaScript <a href='https://developer.mozilla.org/en-US/docs/JavaScript/Reference/Global_Objects/String'>String</a> into an <a href='https://developer.mozilla.org/en-US/docs/JavaScript/Reference/Global_Objects/Object'>Object</a>
 
-<a href='http://master.cson.bevry.surge.sh/docs/classes/CSON.html#parseString-instance'>
-Object <strong>CSON.parseString</strong>(data, opts?, next?)
-</a> <br/> Converts a <a href='https://developer.mozilla.org/en-US/docs/JavaScript/Reference/Global_Objects/String'>String</a> of the desired format into an <a href='https://developer.mozilla.org/en-US/docs/JavaScript/Reference/Global_Objects/Object'>Object</a> If the format option is not specified, we default to CSON
+- <a href='http://master.cson.bevry.surge.sh/docs/classes/CSON.html#parseString-instance'>Object <strong>CSON.parseString</strong>(data, opts?, next?)</a> <br/> Converts a <a href='https://developer.mozilla.org/en-US/docs/JavaScript/Reference/Global_Objects/String'>String</a> of the desired format into an <a href='https://developer.mozilla.org/en-US/docs/JavaScript/Reference/Global_Objects/Object'>Object</a> If the format option is not specified, we default to CSON
 
 
 #### Parse Files
 
-<a href='http://master.cson.bevry.surge.sh/docs/classes/CSON.html#load-instance'>
-Object <strong>CSON.load</strong>(filePath, opts?, next?)
-</a> <br/> Parses a CSON file into an <a href='https://developer.mozilla.org/en-US/docs/JavaScript/Reference/Global_Objects/Object'>Object</a>
+- <a href='http://master.cson.bevry.surge.sh/docs/classes/CSON.html#load-instance'>Object <strong>CSON.load</strong>(filePath, opts?, next?)</a> <br/> Parses a CSON file into an <a href='https://developer.mozilla.org/en-US/docs/JavaScript/Reference/Global_Objects/Object'>Object</a>
 
-<a href='http://master.cson.bevry.surge.sh/docs/classes/CSON.html#parseCSONFile-instance'>
-Object <strong>CSON.parseCSONFile</strong>(filePath, opts?, next?)
-</a> <br/> Parses a CSON file into an <a href='https://developer.mozilla.org/en-US/docs/JavaScript/Reference/Global_Objects/Object'>Object</a>
+- <a href='http://master.cson.bevry.surge.sh/docs/classes/CSON.html#parseCSONFile-instance'>Object <strong>CSON.parseCSONFile</strong>(filePath, opts?, next?)</a> <br/> Parses a CSON file into an <a href='https://developer.mozilla.org/en-US/docs/JavaScript/Reference/Global_Objects/Object'>Object</a>
 
-<a href='http://master.cson.bevry.surge.sh/docs/classes/CSON.html#parseJSONFile-instance'>
-Object <strong>CSON.parseJSONFile</strong>(filePath, opts?, next?)
-</a> <br/> Parses a JSON file into an <a href='https://developer.mozilla.org/en-US/docs/JavaScript/Reference/Global_Objects/Object'>Object</a>
+- <a href='http://master.cson.bevry.surge.sh/docs/classes/CSON.html#parseJSONFile-instance'>Object <strong>CSON.parseJSONFile</strong>(filePath, opts?, next?)</a> <br/> Parses a JSON file into an <a href='https://developer.mozilla.org/en-US/docs/JavaScript/Reference/Global_Objects/Object'>Object</a>
 
-<a href='http://master.cson.bevry.surge.sh/docs/classes/CSON.html#parseCSFile-instance'>
-Object <strong>CSON.parseCSFile</strong>(filePath, opts?, next?)
-</a> <br/> Parses a CoffeeScript file into an <a href='https://developer.mozilla.org/en-US/docs/JavaScript/Reference/Global_Objects/Object'>Object</a>
+- <a href='http://master.cson.bevry.surge.sh/docs/classes/CSON.html#parseCSFile-instance'>Object <strong>CSON.parseCSFile</strong>(filePath, opts?, next?)</a> <br/> Parses a CoffeeScript file into an <a href='https://developer.mozilla.org/en-US/docs/JavaScript/Reference/Global_Objects/Object'>Object</a>
 
-<a href='http://master.cson.bevry.surge.sh/docs/classes/CSON.html#parseJSFile-instance'>
-Object <strong>CSON.parseJSFile</strong>(filePath, opts?, next?)
-</a> <br/> Parses a JavaScript file into an <a href='https://developer.mozilla.org/en-US/docs/JavaScript/Reference/Global_Objects/Object'>Object</a>
+- <a href='http://master.cson.bevry.surge.sh/docs/classes/CSON.html#parseJSFile-instance'>Object <strong>CSON.parseJSFile</strong>(filePath, opts?, next?)</a> <br/> Parses a JavaScript file into an <a href='https://developer.mozilla.org/en-US/docs/JavaScript/Reference/Global_Objects/Object'>Object</a>
 
-<a href='http://master.cson.bevry.surge.sh/docs/classes/CSON.html#parseFile-instance'>
-Object <strong>CSON.parseFile</strong>(filePath, opts?, next?)
-</a> <br/> Parses a file path of the desired format into an <a href='https://developer.mozilla.org/en-US/docs/JavaScript/Reference/Global_Objects/Object'>Object</a> If the format option is not specified, we use the filename to detect what it should be, otherwise we default to CSON
+- <a href='http://master.cson.bevry.surge.sh/docs/classes/CSON.html#parseFile-instance'>Object <strong>CSON.parseFile</strong>(filePath, opts?, next?)</a> <br/> Parses a file path of the desired format into an <a href='https://developer.mozilla.org/en-US/docs/JavaScript/Reference/Global_Objects/Object'>Object</a> If the format option is not specified, we use the filename to detect what it should be, otherwise we default to CSON
 
 
 ### Require Files
 
-<a href='http://master.cson.bevry.surge.sh/docs/classes/CSON.html#requireCSFile-instance'>
-Object <strong>CSON.requireCSFile</strong>(filePath, opts?, next?)
-</a> <br/> Requires a CoffeeScript file and returns the result <a href='https://developer.mozilla.org/en-US/docs/JavaScript/Reference/Global_Objects/Object'>Object</a>
+- <a href='http://master.cson.bevry.surge.sh/docs/classes/CSON.html#requireCSFile-instance'>Object <strong>CSON.requireCSFile</strong>(filePath, opts?, next?)</a> <br/> Requires a CoffeeScript file and returns the result <a href='https://developer.mozilla.org/en-US/docs/JavaScript/Reference/Global_Objects/Object'>Object</a>
 
-<a href='http://master.cson.bevry.surge.sh/docs/classes/CSON.html#requireJSFile-instance'>
-Object <strong>CSON.requireJSFile</strong>(filePath, opts?, next?)
-</a> <br/> Requires a JavaScript file and returns the result <a href='https://developer.mozilla.org/en-US/docs/JavaScript/Reference/Global_Objects/Object'>Object</a>
+- <a href='http://master.cson.bevry.surge.sh/docs/classes/CSON.html#requireJSFile-instance'>Object <strong>CSON.requireJSFile</strong>(filePath, opts?, next?)</a> <br/> Requires a JavaScript file and returns the result <a href='https://developer.mozilla.org/en-US/docs/JavaScript/Reference/Global_Objects/Object'>Object</a>
 
-<a href='http://master.cson.bevry.surge.sh/docs/classes/CSON.html#requireFile-instance'>
-Object <strong>CSON.requireFile</strong>(filePath, opts?, next?)
-</a> <br/> Requires or parses a file path of the desired format into an <a href='https://developer.mozilla.org/en-US/docs/JavaScript/Reference/Global_Objects/Object'>Object</a> If the format option is not specified, we use the filename to detect what it should be, otherwise we default to parsing CSON
+- <a href='http://master.cson.bevry.surge.sh/docs/classes/CSON.html#requireFile-instance'>Object <strong>CSON.requireFile</strong>(filePath, opts?, next?)</a> <br/> Requires or parses a file path of the desired format into an <a href='https://developer.mozilla.org/en-US/docs/JavaScript/Reference/Global_Objects/Object'>Object</a> If the format option is not specified, we use the filename to detect what it should be, otherwise we default to parsing CSON
 
 
 <!-- HISTORY/ -->
