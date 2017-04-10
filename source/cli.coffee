@@ -60,12 +60,19 @@ else
 # File conversion
 if process.argv.length is 3
 	filePath = process.argv[2]
-	process.stdout.write(
-		if conversion is 'cson2json'
-			CSON.createJSONString CSON.parseCSONFile(filePath), opts
-		else
-			CSON.createCSONString CSON.parseJSONFile(filePath), opts
-	)
+
+	if conversion is 'cson2json'
+		parse = CSON.parseCSONFile.bind(CSON)
+		create = CSON.createJSONString.bind(CSON)
+	else
+		parse = CSON.parseJSONFile.bind(CSON)
+		create = CSON.createCSONString.bind(CSON)
+
+	result = parse(filePath)
+	throw result  if result instanceof Error
+	result = create(result, opts)
+	throw result  if result instanceof Error
+	process.stdout.write(result)
 
 # Try STDIN
 else if process.argv.length is 2
@@ -77,9 +84,16 @@ else if process.argv.length is 2
 
 	processData = ->
 		if conversion is 'cson2json'
-			result = CSON.createJSONString CSON.parseCSONString(data), opts
+			parse = CSON.parseCSONString.bind(CSON)
+			create = CSON.createJSONString.bind(CSON)
 		else
-			result = CSON.createCSONString CSON.parseJSONString(data), opts
+			parse = CSON.parseJSONString.bind(CSON)
+			create = CSON.createCSONString.bind(CSON)
+
+		result = parse(data)
+		throw result  if result instanceof Error
+		result = create(result, opts)
+		throw result  if result instanceof Error
 		process.stdout.write(result)
 
 	# Timeout if we don't have stdin

@@ -1,5 +1,10 @@
 # History
 
+## v4.1.0 2017 April 10
+- Updated base files
+- `cson2json` and `json2cson` will now output the error if the input file is invalid
+  - Closes [issue #78](https://github.com/bevry/cson/issues/78)
+
 ## v4.0.0 2016 October 20
 - `parseCSString` no longer creates the `sandbox` variable if it was missing, the responsibility of such things should be, and now is, handled via the eval function of coffeescript which is what that method uses
 	- This is a major breaking change as parsing coffeescript files will now by default run still in a virtual machine but now in the global context rather than their own context
