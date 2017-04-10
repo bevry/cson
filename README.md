@@ -13,13 +13,15 @@
 <span class="badge-daviddm"><a href="https://david-dm.org/bevry/cson" title="View the status of this project's dependencies on DavidDM"><img src="https://img.shields.io/david/bevry/cson.svg" alt="Dependency Status" /></a></span>
 <span class="badge-daviddmdev"><a href="https://david-dm.org/bevry/cson#info=devDependencies" title="View the status of this project's development dependencies on DavidDM"><img src="https://img.shields.io/david/dev/bevry/cson.svg" alt="Dev Dependency Status" /></a></span>
 <br class="badge-separator" />
-<span class="badge-slackin"><a href="https://slack.bevry.me" title="Join this project's slack community"><img src="https://slack.bevry.me/badge.svg" alt="Slack community badge" /></a></span>
-<span class="badge-patreon"><a href="http://patreon.com/bevry" title="Donate to this project using Patreon"><img src="https://img.shields.io/badge/patreon-donate-yellow.svg" alt="Patreon donate button" /></a></span>
+<span class="badge-patreon"><a href="https://patreon.com/bevry" title="Donate to this project using Patreon"><img src="https://img.shields.io/badge/patreon-donate-yellow.svg" alt="Patreon donate button" /></a></span>
+<span class="badge-opencollective"><a href="https://opencollective.com/bevry" title="Donate to this project using Open Collective"><img src="https://img.shields.io/badge/open%20collective-donate-yellow.svg" alt="Open Collective donate button" /></a></span>
 <span class="badge-gratipay"><a href="https://www.gratipay.com/bevry" title="Donate weekly to this project using Gratipay"><img src="https://img.shields.io/badge/gratipay-donate-yellow.svg" alt="Gratipay donate button" /></a></span>
 <span class="badge-flattr"><a href="https://flattr.com/profile/balupton" title="Donate to this project using Flattr"><img src="https://img.shields.io/badge/flattr-donate-yellow.svg" alt="Flattr donate button" /></a></span>
 <span class="badge-paypal"><a href="https://bevry.me/paypal" title="Donate to this project using Paypal"><img src="https://img.shields.io/badge/paypal-donate-yellow.svg" alt="PayPal donate button" /></a></span>
 <span class="badge-bitcoin"><a href="https://bevry.me/bitcoin" title="Donate once-off to this project using Bitcoin"><img src="https://img.shields.io/badge/bitcoin-donate-yellow.svg" alt="Bitcoin donate button" /></a></span>
 <span class="badge-wishlist"><a href="https://bevry.me/wishlist" title="Buy an item on our wishlist for us"><img src="https://img.shields.io/badge/wishlist-donate-yellow.svg" alt="Wishlist browse button" /></a></span>
+<br class="badge-separator" />
+<span class="badge-slackin"><a href="https://slack.bevry.me" title="Join this project's slack community"><img src="https://slack.bevry.me/badge.svg" alt="Slack community badge" /></a></span>
 
 <!-- /BADGES -->
 
@@ -178,88 +180,88 @@ Click the below function names to open more detailed documentation.
 
 #### Create Strings
 
-- <a href='http://rawgit.com/bevry/cson/master/docs/classes/CSON.html#stringify-instance'>
+- <a href='http://master.cson.bevry.surge.sh/docs/classes/CSON.html#stringify-instance'>
 String <strong>CSON.stringify</strong>(data, replacer?, indent?)
 </a> <br/> Converts an <a href='https://developer.mozilla.org/en-US/docs/JavaScript/Reference/Global_Objects/Object'>Object</a> into a CSON <a href='https://developer.mozilla.org/en-US/docs/JavaScript/Reference/Global_Objects/String'>String</a>
 
-- <a href='http://rawgit.com/bevry/cson/master/docs/classes/CSON.html#createCSONString-instance'>
+- <a href='http://master.cson.bevry.surge.sh/docs/classes/CSON.html#createCSONString-instance'>
 String <strong>CSON.createCSONString</strong>(data, opts?, next?)
 </a> <br/> Converts an <a href='https://developer.mozilla.org/en-US/docs/JavaScript/Reference/Global_Objects/Object'>Object</a> into a CSON <a href='https://developer.mozilla.org/en-US/docs/JavaScript/Reference/Global_Objects/String'>String</a>
 
-- <a href='http://rawgit.com/bevry/cson/master/docs/classes/CSON.html#createJSONString-instance'>
+- <a href='http://master.cson.bevry.surge.sh/docs/classes/CSON.html#createJSONString-instance'>
 String <strong>CSON.createJSONString</strong>(data, opts?, next?)
 </a> <br/> Converts an <a href='https://developer.mozilla.org/en-US/docs/JavaScript/Reference/Global_Objects/Object'>Object</a> into a JSON <a href='https://developer.mozilla.org/en-US/docs/JavaScript/Reference/Global_Objects/String'>String</a>
 
-- <a href='http://rawgit.com/bevry/cson/master/docs/classes/CSON.html#createString-instance'>
+- <a href='http://master.cson.bevry.surge.sh/docs/classes/CSON.html#createString-instance'>
 String <strong>CSON.createString</strong>(data, opts?, next?)
 </a> <br/> Converts an <a href='https://developer.mozilla.org/en-US/docs/JavaScript/Reference/Global_Objects/Object'>Object</a> into a <a href='https://developer.mozilla.org/en-US/docs/JavaScript/Reference/Global_Objects/String'>String</a> of the desired format If the format option is not specified, we default to CSON
 
 
 ### Parse Strings
 
-- <a href='http://rawgit.com/bevry/cson/master/docs/classes/CSON.html#parse-instance'>
+- <a href='http://master.cson.bevry.surge.sh/docs/classes/CSON.html#parse-instance'>
 Object <strong>CSON.parse</strong>(data, opts?, next?)
 </a> <br/> Parses a CSON <a href='https://developer.mozilla.org/en-US/docs/JavaScript/Reference/Global_Objects/String'>String</a> into an <a href='https://developer.mozilla.org/en-US/docs/JavaScript/Reference/Global_Objects/Object'>Object</a>
 
-- <a href='http://rawgit.com/bevry/cson/master/docs/classes/CSON.html#parseCSONString-instance'>
+- <a href='http://master.cson.bevry.surge.sh/docs/classes/CSON.html#parseCSONString-instance'>
 Object <strong>CSON.parseCSONString</strong>(data, opts?, next?)
 </a> <br/> Parses a CSON <a href='https://developer.mozilla.org/en-US/docs/JavaScript/Reference/Global_Objects/String'>String</a> into an <a href='https://developer.mozilla.org/en-US/docs/JavaScript/Reference/Global_Objects/Object'>Object</a>
 
-- <a href='http://rawgit.com/bevry/cson/master/docs/classes/CSON.html#parseJSONString-instance'>
+- <a href='http://master.cson.bevry.surge.sh/docs/classes/CSON.html#parseJSONString-instance'>
 Object <strong>CSON.parseJSONString</strong>(data, opts?, next?)
 </a> <br/> Parses a JSON <a href='https://developer.mozilla.org/en-US/docs/JavaScript/Reference/Global_Objects/String'>String</a> into an <a href='https://developer.mozilla.org/en-US/docs/JavaScript/Reference/Global_Objects/Object'>Object</a>
 
-- <a href='http://rawgit.com/bevry/cson/master/docs/classes/CSON.html#parseCSString-instance'>
+- <a href='http://master.cson.bevry.surge.sh/docs/classes/CSON.html#parseCSString-instance'>
 Object <strong>CSON.parseCSString</strong>(data, opts?, next?)
 </a> <br/> Parses a CoffeeScript <a href='https://developer.mozilla.org/en-US/docs/JavaScript/Reference/Global_Objects/String'>String</a> into an <a href='https://developer.mozilla.org/en-US/docs/JavaScript/Reference/Global_Objects/Object'>Object</a>
 
-- <a href='http://rawgit.com/bevry/cson/master/docs/classes/CSON.html#parseJSString-instance'>
+- <a href='http://master.cson.bevry.surge.sh/docs/classes/CSON.html#parseJSString-instance'>
 Object <strong>CSON.parseJSString</strong>(data, opts?, next?)
 </a> <br/> Parses a JavaScript <a href='https://developer.mozilla.org/en-US/docs/JavaScript/Reference/Global_Objects/String'>String</a> into an <a href='https://developer.mozilla.org/en-US/docs/JavaScript/Reference/Global_Objects/Object'>Object</a>
 
-- <a href='http://rawgit.com/bevry/cson/master/docs/classes/CSON.html#parseString-instance'>
+- <a href='http://master.cson.bevry.surge.sh/docs/classes/CSON.html#parseString-instance'>
 Object <strong>CSON.parseString</strong>(data, opts?, next?)
 </a> <br/> Converts a <a href='https://developer.mozilla.org/en-US/docs/JavaScript/Reference/Global_Objects/String'>String</a> of the desired format into an <a href='https://developer.mozilla.org/en-US/docs/JavaScript/Reference/Global_Objects/Object'>Object</a> If the format option is not specified, we default to CSON
 
 
 #### Parse Files
 
-- <a href='http://rawgit.com/bevry/cson/master/docs/classes/CSON.html#load-instance'>
+- <a href='http://master.cson.bevry.surge.sh/docs/classes/CSON.html#load-instance'>
 Object <strong>CSON.load</strong>(filePath, opts?, next?)
 </a> <br/> Parses a CSON file into an <a href='https://developer.mozilla.org/en-US/docs/JavaScript/Reference/Global_Objects/Object'>Object</a>
 
-- <a href='http://rawgit.com/bevry/cson/master/docs/classes/CSON.html#parseCSONFile-instance'>
+- <a href='http://master.cson.bevry.surge.sh/docs/classes/CSON.html#parseCSONFile-instance'>
 Object <strong>CSON.parseCSONFile</strong>(filePath, opts?, next?)
 </a> <br/> Parses a CSON file into an <a href='https://developer.mozilla.org/en-US/docs/JavaScript/Reference/Global_Objects/Object'>Object</a>
 
-- <a href='http://rawgit.com/bevry/cson/master/docs/classes/CSON.html#parseJSONFile-instance'>
+- <a href='http://master.cson.bevry.surge.sh/docs/classes/CSON.html#parseJSONFile-instance'>
 Object <strong>CSON.parseJSONFile</strong>(filePath, opts?, next?)
 </a> <br/> Parses a JSON file into an <a href='https://developer.mozilla.org/en-US/docs/JavaScript/Reference/Global_Objects/Object'>Object</a>
 
-- <a href='http://rawgit.com/bevry/cson/master/docs/classes/CSON.html#parseCSFile-instance'>
+- <a href='http://master.cson.bevry.surge.sh/docs/classes/CSON.html#parseCSFile-instance'>
 Object <strong>CSON.parseCSFile</strong>(filePath, opts?, next?)
 </a> <br/> Parses a CoffeeScript file into an <a href='https://developer.mozilla.org/en-US/docs/JavaScript/Reference/Global_Objects/Object'>Object</a>
 
-- <a href='http://rawgit.com/bevry/cson/master/docs/classes/CSON.html#parseJSFile-instance'>
+- <a href='http://master.cson.bevry.surge.sh/docs/classes/CSON.html#parseJSFile-instance'>
 Object <strong>CSON.parseJSFile</strong>(filePath, opts?, next?)
 </a> <br/> Parses a JavaScript file into an <a href='https://developer.mozilla.org/en-US/docs/JavaScript/Reference/Global_Objects/Object'>Object</a>
 
-- <a href='http://rawgit.com/bevry/cson/master/docs/classes/CSON.html#parseFile-instance'>
+- <a href='http://master.cson.bevry.surge.sh/docs/classes/CSON.html#parseFile-instance'>
 Object <strong>CSON.parseFile</strong>(filePath, opts?, next?)
 </a> <br/> Parses a file path of the desired format into an <a href='https://developer.mozilla.org/en-US/docs/JavaScript/Reference/Global_Objects/Object'>Object</a> If the format option is not specified, we use the filename to detect what it should be, otherwise we default to CSON
 
 
 ### Require Files
 
-- <a href='http://rawgit.com/bevry/cson/master/docs/classes/CSON.html#requireCSFile-instance'>
+- <a href='http://master.cson.bevry.surge.sh/docs/classes/CSON.html#requireCSFile-instance'>
 Object <strong>CSON.requireCSFile</strong>(filePath, opts?, next?)
 </a> <br/> Requires a CoffeeScript file and returns the result <a href='https://developer.mozilla.org/en-US/docs/JavaScript/Reference/Global_Objects/Object'>Object</a>
 
-- <a href='http://rawgit.com/bevry/cson/master/docs/classes/CSON.html#requireJSFile-instance'>
+- <a href='http://master.cson.bevry.surge.sh/docs/classes/CSON.html#requireJSFile-instance'>
 Object <strong>CSON.requireJSFile</strong>(filePath, opts?, next?)
 </a> <br/> Requires a JavaScript file and returns the result <a href='https://developer.mozilla.org/en-US/docs/JavaScript/Reference/Global_Objects/Object'>Object</a>
 
-- <a href='http://rawgit.com/bevry/cson/master/docs/classes/CSON.html#requireFile-instance'>
+- <a href='http://master.cson.bevry.surge.sh/docs/classes/CSON.html#requireFile-instance'>
 Object <strong>CSON.requireFile</strong>(filePath, opts?, next?)
 </a> <br/> Requires or parses a file path of the desired format into an <a href='https://developer.mozilla.org/en-US/docs/JavaScript/Reference/Global_Objects/Object'>Object</a> If the format option is not specified, we use the filename to detect what it should be, otherwise we default to parsing CSON
 
@@ -296,7 +298,8 @@ These amazing people are maintaining this project:
 
 No sponsors yet! Will you be the first?
 
-<span class="badge-patreon"><a href="http://patreon.com/bevry" title="Donate to this project using Patreon"><img src="https://img.shields.io/badge/patreon-donate-yellow.svg" alt="Patreon donate button" /></a></span>
+<span class="badge-patreon"><a href="https://patreon.com/bevry" title="Donate to this project using Patreon"><img src="https://img.shields.io/badge/patreon-donate-yellow.svg" alt="Patreon donate button" /></a></span>
+<span class="badge-opencollective"><a href="https://opencollective.com/bevry" title="Donate to this project using Open Collective"><img src="https://img.shields.io/badge/open%20collective-donate-yellow.svg" alt="Open Collective donate button" /></a></span>
 <span class="badge-gratipay"><a href="https://www.gratipay.com/bevry" title="Donate weekly to this project using Gratipay"><img src="https://img.shields.io/badge/gratipay-donate-yellow.svg" alt="Gratipay donate button" /></a></span>
 <span class="badge-flattr"><a href="https://flattr.com/profile/balupton" title="Donate to this project using Flattr"><img src="https://img.shields.io/badge/flattr-donate-yellow.svg" alt="Flattr donate button" /></a></span>
 <span class="badge-paypal"><a href="https://bevry.me/paypal" title="Donate to this project using Paypal"><img src="https://img.shields.io/badge/paypal-donate-yellow.svg" alt="PayPal donate button" /></a></span>

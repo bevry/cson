@@ -1,5 +1,5 @@
 <!--
-2016 November 4
+2017 January 27
 https://github.com/bevry/base
 -->
 
@@ -122,5 +122,3 @@ To publish your changes as the project owner:
   ``` bash
   npm run our:release
   ```
-
-	> A prompt will occur asking you for a git tag annotation, enter the changelog entry that we created earlier, save and exit the prompt.
