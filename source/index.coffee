@@ -389,7 +389,7 @@ class CSON
 
 		# Parse
 		try
-			result = require('coffee-script').eval(data, opts)
+			result = require('coffeescript').eval(data, opts)
 		catch err
 			result = @ensureErrorType(err)
 
@@ -537,7 +537,7 @@ class CSON
 		[opts, next] = extractOptsAndCallback(opts, next)
 
 		# Require
-		require('coffee-script/register')
+		require('coffeescript/register')
 		try
 			result = requireFresh(file)
 		catch err

@@ -1,7 +1,7 @@
 {
   "title": "CSON",
   "name": "cson",
-  "version": "4.1.0",
+  "version": "4.1.1",
   "description": "CoffeeScript-Object-Notation Parser. Same as JSON but for CoffeeScript objects.",
   "homepage": "https://github.com/bevry/cson",
   "license": "MIT",
@@ -97,7 +97,7 @@
   },
   "main": "es5/index.js",
   "dependencies": {
-    "coffee-script": "^1.12.4",
+    "coffeescript": "^2.0.2",
     "cson-parser": "^1.3.4",
     "extract-opts": "^3.3.1",
     "requirefresh": "^2.1.0",
@@ -105,8 +105,9 @@
   },
   "devDependencies": {
     "assert-helpers": "^4.5.0",
+    "babel-core": "^6.26.0",
     "biscotto": "emmenko/biscotto#v2.4.0",
-    "coffeelint": "^1.16.0",
+    "coffeelint": "^2.0.7",
     "joe": "^2.0.2",
     "joe-reporter-console": "^2.0.1",
     "projectz": "^1.4.0",
@@ -118,7 +119,7 @@
     "our:setup:npm": "npm install",
     "our:clean": "rm -Rf ./docs ./es2015 ./es5 ./out",
     "our:compile": "npm run our:compile:coffee",
-    "our:compile:coffee": "coffee -bco ./es5 ./source",
+    "our:compile:coffee": "coffee -bcto ./es5 ./source",
     "our:meta": "npm run our:meta:projectz && npm run our:meta:biscotto",
     "our:meta:projectz": "projectz compile",
     "our:meta:biscotto": "biscotto -n \"$npm_package_title\" --title \"$npm_package_title API Documentation\" --readme README.md --output-dir docs source - LICENSE.md HISTORY.md",
