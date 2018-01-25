@@ -1,5 +1,9 @@
 # History
 
+## v5.1.0 2018 January 25
+- Revert CSON's use of CoffeeScript v2, as it [broke support for Node 4 and below](https://travis-ci.org/bevry/cson/builds/333130290)
+- Use of CoffeeScript v2 is now limited to compilation of this project only
+
 ## v5.0.0 2018 January 25
 - Now uses CoffeeScript v2
 - Now uses [editions](https://github.com/bevry/editions) to use the ESNext compiled edition for environments that support it, otherwise use the ES2015 compiled edition
