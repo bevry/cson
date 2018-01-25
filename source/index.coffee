@@ -282,7 +282,7 @@ class CSON
 		###
 		Potentially we could use something like the following from CSON v1
 		However the JSON.stringify gets rid of functions...
-		which is the entire point of the coffee-script mode over the CSON mode...
+		which is the entire point of the coffeescript mode over the CSON mode...
 		So until we figure out how to toString() an object and keep the functions intact,
 		unsafe stringifying to CSON or CS or JS won't happen.
 
@@ -379,7 +379,7 @@ class CSON
 	# Public: Parses a CoffeeScript {String} into an {Object}
 	#
 	# data - The CoffeeScript {String} to parse
-	# opts - {Object} The options, forwarded onto `require('coffee-scriot').eval`
+	# opts - {Object} The options, forwarded onto `require('coffeescriot').eval`
 	#
 	# Returns {Object} or {Error}
 	parseCSString: (data, opts, next) ->
@@ -389,7 +389,7 @@ class CSON
 
 		# Parse
 		try
-			result = require('coffee-script').eval(data, opts)
+			result = require('coffeescript').eval(data, opts)
 		catch err
 			result = @ensureErrorType(err)
 
@@ -537,7 +537,7 @@ class CSON
 		[opts, next] = extractOptsAndCallback(opts, next)
 
 		# Require
-		require('coffee-script/register')
+		require('coffeescript/register')
 		try
 			result = requireFresh(file)
 		catch err

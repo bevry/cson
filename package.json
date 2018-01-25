@@ -1,7 +1,7 @@
 {
   "title": "CSON",
   "name": "cson",
-  "version": "4.1.0",
+  "version": "5.0.0",
   "description": "CoffeeScript-Object-Notation Parser. Same as JSON but for CoffeeScript objects.",
   "homepage": "https://github.com/bevry/cson",
   "license": "MIT",
@@ -53,7 +53,7 @@
     "Jason Karns <jason.karns@gmail.com> (http://jasonkarns.com)",
     "Joël Perras <joel@nerderati.com> (http://nerderati.com)",
     "Linus Gustav Larsson Thiel <linus@hanssonlarsson.se> (http://yesbabyyes.se/)",
-    "Tushar Kant <nanu.clickity@gmail.com> (https://github.com/nanuclickity)",
+    "Tushar Kant <nanu.clickity@gmail.com> (http://indiez.io)",
     "Claudius Nicolae <claudius.nicolae@gmail.com> (https://github.com/clyfe)",
     "Rob Loach <robloach@gmail.com> (http://robloach.net)",
     "Ryan LeFevre <meltingice8917@gmail.com> (http://meltingice.net)",
@@ -74,19 +74,29 @@
     {
       "description": "Source + CoffeeScript + Require",
       "directory": "source",
-      "entry": "index.js",
+      "entry": "index.coffee",
       "syntaxes": [
         "coffeescript",
         "require"
       ]
     },
     {
-      "description": "CoffeeScript Compiled + ES5 + Require",
-      "directory": "es5",
+      "description": "CoffeeScript Compiled + ESNext + Require",
+      "directory": "esnext",
       "entry": "index.js",
       "syntaxes": [
         "javascript",
-        "es5",
+        "esnext",
+        "require"
+      ]
+    },
+    {
+      "description": "CoffeeScript Transpiled + ES2015 + Require",
+      "directory": "es2015",
+      "entry": "index.js",
+      "syntaxes": [
+        "javascript",
+        "es2015",
         "require"
       ]
     }
@@ -95,18 +105,21 @@
     "cson2json": "bin/cson2json",
     "json2cson": "bin/json2cson"
   },
-  "main": "es5/index.js",
+  "main": "index.js",
   "dependencies": {
-    "coffee-script": "^1.12.4",
+    "coffeescript": "^2.1.1",
     "cson-parser": "^1.3.4",
+    "editions": "^1.3.3",
     "extract-opts": "^3.3.1",
     "requirefresh": "^2.1.0",
     "safefs": "^4.1.0"
   },
   "devDependencies": {
     "assert-helpers": "^4.5.0",
+    "babel-core": "^6.26.0",
+    "babel-preset-es2015": "^6.24.1",
     "biscotto": "emmenko/biscotto#v2.4.0",
-    "coffeelint": "^1.16.0",
+    "coffeelint": "^2.0.7",
     "joe": "^2.0.2",
     "joe-reporter-console": "^2.0.1",
     "projectz": "^1.4.0",
@@ -117,11 +130,12 @@
     "our:setup": "npm run our:setup:npm",
     "our:setup:npm": "npm install",
     "our:clean": "rm -Rf ./docs ./es2015 ./es5 ./out",
-    "our:compile": "npm run our:compile:coffee",
-    "our:compile:coffee": "coffee -bco ./es5 ./source",
-    "our:meta": "npm run our:meta:projectz && npm run our:meta:biscotto",
-    "our:meta:projectz": "projectz compile",
+    "our:compile": "npm run our:compile:coffee:esnext && npm run our:compile:coffee:es2015",
+    "our:compile:coffee:esnext": "coffee -bco ./esnext ./source",
+    "our:compile:coffee:es2015": "coffee -bcto ./es2015 ./source",
+    "our:meta": "npm run our:meta:biscotto && npm run our:meta:projectz",
     "our:meta:biscotto": "biscotto -n \"$npm_package_title\" --title \"$npm_package_title API Documentation\" --readme README.md --output-dir docs source - LICENSE.md HISTORY.md",
+    "our:meta:projectz": "projectz compile",
     "our:verify": "npm run our:verify:coffeelint",
     "our:verify:coffeelint": "coffeelint ./source",
     "our:test": "npm run our:verify && npm test",
@@ -132,6 +146,6 @@
     "our:release:check:dirty": "git diff --exit-code",
     "our:release:tag": "export MESSAGE=$(cat ./HISTORY.md | sed -n \"/## v$npm_package_version/,/##/p\" | sed 's/## //' | awk 'NR>1{print buf}{buf = $0}') && test \"$MESSAGE\" || (echo 'proper changelog entry not found' && exit -1) && git tag v$npm_package_version -am \"$MESSAGE\"",
     "our:release:push": "git push origin master && git push origin --tags",
-    "test": "node --harmony es5/test.js --joe-reporter=console"
+    "test": "node --harmony ./test.js --joe-reporter=console"
   }
 }

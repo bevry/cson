@@ -1,5 +1,8 @@
-# 2017 April 3
+# 2017 April 12
 # https://github.com/bevry/base
+
+# System Files
+**/.DS_Store
 
 # Temp Files
 yarn.lock

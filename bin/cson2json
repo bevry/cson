@@ -1,2 +1,4 @@
 #!/usr/bin/env node
-require('../es5/cli')
+'use strict'
+
+module.exports = require('editions').requirePackage(require('path').resolve(__dirname, '..'), require, 'cli.js')

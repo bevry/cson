@@ -6,23 +6,26 @@ node_js:
 - '0.12'
 - '4'
 - '6'
-- '7'
+- '8'
+- '9'
 matrix:
   fast_finish: true
+  allow_failures:
+  - node_js: '9'
 cache:
   directories:
   - "$HOME/.npm"
   - "$HOME/.yarn-cache"
 install:
-- eval "$(curl -s https://raw.githubusercontent.com/balupton/awesome-travis/master/scripts/node-install.bash)"
+- eval "$(curl -s https://raw.githubusercontent.com/bevry/awesome-travis/ef794235b7094de5e49fb64e226da032ce135ecd/scripts/node-install.bash)"
 before_script:
-- eval "$(curl -s https://raw.githubusercontent.com/balupton/awesome-travis/master/scripts/node-verify.bash)"
+- eval "$(curl -s https://raw.githubusercontent.com/bevry/awesome-travis/ef794235b7094de5e49fb64e226da032ce135ecd/scripts/node-verify.bash)"
 after_success:
-- eval "$(curl -s https://raw.githubusercontent.com/balupton/awesome-travis/master/scripts/surge.bash)"
-- eval "$(curl -s https://raw.githubusercontent.com/balupton/awesome-travis/master/scripts/node-publish.bash)"
+- eval "$(curl -s https://raw.githubusercontent.com/bevry/awesome-travis/ef794235b7094de5e49fb64e226da032ce135ecd/scripts/surge.bash)"
+- eval "$(curl -s https://raw.githubusercontent.com/bevry/awesome-travis/ef794235b7094de5e49fb64e226da032ce135ecd/scripts/node-publish.bash)"
 notifications:
   slack:
-    secure: IhkRLDorJVComkSYhthlyeHRNIF8z+/aQ/4FwgKPh3bmCY4OLzO7bMzxUwvgMxaB+GkmQv5ViHMkmePhaO84D7aar5p7l8DkR9pXa/W1RrvxiavpR5dLUBOysfdBBx5CteYwCREBUtGj6/njePoc94eakSYRJsYlV54GIWuSuFM=
+    secure: SR8H4rhrivHGNM7BwMOA6lIdYoCJcXWPmQTs7ce8xDnYDA4eB5fPShSiboDgdiSqrrrRihT16cODrd864wHUg1cBP9BULXOTyb27TLpegA+26295CNQJouGTidonZ8x0VdyZhBL6PE1YEcluJKMoaBH0A0gP9VcD/IIsZ+ULCsE=
   email:
     recipients:
-      secure: gFivbfasdE6eNtuD5BzGxqMM0SoOi5FtkiHJqu0LU8p57E/4dkuNwPdQjtfoCaXDjbpeduouZebOnzdV5PcH1g08a/+k9n2cdQMvT8kX6r+sjvbZbNr+Ax1BacjLVMGEEG3WIVh+8zK1bZrdHgOft2tHjt5qCvPDf5caVjGNP6k=
+      secure: gCmsmDQcGSjXpA1jSA6s4z+WpRbiYK2QkFsRr2Unrlgh8ly7cVdlx2T4lOnP9NlDy63nqr2YycQhGtYZc0NzU9wV4v5d+jTWXfX2Yh+alwSDsXf8zr1X38jw6w/G3yjzCoyB/eEAQvdgKcKJD9rqfwJK5Jlq0Pn+V0vq8zOGF8w=

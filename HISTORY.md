@@ -1,9 +1,14 @@
 # History
 
-## v4.1.0 2017 April 10
+## v5.0.0 2018 January 25
+- Now uses CoffeeScript v2
+- Now uses [editions](https://github.com/bevry/editions) to use the ESNext compiled edition for environments that support it, otherwise use the ES2015 compiled edition
 - Updated base files
+
+## v4.1.0 2017 April 10
 - `cson2json` and `json2cson` will now output the error if the input file is invalid
   - Closes [issue #78](https://github.com/bevry/cson/issues/78)
+- Updated base files
 
 ## v4.0.0 2016 October 20
 - `parseCSString` no longer creates the `sandbox` variable if it was missing, the responsibility of such things should be, and now is, handled via the eval function of coffeescript which is what that method uses
