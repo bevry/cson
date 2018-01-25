@@ -379,7 +379,7 @@ class CSON
 	# Public: Parses a CoffeeScript {String} into an {Object}
 	#
 	# data - The CoffeeScript {String} to parse
-	# opts - {Object} The options, forwarded onto `require('coffeescriot').eval`
+	# opts - {Object} The options, forwarded onto `require('coffeescript').eval`
 	#
 	# Returns {Object} or {Error}
 	parseCSString: (data, opts, next) ->
