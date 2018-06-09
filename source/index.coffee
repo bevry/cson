@@ -379,7 +379,7 @@ class CSON
 	# Public: Parses a CoffeeScript {String} into an {Object}
 	#
 	# data - The CoffeeScript {String} to parse
-	# opts - {Object} The options, forwarded onto `require('coffee-script').eval`
+	# opts - {Object} The options, forwarded onto `require('coffeescript').eval`
 	#
 	# Returns {Object} or {Error}
 	parseCSString: (data, opts, next) ->
@@ -389,7 +389,7 @@ class CSON
 
 		# Parse
 		try
-			result = require('coffee-script').eval(data, opts)
+			result = require('coffeescript').eval(data, opts)
 		catch err
 			result = @ensureErrorType(err)
 
