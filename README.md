@@ -171,7 +171,7 @@ if ( result instanceof Error ) {
 Or via a callback like so:
 
 ``` javascript
-CSON.createCSONString({a:{b:'c'}}, {/* optional options argument */}, function(err,result){
+CSON.createCSONString({a:{b:'c'}}, {/* optional options argument */}, (err, result) => {
 	console.log(err, result)
 })
 ```
