@@ -125,7 +125,7 @@
     "joe-reporter-console": "^2.0.1",
     "projectz": "^1.4.0",
     "safeps": "^6.3.0",
-    "surge": "^0.19.0"
+    "surge": "^0.21.3"
   },
   "scripts": {
     "our:setup": "npm run our:setup:npm",
