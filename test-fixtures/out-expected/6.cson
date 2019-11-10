@@ -1,8 +1,8 @@
-filename: "6.js"
+filename: '6.js'
 abc: [
-	"a"
-	"b"
-	"c"
+	'a'
+	'b'
+	'c'
 ]
 a:
-	b: "c"
+	b: 'c'

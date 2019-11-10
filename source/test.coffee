@@ -1,5 +1,5 @@
 # Requires
-joe = require('joe')
+kava = require('kava')
 fsUtil = require('fs')
 {resolve, join} = require('path')
 safeps = require('safeps')
@@ -60,7 +60,7 @@ testExtensions = [
 # =====================================
 # Tests
 
-joe.suite 'cson', (suite,test) ->
+kava.suite 'cson', (suite,test) ->
 	suite 'api', (suite, test) ->
 		suite 'CSON', (suite, test) ->
 			data = a:b:1

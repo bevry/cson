@@ -1,8 +1,8 @@
-filename: "5.coffee"
+filename: '5.coffee'
 abc: [
-	"a"
-	"b"
-	"c"
+	'a'
+	'b'
+	'c'
 ]
 a:
-	b: "c"
+	b: 'c'

@@ -39,6 +39,8 @@ class CSON
 		if opts.filename
 			opts.filename = pathUtil.resolve(opts.filename)
 			opts.format ?= @getFormat(opts.filename)
+		if opts.filename is null
+			delete opts.filename
 
 		opts.json ?= true
 		opts.cson ?= true
@@ -379,7 +381,7 @@ class CSON
 	# Public: Parses a CoffeeScript {String} into an {Object}
 	#
 	# data - The CoffeeScript {String} to parse
-	# opts - {Object} The options, forwarded onto `require('coffee-script').eval`
+	# opts - {Object} The options, forwarded onto `require('coffeescript').eval`
 	#
 	# Returns {Object} or {Error}
 	parseCSString: (data, opts, next) ->
@@ -389,7 +391,7 @@ class CSON
 
 		# Parse
 		try
-			result = require('coffee-script').eval(data, opts)
+			result = require('coffeescript').eval(data, opts)
 		catch err
 			result = @ensureErrorType(err)
 
@@ -537,7 +539,7 @@ class CSON
 		[opts, next] = extractOptsAndCallback(opts, next)
 
 		# Require
-		require('coffee-script/register')
+		require('coffeescript/register')
 		try
 			result = requireFresh(file)
 		catch err

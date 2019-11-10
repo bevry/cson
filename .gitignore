@@ -1,32 +1,16 @@
-# 2017 April 12
+# 2019 January 26
 # https://github.com/bevry/base
 
 # System Files
 **/.DS_Store
 
 # Temp Files
-yarn.lock
 **/.docpad.db
-**/out.*
 **/*.log
 **/*.cpuprofile
 **/*.heapsnapshot
 
-# Build Files
-build/
-components/
-bower_components/
-node_modules/
-out/
-*output/
-coffeejs/
-coffee/
-es5/
-es2015/
-esnext/
-docs/
-
-# Editor Caches
+# Editor Files
 .c9/
 .vscode/
 
@@ -35,6 +19,26 @@ docs/
 .idea
 .cake_task_cache
 
+# Build Caches
+build/
+bower_components/
+node_modules/
+.next/
+.pnp/
+.pnp.js
+
+# Build Outputs
+**/out.*
+**/*.out.*
+**/out/
+**/output/
+edition*/
+coffeejs/
+coffee/
+es5/
+es2015/
+esnext/
+docs/
 
 # =====================================
 # CUSTOM

@@ -1,7 +1,7 @@
 greatDocumentaries: [
-	"earthlings.com"
-	"forksoverknives.com"
-	"cowspiracy.com"
+	'earthlings.com'
+	'forksoverknives.com'
+	'cowspiracy.com'
 ]
 importantFacts:
 	emissions: '''
@@ -27,4 +27,4 @@ importantFacts:
 		“Water trivia facts.” United States Environmental Protection Agency.
 		http://water.epa.gov/learn/kids/drinkingwater/water_trivia_facts.cfm#_edn11
 	'''
-	more: "http://cowspiracy.com/facts"
+	more: 'http://cowspiracy.com/facts'

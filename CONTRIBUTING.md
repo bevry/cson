@@ -1,5 +1,5 @@
 <!--
-2017 August 25
+2019 February 28
 https://github.com/bevry/base
 -->
 
@@ -19,7 +19,7 @@ Our [Contributing Guide](https://bevry.me/contribute) contains useful tips and s
 
 ### Setup
 
-1. Install [Node.js](https://learn.bevry.me/node/install)
+1. [Install Node.js](https://bevry.me/install/node)
 
 1. Fork the project and clone your fork - [guide](https://help.github.com/articles/fork-a-repo/)
 
