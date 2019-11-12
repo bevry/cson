@@ -1,5 +1,9 @@
 # History
 
+## v6.1.0 2019 November 13
+
+-   Updated dependencies, [base files](https://github.com/bevry/base), and [editions](https://editions.bevry.me) using [boundation](https://github.com/bevry/boundation)
+
 ## v6.0.0 2019 November 11
 
 -   As node v4 is no longer LTS, CSON can now use CoffeeScript v2

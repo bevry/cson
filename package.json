@@ -1,7 +1,7 @@
 {
   "title": "CSON",
   "name": "cson",
-  "version": "6.0.0",
+  "version": "6.1.0",
   "description": "CoffeeScript-Object-Notation Parser. Same as JSON but for CoffeeScript objects.",
   "homepage": "https://github.com/bevry/cson",
   "license": "MIT",
@@ -63,7 +63,8 @@
     "Ryan LeFevre <meltingice8917@gmail.com> (http://meltingice.net)",
     "Zearin (https://github.com/Zearin)",
     "ZHANG Cheng <czhang.oss@gmail.com> (http://about.me/zhangcheng77)",
-    "Attila Oláh <atl@google.com> (http://attilaolah.eu)"
+    "Attila Oláh <atl@google.com> (http://attilaolah.eu)",
+    "dependabot-preview[bot] (http://github.com/apps/dependabot-preview)"
   ],
   "bugs": {
     "url": "https://github.com/bevry/cson/issues"
@@ -96,7 +97,7 @@
         "require"
       ],
       "engines": {
-        "node": "8 || 10 || 12",
+        "node": "8 || 10 || 12 || 13",
         "browsers": false
       }
     }
@@ -111,10 +112,10 @@
     "cson-parser": "^4.0.3",
     "extract-opts": "^3.3.1",
     "requirefresh": "^2.2.0",
-    "safefs": "^4.1.0"
+    "safefs": "^4.2.0"
   },
   "devDependencies": {
-    "assert-helpers": "^5.0.0",
+    "assert-helpers": "^5.2.1",
     "coffeelint": "^2.1.0",
     "kava": "^3.1.0",
     "projectz": "^1.9.0",

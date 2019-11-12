@@ -294,7 +294,8 @@ These amazing people have contributed code to this project:
 <li><a href="http://meltingice.net">Ryan LeFevre</a> — <a href="https://github.com/bevry/cson/commits?author=meltingice" title="View the GitHub contributions of Ryan LeFevre on repository bevry/cson">view contributions</a></li>
 <li><a href="https://github.com/Zearin">Zearin</a> — <a href="https://github.com/bevry/cson/commits?author=Zearin" title="View the GitHub contributions of Zearin on repository bevry/cson">view contributions</a></li>
 <li><a href="http://about.me/zhangcheng77">ZHANG Cheng</a> — <a href="https://github.com/bevry/cson/commits?author=zhangcheng" title="View the GitHub contributions of ZHANG Cheng on repository bevry/cson">view contributions</a></li>
-<li><a href="http://attilaolah.eu">Attila Oláh</a> — <a href="https://github.com/bevry/cson/commits?author=attilaolah" title="View the GitHub contributions of Attila Oláh on repository bevry/cson">view contributions</a></li></ul>
+<li><a href="http://attilaolah.eu">Attila Oláh</a> — <a href="https://github.com/bevry/cson/commits?author=attilaolah" title="View the GitHub contributions of Attila Oláh on repository bevry/cson">view contributions</a></li>
+<li><a href="http://github.com/apps/dependabot-preview">dependabot-preview[bot]</a> — <a href="https://github.com/bevry/cson/commits?author=dependabot-preview[bot]" title="View the GitHub contributions of dependabot-preview[bot] on repository bevry/cson">view contributions</a></li></ul>
 
 <a href="https://github.com/bevry/cson/blob/master/CONTRIBUTING.md#files">Discover how you can contribute by heading on over to the <code>CONTRIBUTING.md</code> file.</a>
 
