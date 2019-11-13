@@ -4,7 +4,7 @@ fsUtil = require('fs')
 {resolve, join} = require('path')
 safeps = require('safeps')
 {equal, deepEqual, errorEqual, contains} = require('assert-helpers')
-CSON = require('../')
+CSON = require('./')
 
 # Configuraiton
 rootPath = resolve(__dirname, '..')

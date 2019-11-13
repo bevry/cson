@@ -1,6 +1,6 @@
 # Requires
 fs = require('fs')
-CSON = require('../')
+CSON = require('./')
 opts = {}
 
 # Helpers
