@@ -1,7 +1,7 @@
 {
   "title": "CSON",
   "name": "cson",
-  "version": "6.2.0",
+  "version": "6.3.0",
   "description": "CoffeeScript-Object-Notation Parser. Same as JSON but for CoffeeScript objects.",
   "homepage": "https://github.com/bevry/cson",
   "license": "MIT",
@@ -42,10 +42,7 @@
       "travisTLD": "com"
     }
   },
-  "funding": {
-    "type": "cooperative",
-    "url": "https://bevry.me/fund"
-  },
+  "funding": "https://bevry.me/fund",
   "author": "2012+ Bevry Pty Ltd <us@bevry.me> (http://bevry.me), Benjamin Lupton <b@lupton.cc> (http://balupton.com)",
   "maintainers": [
     "Benjamin Lupton <b@lupton.cc> (http://balupton.com)"
@@ -97,7 +94,7 @@
         "require"
       ],
       "engines": {
-        "node": "8 || 10 || 12 || 13",
+        "node": "8 || 10 || 12",
         "browsers": false
       }
     }
@@ -110,17 +107,17 @@
   "dependencies": {
     "coffeescript": "^2.4.1",
     "cson-parser": "^4.0.3",
-    "extract-opts": "^3.3.1",
-    "requirefresh": "^2.2.0",
-    "safefs": "^5.0.0"
+    "extract-opts": "^3.4.0",
+    "requirefresh": "^2.3.0",
+    "safefs": "^5.1.0"
   },
   "devDependencies": {
-    "assert-helpers": "^5.2.1",
+    "assert-helpers": "^5.3.0",
     "coffeelint": "^2.1.0",
-    "kava": "^3.1.0",
-    "projectz": "^1.9.0",
-    "safeps": "^8.0.0",
-    "valid-directory": "^1.0.0"
+    "kava": "^3.2.0",
+    "projectz": "^1.10.0",
+    "safeps": "^8.1.0",
+    "valid-directory": "^1.1.1"
   },
   "scripts": {
     "our:clean": "rm -Rf ./docs ./edition* ./es2015 ./es5 ./out ./.next",
