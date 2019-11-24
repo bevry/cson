@@ -116,7 +116,7 @@
     "coffeelint": "^2.1.0",
     "kava": "4.0.0",
     "projectz": "^1.10.0",
-    "safeps": "8.1.0",
+    "safeps": "9.0.0",
     "valid-directory": "^1.1.1"
   },
   "scripts": {
