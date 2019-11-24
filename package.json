@@ -107,7 +107,7 @@
   "dependencies": {
     "coffeescript": "^2.4.1",
     "cson-parser": "^4.0.3",
-    "extract-opts": "^3.4.0",
+    "extract-opts": "^4.0.0",
     "requirefresh": "^2.3.0",
     "safefs": "5.1.0"
   },
