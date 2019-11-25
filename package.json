@@ -109,7 +109,7 @@
     "cson-parser": "^4.0.3",
     "extract-opts": "^4.0.0",
     "requirefresh": "^3.0.0",
-    "safefs": "5.1.0"
+    "safefs": "5.2.0"
   },
   "devDependencies": {
     "assert-helpers": "5.4.0",
