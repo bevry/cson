@@ -39,15 +39,8 @@ Since v2, this CSON package is a higher-level wrapper around the lower-level [CS
 <h2>Install</h2>
 
 <a href="https://npmjs.com" title="npm is a package manager for javascript"><h3>npm</h3></a>
-<h4>Install Globally</h4>
-<ul>
-<li>Install: <code>npm install --global cson</code></li>
-<li>Executables: <code>cson2json</code>, <code>json2cson</code></li>
-</ul>
-<h4>Install Locally</h4>
 <ul>
 <li>Install: <code>npm install --save cson</code></li>
-<li>Executables: <code>npx cson2json</code>, <code>json2cson</code></li>
 <li>Require: <code>require('cson')</code></li>
 </ul>
 
