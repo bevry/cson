@@ -8,7 +8,6 @@ CSON = require('./')
 
 # Configuraiton
 rootPath = resolve(__dirname, '..')
-binDirectoryPath = join(rootPath, 'bin')
 testFixturesPath = join(rootPath, 'test-fixtures')
 apiDirectoryPath = join(testFixturesPath, 'api')
 srcDirectoryPath = join(testFixturesPath, 'src')
@@ -444,13 +443,13 @@ kava.suite 'cson', (suite,test) ->
 	suite 'cli', (suite, test) ->
 		cliTests = [
 				name: 'json2cson'
-				bin: join(binDirectoryPath, 'json2cson')
+				spawn: ['npx', '-q', '-p', '.', 'json2cson']
 				sourcePath: join(outDirectoryPath, '1.json')
 				sourceData: fsUtil.readFileSync(join(outDirectoryPath, '1.json'), 'utf8')
 				expectedData: fsUtil.readFileSync(join(outDirectoryPath, '1.cson'), 'utf8')
 			,
 				name: 'cson2json'
-				bin: join(binDirectoryPath, 'cson2json')
+				spawn: ['npx', '-q', '-p', '.', 'cson2json']
 				sourcePath: join(outDirectoryPath, '1.cson')
 				sourceData: fsUtil.readFileSync(join(outDirectoryPath, '1.cson'), 'utf8')
 				expectedData: fsUtil.readFileSync(join(outDirectoryPath, '1.json'), 'utf8')
@@ -459,7 +458,7 @@ kava.suite 'cson', (suite,test) ->
 		cliTests.forEach (cliTest) ->
 			suite cliTest.name, (suite, test) ->
 				test 'args', (done) ->
-					safeps.spawn ['node', cliTest.bin, cliTest.sourcePath], (err,stdout,stderr,code) ->
+					safeps.spawn cliTest.spawn.concat([cliTest.sourcePath]), (err,stdout,stderr,code) ->
 						equal(err, null, "error to be empty")
 						equal(stdout.toString(), cliTest.expectedData, "stdout to be as expected")
 						equal(stderr?.toString() or null, null, "stderr to be empty")
@@ -467,7 +466,7 @@ kava.suite 'cson', (suite,test) ->
 						done()
 
 				test 'stdin', (done) ->
-					safeps.spawn ['node', cliTest.bin], {stdin:cliTest.sourceData}, (err,stdout,stderr,code) ->
+					safeps.spawn cliTest.spawn, {stdin:cliTest.sourceData}, (err,stdout,stderr,code) ->
 						equal(err, null, "error to be empty")
 						equal(stdout.toString(), cliTest.expectedData, "stdout to be as expected")
 						equal(stderr?.toString() or null, null, "stderr to be empty")
@@ -479,7 +478,7 @@ kava.suite 'cson', (suite,test) ->
 			sourceData = JSON.parse cliTest.sourceData
 
 			test '--tabs', (done) ->
-				safeps.spawn ['node', cliTest.bin, cliTest.sourcePath, '--tabs'], (err,stdout,stderr,code) ->
+				safeps.spawn cliTest.spawn.concat([cliTest.sourcePath, '--tabs']), (err,stdout,stderr,code) ->
 					expected = CSON.createCSONString(sourceData, {indent:'\t'})
 					equal(err, null, "error to be empty")
 					equal(stdout.toString(), expected, "stdout to be as expected")
@@ -488,7 +487,7 @@ kava.suite 'cson', (suite,test) ->
 					done()
 
 			test '--2spaces', (done) ->
-				safeps.spawn ['node', cliTest.bin, cliTest.sourcePath, '--2spaces'], (err,stdout,stderr,code) ->
+				safeps.spawn cliTest.spawn.concat([cliTest.sourcePath, '--2spaces']), (err,stdout,stderr,code) ->
 					expected = CSON.createCSONString(sourceData, {indent:'  '})
 					equal(err, null, "error to be empty")
 					equal(stdout.toString(), expected, "stdout to be as expected")
@@ -497,10 +496,11 @@ kava.suite 'cson', (suite,test) ->
 					done()
 
 			test '--4spaces', (done) ->
-				safeps.spawn ['node', cliTest.bin, cliTest.sourcePath, '--4spaces'], (err,stdout,stderr,code) ->
+				safeps.spawn cliTest.spawn.concat([cliTest.sourcePath, '--4spaces']), (err,stdout,stderr,code) ->
 					expected = CSON.createCSONString(sourceData, {indent:'    '})
 					equal(err, null, "error to be empty")
 					equal(stdout.toString(), expected, "stdout to be as expected")
 					equal(stderr?.toString() or null, null, "stderr to be empty")
 					equal(code, 0, "exit code to be 0")
 					done()
+	###

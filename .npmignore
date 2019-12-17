@@ -28,6 +28,10 @@ node_modules/
 .pnp/
 .pnp.js
 
+# Ecosystem Files
+.dependabout
+.github
+
 # Documentation Files
 docs/
 guides/

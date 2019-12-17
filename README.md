@@ -40,8 +40,15 @@ Since v2, this CSON package is a higher-level wrapper around the lower-level [CS
 <h2>Install</h2>
 
 <a href="https://npmjs.com" title="npm is a package manager for javascript"><h3>npm</h3></a>
+<h4>Install Globally</h4>
+<ul>
+<li>Install: <code>npm install --global cson</code></li>
+<li>Executables: <code>cson2json</code>, <code>json2cson</code></li>
+</ul>
+<h4>Install Locally</h4>
 <ul>
 <li>Install: <code>npm install --save cson</code></li>
+<li>Executables: <code>npx cson2json</code>, <code>json2cson</code></li>
 <li>Require: <code>require('cson')</code></li>
 </ul>
 
@@ -51,7 +58,7 @@ Since v2, this CSON package is a higher-level wrapper around the lower-level [CS
 
 <ul><li><code>cson/source/index.coffee</code> is coffeescript source code with require for modules</li>
 <li><code>cson</code> aliases <code>cson/edition-esnext/index.js</code></li>
-<li><code>cson/edition-esnext/index.js</code> is coffeescript compiled for node.js with require for modules</li></ul>
+<li><code>cson/edition-esnext/index.js</code> is coffeescript compiled for Node.js with require for modules</li></ul>
 
 <p>Environments older than Node.js v8 may need <a href="https://babeljs.io/docs/usage/polyfill/" title="A polyfill that emulates missing ECMAScript environment features">Babel's Polyfill</a> or something similar.</p>
 

@@ -1,7 +1,7 @@
 {
   "title": "CSON",
   "name": "cson",
-  "version": "6.8.0",
+  "version": "6.9.0",
   "description": "CoffeeScript-Object-Notation Parser. Same as JSON but for CoffeeScript objects.",
   "homepage": "https://github.com/bevry/cson",
   "license": "MIT",
@@ -87,7 +87,7 @@
       "engines": false
     },
     {
-      "description": "coffeescript compiled for node.js with require for modules",
+      "description": "coffeescript compiled for Node.js with require for modules",
       "directory": "edition-esnext",
       "entry": "index.js",
       "tags": [
@@ -96,26 +96,30 @@
         "require"
       ],
       "engines": {
-        "node": "8 || 10 || 12"
+        "node": "8 || 10 || 12 || 13"
       }
     }
   ],
+  "bin": {
+    "cson2json": "bin.js",
+    "json2cson": "bin.js"
+  },
   "type": "commonjs",
   "main": "edition-esnext/index.js",
   "dependencies": {
     "coffeescript": "^2.4.1",
     "cson-parser": "^4.0.3",
-    "extract-opts": "^4.2.0",
-    "requirefresh": "^3.2.0",
-    "safefs": "^5.4.0"
+    "extract-opts": "^4.3.0",
+    "requirefresh": "^3.3.0",
+    "safefs": "^5.5.0"
   },
   "devDependencies": {
     "assert-helpers": "^5.8.0",
     "coffeelint": "^2.1.0",
-    "kava": "^4.3.0",
-    "projectz": "^1.15.0",
-    "safeps": "^9.2.0",
-    "valid-directory": "^1.5.0"
+    "kava": "^4.4.0",
+    "projectz": "^1.16.0",
+    "safeps": "^9.3.0",
+    "valid-directory": "^1.6.0"
   },
   "scripts": {
     "our:clean": "rm -Rf ./docs ./edition* ./es2015 ./es5 ./out ./.next",

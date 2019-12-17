@@ -1,5 +1,10 @@
 # History
 
+## v6.9.0 2019 December 18
+
+-   Fixed broken `json2cson` and `cson2json` executables (regression since v6.0.0)
+-   Updated dependencies, [base files](https://github.com/bevry/base), and [editions](https://editions.bevry.me) using [boundation](https://github.com/bevry/boundation)
+
 ## v6.8.0 2019 December 9
 
 -   Updated dependencies, [base files](https://github.com/bevry/base), and [editions](https://editions.bevry.me) using [boundation](https://github.com/bevry/boundation)
