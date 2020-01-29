@@ -101,8 +101,8 @@
     }
   ],
   "bin": {
-    "cson2json": "bin.js",
-    "json2cson": "bin.js"
+    "cson2json": "cson2json.js",
+    "json2cson": "json2cson.js"
   },
   "type": "commonjs",
   "main": "edition-esnext/index.js",
