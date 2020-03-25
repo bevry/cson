@@ -35,34 +35,7 @@ CoffeeScript-Object-Notation. Same as JSON but for CoffeeScript objects.
 Since v2, this CSON package is a higher-level wrapper around the lower-level [CSON Parser](https://www.npmjs.com/package/cson-parser).
 
 
-<!-- INSTALL/ -->
 
-<h2>Install</h2>
-
-<a href="https://npmjs.com" title="npm is a package manager for javascript"><h3>npm</h3></a>
-<h4>Install Globally</h4>
-<ul>
-<li>Install: <code>npm install --global cson</code></li>
-<li>Executables: <code>cson2json</code>, <code>json2cson</code></li>
-</ul>
-<h4>Install Locally</h4>
-<ul>
-<li>Install: <code>npm install --save cson</code></li>
-<li>Executables: <code>npx cson2json</code>, <code>json2cson</code></li>
-<li>Require: <code>require('cson')</code></li>
-</ul>
-
-<h3><a href="https://editions.bevry.me" title="Editions are the best way to produce and consume packages you care about.">Editions</a></h3>
-
-<p>This package is published with the following editions:</p>
-
-<ul><li><code>cson/source/index.coffee</code> is coffeescript source code with require for modules</li>
-<li><code>cson</code> aliases <code>cson/edition-esnext/index.js</code></li>
-<li><code>cson/edition-esnext/index.js</code> is coffeescript compiled for Node.js with require for modules</li></ul>
-
-<p>Environments older than Node.js v8 may need <a href="https://babeljs.io/docs/usage/polyfill/" title="A polyfill that emulates missing ECMAScript environment features">Babel's Polyfill</a> or something similar.</p>
-
-<!-- /INSTALL -->
 
 
 ## What is CSON?
@@ -236,6 +209,35 @@ Click the below function names to open more detailed documentation.
 - <a href='http://master.cson.bevry.surge.sh/docs/classes/CSON.html#requireJSFile-instance'>Object <strong>CSON.requireJSFile</strong>(filePath, opts?, next?)</a> <br/> Requires a JavaScript file and returns the result <a href='https://developer.mozilla.org/en-US/docs/JavaScript/Reference/Global_Objects/Object'>Object</a>
 
 - <a href='http://master.cson.bevry.surge.sh/docs/classes/CSON.html#requireFile-instance'>Object <strong>CSON.requireFile</strong>(filePath, opts?, next?)</a> <br/> Requires or parses a file path of the desired format into an <a href='https://developer.mozilla.org/en-US/docs/JavaScript/Reference/Global_Objects/Object'>Object</a> If the format option is not specified, we use the filename to detect what it should be, otherwise we default to parsing CSON
+
+
+<!-- INSTALL/ -->
+
+<h2>Install</h2>
+
+<a href="https://npmjs.com" title="npm is a package manager for javascript"><h3>npm</h3></a>
+<h4>Install Globally</h4>
+<ul>
+<li>Install: <code>npm install --global cson</code></li>
+<li>Executables: <code>cson2json</code>, <code>json2cson</code></li>
+</ul>
+<h4>Install Locally</h4>
+<ul>
+<li>Install: <code>npm install --save cson</code></li>
+<li>Executables: <code>npx cson2json</code>, <code>npx json2cson</code></li>
+<li>Import: <code>import * as pkg from ('cson')</code></li>
+<li>Require: <code>const pkg = require('cson')</code></li>
+</ul>
+
+<h3><a href="https://editions.bevry.me" title="Editions are the best way to produce and consume packages you care about.">Editions</a></h3>
+
+<p>This package is published with the following editions:</p>
+
+<ul><li><code>cson/source/index.coffee</code> is <a href="https://coffeescript.org" title="CoffeeScript is a little language that compiles into JavaScript">CoffeeScript</a> source code with <a href="https://nodejs.org/dist/latest-v5.x/docs/api/modules.html" title="Node/CJS Modules">Require</a> for modules</li>
+<li><code>cson</code> aliases <code>cson/edition-esnext/index.js</code></li>
+<li><code>cson/edition-esnext/index.js</code> is <a href="https://coffeescript.org" title="CoffeeScript is a little language that compiles into JavaScript">CoffeeScript</a> compiled for <a href="https://nodejs.org" title="Node.js is a JavaScript runtime built on Chrome's V8 JavaScript engine">Node.js</a> with <a href="https://nodejs.org/dist/latest-v5.x/docs/api/modules.html" title="Node/CJS Modules">Require</a> for modules</li></ul>
+
+<!-- /INSTALL -->
 
 
 <!-- HISTORY/ -->

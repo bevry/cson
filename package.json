@@ -1,15 +1,15 @@
 {
   "title": "CSON",
   "name": "cson",
-  "version": "6.9.0",
+  "version": "7.0.0",
   "description": "CoffeeScript-Object-Notation Parser. Same as JSON but for CoffeeScript objects.",
   "homepage": "https://github.com/bevry/cson",
   "license": "MIT",
   "keywords": [
-    "javascript",
     "coffeescript",
-    "json",
     "cson",
+    "javascript",
+    "json",
     "parse",
     "stringify"
   ],
@@ -62,8 +62,7 @@
     "Ryan LeFevre <meltingice8917@gmail.com> (http://meltingice.net)",
     "Zearin (https://github.com/Zearin)",
     "ZHANG Cheng <czhang.oss@gmail.com> (http://about.me/zhangcheng77)",
-    "Attila Oláh <atl@google.com> (http://attilaolah.eu)",
-    "dependabot-preview[bot] (http://github.com/apps/dependabot-preview)"
+    "Attila Oláh <atl@google.com> (http://attilaolah.eu)"
   ],
   "bugs": {
     "url": "https://github.com/bevry/cson/issues"
@@ -73,11 +72,11 @@
     "url": "https://github.com/bevry/cson.git"
   },
   "engines": {
-    "node": ">=8"
+    "node": ">=10"
   },
   "editions": [
     {
-      "description": "coffeescript source code with require for modules",
+      "description": "CoffeeScript source code with Require for modules",
       "directory": "source",
       "entry": "index.coffee",
       "tags": [
@@ -87,7 +86,7 @@
       "engines": false
     },
     {
-      "description": "coffeescript compiled for Node.js with require for modules",
+      "description": "CoffeeScript compiled for Node.js with Require for modules",
       "directory": "edition-esnext",
       "entry": "index.js",
       "tags": [
@@ -96,7 +95,7 @@
         "require"
       ],
       "engines": {
-        "node": "8 || 10 || 12 || 13"
+        "node": "10 || 12"
       }
     }
   ],
@@ -107,17 +106,17 @@
   "type": "commonjs",
   "main": "edition-esnext/index.js",
   "dependencies": {
-    "coffeescript": "^2.4.1",
-    "cson-parser": "^4.0.3",
+    "coffeescript": "^2.5.1",
+    "cson-parser": "^4.0.4",
     "extract-opts": "^4.3.0",
     "requirefresh": "^3.3.0",
     "safefs": "^5.5.0"
   },
   "devDependencies": {
-    "assert-helpers": "^5.8.0",
+    "assert-helpers": "^6.0.0",
     "coffeelint": "^2.1.0",
     "kava": "^4.4.0",
-    "projectz": "^1.16.0",
+    "projectz": "^1.19.0",
     "safeps": "^9.3.0",
     "valid-directory": "^1.6.0"
   },
@@ -139,7 +138,7 @@
     "our:test": "npm run our:verify && npm test",
     "our:verify": "npm run our:verify:coffeelint && npm run our:verify:directory",
     "our:verify:coffeelint": "coffeelint ./source",
-    "our:verify:directory": "npx valid-directory",
+    "our:verify:directory": "valid-directory",
     "test": "node ./edition-esnext/test.js"
   }
 }

@@ -1,5 +1,10 @@
 # History
 
+## v7.0.0 2020 March 26
+
+-   Updated dependencies, [base files](https://github.com/bevry/base), and [editions](https://editions.bevry.me) using [boundation](https://github.com/bevry/boundation)
+-   Minimum required node version changed from `node: >=8` to `node: >=10` to keep up with mandatory ecosystem changes
+
 ## v6.9.0 2019 December 18
 
 -   Fixed broken `json2cson` and `cson2json` executables (regression since v6.0.0)
