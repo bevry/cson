@@ -211,6 +211,9 @@ Click the below function names to open more detailed documentation.
 - <a href='http://master.cson.bevry.surge.sh/docs/classes/CSON.html#requireFile-instance'>Object <strong>CSON.requireFile</strong>(filePath, opts?, next?)</a> <br/> Requires or parses a file path of the desired format into an <a href='https://developer.mozilla.org/en-US/docs/JavaScript/Reference/Global_Objects/Object'>Object</a> If the format option is not specified, we use the filename to detect what it should be, otherwise we default to parsing CSON
 
 
+
+
+
 <!-- INSTALL/ -->
 
 <h2>Install</h2>
