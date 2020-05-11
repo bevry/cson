@@ -1,7 +1,7 @@
 {
   "title": "CSON",
   "name": "cson",
-  "version": "7.1.0",
+  "version": "7.2.0",
   "description": "CoffeeScript-Object-Notation Parser. Same as JSON but for CoffeeScript objects.",
   "homepage": "https://github.com/bevry/cson",
   "license": "MIT",
@@ -41,28 +41,32 @@
       "patreonUsername": "bevry",
       "paypalURL": "https://bevry.me/paypal",
       "wishlistURL": "https://bevry.me/wishlist",
-      "travisTLD": "com"
+      "travisTLD": "com",
+      "githubUsername": "bevry",
+      "githubRepository": "cson",
+      "githubSlug": "bevry/cson",
+      "npmPackageName": "cson"
     }
   },
   "funding": "https://bevry.me/fund",
-  "author": "2012+ Bevry Pty Ltd <us@bevry.me> (http://bevry.me), Benjamin Lupton <b@lupton.cc> (http://balupton.com)",
+  "author": "2012+ Bevry Pty Ltd <us@bevry.me> (http://bevry.me), Benjamin Lupton <b@lupton.cc> (https://balupton.com)",
   "maintainers": [
-    "Benjamin Lupton <b@lupton.cc> (http://balupton.com)"
+    "Benjamin Lupton <b@lupton.cc> (https://github.com/balupton)"
   ],
   "contributors": [
-    "Benjamin Lupton <b@lupton.cc> (http://balupton.com)",
+    "Attila Oláh <atl@google.com> (https://github.com/attilaolah)",
     "Attila Oláh <attilaolah@google.com> (http://attilaolah.eu/)",
-    "evinugur (https://github.com/evinugur)",
-    "Jason Karns <jason.karns@gmail.com> (http://jasonkarns.com)",
-    "Joël Perras <joel@nerderati.com> (http://nerderati.com)",
-    "Linus Gustav Larsson Thiel <linus@hanssonlarsson.se> (http://yesbabyyes.se/)",
-    "Tushar Kant <me@tushar.works> (http://indiez.io)",
+    "Benjamin Lupton <b@lupton.cc> (https://github.com/balupton)",
     "Claudius Nicolae <claudius.nicolae@gmail.com> (https://github.com/clyfe)",
-    "Rob Loach <robloach@gmail.com> (http://robloach.net)",
-    "Ryan LeFevre <meltingice8917@gmail.com> (http://meltingice.net)",
+    "Jason Karns <jason.karns@gmail.com> (https://github.com/jasonkarns)",
+    "Joël Perras <joel@nerderati.com> (https://github.com/jperras)",
+    "Linus Gustav Larsson Thiel <linus@hanssonlarsson.se> (https://github.com/linus)",
+    "Rob Loach <robloach@gmail.com> (https://github.com/RobLoach)",
+    "Ryan LeFevre <meltingice8917@gmail.com> (https://github.com/meltingice)",
+    "Tushar Kant <me@tushar.works> (https://github.com/nanuclickity)",
+    "ZHANG Cheng <czhang.oss@gmail.com> (https://github.com/zhangcheng)",
     "Zearin (https://github.com/Zearin)",
-    "ZHANG Cheng <czhang.oss@gmail.com> (http://about.me/zhangcheng77)",
-    "Attila Oláh <atl@google.com> (http://attilaolah.eu)"
+    "evinugur (https://github.com/evinugur)"
   ],
   "bugs": {
     "url": "https://github.com/bevry/cson/issues"
@@ -104,21 +108,22 @@
     "json2cson": "bin.js"
   },
   "type": "commonjs",
-  "main": "edition-esnext/index.js",
+  "main": "index.js",
   "dependencies": {
     "coffeescript": "^2.5.1",
     "cson-parser": "^4.0.4",
+    "editions": "^2.3.0",
     "extract-opts": "^4.3.0",
-    "requirefresh": "^3.3.0",
-    "safefs": "^5.5.0"
+    "requirefresh": "^4.0.0",
+    "safefs": "^6.0.0"
   },
   "devDependencies": {
-    "@bevry/update-contributors": "^1.0.1",
-    "assert-helpers": "^6.2.0",
+    "@bevry/update-contributors": "^1.5.0",
+    "assert-helpers": "^6.3.0",
     "coffeelint": "^2.1.0",
-    "kava": "^4.4.0",
-    "projectz": "^1.19.1",
-    "safeps": "^9.3.0",
+    "kava": "^5.0.0",
+    "projectz": "^2.1.0",
+    "safeps": "^10.0.0",
     "valid-directory": "^1.6.0"
   },
   "scripts": {
@@ -141,6 +146,6 @@
     "our:verify": "npm run our:verify:coffeelint && npm run our:verify:directory",
     "our:verify:coffeelint": "coffeelint ./source",
     "our:verify:directory": "npx valid-directory",
-    "test": "node ./edition-esnext/test.js"
+    "test": "node ./test.js"
   }
 }

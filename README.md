@@ -214,6 +214,9 @@ Click the below function names to open more detailed documentation.
 
 
 
+
+
+
 <!-- INSTALL/ -->
 
 <h2>Install</h2>
@@ -236,8 +239,8 @@ Click the below function names to open more detailed documentation.
 
 <p>This package is published with the following editions:</p>
 
-<ul><li><code>cson/source/index.coffee</code> is <a href="https://coffeescript.org" title="CoffeeScript is a little language that compiles into JavaScript">CoffeeScript</a> source code with <a href="https://nodejs.org/dist/latest-v5.x/docs/api/modules.html" title="Node/CJS Modules">Require</a> for modules</li>
-<li><code>cson</code> aliases <code>cson/edition-esnext/index.js</code></li>
+<ul><li><code>cson</code> aliases <code>cson/index.js</code> which uses the <a href="https://github.com/bevry/editions" title="You can use the Editions Autoloader to autoload the appropriate edition for your consumers environment">Editions Autoloader</a> to automatically select the correct edition for the consumer's environment</li>
+<li><code>cson/source/index.coffee</code> is <a href="https://coffeescript.org" title="CoffeeScript is a little language that compiles into JavaScript">CoffeeScript</a> source code with <a href="https://nodejs.org/dist/latest-v5.x/docs/api/modules.html" title="Node/CJS Modules">Require</a> for modules</li>
 <li><code>cson/edition-esnext/index.js</code> is <a href="https://coffeescript.org" title="CoffeeScript is a little language that compiles into JavaScript">CoffeeScript</a> compiled for <a href="https://nodejs.org" title="Node.js is a JavaScript runtime built on Chrome's V8 JavaScript engine">Node.js</a> with <a href="https://nodejs.org/dist/latest-v5.x/docs/api/modules.html" title="Node/CJS Modules">Require</a> for modules</li></ul>
 
 <!-- /INSTALL -->
@@ -269,7 +272,7 @@ Click the below function names to open more detailed documentation.
 
 These amazing people are maintaining this project:
 
-<ul><li><a href="http://balupton.com">Benjamin Lupton</a> — <a href="https://github.com/bevry/cson/commits?author=balupton" title="View the GitHub contributions of Benjamin Lupton on repository bevry/cson">view contributions</a></li></ul>
+<ul><li><a href="https://balupton.com">Benjamin Lupton</a> — <a href="https://github.com/bevry/cson/commits?author=balupton" title="View the GitHub contributions of Benjamin Lupton on repository bevry/cson">view contributions</a></li></ul>
 
 <h3>Sponsors</h3>
 
@@ -289,20 +292,19 @@ No sponsors yet! Will you be the first?
 
 These amazing people have contributed code to this project:
 
-<ul><li><a href="http://balupton.com">Benjamin Lupton</a> — <a href="https://github.com/bevry/cson/commits?author=balupton" title="View the GitHub contributions of Benjamin Lupton on repository bevry/cson">view contributions</a></li>
+<ul><li><a href="https://github.com/attilaolah">Attila Oláh</a> — <a href="https://github.com/bevry/cson/commits?author=attilaolah" title="View the GitHub contributions of Attila Oláh on repository bevry/cson">view contributions</a></li>
 <li><a href="http://attilaolah.eu/">Attila Oláh</a></li>
-<li><a href="https://github.com/evinugur">evinugur</a> — <a href="https://github.com/bevry/cson/commits?author=evinugur" title="View the GitHub contributions of evinugur on repository bevry/cson">view contributions</a></li>
-<li><a href="http://jasonkarns.com">Jason Karns</a> — <a href="https://github.com/bevry/cson/commits?author=jasonkarns" title="View the GitHub contributions of Jason Karns on repository bevry/cson">view contributions</a></li>
-<li><a href="http://nerderati.com">Joël Perras</a> — <a href="https://github.com/bevry/cson/commits?author=jperras" title="View the GitHub contributions of Joël Perras on repository bevry/cson">view contributions</a></li>
-<li><a href="http://yesbabyyes.se/">Linus Gustav Larsson Thiel</a> — <a href="https://github.com/bevry/cson/commits?author=linus" title="View the GitHub contributions of Linus Gustav Larsson Thiel on repository bevry/cson">view contributions</a></li>
-<li><a href="http://indiez.io">Tushar Kant</a> — <a href="https://github.com/bevry/cson/commits?author=nanuclickity" title="View the GitHub contributions of Tushar Kant on repository bevry/cson">view contributions</a></li>
+<li><a href="https://balupton.com">Benjamin Lupton</a> — <a href="https://github.com/bevry/cson/commits?author=balupton" title="View the GitHub contributions of Benjamin Lupton on repository bevry/cson">view contributions</a></li>
 <li><a href="https://github.com/clyfe">Claudius Nicolae</a> — <a href="https://github.com/bevry/cson/commits?author=clyfe" title="View the GitHub contributions of Claudius Nicolae on repository bevry/cson">view contributions</a></li>
-<li><a href="http://robloach.net">Rob Loach</a> — <a href="https://github.com/bevry/cson/commits?author=RobLoach" title="View the GitHub contributions of Rob Loach on repository bevry/cson">view contributions</a></li>
-<li><a href="http://meltingice.net">Ryan LeFevre</a> — <a href="https://github.com/bevry/cson/commits?author=meltingice" title="View the GitHub contributions of Ryan LeFevre on repository bevry/cson">view contributions</a></li>
+<li><a href="https://github.com/jasonkarns">Jason Karns</a> — <a href="https://github.com/bevry/cson/commits?author=jasonkarns" title="View the GitHub contributions of Jason Karns on repository bevry/cson">view contributions</a></li>
+<li><a href="https://github.com/jperras">Joël Perras</a> — <a href="https://github.com/bevry/cson/commits?author=jperras" title="View the GitHub contributions of Joël Perras on repository bevry/cson">view contributions</a></li>
+<li><a href="https://github.com/linus">Linus Gustav Larsson Thiel</a> — <a href="https://github.com/bevry/cson/commits?author=linus" title="View the GitHub contributions of Linus Gustav Larsson Thiel on repository bevry/cson">view contributions</a></li>
+<li><a href="https://github.com/RobLoach">Rob Loach</a> — <a href="https://github.com/bevry/cson/commits?author=RobLoach" title="View the GitHub contributions of Rob Loach on repository bevry/cson">view contributions</a></li>
+<li><a href="https://github.com/meltingice">Ryan LeFevre</a> — <a href="https://github.com/bevry/cson/commits?author=meltingice" title="View the GitHub contributions of Ryan LeFevre on repository bevry/cson">view contributions</a></li>
+<li><a href="https://github.com/nanuclickity">Tushar Kant</a> — <a href="https://github.com/bevry/cson/commits?author=nanuclickity" title="View the GitHub contributions of Tushar Kant on repository bevry/cson">view contributions</a></li>
+<li><a href="https://github.com/zhangcheng">ZHANG Cheng</a> — <a href="https://github.com/bevry/cson/commits?author=zhangcheng" title="View the GitHub contributions of ZHANG Cheng on repository bevry/cson">view contributions</a></li>
 <li><a href="https://github.com/Zearin">Zearin</a> — <a href="https://github.com/bevry/cson/commits?author=Zearin" title="View the GitHub contributions of Zearin on repository bevry/cson">view contributions</a></li>
-<li><a href="http://about.me/zhangcheng77">ZHANG Cheng</a> — <a href="https://github.com/bevry/cson/commits?author=zhangcheng" title="View the GitHub contributions of ZHANG Cheng on repository bevry/cson">view contributions</a></li>
-<li><a href="http://attilaolah.eu">Attila Oláh</a> — <a href="https://github.com/bevry/cson/commits?author=attilaolah" title="View the GitHub contributions of Attila Oláh on repository bevry/cson">view contributions</a></li>
-<li><a href="http://github.com/apps/dependabot-preview">dependabot-preview[bot]</a> — <a href="https://github.com/bevry/cson/commits?author=dependabot-preview[bot]" title="View the GitHub contributions of dependabot-preview[bot] on repository bevry/cson">view contributions</a></li></ul>
+<li><a href="https://github.com/evinugur">evinugur</a> — <a href="https://github.com/bevry/cson/commits?author=evinugur" title="View the GitHub contributions of evinugur on repository bevry/cson">view contributions</a></li></ul>
 
 <a href="https://github.com/bevry/cson/blob/master/CONTRIBUTING.md#files">Discover how you can contribute by heading on over to the <code>CONTRIBUTING.md</code> file.</a>
 
@@ -316,7 +318,7 @@ These amazing people have contributed code to this project:
 Unless stated otherwise all works are:
 
 <ul><li>Copyright &copy; 2012+ <a href="http://bevry.me">Bevry Pty Ltd</a></li>
-<li>Copyright &copy; <a href="http://balupton.com">Benjamin Lupton</a></li></ul>
+<li>Copyright &copy; <a href="https://balupton.com">Benjamin Lupton</a></li></ul>
 
 and licensed under:
 
