@@ -2,4 +2,4 @@
 'use strict'
 
 /** @type {typeof import("./source/bin.coffee") } */
-module.exports = require('editions').requirePackage(__dirname, require, 'bin.js')
+module.exports = require('./edition-esnext/bin.js')

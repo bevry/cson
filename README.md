@@ -220,6 +220,9 @@ Click the below function names to open more detailed documentation.
 
 
 
+
+
+
 <!-- INSTALL/ -->
 
 <h2>Install</h2>
@@ -242,8 +245,8 @@ Click the below function names to open more detailed documentation.
 
 <p>This package is published with the following editions:</p>
 
-<ul><li><code>cson</code> aliases <code>cson/index.js</code> which uses the <a href="https://github.com/bevry/editions" title="You can use the Editions Autoloader to autoload the appropriate edition for your consumers environment">Editions Autoloader</a> to automatically select the correct edition for the consumer's environment</li>
-<li><code>cson/source/index.coffee</code> is <a href="https://coffeescript.org" title="CoffeeScript is a little language that compiles into JavaScript">CoffeeScript</a> source code with <a href="https://nodejs.org/dist/latest-v5.x/docs/api/modules.html" title="Node/CJS Modules">Require</a> for modules</li>
+<ul><li><code>cson/source/index.coffee</code> is <a href="https://coffeescript.org" title="CoffeeScript is a little language that compiles into JavaScript">CoffeeScript</a> source code with <a href="https://nodejs.org/dist/latest-v5.x/docs/api/modules.html" title="Node/CJS Modules">Require</a> for modules</li>
+<li><code>cson</code> aliases <code>cson/edition-esnext/index.js</code></li>
 <li><code>cson/edition-esnext/index.js</code> is <a href="https://coffeescript.org" title="CoffeeScript is a little language that compiles into JavaScript">CoffeeScript</a> compiled for <a href="https://nodejs.org" title="Node.js is a JavaScript runtime built on Chrome's V8 JavaScript engine">Node.js</a> with <a href="https://nodejs.org/dist/latest-v5.x/docs/api/modules.html" title="Node/CJS Modules">Require</a> for modules</li></ul>
 
 <!-- /INSTALL -->
