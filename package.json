@@ -1,7 +1,7 @@
 {
   "title": "CSON",
   "name": "cson",
-  "version": "7.10.0",
+  "version": "7.11.0",
   "description": "CoffeeScript-Object-Notation Parser. Same as JSON but for CoffeeScript objects.",
   "homepage": "https://github.com/bevry/cson",
   "license": "MIT",
@@ -117,13 +117,13 @@
     "safefs": "6.4.0"
   },
   "devDependencies": {
-    "@bevry/update-contributors": "1.9.0",
-    "assert-helpers": "6.8.0",
+    "@bevry/update-contributors": "^1.9.0",
+    "assert-helpers": "^6.8.0",
     "coffeelint": "^2.1.0",
-    "kava": "5.4.0",
-    "projectz": "2.5.0",
+    "kava": "^5.7.0",
+    "projectz": "^2.9.0",
     "safeps": "10.4.0",
-    "valid-directory": "2.2.0"
+    "valid-directory": "^2.5.0"
   },
   "scripts": {
     "our:clean": "rm -Rf ./docs ./edition* ./es2015 ./es5 ./out ./.next",
