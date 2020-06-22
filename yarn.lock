@@ -3,11 +3,11 @@
 
 
 "@bevry/update-contributors@^1.9.0":
-  version "1.9.0"
-  resolved "https://registry.yarnpkg.com/@bevry/update-contributors/-/update-contributors-1.9.0.tgz#25121c0ffe5d4700a7d09f064f30e1ae5fed5d8a"
-  integrity sha512-kJhg/PHAv2PidmWFqU4e4PW9pWlQO/eE+4YQ4R6SZUPRjmhDAsm6d6lDMlBKRicX0UlGjcDuCwpc0abA+ogrFw==
+  version "1.12.0"
+  resolved "https://registry.yarnpkg.com/@bevry/update-contributors/-/update-contributors-1.12.0.tgz#f0779e9b0d782cec8befae0e816d498325c95292"
+  integrity sha512-Y3hdGf12vuTB6PfnSNNztLKNzi3QV6fUXsqOoM32QDeh0fYHlw1OLrBH/785RyQ6OtdhHOepImFsPAMUxtr/bQ==
   dependencies:
-    getcontributors "^2.12.0"
+    getcontributors "^2.13.0"
 
 "@types/ansicolors@^0.0.33":
   version "0.0.33"
@@ -253,13 +253,12 @@ get-current-line@5.5.0:
   resolved "https://registry.yarnpkg.com/get-current-line/-/get-current-line-5.5.0.tgz#4db3a73152262488387c1bce69c46c5380de8cac"
   integrity sha512-STCaXFXNC8bqwLCAnvV98v2jXQW4pzZxeB44BVAparggfI+kkZ8rwKJaU+TBg7PpK6ZEo3srcv2mZ8/8p6/psA==
 
-getcontributors@^2.12.0:
-  version "2.15.0"
-  resolved "https://registry.yarnpkg.com/getcontributors/-/getcontributors-2.15.0.tgz#e5855c9f5676c259b605e341f493dec1f4948325"
-  integrity sha512-8fZDJqwAJe5pKpzm4rDAnOo/2Vy5ruKr9idnEfUw1+OfA0+KLWo7DSYhEOei4LlBOx8U1czswxrq8lyXTbQvPg==
+getcontributors@^2.13.0:
+  version "2.16.0"
+  resolved "https://registry.yarnpkg.com/getcontributors/-/getcontributors-2.16.0.tgz#84c5ec6312af47599d4a33ff308c0e05c3864571"
+  integrity sha512-rCAehBfTZv5cghNEhfoeZExOOmTVdTLMd5d+RIcpAtkwXReFMu/5vruDTUU2OxVR9UyclfvOUmnr5A8VUyDo8g==
   dependencies:
     cross-fetch "^3.0.4"
-    editions "3.5.0"
     fellow "6.10.0"
     getrepos "5.6.0"
     githubauthreq "5.7.0"
