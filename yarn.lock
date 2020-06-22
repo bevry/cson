@@ -385,9 +385,9 @@ path-is-absolute@^1.0.0:
   integrity sha1-F0uSaHNVNP+8es5r9TpanhtcX18=
 
 projectz@^2.9.0:
-  version "2.9.0"
-  resolved "https://registry.yarnpkg.com/projectz/-/projectz-2.9.0.tgz#f44aaa82bc0946dc4bf2a2510c38b5f8c1729d27"
-  integrity sha512-xL7/PRM2hj3cdiiiawg+0OP/oQf909E9tKhyJnf30StmT1EExEDrRhrKWzZpP8UAjlJ1NPMQmcya6R/31u/HgA==
+  version "2.10.0"
+  resolved "https://registry.yarnpkg.com/projectz/-/projectz-2.10.0.tgz#671ae853ea47a553645d1457337c8a84fe4519ba"
+  integrity sha512-w76YgvY8ezEeW+GpQJE79SFvQWJXuAUlcipUQVV8V2TPNOcjis2W3MI/4pMQyV14vgqEKDd6BwSobjrPAVSNMQ==
   dependencies:
     badges "^4.9.0"
     caterpillar "^5.6.0"
