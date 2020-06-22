@@ -43,16 +43,16 @@ ansistyles@~0.1.3:
   integrity sha1-XeYEFb2gcbs3EnhUyGT0GyMlRTk=
 
 assert-helpers@^6.8.0:
-  version "6.8.0"
-  resolved "https://registry.yarnpkg.com/assert-helpers/-/assert-helpers-6.8.0.tgz#1457a72def55251dd2941e7b5011fdc9bbe43772"
-  integrity sha512-Ayb+HIpy17PMSrnLl3DeKP8sSzv86r9+QuFjLXjPvHj2VDVW6QVdH/X0WkCtmqcab6S72dCHRJinUHDUfPRMsA==
+  version "6.12.0"
+  resolved "https://registry.yarnpkg.com/assert-helpers/-/assert-helpers-6.12.0.tgz#8ca7dffbd55000dddab7dfc56e6c4f1066514f95"
+  integrity sha512-s3F6nuN7yCxOIjhM7nXKMtw/od2vrL9A3aeUuzfiHqqrbRU/QLlGdhJ6TsuP2hqpG2o8dIHBaLZ8I8EWXyajVg==
   dependencies:
     "@types/ansicolors" "^0.0.33"
     "@types/diff" "^4.0.2"
     "@types/node" "^14.0.13"
     ansicolors "^0.3.2"
     diff "^4.0.2"
-    errlop "^3.5.0"
+    errlop "3.5.0"
 
 badges@^4.9.0:
   version "4.13.0"
