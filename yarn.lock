@@ -407,10 +407,10 @@ readdir-cluster@^3.5.0:
   dependencies:
     editions "3.5.0"
 
-requirefresh@4.4.0:
-  version "4.4.0"
-  resolved "https://registry.yarnpkg.com/requirefresh/-/requirefresh-4.4.0.tgz#2e1e56bd22b84f038a4022b09e143742bd223405"
-  integrity sha512-ev1HsKpAkWOPmYRhWkSlAgGju83upksqElQGz192ehiR84+0kwgj5GDttC288YykkAik8etrQ9yTlLHofdacSw==
+requirefresh@4.8.0:
+  version "4.8.0"
+  resolved "https://registry.yarnpkg.com/requirefresh/-/requirefresh-4.8.0.tgz#566e259dd01e9a302bef60bf08c95f60db6ece31"
+  integrity sha512-VxGuCG7fkHHqYV885mmVwkdTIyei0KBefRgsd/YGCJfo+bAcNg+oQK04NctoHr33JkJtjECR+uLE3xbsemRNag==
 
 resolve@^0.6.3:
   version "0.6.3"
