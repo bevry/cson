@@ -244,6 +244,9 @@ Click the below function names to open more detailed documentation.
 
 
 
+
+
+
 <!-- INSTALL/ -->
 
 <h2>Install</h2>
@@ -325,7 +328,7 @@ These amazing people have contributed code to this project:
 <li><a href="https://github.com/clyfe">Claudius Nicolae</a> — <a href="https://github.com/bevry/cson/commits?author=clyfe" title="View the GitHub contributions of Claudius Nicolae on repository bevry/cson">view contributions</a></li>
 <li><a href="https://github.com/jasonkarns">Jason Karns</a> — <a href="https://github.com/bevry/cson/commits?author=jasonkarns" title="View the GitHub contributions of Jason Karns on repository bevry/cson">view contributions</a></li>
 <li><a href="https://github.com/jperras">Joël Perras</a> — <a href="https://github.com/bevry/cson/commits?author=jperras" title="View the GitHub contributions of Joël Perras on repository bevry/cson">view contributions</a></li>
-<li><a href="https://github.com/linus">Linus Gustav Larsson Thiel</a> — <a href="https://github.com/bevry/cson/commits?author=linus" title="View the GitHub contributions of Linus Gustav Larsson Thiel on repository bevry/cson">view contributions</a></li>
+<li><a href="https://github.com/linus">Linus G Thiel</a> — <a href="https://github.com/bevry/cson/commits?author=linus" title="View the GitHub contributions of Linus G Thiel on repository bevry/cson">view contributions</a></li>
 <li><a href="https://github.com/RobLoach">Rob Loach</a> — <a href="https://github.com/bevry/cson/commits?author=RobLoach" title="View the GitHub contributions of Rob Loach on repository bevry/cson">view contributions</a></li>
 <li><a href="https://github.com/meltingice">Ryan LeFevre</a> — <a href="https://github.com/bevry/cson/commits?author=meltingice" title="View the GitHub contributions of Ryan LeFevre on repository bevry/cson">view contributions</a></li>
 <li><a href="https://github.com/nanuclickity">Tushar Kant</a> — <a href="https://github.com/bevry/cson/commits?author=nanuclickity" title="View the GitHub contributions of Tushar Kant on repository bevry/cson">view contributions</a></li>

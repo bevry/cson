@@ -1,7 +1,7 @@
 {
   "title": "CSON",
   "name": "cson",
-  "version": "7.11.0",
+  "version": "7.12.0",
   "description": "CoffeeScript-Object-Notation Parser. Same as JSON but for CoffeeScript objects.",
   "homepage": "https://github.com/bevry/cson",
   "license": "MIT",
@@ -60,7 +60,7 @@
     "Claudius Nicolae <claudius.nicolae@gmail.com> (https://github.com/clyfe)",
     "Jason Karns <jason.karns@gmail.com> (https://github.com/jasonkarns)",
     "Joël Perras <joel@nerderati.com> (https://github.com/jperras)",
-    "Linus Gustav Larsson Thiel <linus@hanssonlarsson.se> (https://github.com/linus)",
+    "Linus G Thiel <linus@hanssonlarsson.se> (https://github.com/linus)",
     "Rob Loach <robloach@gmail.com> (https://github.com/RobLoach)",
     "Ryan LeFevre <meltingice8917@gmail.com> (https://github.com/meltingice)",
     "Tushar Kant <me@tushar.works> (https://github.com/nanuclickity)",
@@ -113,16 +113,16 @@
     "coffeescript": "^2.5.1",
     "cson-parser": "^4.0.4",
     "extract-opts": "^4.3.0",
-    "requirefresh": "4.4.0",
-    "safefs": "6.4.0"
+    "requirefresh": "4.8.0",
+    "safefs": "6.8.0"
   },
   "devDependencies": {
-    "@bevry/update-contributors": "^1.9.0",
-    "assert-helpers": "^6.8.0",
+    "@bevry/update-contributors": "^1.12.0",
+    "assert-helpers": "^6.13.0",
     "coffeelint": "^2.1.0",
     "kava": "^5.7.0",
-    "projectz": "^2.9.0",
-    "safeps": "10.4.0",
+    "projectz": "^2.10.1",
+    "safeps": "10.9.0",
     "valid-directory": "^2.5.0"
   },
   "scripts": {
