@@ -40,9 +40,10 @@ if process.argv.indexOf('--help') isnt -1
 	process.exit(0)
 
 # Figure out conversion
-if process.argv.toString().indexOf('cson2json') isnt -1
-	conversion ='cson2json'
-else if process.argv.toString().indexOf('json2cson') isnt -1
+conversionArg = process.argv[1].replace(/\.js$/i, '')
+if conversionArg.endsWith('cson2json')
+	conversion = 'cson2json'
+else if conversionArg.endsWith('json2cson')
 	conversion = 'json2cson'
 	opts.indent =
 		if (i = process.argv.indexOf('--tabs')) isnt -1
