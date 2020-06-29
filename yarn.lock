@@ -3,11 +3,11 @@
 
 
 "@bevry/update-contributors@^1.12.0":
-  version "1.12.0"
-  resolved "https://registry.yarnpkg.com/@bevry/update-contributors/-/update-contributors-1.12.0.tgz#f0779e9b0d782cec8befae0e816d498325c95292"
-  integrity sha512-Y3hdGf12vuTB6PfnSNNztLKNzi3QV6fUXsqOoM32QDeh0fYHlw1OLrBH/785RyQ6OtdhHOepImFsPAMUxtr/bQ==
+  version "1.13.0"
+  resolved "https://registry.yarnpkg.com/@bevry/update-contributors/-/update-contributors-1.13.0.tgz#1fbe9a19e4bf1d5dda110f40d7f5178ca3af3ed6"
+  integrity sha512-m75BZQdOKec6viMghVLqAOcYGSjlREul2XTLSGYYFyLk4u4Cs2tR+gwDsKYXlfYYhpz4lkprg7cuxN4gaSl5qQ==
   dependencies:
-    getcontributors "^2.13.0"
+    getcontributors "^2.17.0"
 
 "@types/ansicolors@^0.0.33":
   version "0.0.33"
@@ -121,7 +121,7 @@ concat-map@0.0.1:
   resolved "https://registry.yarnpkg.com/concat-map/-/concat-map-0.0.1.tgz#d8a96bd77fd68df7793a73036a3ba0d5405d477b"
   integrity sha1-2Klr13/Wjfd5OnMDajug1UBdR3s=
 
-cross-fetch@^3.0.4:
+cross-fetch@^3.0.4, cross-fetch@^3.0.5:
   version "3.0.5"
   resolved "https://registry.yarnpkg.com/cross-fetch/-/cross-fetch-3.0.5.tgz#2739d2981892e7ab488a7ad03b92df2816e03f4c"
   integrity sha512-FFLcLtraisj5eteosnX1gf01qYDCOc4fDy0+euOt8Kn9YBY2NtXL/pCoYPavw24NIQkQqm5ZOLsGD5Zzj0gyew==
@@ -209,10 +209,10 @@ extract-opts@^4.3.0:
     eachr "^4.5.0"
     typechecker "^6.2.0"
 
-fellow@6.10.0:
-  version "6.10.0"
-  resolved "https://registry.yarnpkg.com/fellow/-/fellow-6.10.0.tgz#c6bd7e6c7c34869ff3e726c06a8d148c44c326f8"
-  integrity sha512-YC4nniyJZxuLvHt61i1ntxoAR8RZeBXrXfzAiMpnOTk7bpn7D6K9pvc3UZ8vjt/Ci7QN1BM7rXfomm2HRW4kjA==
+fellow@6.15.0:
+  version "6.15.0"
+  resolved "https://registry.yarnpkg.com/fellow/-/fellow-6.15.0.tgz#bff2dffbf86e3f20f31cf233723ae63c1b98abd0"
+  integrity sha512-5pLvTjUs9/HlnSqNa2AF39oqmwiFxw4xkhXrN7BQinoRDPPrXY7QawM01+8qbY2vdITa4BKz1PA4Zj0qCQqMpg==
 
 fellow@^6.14.0:
   version "6.14.0"
@@ -241,25 +241,33 @@ get-current-line@5.9.0:
   resolved "https://registry.yarnpkg.com/get-current-line/-/get-current-line-5.9.0.tgz#8fa63dd7dc0804d8080630f4ef5e74c13f669d8e"
   integrity sha512-tzrk1f5k4Zw+YkKZ4EqvtA7XWziDMll4EAytL9EEXkkKJaD7iXaJJzXpRLfitmgDVq8b5hM14rpZwHcUfuK5HQ==
 
-getcontributors@^2.13.0:
-  version "2.16.0"
-  resolved "https://registry.yarnpkg.com/getcontributors/-/getcontributors-2.16.0.tgz#84c5ec6312af47599d4a33ff308c0e05c3864571"
-  integrity sha512-rCAehBfTZv5cghNEhfoeZExOOmTVdTLMd5d+RIcpAtkwXReFMu/5vruDTUU2OxVR9UyclfvOUmnr5A8VUyDo8g==
+getcontributors@^2.17.0:
+  version "2.17.0"
+  resolved "https://registry.yarnpkg.com/getcontributors/-/getcontributors-2.17.0.tgz#ec5cfd036006371ed0620146b7d4578c9497f1ef"
+  integrity sha512-s21snMK24xjgXUHJKuUJyfvpZBotiv8WwRSo3bAxslWndfFeXehZnNWiGl9r4OiSVPy+o4oJMHqYnMYd4RMHKg==
   dependencies:
-    cross-fetch "^3.0.4"
-    fellow "6.10.0"
-    getrepos "5.6.0"
-    githubauthreq "5.7.0"
+    cross-fetch "^3.0.5"
+    fellow "6.15.0"
+    getrepos "5.10.0"
+    githubauthreq "5.11.0"
     simplytyped "^3.3.0"
 
-getrepos@5.6.0:
-  version "5.6.0"
-  resolved "https://registry.yarnpkg.com/getrepos/-/getrepos-5.6.0.tgz#05ad749e1b30b43207a4bc6c473a2644be881285"
-  integrity sha512-X44Sz8ZSkEUBRPJcjRlK3oU8jluaaFpRAOfIcqmQBKOBh+0/9HImI5uU5DMmwCuNPzPxW6M3rWW+UEPQsP8gsw==
+getrepos@5.10.0:
+  version "5.10.0"
+  resolved "https://registry.yarnpkg.com/getrepos/-/getrepos-5.10.0.tgz#3f7f1f380aac6d0957de3227e53b4ac058d4d6ad"
+  integrity sha512-I2k6eU3KAlGm4dDJhotv7SC+nOALgOK67ZHN6NBZtOyp5HlaYW6lCastHh8vnwbP9yUccplwnSO+adt8ByMv7A==
   dependencies:
     cross-fetch "^3.0.4"
-    githubauthreq "^5.6.0"
-    native-promise-pool "^3.5.0"
+    githubauthreq "5.7.0"
+    native-promise-pool "3.6.0"
+    simplytyped "^3.3.0"
+
+githubauthreq@5.11.0:
+  version "5.11.0"
+  resolved "https://registry.yarnpkg.com/githubauthreq/-/githubauthreq-5.11.0.tgz#ee0cc179a55ee00c178228d23adc277e322876e5"
+  integrity sha512-qtrq1Ff6avb8SdJhAj9278IxIVaFvUhb9kagoyO1usl2BmluW8xqLhtoKttgQNVnJxvh3iKQYyZsdswFHWz6iA==
+  dependencies:
+    editions "^3.9.0"
     simplytyped "^3.3.0"
 
 githubauthreq@5.7.0:
@@ -268,14 +276,6 @@ githubauthreq@5.7.0:
   integrity sha512-Jqn3AKY8yUiIrxyA/GQV7/tS5K//t8d3jxs65ElWbTEskzed/us5TgM3lowhHh36WW1dUDj/W75J5kN9Uny3Nw==
   dependencies:
     editions "^3.4.0"
-    simplytyped "^3.3.0"
-
-githubauthreq@^5.6.0:
-  version "5.11.0"
-  resolved "https://registry.yarnpkg.com/githubauthreq/-/githubauthreq-5.11.0.tgz#ee0cc179a55ee00c178228d23adc277e322876e5"
-  integrity sha512-qtrq1Ff6avb8SdJhAj9278IxIVaFvUhb9kagoyO1usl2BmluW8xqLhtoKttgQNVnJxvh3iKQYyZsdswFHWz6iA==
-  dependencies:
-    editions "^3.9.0"
     simplytyped "^3.3.0"
 
 glob@^7.0.6:
@@ -334,10 +334,10 @@ minimist@~0.0.1:
   resolved "https://registry.yarnpkg.com/minimist/-/minimist-0.0.10.tgz#de3f98543dbf96082be48ad1a0c7cda836301dcf"
   integrity sha1-3j+YVD2/lggr5IrRoMfNqDYwHc8=
 
-native-promise-pool@^3.5.0:
-  version "3.10.0"
-  resolved "https://registry.yarnpkg.com/native-promise-pool/-/native-promise-pool-3.10.0.tgz#f4717e064eb6d8e93dc3e4f6a862df3907466b54"
-  integrity sha512-+P5jCBH4QQqhoxSp7EhN+HE+wESMLzN+JmK+/AvsRybdVY8sBZWe5gjLZxU89htiF2tvAXZZR55h8aZ79nhFww==
+native-promise-pool@3.6.0:
+  version "3.6.0"
+  resolved "https://registry.yarnpkg.com/native-promise-pool/-/native-promise-pool-3.6.0.tgz#b3d3c730a9167851c2b69175dd83012310fb4191"
+  integrity sha512-TaJibaT3r77Cx9qC6Wpq/QZc10COdAhijWGDxR5c7OzToLwrgM4qxje5YC6ur9nv088Xkut7qm7YHuNHlt4Ljg==
 
 node-fetch@2.6.0:
   version "2.6.0"
