@@ -391,10 +391,10 @@ readdir-cluster@^3.5.0:
   resolved "https://registry.yarnpkg.com/readdir-cluster/-/readdir-cluster-3.8.0.tgz#35a17417dc421453a659cc48cb8114156c61201d"
   integrity sha512-yozJcvfnxS7UW38LvYG6zRFvh+JOaorjqFu/jpxjINtlJxuLcJe6J5ojLx7w6qwTDLbf+rAmsINbPQO802suYw==
 
-requirefresh@4.8.0:
-  version "4.8.0"
-  resolved "https://registry.yarnpkg.com/requirefresh/-/requirefresh-4.8.0.tgz#566e259dd01e9a302bef60bf08c95f60db6ece31"
-  integrity sha512-VxGuCG7fkHHqYV885mmVwkdTIyei0KBefRgsd/YGCJfo+bAcNg+oQK04NctoHr33JkJtjECR+uLE3xbsemRNag==
+requirefresh@4.9.0:
+  version "4.9.0"
+  resolved "https://registry.yarnpkg.com/requirefresh/-/requirefresh-4.9.0.tgz#fbcdba521cc8df3dca7c605404af7097c0ade0dc"
+  integrity sha512-EMAikslw1D6ld4jwyUlKMmaKSwS/MLUO8Kus3XgLMxStscHd3YKJ0q9AswIdhtSJ/FXPN2uOXmFPiGLMV+KgiA==
 
 resolve@^0.6.3:
   version "0.6.3"

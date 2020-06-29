@@ -113,7 +113,7 @@
     "coffeescript": "^2.5.1",
     "cson-parser": "^4.0.4",
     "extract-opts": "^4.3.0",
-    "requirefresh": "4.8.0",
+    "requirefresh": "4.9.0",
     "safefs": "6.8.0"
   },
   "devDependencies": {
