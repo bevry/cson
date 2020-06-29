@@ -386,10 +386,10 @@ projectz@^2.10.1:
     spdx-license-list "^6.2.0"
     typechecker "7.9.0"
 
-readdir-cluster@^3.5.0:
-  version "3.8.0"
-  resolved "https://registry.yarnpkg.com/readdir-cluster/-/readdir-cluster-3.8.0.tgz#35a17417dc421453a659cc48cb8114156c61201d"
-  integrity sha512-yozJcvfnxS7UW38LvYG6zRFvh+JOaorjqFu/jpxjINtlJxuLcJe6J5ojLx7w6qwTDLbf+rAmsINbPQO802suYw==
+readdir-cluster@^3.9.0:
+  version "3.9.0"
+  resolved "https://registry.yarnpkg.com/readdir-cluster/-/readdir-cluster-3.9.0.tgz#f96c01b578bbbb31c3ff905c74cbf40e8b579e7c"
+  integrity sha512-tHUsccRrKtKMATpLh5/Rh+R1x651Lx1Yaav5vNIQNxC56XCCvbiOxR+oaPLLaUjY9g2xYYRNqTQyAYdi8yTnJw==
 
 requirefresh@4.8.0:
   version "4.8.0"
@@ -521,11 +521,11 @@ unbounded@^3.3.0:
   integrity sha512-gqIxGgyzb1krnJHGk2BkGUlDTDJRvogqi05hsWKyie0m67Hihqe3yYmeEnnPnQKI8tC4b3NR9/JjF3fWR4G/Kw==
 
 valid-directory@^2.5.0:
-  version "2.5.0"
-  resolved "https://registry.yarnpkg.com/valid-directory/-/valid-directory-2.5.0.tgz#239cf39e5c05403d8b6fbd23aa45dc20c242035c"
-  integrity sha512-j/cLzLu/7FHC1UQwExHfvqgh72j+a9goxxAOz07O1awWoMXiJymqVHJ4K7GVeeNhfZKwOaa548OnYgOVOeLMWw==
+  version "2.6.0"
+  resolved "https://registry.yarnpkg.com/valid-directory/-/valid-directory-2.6.0.tgz#1c268304a72adc707d3d01e4e8f55fe4a9906bc1"
+  integrity sha512-jOoTvijQoF5oGbGgmh5hFsX4mCqoRWhv4oBTeK5MX8gugM8BOfx8BqPE8iG/wf4go0wHMkmRTRpBus75ca6v1w==
   dependencies:
-    readdir-cluster "^3.5.0"
+    readdir-cluster "^3.9.0"
     valid-filename "^3.1.0"
 
 valid-filename@^3.1.0:
