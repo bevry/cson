@@ -1,4 +1,4 @@
-# 2020 May 12
+# 2020 June 3
 # https://github.com/bevry/base
 
 # System Files
@@ -14,6 +14,15 @@
 .c9/
 .vscode/
 
+# Yarn Files
+.yarn/*
+!.yarn/releases
+!.yarn/plugins
+!.yarn/sdks
+!.yarn/versions
+.pnp.*
+.pnp/
+
 # Private Files
 .env
 .idea
@@ -24,8 +33,6 @@ build/
 bower_components/
 node_modules/
 .next/
-.pnp/
-.pnp.js
 
 # -------------------------------------
 # CDN Inclusions, Git Exclusions
