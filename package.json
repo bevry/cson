@@ -1,7 +1,7 @@
 {
   "title": "CSON",
   "name": "cson",
-  "version": "7.13.0",
+  "version": "7.14.0",
   "description": "CoffeeScript-Object-Notation Parser. Same as JSON but for CoffeeScript objects.",
   "homepage": "https://github.com/bevry/cson",
   "license": "MIT",
@@ -150,6 +150,6 @@
     "our:verify": "npm run our:verify:coffeelint && npm run our:verify:directory",
     "our:verify:coffeelint": "coffeelint ./source",
     "our:verify:directory": "valid-directory",
-    "test": "node ./test.cjs"
+    "test": "node ./edition-esnext/test.js"
   }
 }
