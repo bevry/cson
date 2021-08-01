@@ -115,7 +115,7 @@
   "dependencies": {
     "cson-parser": "^4.0.5",
     "extract-opts": "^4.3.0",
-    "requirefresh": "^4.12.0",
+    "requirefresh": "^5.4.0",
     "safefs": "^6.12.0"
   },
   "devDependencies": {
