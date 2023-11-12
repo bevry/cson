@@ -126,7 +126,7 @@
     "kava": "^5.11.0",
     "projectz": "^2.15.0",
     "safeps": "^10.13.0",
-    "valid-directory": "^3.3.0"
+    "valid-directory": "^4.1.0"
   },
   "scripts": {
     "our:clean": "rm -Rf ./docs ./edition* ./es2015 ./es5 ./out ./.next",
