@@ -55,7 +55,7 @@ jobs:
       - run: npm run our:compile
       - run: npm run our:meta
       - name: publish to npm
-        uses: bevry-actions/npm@v1.1.1
+        uses: bevry-actions/npm@v1.1.2
         with:
           npmAuthToken: ${{ secrets.NPM_AUTH_TOKEN }}
           npmBranchTag: ':next'
