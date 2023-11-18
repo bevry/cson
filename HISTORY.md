@@ -1,5 +1,11 @@
 # History
 
+## v8.0.0 2023 November 18
+
+-   Updated CLI to support autodetection of conversion, as well as supporting `--cson2json` and `--json2cson` args, also added `cson` bin
+-   Updated dependencies, [base files](https://github.com/bevry/base), and [editions](https://editions.bevry.me) using [boundation](https://github.com/bevry/boundation)
+-   Minimum required Node.js version changed from `node: >=10` to `node: >=6` adapting to ecosystem changes
+
 ## v7.20.0 2020 September 4
 
 -   Updated dependencies, [base files](https://github.com/bevry/base), and [editions](https://editions.bevry.me) using [boundation](https://github.com/bevry/boundation)

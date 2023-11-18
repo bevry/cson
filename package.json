@@ -1,10 +1,10 @@
 {
   "title": "CSON",
   "name": "cson",
-  "version": "7.20.0",
+  "version": "8.0.0",
   "description": "CoffeeScript-Object-Notation Parser. Same as JSON but for CoffeeScript objects.",
   "homepage": "https://github.com/bevry/cson",
-  "license": "MIT",
+  "license": "Artistic-2.0",
   "keywords": [
     "coffeescript",
     "cson",
@@ -16,13 +16,12 @@
   ],
   "badges": {
     "list": [
-      "travisci",
+      "githubworkflow",
       "npmversion",
       "npmdownloads",
-      "daviddm",
-      "daviddmdev",
       "---",
       "githubsponsors",
+      "thanksdev",
       "patreon",
       "flattr",
       "liberapay",
@@ -33,7 +32,9 @@
       "wishlist"
     ],
     "config": {
+      "githubWorkflow": "bevry",
       "githubSponsorsUsername": "balupton",
+      "thanksdevGithubUsername": "bevry",
       "buymeacoffeeUsername": "balupton",
       "cryptoURL": "https://bevry.me/crypto",
       "flattrUsername": "balupton",
@@ -42,7 +43,6 @@
       "patreonUsername": "bevry",
       "paypalURL": "https://bevry.me/paypal",
       "wishlistURL": "https://bevry.me/wishlist",
-      "travisTLD": "com",
       "githubUsername": "bevry",
       "githubRepository": "cson",
       "githubSlug": "bevry/cson",
@@ -77,7 +77,7 @@
     "url": "https://github.com/bevry/cson.git"
   },
   "engines": {
-    "node": ">=10"
+    "node": ">=6"
   },
   "editions": [
     {
@@ -102,46 +102,48 @@
         "require"
       ],
       "engines": {
-        "node": "10 || 12 || 13 || 14"
+        "node": "6 || 8 || 10 || 12 || 14 || 16 || 18 || 20 || 21"
       }
     }
   ],
   "bin": {
+    "cson": "bin.cjs",
     "cson2json": "bin.cjs",
     "json2cson": "bin.cjs"
   },
   "type": "commonjs",
   "main": "edition-esnext/index.js",
   "dependencies": {
-    "cson-parser": "^4.0.5",
-    "extract-opts": "^4.3.0",
-    "requirefresh": "^4.12.0",
-    "safefs": "^6.12.0"
+    "cson-parser": "^4.0.9",
+    "extract-opts": "^5.2.0",
+    "requirefresh": "^5.8.0",
+    "safefs": "^8.3.0"
   },
   "devDependencies": {
-    "@bevry/update-contributors": "^1.16.0",
-    "assert-helpers": "^7.2.0",
+    "@bevry/update-contributors": "^1.23.0",
+    "assert-helpers": "^11.4.0",
     "coffeelint": "^2.1.0",
-    "coffeescript": "^2.5.1",
-    "kava": "^5.11.0",
-    "projectz": "^2.15.0",
-    "safeps": "^10.13.0",
-    "valid-directory": "^3.3.0"
+    "coffeescript": "^2.7.0",
+    "kava": "^7.2.0",
+    "projectz": "^3.1.0",
+    "safeps": "^11.2.0",
+    "valid-directory": "^4.4.0"
   },
   "scripts": {
-    "our:clean": "rm -Rf ./docs ./edition* ./es2015 ./es5 ./out ./.next",
+    "our:bin": "node ./[object Object]",
+    "our:clean": "rm -rf ./docs ./edition* ./es2015 ./es5 ./out ./.next",
     "our:compile": "npm run our:compile:edition-esnext",
-    "our:compile:edition-esnext": "coffee -bco ./edition-esnext ./source && echo '{\"type\": \"commonjs\"}' > edition-esnext/package.json",
-    "our:deploy": "echo no need for this project",
+    "our:compile:edition-esnext": "coffee -bco ./edition-esnext ./source && printf '%s' '{\"type\": \"commonjs\"}' > edition-esnext/package.json",
+    "our:deploy": "printf '%s\n' 'no need for this project'",
     "our:meta": "npm run our:meta:contributors && npm run our:meta:projectz",
     "our:meta:contributors": "update-contributors",
     "our:meta:projectz": "projectz compile",
     "our:release": "npm run our:release:prepare && npm run our:release:check-changelog && npm run our:release:check-dirty && npm run our:release:tag && npm run our:release:push",
-    "our:release:check-changelog": "cat ./HISTORY.md | grep v$npm_package_version || (echo add a changelog entry for v$npm_package_version && exit -1)",
+    "our:release:check-changelog": "cat ./HISTORY.md | grep \"v$npm_package_version\" || (printf '%s\n' \"add a changelog entry for v$npm_package_version\" && exit -1)",
     "our:release:check-dirty": "git diff --exit-code",
     "our:release:prepare": "npm run our:clean && npm run our:compile && npm run our:test && npm run our:meta",
-    "our:release:push": "git push origin master && git push origin --tags",
-    "our:release:tag": "export MESSAGE=$(cat ./HISTORY.md | sed -n \"/## v$npm_package_version/,/##/p\" | sed 's/## //' | awk 'NR>1{print buf}{buf = $0}') && test \"$MESSAGE\" || (echo 'proper changelog entry not found' && exit -1) && git tag v$npm_package_version -am \"$MESSAGE\"",
+    "our:release:push": "git push origin && git push origin --tags",
+    "our:release:tag": "export MESSAGE=$(cat ./HISTORY.md | sed -n \"/## v$npm_package_version/,/##/p\" | sed 's/## //' | awk 'NR>1{print buf}{buf = $0}') && test \"$MESSAGE\" || (printf '%s\n' 'proper changelog entry not found' && exit -1) && git tag \"v$npm_package_version\" -am \"$MESSAGE\"",
     "our:setup": "npm run our:setup:install",
     "our:setup:install": "npm install",
     "our:test": "npm run our:verify && npm test",
@@ -149,5 +151,8 @@
     "our:verify:coffeelint": "coffeelint ./source",
     "our:verify:directory": "valid-directory",
     "test": "node ./edition-esnext/test.js"
+  },
+  "testen": {
+    "serial": true
   }
 }

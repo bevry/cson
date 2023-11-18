@@ -1,4 +1,4 @@
-# 2018 September 26
+# 2023 June 22
 # https://github.com/bevry/base
 
 root = true
@@ -18,7 +18,7 @@ indent_size = 4
 indent_style = space
 indent_size = 4
 
-[{*.json,*.lsrules,*.yml,*.bowerrc,*.babelrc}]
+[{*.json,*.lsrules,*.yaml,*.yml,*.bowerrc,*.babelrc,*.code-workspace}]
 indent_style = space
 indent_size = 2
 

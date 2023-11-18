@@ -8,6 +8,7 @@ CSON = require('./index.js')
 
 # Configuraiton
 rootPath = resolve(__dirname, '..')
+binPath = join(rootPath, 'bin.cjs')
 testFixturesPath = join(rootPath, 'test-fixtures')
 apiDirectoryPath = join(testFixturesPath, 'api')
 srcDirectoryPath = join(testFixturesPath, 'src')
@@ -443,13 +444,13 @@ kava.suite 'cson', (suite,test) ->
 	suite 'cli', (suite, test) ->
 		cliTests = [
 				name: 'json2cson'
-				spawn: ['npx', '-q', '-p', '.', 'json2cson']
+				spawn: ['node', binPath, '--json2cson'] # ['npx', '-q', '.', '--json2cson']
 				sourcePath: join(outDirectoryPath, '1.json')
 				sourceData: fsUtil.readFileSync(join(outDirectoryPath, '1.json'), 'utf8')
 				expectedData: fsUtil.readFileSync(join(outDirectoryPath, '1.cson'), 'utf8')
 			,
 				name: 'cson2json'
-				spawn: ['npx', '-q', '-p', '.', 'cson2json']
+				spawn: ['node', binPath, '--cson2json'] # ['npx', '-q', '.', '--cson2json']
 				sourcePath: join(outDirectoryPath, '1.cson')
 				sourceData: fsUtil.readFileSync(join(outDirectoryPath, '1.cson'), 'utf8')
 				expectedData: fsUtil.readFileSync(join(outDirectoryPath, '1.json'), 'utf8')
@@ -503,4 +504,3 @@ kava.suite 'cson', (suite,test) ->
 					equal(stderr?.toString() or null, null, "stderr to be empty")
 					equal(code, 0, "exit code to be 0")
 					done()
-	###

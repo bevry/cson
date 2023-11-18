@@ -2,7 +2,7 @@
 fsUtil = require('safefs')
 pathUtil = require('path')
 extractOptsAndCallback = require('extract-opts')
-requireFresh = require('requirefresh')
+requireFresh = require('requirefresh').default
 
 # Public: The exported CSON singleton
 class CSON

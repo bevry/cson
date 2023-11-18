@@ -1,7 +1,17 @@
 version: 2
 updates:
+  - package-ecosystem: github-actions
+    directory: /
+    schedule:
+      interval: weekly
+      day: sunday
+      time: '00:00'
+      timezone: Australia/Perth
   - package-ecosystem: npm
     directory: /
     schedule:
       interval: weekly
       day: sunday
+      time: '00:00'
+      timezone: Australia/Perth
+    open-pull-requests-limit: 0

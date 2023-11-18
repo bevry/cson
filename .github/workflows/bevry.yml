@@ -1,0 +1,73 @@
+name: bevry
+'on':
+  - push
+  - pull_request
+jobs:
+  test:
+    strategy:
+      matrix:
+        os:
+          - ubuntu-latest
+        node:
+          - '16'
+          - '18'
+          - '20'
+          - '21'
+    runs-on: ${{ matrix.os }}
+    steps:
+      - uses: actions/checkout@v4
+      - name: Install desired Node.js version
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+      - name: Verify Node.js Versions
+        run: >-
+          printf '%s' 'node: ' && node --version && printf '%s' 'npm: ' && npm
+          --version && node -e 'console.log(process.versions)'
+      - run: npm run our:setup
+      - run: npm run our:compile
+      - run: npm run our:verify
+      - name: Install targeted Node.js
+        if: ${{ matrix.node != 20 }}
+        uses: actions/setup-node@v4
+        with:
+          node-version: ${{ matrix.node }}
+      - name: Verify Node.js Versions
+        run: >-
+          printf '%s' 'node: ' && node --version && printf '%s' 'npm: ' && npm
+          --version && node -e 'console.log(process.versions)'
+      - run: npm test
+  publish:
+    if: ${{ github.event_name == 'push' }}
+    needs: test
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Install desired Node.js version
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+      - name: Verify Node.js Versions
+        run: >-
+          printf '%s' 'node: ' && node --version && printf '%s' 'npm: ' && npm
+          --version && node -e 'console.log(process.versions)'
+      - run: npm run our:setup
+      - run: npm run our:compile
+      - run: npm run our:meta
+      - name: publish to npm
+        uses: bevry-actions/npm@v1.1.1
+        with:
+          npmAuthToken: ${{ secrets.NPM_AUTH_TOKEN }}
+          npmBranchTag: ':next'
+  automerge:
+    permissions:
+      contents: write
+      pull-requests: write
+    runs-on: ubuntu-latest
+    if: github.actor == 'dependabot[bot]'
+    steps:
+      - name: Enable auto-merge for Dependabot PRs
+        run: gh pr merge --auto --merge "$PR_URL"
+        env:
+          PR_URL: ${{github.event.pull_request.html_url}}
+          GITHUB_TOKEN: ${{secrets.GITHUB_TOKEN}}
