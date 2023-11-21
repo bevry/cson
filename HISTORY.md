@@ -1,5 +1,9 @@
 # History
 
+## v8.1.0 2023 November 21
+
+-   Updated dependencies, [base files](https://github.com/bevry/base), and [editions](https://editions.bevry.me) using [boundation](https://github.com/bevry/boundation)
+
 ## v8.0.0 2023 November 18
 
 -   Updated CLI to support autodetection of conversion, as well as supporting `--cson2json` and `--json2cson` args, also added `cson` bin

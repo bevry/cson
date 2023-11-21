@@ -1,7 +1,7 @@
 {
   "title": "CSON",
   "name": "cson",
-  "version": "8.0.0",
+  "version": "8.1.0",
   "description": "CoffeeScript-Object-Notation Parser. Same as JSON but for CoffeeScript objects.",
   "homepage": "https://github.com/bevry/cson",
   "license": "Artistic-2.0",
@@ -23,13 +23,14 @@
       "githubsponsors",
       "thanksdev",
       "patreon",
-      "flattr",
       "liberapay",
       "buymeacoffee",
       "opencollective",
       "crypto",
       "paypal",
-      "wishlist"
+      "---",
+      "discord",
+      "twitch"
     ],
     "config": {
       "githubWorkflow": "bevry",
@@ -43,6 +44,9 @@
       "patreonUsername": "bevry",
       "paypalURL": "https://bevry.me/paypal",
       "wishlistURL": "https://bevry.me/wishlist",
+      "discordServerID": "1147436445783560193",
+      "discordServerInvite": "nQuXddV7VP",
+      "twitchUsername": "balupton",
       "githubUsername": "bevry",
       "githubRepository": "cson",
       "githubSlug": "bevry/cson",
@@ -115,18 +119,18 @@
   "main": "edition-esnext/index.js",
   "dependencies": {
     "cson-parser": "^4.0.9",
-    "extract-opts": "^5.2.0",
-    "requirefresh": "^5.8.0",
-    "safefs": "^8.3.0"
+    "extract-opts": "^5.3.0",
+    "requirefresh": "^5.9.0",
+    "safefs": "^8.4.0"
   },
   "devDependencies": {
     "@bevry/update-contributors": "^1.23.0",
-    "assert-helpers": "^11.4.0",
+    "assert-helpers": "^11.5.0",
     "coffeelint": "^2.1.0",
     "coffeescript": "^2.7.0",
-    "kava": "^7.2.0",
-    "projectz": "^3.1.0",
-    "safeps": "^11.2.0",
+    "kava": "^7.3.0",
+    "projectz": "^3.2.0",
+    "safeps": "^11.3.0",
     "valid-directory": "^4.4.0"
   },
   "scripts": {
