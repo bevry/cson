@@ -1,17 +1,16 @@
 <!-- LICENSEFILE/ -->
 
-<h1>License</h1>
+# License
 
 Unless stated otherwise all works are:
 
-<ul><li>Copyright &copy; 2012+ <a href="http://bevry.me">Bevry Pty Ltd</a></li>
-<li>Copyright &copy; <a href="https://balupton.com">Benjamin Lupton</a></li></ul>
+-   Copyright &copy; [Benjamin Lupton](https://balupton.com)
 
 and licensed under:
 
-<ul><li><a href="http://spdx.org/licenses/Artistic-2.0.html">Artistic License 2.0</a></li></ul>
+-   [Artistic License 2.0](http://spdx.org/licenses/Artistic-2.0.html)
 
-<h2>The Artistic License 2.0</h2>
+## The Artistic License 2.0
 
 <pre>
 Copyright (c) 2000-2006, The Perl Foundation.

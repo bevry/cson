@@ -1,10 +1,18 @@
 {
   "title": "CSON",
   "name": "cson",
-  "version": "8.2.0",
+  "version": "8.3.0",
+  "license": "Artistic-2.0",
   "description": "CoffeeScript-Object-Notation Parser. Same as JSON but for CoffeeScript objects.",
   "homepage": "https://github.com/bevry/cson",
-  "license": "Artistic-2.0",
+  "funding": "https://bevry.me/fund",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/bevry/cson.git"
+  },
+  "bugs": {
+    "url": "https://github.com/bevry/cson/issues"
+  },
   "keywords": [
     "coffeescript",
     "cson",
@@ -53,33 +61,53 @@
       "npmPackageName": "cson"
     }
   },
-  "funding": "https://bevry.me/fund",
-  "author": "2012+ Bevry Pty Ltd <us@bevry.me> (http://bevry.me), Benjamin Lupton <b@lupton.cc> (https://balupton.com)",
+  "author": "Benjamin Lupton <b@lupton.cc> (https://balupton.com) (https://github.com/balupton)",
+  "authors": [
+    "Benjamin Lupton <b@lupton.cc> (https://balupton.com) (https://github.com/balupton): Accelerating collaborative wisdom."
+  ],
   "maintainers": [
-    "Benjamin Lupton <b@lupton.cc> (https://github.com/balupton)"
+    "Benjamin Lupton <b@lupton.cc> (https://balupton.com) (https://github.com/balupton): Accelerating collaborative wisdom."
   ],
   "contributors": [
-    "Attila Oláh <atl@google.com> (https://github.com/attilaolah)",
-    "Attila Oláh <attilaolah@google.com> (http://attilaolah.eu/)",
-    "Benjamin Lupton <b@lupton.cc> (https://github.com/balupton)",
+    "Attila Oláh <atl@google.com> (https://attilaolah.eu) (https://github.com/attilaolah)",
+    "Attila Oláh <attilaolah@google.com> (https://attilaolah.eu/)",
+    "Benjamin Lupton <b@lupton.cc> (https://balupton.com) (https://github.com/balupton)",
     "Claudius Nicolae <claudius.nicolae@gmail.com> (https://github.com/clyfe)",
-    "Jason Karns <jason.karns@gmail.com> (https://github.com/jasonkarns)",
-    "Joël Perras <joel@nerderati.com> (https://github.com/jperras)",
-    "Linus G Thiel <linus@hanssonlarsson.se> (https://github.com/linus)",
-    "Rob Loach <robloach@gmail.com> (https://github.com/RobLoach)",
+    "evinugur (https://github.com/evinugur)",
+    "Jason Karns <jason.karns@gmail.com> (https://jasonkarns.com) (https://github.com/jasonkarns)",
+    "Joël Perras <joel@nerderati.com> (https://nerderati.com) (https://github.com/jperras)",
+    "Linus G Thiel <linus@hanssonlarsson.se> (https://yesbabyyes.se/) (https://github.com/linus)",
+    "Rob Loach <robloach@gmail.com> (https://robloach.net) (https://github.com/RobLoach)",
     "Ryan LeFevre <meltingice8917@gmail.com> (https://github.com/meltingice)",
     "Tushar Kant <me@tushar.works> (https://github.com/nanuclickity)",
-    "ZHANG Cheng <czhang.oss@gmail.com> (https://github.com/zhangcheng)",
     "Zearin (https://github.com/Zearin)",
-    "evinugur (https://github.com/evinugur)"
+    "ZHANG Cheng <czhang.oss@gmail.com> (https://github.com/zhangcheng)"
   ],
-  "bugs": {
-    "url": "https://github.com/bevry/cson/issues"
-  },
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/bevry/cson.git"
-  },
+  "sponsors": [
+    "Andrew Nesbitt (https://nesbitt.io) (https://github.com/andrew): Software engineer and researcher",
+    "Balsa <hello@balsa.com> (https://balsa.com) (https://github.com/balsa): We're Balsa, and we're building tools for builders.",
+    "Codecov <hello-codecov@sentry.io> (https://codecov.io/) (https://github.com/codecov): Empower developers with tools to improve code quality and testing.",
+    "Poonacha Medappa (https://poonachamedappa.com) (https://github.com/km-Poonacha)",
+    "Rob Morris <rob@prismatik.com.au> (https://github.com/Rob-Morris)",
+    "Sentry (https://sentry.io) (https://github.com/getsentry): Real-time crash reporting for your web apps, mobile apps, and games.",
+    "Syntax <scott@syntax.fm> (https://syntax.fm) (https://github.com/syntaxfm): Syntax Podcast"
+  ],
+  "donors": [
+    "Andrew Nesbitt (https://nesbitt.io) (https://github.com/andrew)",
+    "Balsa <hello@balsa.com> (https://balsa.com) (https://github.com/balsa)",
+    "Chad (https://opencollective.com/chad8)",
+    "Codecov <hello-codecov@sentry.io> (https://codecov.io/) (https://github.com/codecov)",
+    "entroniq (https://gitlab.com/entroniq) (https://thanks.dev/d/gl/entroniq)",
+    "Jean-Luc Geering (https://github.com/jlgeering) (https://opencollective.com/jlgeering) (https://twitter.com/jlgeering)",
+    "Michael Duane Mooring (https://mdm.cc) (https://github.com/mikeumus) (https://opencollective.com/mikeumus) (https://twitter.com/mikeumus)",
+    "Mohammed Shah <shah@idk.uno> (https://github.com/smashah) (https://thanks.dev/d/gh/smashah) (https://twitter.com/smashah)",
+    "Poonacha Medappa (https://poonachamedappa.com) (https://github.com/km-Poonacha)",
+    "Rob Morris <rob@prismatik.com.au> (https://github.com/Rob-Morris)",
+    "Sentry (https://sentry.io) (https://github.com/getsentry)",
+    "ServieJS (https://github.com/serviejs) (https://thanks.dev/d/gh/serviejs)",
+    "Skunk Team (https://skunk.team) (https://github.com/skunkteam)",
+    "Syntax <scott@syntax.fm> (https://syntax.fm) (https://github.com/syntaxfm)"
+  ],
   "engines": {
     "node": ">=6"
   },
@@ -96,7 +124,7 @@
       "engines": false
     },
     {
-      "description": "CoffeeScript compiled for Node.js with Require for modules",
+      "description": "CoffeeScript compiled for Node.js 6 || 8 || 10 || 12 || 14 || 16 || 18 || 20 || 21 with Require for modules",
       "directory": "edition-esnext",
       "entry": "index.js",
       "tags": [
@@ -119,29 +147,27 @@
   "main": "edition-esnext/index.js",
   "dependencies": {
     "cson-parser": "^4.0.9",
-    "extract-opts": "^5.3.0",
-    "requirefresh": "^5.9.0",
-    "safefs": "^8.4.0"
+    "extract-opts": "^5.6.0",
+    "requirefresh": "^5.12.0",
+    "safefs": "^8.7.0"
   },
   "devDependencies": {
-    "@bevry/update-contributors": "^1.23.0",
-    "assert-helpers": "^11.6.0",
+    "assert-helpers": "^11.11.0",
     "coffeelint": "^2.1.0",
     "coffeescript": "^2.7.0",
-    "kava": "^7.3.0",
-    "projectz": "^3.3.0",
-    "safeps": "^11.3.0",
-    "valid-directory": "^4.5.0"
+    "kava": "^7.6.0",
+    "projectz": "^4.0.0",
+    "safeps": "^11.5.0",
+    "valid-directory": "^4.7.0"
   },
   "scripts": {
-    "our:bin": "node ./[object Object]",
+    "our:bin": "node ./bin.cjs",
     "our:clean": "rm -rf ./docs ./edition* ./es2015 ./es5 ./out ./.next",
     "our:compile": "npm run our:compile:edition-esnext",
     "our:compile:edition-esnext": "coffee -bco ./edition-esnext ./source && printf '%s' '{\"type\": \"commonjs\"}' > edition-esnext/package.json",
     "our:deploy": "printf '%s\n' 'no need for this project'",
-    "our:meta": "npm run our:meta:contributors && npm run our:meta:projectz",
-    "our:meta:contributors": "update-contributors",
-    "our:meta:projectz": "projectz compile",
+    "our:meta": "npm run our:meta:projectz",
+    "our:meta:projectz": "projectz",
     "our:release": "npm run our:release:prepare && npm run our:release:check-changelog && npm run our:release:check-dirty && npm run our:release:tag && npm run our:release:push",
     "our:release:check-changelog": "cat ./HISTORY.md | grep \"v$npm_package_version\" || (printf '%s\n' \"add a changelog entry for v$npm_package_version\" && exit -1)",
     "our:release:check-dirty": "git diff --exit-code",
@@ -151,9 +177,8 @@
     "our:setup": "npm run our:setup:install",
     "our:setup:install": "npm install",
     "our:test": "npm run our:verify && npm test",
-    "our:verify": "npm run our:verify:coffeelint && npm run our:verify:directory",
+    "our:verify": "npm run our:verify:coffeelint",
     "our:verify:coffeelint": "coffeelint ./source",
-    "our:verify:directory": "valid-directory",
     "test": "node ./edition-esnext/test.js"
   },
   "testen": {

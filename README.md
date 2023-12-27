@@ -1,9 +1,8 @@
 <!-- TITLE/ -->
 
-<h1>CSON</h1>
+# CSON
 
 <!-- /TITLE -->
-
 
 <!-- BADGES/ -->
 
@@ -314,66 +313,77 @@ Click the below function names to open more detailed documentation.
 
 
 
+
+
+
 <!-- INSTALL/ -->
 
-<h2>Install</h2>
+## Install
 
-<a href="https://npmjs.com" title="npm is a package manager for javascript"><h3>npm</h3></a>
-<h4>Install Globally</h4>
-<ul>
-<li>Install: <code>npm install --global cson</code></li>
-<li>Executables: <code>cson</code>, <code>cson2json</code>, <code>json2cson</code></li>
-</ul>
-<h4>Install Locally</h4>
-<ul>
-<li>Install: <code>npm install --save cson</code></li>
-<li>Executables: <code>npx cson</code>, <code>npx cson2json</code>, <code>npx json2cson</code></li>
-<li>Import: <code>import * as pkg from ('cson')</code></li>
-<li>Require: <code>const pkg = require('cson')</code></li>
-</ul>
+### [npm](https://npmjs.com "npm is a package manager for javascript")
 
-<h3><a href="https://editions.bevry.me" title="Editions are the best way to produce and consume packages you care about.">Editions</a></h3>
+#### Install Globally
 
-<p>This package is published with the following editions:</p>
+-   Install: `npm install --global cson`
+-   Executables: `cson`, `cson2json`, `json2cson`
 
-<ul><li><code>cson/source/index.coffee</code> is <a href="https://coffeescript.org" title="CoffeeScript is a little language that compiles into JavaScript">CoffeeScript</a> source code with <a href="https://nodejs.org/dist/latest-v5.x/docs/api/modules.html" title="Node/CJS Modules">Require</a> for modules</li>
-<li><code>cson</code> aliases <code>cson/edition-esnext/index.js</code></li>
-<li><code>cson/edition-esnext/index.js</code> is <a href="https://coffeescript.org" title="CoffeeScript is a little language that compiles into JavaScript">CoffeeScript</a> compiled for <a href="https://nodejs.org" title="Node.js is a JavaScript runtime built on Chrome's V8 JavaScript engine">Node.js</a> with <a href="https://nodejs.org/dist/latest-v5.x/docs/api/modules.html" title="Node/CJS Modules">Require</a> for modules</li></ul>
+#### Install Locally
+
+-   Install: `npm install --save cson`
+-   Executables: `npx cson`, `npx cson2json`, `npx json2cson`
+-   Import: `import * as pkg from ('cson')`
+-   Require: `const pkg = require('cson')`
+
+### [Editions](https://editions.bevry.me "Editions are the best way to produce and consume packages you care about.")
+
+This package is published with the following editions:
+-   `cson/source/index.coffee` is [CoffeeScript](https://coffeescript.org "CoffeeScript is a little language that compiles into JavaScript") source code with [Require](https://nodejs.org/dist/latest-v5.x/docs/api/modules.html "Node/CJS Modules") for modules
+-   `cson` aliases `cson/edition-esnext/index.js`
+-   `cson/edition-esnext/index.js` is [CoffeeScript](https://coffeescript.org "CoffeeScript is a little language that compiles into JavaScript") compiled for [Node.js](https://nodejs.org "Node.js is a JavaScript runtime built on Chrome's V8 JavaScript engine") 6 || 8 || 10 || 12 || 14 || 16 || 18 || 20 || 21 with [Require](https://nodejs.org/dist/latest-v5.x/docs/api/modules.html "Node/CJS Modules") for modules
 
 <!-- /INSTALL -->
 
-
 <!-- HISTORY/ -->
 
-<h2>History</h2>
+## History
 
-<a href="https://github.com/bevry/cson/blob/master/HISTORY.md#files">Discover the release history by heading on over to the <code>HISTORY.md</code> file.</a>
+[Discover the release history by heading on over to the `HISTORY.md` file.](https://github.com/bevry/cson/blob/HEAD/HISTORY.md#files)
 
 <!-- /HISTORY -->
 
-
-<!-- CONTRIBUTE/ -->
-
-<h2>Contribute</h2>
-
-<a href="https://github.com/bevry/cson/blob/master/CONTRIBUTING.md#files">Discover how you can contribute by heading on over to the <code>CONTRIBUTING.md</code> file.</a>
-
-<!-- /CONTRIBUTE -->
-
-
 <!-- BACKERS/ -->
 
-<h2>Backers</h2>
+## Backers
 
-<h3>Maintainers</h3>
+### Code
 
-These amazing people are maintaining this project:
+[Discover how to contribute via the `CONTRIBUTING.md` file.](https://github.com/bevry/cson/blob/HEAD/CONTRIBUTING.md#files)
 
-<ul><li><a href="https://balupton.com">Benjamin Lupton</a> — <a href="https://github.com/bevry/cson/commits?author=balupton" title="View the GitHub contributions of Benjamin Lupton on repository bevry/cson">view contributions</a></li></ul>
+#### Authors
 
-<h3>Sponsors</h3>
+-   [Benjamin Lupton](https://balupton.com) — Accelerating collaborative wisdom.
 
-No sponsors yet! Will you be the first?
+#### Maintainers
+
+-   [Benjamin Lupton](https://github.com/balupton) — Accelerating collaborative wisdom.
+
+#### Contributors
+
+-   [Attila Oláh](https://github.com/attilaolah) — [view contributions](https://github.com/bevry/cson/commits?author=attilaolah "View the GitHub contributions of Attila Oláh on repository bevry/cson")
+-   [Attila Oláh](https://attilaolah.eu/)
+-   [Benjamin Lupton](https://github.com/balupton) — [view contributions](https://github.com/bevry/cson/commits?author=balupton "View the GitHub contributions of Benjamin Lupton on repository bevry/cson")
+-   [Claudius Nicolae](https://github.com/clyfe) — [view contributions](https://github.com/bevry/cson/commits?author=clyfe "View the GitHub contributions of Claudius Nicolae on repository bevry/cson")
+-   [evinugur](https://github.com/evinugur) — [view contributions](https://github.com/bevry/cson/commits?author=evinugur "View the GitHub contributions of evinugur on repository bevry/cson")
+-   [Jason Karns](https://github.com/jasonkarns) — [view contributions](https://github.com/bevry/cson/commits?author=jasonkarns "View the GitHub contributions of Jason Karns on repository bevry/cson")
+-   [Joël Perras](https://github.com/jperras) — [view contributions](https://github.com/bevry/cson/commits?author=jperras "View the GitHub contributions of Joël Perras on repository bevry/cson")
+-   [Linus G Thiel](https://github.com/linus) — [view contributions](https://github.com/bevry/cson/commits?author=linus "View the GitHub contributions of Linus G Thiel on repository bevry/cson")
+-   [Rob Loach](https://github.com/RobLoach) — [view contributions](https://github.com/bevry/cson/commits?author=RobLoach "View the GitHub contributions of Rob Loach on repository bevry/cson")
+-   [Ryan LeFevre](https://github.com/meltingice) — [view contributions](https://github.com/bevry/cson/commits?author=meltingice "View the GitHub contributions of Ryan LeFevre on repository bevry/cson")
+-   [Tushar Kant](https://github.com/nanuclickity) — [view contributions](https://github.com/bevry/cson/commits?author=nanuclickity "View the GitHub contributions of Tushar Kant on repository bevry/cson")
+-   [Zearin](https://github.com/Zearin) — [view contributions](https://github.com/bevry/cson/commits?author=Zearin "View the GitHub contributions of Zearin on repository bevry/cson")
+-   [ZHANG Cheng](https://github.com/zhangcheng) — [view contributions](https://github.com/bevry/cson/commits?author=zhangcheng "View the GitHub contributions of ZHANG Cheng on repository bevry/cson")
+
+### Finances
 
 <span class="badge-githubsponsors"><a href="https://github.com/sponsors/balupton" title="Donate to this project using GitHub Sponsors"><img src="https://img.shields.io/badge/github-donate-yellow.svg" alt="GitHub Sponsors donate button" /></a></span>
 <span class="badge-thanksdev"><a href="https://thanks.dev/u/gh/bevry" title="Donate to this project using ThanksDev"><img src="https://img.shields.io/badge/thanksdev-donate-yellow.svg" alt="ThanksDev donate button" /></a></span>
@@ -384,40 +394,45 @@ No sponsors yet! Will you be the first?
 <span class="badge-crypto"><a href="https://bevry.me/crypto" title="Donate to this project using Cryptocurrency"><img src="https://img.shields.io/badge/crypto-donate-yellow.svg" alt="crypto donate button" /></a></span>
 <span class="badge-paypal"><a href="https://bevry.me/paypal" title="Donate to this project using Paypal"><img src="https://img.shields.io/badge/paypal-donate-yellow.svg" alt="PayPal donate button" /></a></span>
 
-<h3>Contributors</h3>
+#### Sponsors
 
-These amazing people have contributed code to this project:
+-   [Andrew Nesbitt](https://nesbitt.io) — Software engineer and researcher
+-   [Balsa](https://balsa.com) — We're Balsa, and we're building tools for builders.
+-   [Codecov](https://codecov.io/) — Empower developers with tools to improve code quality and testing.
+-   [Poonacha Medappa](https://poonachamedappa.com)
+-   [Rob Morris](https://github.com/Rob-Morris)
+-   [Sentry](https://sentry.io) — Real-time crash reporting for your web apps, mobile apps, and games.
+-   [Syntax](https://syntax.fm) — Syntax Podcast
 
-<ul><li><a href="https://github.com/attilaolah">Attila Oláh</a> — <a href="https://github.com/bevry/cson/commits?author=attilaolah" title="View the GitHub contributions of Attila Oláh on repository bevry/cson">view contributions</a></li>
-<li><a href="http://attilaolah.eu/">Attila Oláh</a></li>
-<li><a href="https://balupton.com">Benjamin Lupton</a> — <a href="https://github.com/bevry/cson/commits?author=balupton" title="View the GitHub contributions of Benjamin Lupton on repository bevry/cson">view contributions</a></li>
-<li><a href="https://github.com/clyfe">Claudius Nicolae</a> — <a href="https://github.com/bevry/cson/commits?author=clyfe" title="View the GitHub contributions of Claudius Nicolae on repository bevry/cson">view contributions</a></li>
-<li><a href="https://github.com/jasonkarns">Jason Karns</a> — <a href="https://github.com/bevry/cson/commits?author=jasonkarns" title="View the GitHub contributions of Jason Karns on repository bevry/cson">view contributions</a></li>
-<li><a href="https://github.com/jperras">Joël Perras</a> — <a href="https://github.com/bevry/cson/commits?author=jperras" title="View the GitHub contributions of Joël Perras on repository bevry/cson">view contributions</a></li>
-<li><a href="https://github.com/linus">Linus G Thiel</a> — <a href="https://github.com/bevry/cson/commits?author=linus" title="View the GitHub contributions of Linus G Thiel on repository bevry/cson">view contributions</a></li>
-<li><a href="https://github.com/RobLoach">Rob Loach</a> — <a href="https://github.com/bevry/cson/commits?author=RobLoach" title="View the GitHub contributions of Rob Loach on repository bevry/cson">view contributions</a></li>
-<li><a href="https://github.com/meltingice">Ryan LeFevre</a> — <a href="https://github.com/bevry/cson/commits?author=meltingice" title="View the GitHub contributions of Ryan LeFevre on repository bevry/cson">view contributions</a></li>
-<li><a href="https://github.com/nanuclickity">Tushar Kant</a> — <a href="https://github.com/bevry/cson/commits?author=nanuclickity" title="View the GitHub contributions of Tushar Kant on repository bevry/cson">view contributions</a></li>
-<li><a href="https://github.com/zhangcheng">ZHANG Cheng</a> — <a href="https://github.com/bevry/cson/commits?author=zhangcheng" title="View the GitHub contributions of ZHANG Cheng on repository bevry/cson">view contributions</a></li>
-<li><a href="https://github.com/Zearin">Zearin</a> — <a href="https://github.com/bevry/cson/commits?author=Zearin" title="View the GitHub contributions of Zearin on repository bevry/cson">view contributions</a></li>
-<li><a href="https://github.com/evinugur">evinugur</a> — <a href="https://github.com/bevry/cson/commits?author=evinugur" title="View the GitHub contributions of evinugur on repository bevry/cson">view contributions</a></li></ul>
+#### Donors
 
-<a href="https://github.com/bevry/cson/blob/master/CONTRIBUTING.md#files">Discover how you can contribute by heading on over to the <code>CONTRIBUTING.md</code> file.</a>
+-   [Andrew Nesbitt](https://nesbitt.io)
+-   [Balsa](https://balsa.com)
+-   [Chad](https://opencollective.com/chad8)
+-   [Codecov](https://codecov.io/)
+-   [entroniq](https://gitlab.com/entroniq)
+-   [Jean-Luc Geering](https://github.com/jlgeering)
+-   [Michael Duane Mooring](https://mdm.cc)
+-   [Mohammed Shah](https://github.com/smashah)
+-   [Poonacha Medappa](https://poonachamedappa.com)
+-   [Rob Morris](https://github.com/Rob-Morris)
+-   [Sentry](https://sentry.io)
+-   [ServieJS](https://github.com/serviejs)
+-   [Skunk Team](https://skunk.team)
+-   [Syntax](https://syntax.fm)
 
 <!-- /BACKERS -->
 
-
 <!-- LICENSE/ -->
 
-<h2>License</h2>
+## License
 
 Unless stated otherwise all works are:
 
-<ul><li>Copyright &copy; 2012+ <a href="http://bevry.me">Bevry Pty Ltd</a></li>
-<li>Copyright &copy; <a href="https://balupton.com">Benjamin Lupton</a></li></ul>
+-   Copyright &copy; [Benjamin Lupton](https://balupton.com)
 
 and licensed under:
 
-<ul><li><a href="http://spdx.org/licenses/Artistic-2.0.html">Artistic License 2.0</a></li></ul>
+-   [Artistic License 2.0](http://spdx.org/licenses/Artistic-2.0.html)
 
 <!-- /LICENSE -->

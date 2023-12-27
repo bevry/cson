@@ -8,12 +8,15 @@ jobs:
       matrix:
         os:
           - ubuntu-latest
+          - macos-latest
+          - windows-latest
         node:
           - '16'
           - '18'
           - '20'
           - '21'
     runs-on: ${{ matrix.os }}
+    continue-on-error: ${{ contains('macos-latest windows-latest', matrix.os) }}
     steps:
       - uses: actions/checkout@v4
       - name: Install desired Node.js version
