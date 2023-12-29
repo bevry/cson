@@ -316,6 +316,8 @@ Click the below function names to open more detailed documentation.
 
 
 
+
+
 <!-- INSTALL/ -->
 
 ## Install
@@ -365,12 +367,12 @@ This package is published with the following editions:
 
 #### Maintainers
 
--   [Benjamin Lupton](https://github.com/balupton) — Accelerating collaborative wisdom.
+-   [Benjamin Lupton](https://balupton.com) — Accelerating collaborative wisdom.
 
 #### Contributors
 
 -   [Attila Oláh](https://github.com/attilaolah) — [view contributions](https://github.com/bevry/cson/commits?author=attilaolah "View the GitHub contributions of Attila Oláh on repository bevry/cson")
--   [Attila Oláh](https://attilaolah.eu/)
+-   [Attila Oláh](https://attilaolah.eu)
 -   [Benjamin Lupton](https://github.com/balupton) — [view contributions](https://github.com/bevry/cson/commits?author=balupton "View the GitHub contributions of Benjamin Lupton on repository bevry/cson")
 -   [Claudius Nicolae](https://github.com/clyfe) — [view contributions](https://github.com/bevry/cson/commits?author=clyfe "View the GitHub contributions of Claudius Nicolae on repository bevry/cson")
 -   [evinugur](https://github.com/evinugur) — [view contributions](https://github.com/bevry/cson/commits?author=evinugur "View the GitHub contributions of evinugur on repository bevry/cson")
@@ -398,7 +400,7 @@ This package is published with the following editions:
 
 -   [Andrew Nesbitt](https://nesbitt.io) — Software engineer and researcher
 -   [Balsa](https://balsa.com) — We're Balsa, and we're building tools for builders.
--   [Codecov](https://codecov.io/) — Empower developers with tools to improve code quality and testing.
+-   [Codecov](https://codecov.io) — Empower developers with tools to improve code quality and testing.
 -   [Poonacha Medappa](https://poonachamedappa.com)
 -   [Rob Morris](https://github.com/Rob-Morris)
 -   [Sentry](https://sentry.io) — Real-time crash reporting for your web apps, mobile apps, and games.
@@ -407,19 +409,30 @@ This package is published with the following editions:
 #### Donors
 
 -   [Andrew Nesbitt](https://nesbitt.io)
+-   [Armen Mkrtchian](https://mogoni.dev)
 -   [Balsa](https://balsa.com)
 -   [Chad](https://opencollective.com/chad8)
--   [Codecov](https://codecov.io/)
+-   [Codecov](https://codecov.io)
+-   [dr.dimitru](https://veliovgroup.com)
+-   [Elliott Ditman](https://elliottditman.com)
 -   [entroniq](https://gitlab.com/entroniq)
+-   [GitHub](https://github.com/about)
+-   [Hunter Beast](https://cryptoquick.com)
 -   [Jean-Luc Geering](https://github.com/jlgeering)
 -   [Michael Duane Mooring](https://mdm.cc)
+-   [Michael Harry Scepaniak](https://michaelscepaniak.com)
 -   [Mohammed Shah](https://github.com/smashah)
+-   [Mr. Henry](https://mrhenry.be)
+-   [Nermal](https://arjunaditya.vercel.app)
+-   [Pleo](https://pleo.io)
 -   [Poonacha Medappa](https://poonachamedappa.com)
 -   [Rob Morris](https://github.com/Rob-Morris)
+-   [Robert de Forest](https://github.com/rdeforest)
 -   [Sentry](https://sentry.io)
 -   [ServieJS](https://github.com/serviejs)
 -   [Skunk Team](https://skunk.team)
 -   [Syntax](https://syntax.fm)
+-   [WriterJohnBuck](https://github.com/WriterJohnBuck)
 
 <!-- /BACKERS -->
 
